@@ -6,6 +6,7 @@ class Ghost
   include Vessel
 
   attr_accessor :unde
+  attr_accessor :owner
 
   def initialize content
 
@@ -29,6 +30,14 @@ class Ghost
 
   end
 
+  def set_unde val
+
+    @unde = val
+    save
+    reload
+
+  end
+
   def note
 
     return @note
@@ -42,15 +51,29 @@ class Ghost
 
   end
 
+  def sibling name
+
+    name = name.split(" ").last
+    name = " #{name} ".gsub(" the ","").gsub(" a ","").gsub(" an ","").strip
+    siblings.each do |vessel|
+      if vessel.name.like(name) then return vessel end
+    end
+    return nil
+    
+  end
+
   def siblings
 
     if @siblings then return @siblings end
 
     @siblings = []
+    id = 0
     $parade.each do |vessel|
-      if vessel.unde != @unde then next end
-      if vessel.name == @name then next end
-      @siblings.push(vessel)
+      vessel.id = id
+      if vessel.unde == @unde && id != @id
+        @siblings.push(vessel)
+      end
+      id += 1
     end
     return @siblings
 
@@ -70,9 +93,24 @@ class Ghost
 
   end
 
-  def to_s
+  def classes
 
-    return "<vessel data-name='#{@name}' data-attr='#{@attr}' data-action='enter the #{@name}'><attr>#{@attr}</attr> <name>#{@name}</name></vessel>"
+    html = ""
+    if program then html += "program" end
+
+    return html.strip
+
+  end
+
+  def to_s show_attr = true
+
+    return "<vessel class='#{@classes}' data-name='#{@name}' data-attr='#{@attr}' data-action='enter the #{@name}'>#{show_attr != false && @attr ? '<attr>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
+
+  end
+
+  def to_debug
+
+    return "#{@name}:#{@attr}(#{@id})"
 
   end
 
@@ -87,6 +125,21 @@ class Ghost
     $paradise.overwrite_line(@id+4,encode)
 
     return true
+
+  end
+
+  def reload
+
+    @siblings = nil
+    @children = nil
+    @parent = nil
+    
+  end
+
+  def is_stem
+
+    if parent.unde == @unde then return true end
+    return nil
 
   end
 

@@ -63,16 +63,16 @@ class CorpseHttp
     
     html = ""
 
-    @query = @query.gsub("+"," ")
-    id = @query.split(" ").first
-    params = @query.sub(id,"").strip
-    command = params != "" ? params : "look" 
+    @query = @query.gsub("+"," ").strip.split(" ")
+    id = @query ? @query[0] : "3"
+    action = @query[1] ? @query[1] : "look"
+    params = @query.join(" ").sub(id,"").sub(action,"").strip
 
     input = "<input placeholder='What would you like to do?'/>"
 
     page = "<page>#{@player.unde}</page>"
 
-    return "<view>"+@player.act(command)+input+page+"</view>"
+    return "<view>"+@player.act(action,params)+input+page+"</view>"
 
   end
   

@@ -14,14 +14,23 @@ class ActionLook
 
   end
 
-  def act q = "Home"
+  def act q = "Home", answer
 
-    html  = "<p>"+"You are a #{@host} in the #{@host.parent} of a #{@host.parent.parent}."+"</p>"
+    html  = answer.to_s != "" ? "<p class='answer'>"+answer+"</p>" : portal
     html += visibles
     html += "<p class='note'>"+@host.parent.note+"</p>"
     html += guide
 
     return html
+
+  end
+
+  def portal
+
+    if @host.parent.unde == @host.parent.parent.unde
+      return "<p>"+"You are a #{@host} in the #{@host.parent}."+"</p>"
+    end
+    return "<p>"+"You are a #{@host} in the #{@host.parent} of a #{@host.parent.parent.to_s(false)}."+"</p>"
 
   end
 
@@ -43,11 +52,11 @@ class ActionLook
     # Children
     children = @host.children
     if children.length == 1
-      html += "You are carrying a #{children[0]}. "
+      html += "You carry a #{children[0]}. "
     elsif children.length == 2
-      html += "You are carrying a #{children[0]} and a #{children[1]}. "
+      html += "You carry a #{children[0]} and a #{children[1]}. "
     elsif children.length > 2
-      html += "You are carrying the #{children[0]}, the #{children[1]} and #{children.length-2} other vessels. "
+      html += "You carry a #{children[0]}, a #{children[1]} and #{children.length-2} other vessels. "
     else
       html += ""
     end
@@ -57,6 +66,8 @@ class ActionLook
   end
 
   def guide
+
+    if @host.parent.owner != @host.id then return "" end
 
     return "<p class='guide'>Guide</p>"
 

@@ -19,9 +19,10 @@ class ActionLeave
     @host.unde = @host.parent.unde
     confirmation = @host.save
 
-    return "<p>You left the #{@host.parent}, and entered the #{@host.parent.parent}.</p>
-    <p>Have a <action data-action='look'>look around</action>.</p>#{confirmation}"
+    if @host.parent.is_stem then return @host.act("look","You may not leave the #{@host.parent}. You have reached the stem of the universe.") end
 
+    return @host.act("look","You left the #{@host.parent}, and entered the #{@host.parent.parent}. ")
+    
   end
 
 end
