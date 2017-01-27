@@ -1,6 +1,8 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+$nataniev.require("corpse","http")
+
 class ActionServe
 
   include Action
@@ -16,18 +18,61 @@ class ActionServe
 
   def act q = nil
     
-    vessel_handle, action_handle, params_handle = parse_query(q)
+    load_folder("#{@host.path}/objects/*")
+
+    $paradise        = Memory_Array.new("paradise",@host.path).to_a("ghost")
+    corpse           = CorpseHttp.new(@host,@query)
+    corpse.query     = q
+    corpse.paradise  = $paradise
+    corpse.player    = corpse.paradise[q.to_i] ? corpse.paradise[q.to_i] : Ghost.new
+    corpse.player.id = q.to_i
+
+    corpse.title   = "Paradise ∴ #{q}"
+
+    return corpse.result
+
+  end
+
+end
+
+class CorpseHttp
+
+  attr_accessor :path
+  attr_accessor :query
+  attr_accessor :paradise
+  attr_accessor :player
+  
+  def build
+
+    add_meta("description","Works of Devine Lu Linvega")
+    add_meta("keywords","aliceffekt, traumae, devine lu linvega")
+    add_meta("viewport","width=device-width, initial-scale=1, maximum-scale=1")
+    add_meta("apple-mobile-web-app-capable","yes")
     
-    return "vessel(#{vessel_handle}) action(#{action_handle}) params(#{params_handle})"
+    add_link("style.reset.css")
+    add_link("style.fonts.css")
+    add_link("style.main.css")
+
+    add_script("jquery.core.js")
+    add_script("jquery.main.js")
+
+  end
+
+  def body
+    
+    html = ""
+
+    html += "query:#{@query}<br/>"
+    html += "player:#{@player}<br/>"
+    html += "look:#{@player.act('look')}<br/>"
+
+    return html
 
   end
   
-  def parse_query q
+  def style
     
-    parts = q.to_s.split(" ")
-    if parts.length < 3 then return "Missing query elements." end
-    
-    return parts[0].strip, parts[1].strip, q.sub(parts[0],'').sub(parts[1],'').strip
+    return ""
     
   end
 
