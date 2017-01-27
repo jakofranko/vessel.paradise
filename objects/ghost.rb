@@ -5,6 +5,8 @@ class Ghost
 
   include Vessel
 
+  attr_accessor :name
+  attr_accessor :attr
   attr_accessor :unde
   attr_accessor :owner
 
@@ -17,8 +19,11 @@ class Ghost
     @name = @content["NAME"] ? @content["NAME"] : "nullspace"
     @attr = @content["ATTR"] ? @content["ATTR"] : ""
     @note = @content["NOTE"] ? @content["NOTE"] : ""
-    @perm,@unde,@owner,@time = @content["CODE"].split("-")
-    @unde = @unde ? @unde.to_i : 0
+    @perm  = @content["CODE"] ? @content["CODE"].split("-")[0] : "1111"
+    @unde  = @content["CODE"] ? @content["CODE"].split("-")[1].to_i : 1
+    @owner = @content["CODE"] ? @content["CODE"].split("-")[2].to_i : 0
+    @time  = @content["CODE"] ? @content["CODE"].split("-")[3] : Timestamp.new
+    
     @program = @content["PROGRAM"]
 
     @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
@@ -26,6 +31,8 @@ class Ghost
     
     install(:paradise,:look)
     install(:paradise,:leave)
+    install(:paradise,:enter)
+    install(:paradise,:create)
     install(:paradise,:warp)
     install(:generic,:help)
 
@@ -46,12 +53,6 @@ class Ghost
     @unde = val.to_i
     save
     reload
-
-  end
-
-  def note
-
-    return @note ? @note : nil
 
   end
 
@@ -128,7 +129,7 @@ class Ghost
 
   def encode
 
-    return "#{@perm}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@program.to_s.append(' ',41)} #{@note}"
+    return "#{@perm}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@program.to_s.append(' ',41)} #{@note}".strip
 
   end
 

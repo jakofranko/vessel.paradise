@@ -8,6 +8,7 @@ class Void
   attr_accessor :unde
   attr_accessor :note
   attr_accessor :parent
+  attr_accessor :owner
 
   def initialize
 
@@ -15,6 +16,7 @@ class Void
 
     @name = "void"
     @note = ""
+    @owner = 0
 
   end
 
