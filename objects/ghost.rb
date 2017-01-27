@@ -71,13 +71,11 @@ class Ghost
 
   def to_s
 
-    return "<vessel><attr>#{@attr}</attr> <name>#{@name}</name></vessel>"
+    return "<vessel data-name='#{@name}' data-attr='#{@attr}' data-action='enter the #{@name}'><attr>#{@attr}</attr> <name>#{@name}</name></vessel>"
 
   end
 
   def encode
-
-
 
   end
 
