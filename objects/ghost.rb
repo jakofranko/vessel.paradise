@@ -14,11 +14,11 @@ class Ghost
 
     @content = content
 
-    @name = @content["NAME"]
-    @attr = @content["ATTR"]
+    @name = @content["NAME"] ? @content["NAME"] : "nullspace"
+    @attr = @content["ATTR"] ? @content["ATTR"] : ""
     @note = @content["NOTE"] ? @content["NOTE"] : ""
     @perm,@unde,@owner,@time = @content["CODE"].split("-")
-    @unde = @unde.to_i
+    @unde = @unde ? @unde.to_i : 0
     @program = @content["PROGRAM"]
 
     @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
@@ -26,13 +26,14 @@ class Ghost
     
     install(:paradise,:look)
     install(:paradise,:leave)
+    install(:paradise,:warp)
     install(:generic,:help)
 
   end
 
   def set_unde val
 
-    @unde = val
+    @unde = val.to_i
     save
     reload
 
@@ -40,14 +41,14 @@ class Ghost
 
   def note
 
-    return @note
+    return @note ? @note : nil
 
   end
 
   def parent
 
     @parent = @parent ? $parade[@unde] : $parade[@unde]
-    return @parent
+    return @parent ? @parent : Void.new
 
   end
 
@@ -133,7 +134,7 @@ class Ghost
     @siblings = nil
     @children = nil
     @parent = nil
-    
+
   end
 
   def is_stem

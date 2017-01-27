@@ -16,8 +16,7 @@ class ActionLeave
 
   def act q = "Home"
 
-    @host.unde = @host.parent.unde
-    confirmation = @host.save
+    @host.set_unde(@host.parent.unde)
 
     if @host.parent.is_stem then return @host.act("look","You may not leave the #{@host.parent}. You have reached the stem of the universe.") end
 

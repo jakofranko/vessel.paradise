@@ -18,7 +18,7 @@ class ActionLook
 
     html  = answer.to_s != "" ? "<p class='answer'>"+answer+"</p>" : portal
     html += visibles
-    html += "<p class='note'>"+@host.parent.note+"</p>"
+    html += "<p class='note'>#{@host.parent.note}</p>"
     html += guide
 
     return html
