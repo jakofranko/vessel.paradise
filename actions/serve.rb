@@ -25,7 +25,7 @@ class ActionServe
     corpse.query     = q
     corpse.paradise  = $paradise
     corpse.player    = corpse.paradise[q.to_i] ? corpse.paradise[q.to_i] : Ghost.new
-    corpse.player.id = q.to_i
+    corpse.player.id = q.split(" ").first.to_i
 
     corpse.title   = "Paradise ∴ #{q}"
 
@@ -62,11 +62,16 @@ class CorpseHttp
     
     html = ""
 
-    html += "query:#{@query}<br/>"
-    html += "player:#{@player}<br/>"
-    html += "look:#{@player.act('look')}<br/>"
+    @query = @query.gsub("+"," ")
+    id = @query.split(" ").first
+    params = @query.sub(id,"").strip
+    command = params != "" ? params : "look" 
 
-    return html
+    input = "<input placeholder='What would you like to do?'/>"
+
+    page = "<page>#{@player.unde}</page>"
+
+    return "<view>"+@player.act(command)+input+page+"</view>"
 
   end
   
