@@ -31,6 +31,16 @@ class Ghost
 
   end
 
+  def set_note val
+
+    puts "--------------"
+    puts @id
+    @note = val
+    save
+    reload
+
+  end
+
   def set_unde val
 
     @unde = val.to_i
@@ -47,8 +57,9 @@ class Ghost
 
   def parent
 
-    @parent = @parent ? $parade[@unde] : $parade[@unde]
-    return @parent ? @parent : Void.new
+    @parent = @parent ? @parent : $parade[@unde]
+
+    return @parent ? (@parent.id = @unde ; @parent) : Void.new
 
   end
 

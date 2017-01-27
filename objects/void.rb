@@ -13,6 +13,7 @@ class Void
 
     super
 
+    @name = "void"
     @note = ""
 
   end
@@ -23,9 +24,15 @@ class Void
 
   end
 
-  def to_s
+  def to_s show_attr = false
 
-    return "Blank"
+    return "Void"
+
+  end
+
+  def is_stem
+
+    return true
 
   end
 

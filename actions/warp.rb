@@ -24,12 +24,6 @@ class ActionWarp
 
     return @host.act(:look,"You warped to #{warp_id}")
 
-    # @host.set_unde(@host.parent.unde)
-
-    # if @host.parent.is_stem then return @host.act("look","You may not leave the #{@host.parent}. You have reached the stem of the universe.") end
-
-    # return @host.act("look","You left the #{@host.parent}, and entered the #{@host.parent.parent}. ")
-    
   end
 
 end
