@@ -17,10 +17,17 @@ class ActionLook
   def act q = "Home"
 
     html  = "<p>"+"You are a #{@host} in the #{@host.parent} of a #{@host.parent.parent}."+"</p>"
+    html += visibles
+    html += "<p class='note'>"+@host.parent.note+"</p>"
+    html += guide
 
-    # Note
+    return html
 
-    html += "<p>"
+  end
+
+  def visibles
+
+    html = ""
     # Siblings
     siblings = @host.siblings
     if siblings.length == 1
@@ -44,11 +51,14 @@ class ActionLook
     else
       html += ""
     end
-    html += "</p>"
 
-    html += "<p class='note'>"+@host.parent.note+"</p>"
+    return "<p>#{html}</p>"
 
-    return html
+  end
+
+  def guide
+
+    return "<p class='guide'>Guide</p>"
 
   end
 

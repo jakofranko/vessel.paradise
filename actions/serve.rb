@@ -20,11 +20,12 @@ class ActionServe
     
     load_folder("#{@host.path}/objects/*")
 
-    $paradise        = Memory_Array.new("paradise",@host.path).to_a("ghost")
+    $paradise        = Memory_Array.new("paradise",@host.path)
+    $parade          = $paradise.to_a("ghost")
     corpse           = CorpseHttp.new(@host,@query)
     corpse.query     = q
     corpse.paradise  = $paradise
-    corpse.player    = corpse.paradise[q.to_i] ? corpse.paradise[q.to_i] : Ghost.new
+    corpse.player    = $parade[q.to_i] ? $parade[q.to_i] : Ghost.new
     corpse.player.id = q.split(" ").first.to_i
 
     corpse.title   = "Paradise ∴ #{q}"
