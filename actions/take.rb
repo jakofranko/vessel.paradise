@@ -1,7 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class ActionEnter
+class ActionTake
 
   include Action
   
@@ -9,21 +9,21 @@ class ActionEnter
 
     super
 
-    @name = "Enter"
+    @name = "Leave"
     @docs = "TODO"
 
   end
 
   def act q = "Home"
 
-    target = @host.sibling(q) ; target = target ? target : @host.child(q)
+    target = @host.sibling(q)
 
     if !target then return @host.act("look","Cannot find a target named #{q}.") end
 
-    @host.set_unde(target.id)
+    target.set_unde(@host.id)
 
-    return @host.act("look","You entered the #{target}. ")
-
+    return "You took the #{target}. "
+    
   end
 
 end

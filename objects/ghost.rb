@@ -5,10 +5,12 @@ class Ghost
 
   include Vessel
 
+  attr_accessor :id
   attr_accessor :name
   attr_accessor :attr
   attr_accessor :unde
   attr_accessor :owner
+  attr_accessor :program
 
   def initialize content
 
@@ -34,25 +36,9 @@ class Ghost
     install(:paradise,:enter)
     install(:paradise,:create)
     install(:paradise,:warp)
+    install(:paradise,:take)
+    install(:paradise,:drop)
     install(:generic,:help)
-
-  end
-
-  def set_note val
-
-    puts "--------------"
-    puts @id
-    @note = val
-    save
-    reload
-
-  end
-
-  def set_unde val
-
-    @unde = val.to_i
-    save
-    reload
 
   end
 
@@ -80,13 +66,10 @@ class Ghost
     if @siblings then return @siblings end
 
     @siblings = []
-    id = 0
     $parade.each do |vessel|
-      vessel.id = id
-      if vessel.unde == @unde && id != @id
+      if vessel.unde == @unde && vessel.id != @id && vessel.id != @unde
         @siblings.push(vessel)
       end
-      id += 1
     end
     return @siblings
 
@@ -106,10 +89,28 @@ class Ghost
 
   end
 
+  def child name
+
+    name = name.split(" ").last
+    name = " #{name} ".gsub(" the ","").gsub(" a ","").gsub(" an ","").strip
+
+    children.each do |vessel|
+      if vessel.name.like(name) then return vessel end
+    end
+
+    return nil
+
+  end
+
   def classes
 
     html = ""
-    if program then html += "program" end
+    if has_program
+      if program.split(" ").first.like("warp") then html += "warp"
+      elsif program.split(" ").first.like("create") then html += "machine"
+      else html += "program" end
+    end
+    if unde == id then html += "stem " end
 
     return html.strip
 
@@ -117,7 +118,7 @@ class Ghost
 
   def to_s show_attr = true
 
-    return "<vessel class='#{@classes}' data-name='#{@name}' data-attr='#{@attr}' data-action='enter the #{@name}'>#{show_attr != false && @attr ? '<attr>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
+    return "<vessel class='#{classes}' data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'>#{show_attr != false && @attr ? '<attr>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
 
   end
 
@@ -154,6 +155,52 @@ class Ghost
     if parent.unde == @unde then return true end
     return nil
 
+  end
+
+  # Setters
+
+  def set_note val
+
+    @note = val
+    save
+    reload
+
+  end
+
+  def set_unde val
+
+    @unde = val.to_i
+    save
+    reload
+
+  end
+
+  def set_program val
+
+    @program = val
+    save
+    reload
+
+  end
+
+  # Testers
+
+  def has_note
+
+    return @note.to_s != "" && @note.length > 10 ? true : false
+    
+  end
+
+  def has_attr
+
+    return @attr.to_s != "" ? true : false
+    
+  end
+
+  def has_program
+
+    return @program.to_s != "" ? true : false
+    
   end
 
 end

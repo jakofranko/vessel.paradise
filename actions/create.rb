@@ -24,7 +24,7 @@ class ActionCreate
     if name.length < 3 then return @host.act(:look,"The vessel name is too short.") end
     if attr.length < 3 then attr = "" end
     if !is_valid(name,attr) then return @host.act(:look,"The vessel name is invalid.") end
-    if !is_unique(name,attr) then return @host.act(:look,"The vessel name is already used somewhere, consider adding an adjective.") end
+    if !is_unique(name,attr) then return @host.act(:look,"A vessel named \"#{name}\" already exists somewhere.") end
 
     new_vessel = Ghost.new({"NAME" => name,"ATTR" => attr,"CODE" => "0000-#{@host.unde.to_s.prepend('0',5)}-#{@host.id.to_s.prepend('0',5)}-#{Timestamp.new}"})
 

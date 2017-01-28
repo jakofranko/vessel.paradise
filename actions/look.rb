@@ -16,9 +16,10 @@ class ActionLook
 
   def act q = "Home", answer
 
-    html  = answer.to_s != "" ? "<p class='answer'>"+answer+"</p>" : portal
+    html = answer.to_s != "" ? "<p class='answer'>"+answer+"</p>" : portal
     html += visibles
     html += "<p class='note'>#{@host.parent.note}</p>"
+    html += chat
     html += guide
 
     return html
@@ -27,10 +28,12 @@ class ActionLook
 
   def portal
 
-    if @host.parent.unde == @host.parent.parent.unde
-      return "<p>"+"You are a #{@host} in the #{@host.parent}."+"</p>"
+    if @host.parent.id == @host.id
+      return "<p>You are in the paradox of a #{@host}.</p>"
+    elsif @host.parent.id == @host.parent.unde
+      return "<p>You are a #{@host} in the #{@host.parent}.</p>"
     end
-    return "<p>"+"You are a #{@host} in the #{@host.parent} of a #{@host.parent.parent.to_s(false)}."+"</p>"
+    return "<p>"+"You are a #{@host} in the #{@host.parent} of the #{@host.parent.parent.to_s(false)}."+"</p>"
 
   end
 
@@ -61,7 +64,20 @@ class ActionLook
       html += ""
     end
 
-    return "<p>#{html}</p>"
+    if siblings.length == 0 && children.length == 0 then html = "There is nothing." end
+
+    return "<action data-action='status ' class='status'><img src='public.paradise/media/vectors/status.svg'/></action>"+"<p>#{html}</p>"
+
+  end
+
+  def chat
+
+    html = ""
+
+    html += "<li>A distant ghost asks \"Hello?\".</li>"
+    html += "<li>\"It's good to be back!\", replies a town house.</li>"
+
+    return "<ul>"+html+"</ul>"
 
   end
 
@@ -69,7 +85,12 @@ class ActionLook
 
     if @host.parent.owner != @host.id then return "" end
 
-    return "<p class='guide'>Guide</p>"
+    html = ""
+
+    if !@host.parent.has_note then html += "<li>Add a <action data-action='note '>note</action> to the parent vessel.</li>" end
+    if !@host.parent.has_attr then html += "<li>Add an <action data-action='rename '>attribute</action> to the parent vessel.</li>" end
+
+    return "<ul class='guide'>#{html}</ul>"
 
   end
 

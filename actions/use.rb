@@ -1,7 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class ActionEnter
+class ActionUse
 
   include Action
   
@@ -9,7 +9,7 @@ class ActionEnter
 
     super
 
-    @name = "Enter"
+    @name = "Use"
     @docs = "TODO"
 
   end
@@ -20,10 +20,12 @@ class ActionEnter
 
     if !target then return @host.act("look","Cannot find a target named #{q}.") end
 
-    @host.set_unde(target.id)
+    action = target.program.split(" ").first
 
-    return @host.act("look","You entered the #{target}. ")
+    if !@host.can(action) then return @host.act("look","The program is invalid.") end
 
+    return @host.act(action,target.program.sub(action,"").strip)
+    
   end
 
 end

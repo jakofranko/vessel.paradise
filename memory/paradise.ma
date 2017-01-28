@@ -4,13 +4,10 @@
 @ CODE                          NAME           ATTR           PROGRAM                                   NOTE
 0000-00013-00000-00000000000000 Genesis        Ultra              
 0000-00001-00000-20170127153032 library                                                                 What, event.
-0000-00001-00000-00000000000000 section        forgotten                                                There is little to do in this discarded region of paradise.
-0000-00093-00001-20170127160935 teapot         dusty          Warp to 23                                First note.
-0000-00002-00000-20170127144107 spoon          rusty                                                    
-0000-00004-00000-00000000000000 gallery        main               
+0000-00001-00000-00000000000000 section        forgotten                                                The library is awakening.
+0000-00002-00001-20170127195249 teapot         dusty          Warp to 23                                First note.
+0000-00002-00000-20170127164304 door           cyan           warp to 1
+0000-00002-00000-00000000000000 gallery        main               
 0000-00005-00000-00000000000000 mezzanine      upstairs           
-0000-00003-00000-00000000000000 marble         blue
-0000-00093-00003-20170127161019 apple
-0000-00093-00003-20170127161211 pineapple
-0000-00093-00003-20170127161302 kiwi
-0000-00093-00003-20170127161320 house
+0000-00003-00000-20170127191206 marble         glass          create an apple
+0000-00010-00003-20170127163904 apple                         warp to 3                                hello there

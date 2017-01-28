@@ -22,6 +22,13 @@ class ActionServe
 
     $paradise        = Memory_Array.new("paradise",@host.path)
     $parade          = $paradise.to_a("ghost")
+
+    id = 0
+    $parade.each do |vessel|
+      vessel.id = id
+      id += 1
+    end
+
     corpse           = CorpseHttp.new(@host,@query)
     corpse.query     = q
     corpse.paradise  = $paradise
@@ -71,8 +78,11 @@ class CorpseHttp
     input = "<input placeholder='What would you like to do?'/>"
 
     page = "<page>#{@player.unde}</page>"
+    say = "<action data-action='say ' class='say'><img src='public.paradise/media/vectors/say.svg'/></action>"
+    help = "<action data-action='help ' class='help'><img src='public.paradise/media/vectors/help.svg'/></action>"
+    chat = "<action data-action='help ' class='chat'><img src='public.paradise/media/vectors/chat.svg'/></action>"
 
-    return "<view>"+@player.act(action,params)+input+page+"</view>"
+    return "<view>"+@player.act(action,params)+input+page+say+help+chat+"</view>"
 
   end
   
