@@ -22,7 +22,7 @@ class ActionEnter
 
     @host.set_unde(target.id)
 
-    return @host.act("look","You entered the #{target}. ")
+    return @host.act("look","You entered #{target}. ")
 
   end
 

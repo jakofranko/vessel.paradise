@@ -31,7 +31,7 @@ class ActionCreate
     $paradise.append(new_vessel.encode)
     @host.reload
 
-    return "Created a #{new_vessel}."
+    return "Created #{new_vessel}."
 
   end
 

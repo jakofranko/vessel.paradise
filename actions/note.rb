@@ -20,7 +20,7 @@ class ActionNote
 
     if q.length < 5
       @host.parent.set_note("")
-      return "You have removed the #{@host.parent} note." 
+      return "You have removed #{@host.parent} note." 
     end
 
     return @host.act(:look,"You added a note to #{@host.parent}.")

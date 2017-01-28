@@ -22,7 +22,7 @@ class ActionTake
 
     target.set_unde(@host.id)
 
-    return "You took the #{target}. "
+    return "You took #{target}. "
     
   end
 

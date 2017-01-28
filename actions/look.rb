@@ -45,13 +45,13 @@ class ActionLook
     # Siblings
     siblings = @host.siblings
     if siblings.length == 1
-      html += "You see a #{siblings[0]}. "
+      html += "You see #{siblings[0]}. "
     elsif siblings.length == 2
-      html += "You see a #{siblings[0]} and a #{siblings[1]}. "
+      html += "You see #{siblings[0]} and #{siblings[1]}. "
     elsif siblings.length == 3
-      html += "You see a #{siblings[0]}, a #{siblings[1]} and a #{siblings[2]}. "
+      html += "You see #{siblings[0]}, #{siblings[1]} and #{siblings[2]}. "
     elsif siblings.length > 3
-      html += "You see the #{siblings[0]}, the #{siblings[1]} and #{siblings.length-2} other vessels. "
+      html += "You see #{siblings[0]}, #{siblings[1]} and #{siblings.length-2} other vessels. "
     else
       html += ""
     end
@@ -59,13 +59,13 @@ class ActionLook
     # Children
     children = @host.children
     if children.length == 1
-      html += "You carry a #{children[0]}. "
+      html += "You carry #{children[0]}. "
     elsif children.length == 2
-      html += "You carry a #{children[0]} and a #{children[1]}. "
+      html += "You carry #{children[0]} and #{children[1]}. "
     elsif children.length == 3
-      html += "You carry a #{children[0]}, a #{children[1]} and a #{children[2]}. "
+      html += "You carry #{children[0]}, #{children[1]} and #{children[2]}. "
     elsif children.length > 3
-      html += "You carry a #{children[0]}, a #{children[1]} and #{children.length-2} other vessels. "
+      html += "You carry #{children[0]}, #{children[1]} and #{children.length-2} other vessels. "
     else
       html += ""
     end

@@ -22,7 +22,7 @@ class ActionDrop
 
     target.set_unde(@host.unde)
 
-    return "You dropped the #{target}. "
+    return "You dropped #{target}. "
     
   end
 

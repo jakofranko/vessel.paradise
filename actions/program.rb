@@ -20,12 +20,12 @@ class ActionProgram
 
     if q.length < 5
       @host.parent.set_program("")
-      return "You have removed the #{@host.parent} program." 
+      return "You have removed #{@host.parent} program." 
     end
 
     @host.parent.set_program(q)
 
-    return "You programmed the #{@host.parent}. "
+    return "You programmed #{@host.parent}. "
 
   end
 

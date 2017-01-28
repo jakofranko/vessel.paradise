@@ -22,7 +22,7 @@ class ActionTransmute
 
     @host.parent.set_name(name)
 
-    return "You transmuted the #{old_name} into a #{name}. "
+    return "You transmuted #{old_name} into a #{name}. "
     
   end
 

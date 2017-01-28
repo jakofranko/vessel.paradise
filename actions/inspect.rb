@@ -21,7 +21,7 @@ class ActionInspect
     if q.strip == "" then return inventory end
     if !target then return @host.act("look","Cannot find a target named #{q}.") end
 
-    return "You inspect the #{target}. "
+    return "You inspect #{target}. "
     
   end
 
