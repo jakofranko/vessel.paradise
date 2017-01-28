@@ -10,7 +10,7 @@ class ActionNote
     super
 
     @name = "Note"
-    @docs = "TODO"
+    @docs = "Describe the parent vessel."
 
   end
 

@@ -10,7 +10,7 @@ class ActionEnter
     super
 
     @name = "Enter"
-    @docs = "TODO"
+    @docs = "Enter a visible vessel."
 
   end
 

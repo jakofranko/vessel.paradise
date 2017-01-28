@@ -10,7 +10,7 @@ class ActionBecome
     super
 
     @name = "Become"
-    @docs = "TODO"
+    @docs = "Become a visible vessel."
 
   end
 

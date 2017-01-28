@@ -1,7 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class ActionSay
+class ActionAsk
 
   include Action
   
@@ -9,8 +9,8 @@ class ActionSay
 
     super
 
-    @name = "Say"
-    @docs = "TODO"
+    @name = "Ask"
+    @docs = "Ask a question."
 
   end
 

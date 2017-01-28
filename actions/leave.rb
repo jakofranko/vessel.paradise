@@ -10,7 +10,7 @@ class ActionLeave
     super
 
     @name = "Leave"
-    @docs = "TODO"
+    @docs = "Exit the parent vessel."
 
   end
 

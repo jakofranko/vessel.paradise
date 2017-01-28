@@ -10,7 +10,7 @@ class ActionCreate
     super
 
     @name = "Create"
-    @docs = "TODO"
+    @docs = "Create a new vessel."
 
   end
 

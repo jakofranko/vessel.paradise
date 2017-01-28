@@ -10,7 +10,7 @@ class ActionUse
     super
 
     @name = "Use"
-    @docs = "TODO"
+    @docs = "Use an automated visible vessel."
 
   end
 

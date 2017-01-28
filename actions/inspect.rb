@@ -10,7 +10,7 @@ class ActionInspect
     super
 
     @name = "Inspect"
-    @docs = "TODO"
+    @docs = "Get a visible vessel id."
 
   end
 

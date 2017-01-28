@@ -10,7 +10,7 @@ class ActionProgram
     super
 
     @name = "Program"
-    @docs = "TODO"
+    @docs = "Automate the parent vessel."
 
   end
 

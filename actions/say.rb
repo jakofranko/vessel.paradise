@@ -10,7 +10,7 @@ class ActionSay
     super
 
     @name = "Say"
-    @docs = "TODO"
+    @docs = "Say something."
 
   end
 

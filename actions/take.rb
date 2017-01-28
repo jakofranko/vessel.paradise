@@ -9,8 +9,8 @@ class ActionTake
 
     super
 
-    @name = "Leave"
-    @docs = "TODO"
+    @name = "Take"
+    @docs = "Take a visible vessel."
 
   end
 

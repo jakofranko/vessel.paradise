@@ -9,8 +9,8 @@ class ActionTransmute
 
     super
 
-    @name = "Drop"
-    @docs = "TODO"
+    @name = "Transmute"
+    @docs = "Change the name of the parent vessel."
 
   end
 

@@ -10,7 +10,7 @@ class ActionDrop
     super
 
     @name = "Drop"
-    @docs = "TODO"
+    @docs = "Drop a children vessel."
 
   end
 
