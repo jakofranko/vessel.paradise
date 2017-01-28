@@ -7,6 +7,7 @@ class Ghost
 
   attr_accessor :id
   attr_accessor :name
+  attr_accessor :note
   attr_accessor :attr
   attr_accessor :unde
   attr_accessor :owner
@@ -31,14 +32,24 @@ class Ghost
     @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
     @docs = "Default Paradise vessel."
     
-    install(:paradise,:look)
-    install(:paradise,:leave)
-    install(:paradise,:enter)
-    install(:paradise,:create)
-    install(:paradise,:warp)
-    install(:paradise,:take)
-    install(:paradise,:drop)
+    install(:generic,:look)
     install(:generic,:help)
+
+    install(:basic,:become)
+    install(:basic,:leave)
+    install(:basic,:enter)
+    install(:basic,:create)
+
+    install(:advanced,:warp)
+    install(:advanced,:transmute)
+    install(:advanced,:take)
+    install(:advanced,:drop)
+
+    install(:control,:note)
+    install(:control,:lock)
+    install(:control,:unlock)
+    install(:control,:show)
+    install(:control,:hide)
 
   end
 
@@ -178,6 +189,14 @@ class Ghost
   def set_program val
 
     @program = val
+    save
+    reload
+
+  end
+
+  def set_name val
+
+    @name = val
     save
     reload
 

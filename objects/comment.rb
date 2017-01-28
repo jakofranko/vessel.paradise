@@ -43,7 +43,7 @@ class Comment
 
   def vessel_name
 
-    return $parade[from] ? $parade[from] : "a ghost"
+    return $parade[from] ? $parade[from] : "ghost"
 
   end
 
@@ -54,7 +54,7 @@ class Comment
     elsif message[0,2] == "me"
       return "<li>"+"A #{vessel_name} #{message[2,message.length-2].capitalize}.<br />".capitalize+"</li>"
     else
-      return "<li>\"#{message.capitalize}\", says #{vessel_name}.<br />".capitalize+"</li>"
+      return "<li>\"#{message.capitalize}\", says a #{vessel_name}.<br />".capitalize+"</li>"
     end
 
   end

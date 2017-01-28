@@ -33,7 +33,7 @@ class ActionLook
     elsif @host.parent.id == @host.parent.unde
       return "<p>You are a #{@host} in the #{@host.parent}.</p>"
     end
-    return "<p>"+"You are a #{@host} in the #{@host.parent} of the #{@host.parent.parent.to_s(false)}."+"</p>"
+    return "<p>"+"You are a #{@host} in the #{@host.parent}, of the #{@host.parent.parent.to_s(false)}."+"</p>"
 
   end
 

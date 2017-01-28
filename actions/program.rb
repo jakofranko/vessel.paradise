@@ -18,6 +18,11 @@ class ActionProgram
 
     if q.length > 40 then return "A vessel program cannot exceed 40 characters." end
 
+    if q.length < 5
+      @host.parent.set_program("")
+      return "You have removed the #{@host.parent} program." 
+    end
+
     @host.parent.set_program(q)
 
     return "You programmed the #{@host.parent}. "
