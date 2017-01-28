@@ -22,6 +22,8 @@ class ActionLook
     html += chat
     html += guide
 
+    html += "<a class='expand_chat'><img src='public.paradise/media/vectors/chat.svg'/></a>"
+
     return html
 
   end
@@ -31,11 +33,11 @@ class ActionLook
     if @host.parent.id == @host.id
       return "<p>You are the paradox of a #{@host}.</p>"
     elsif @host.id == @host.parent.unde
-      return "<p>You are a #{@host} in a paradox of the #{@host.parent}.</p>"
+      return "<p>You are a #{@host} in a paradox of #{@host.parent}.</p>"
     elsif @host.parent.id == @host.parent.unde
-      return "<p>You are a #{@host} in the #{@host.parent}.</p>"
+      return "<p>You are a #{@host} in #{@host.parent}.</p>"
     end
-    return "<p>"+"You are a #{@host} in the #{@host.parent}, of the #{@host.parent.parent.to_s(false)}."+"</p>"
+    return "<p>"+"You are a #{@host} in #{@host.parent} of #{@host.parent.parent.to_s(false)}."+"</p>"
 
   end
 

@@ -81,9 +81,8 @@ class CorpseHttp
     page = "<page>#{@player.unde}</page>"
     say = "<action data-action='say ' class='say'><img src='public.paradise/media/vectors/say.svg'/></action>"
     help = "<action data-action='help ' class='help'><img src='public.paradise/media/vectors/help.svg'/></action>"
-    chat = "<a class='expand_chat'><img src='public.paradise/media/vectors/chat.svg'/></a>"
 
-    return "<view>"+@player.act(action,params)+input+page+say+help+chat+"</view>"
+    return "<view>"+@player.act(action,params)+input+page+say+help+"</view>"
 
   end
   

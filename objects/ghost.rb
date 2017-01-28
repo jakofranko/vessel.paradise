@@ -48,6 +48,7 @@ class Ghost
     install(:advanced,:transmute)
     install(:control,:note)
     install(:control,:program)
+    install(:control,:use)
 
     install(:control,:lock)
     install(:control,:unlock)
@@ -60,6 +61,8 @@ class Ghost
 
     particle = "a "
     if @note != "" || @attr != "" then particle = "the " end
+    if @attr && @attr[0,1] == "a" then particle = "an " end
+    if @attr.to_s == "" && @name[0,1] == "a" then particle = "an " end
 
     return "<vessel class='#{classes}' data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'>#{particle} #{show_attr != false && @attr ? '<attr>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
 
