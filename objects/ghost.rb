@@ -34,26 +34,24 @@ class Ghost
     
     install(:generic,:look)
     install(:generic,:help)
+    install(:generic,:inspect)
 
     install(:basic,:become)
     install(:basic,:leave)
     install(:basic,:enter)
     install(:basic,:create)
 
-    install(:advanced,:inspect)
     install(:advanced,:warp)
     install(:advanced,:take)
     install(:advanced,:drop)
+
+    install(:communication,:say)
+    install(:communication,:ask)
 
     install(:advanced,:transmute)
     install(:control,:note)
     install(:control,:program)
     install(:control,:use)
-
-    install(:control,:lock)
-    install(:control,:unlock)
-    install(:control,:show)
-    install(:control,:hide)
 
   end
 
@@ -64,7 +62,7 @@ class Ghost
     if @attr && @attr[0,1] == "a" then particle = "an " end
     if @attr.to_s == "" && @name[0,1] == "a" then particle = "an " end
 
-    return "<vessel class='#{classes}' data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'>#{particle} #{show_attr != false && @attr ? '<attr>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
+    return "<vessel class='#{classes}' data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'>#{particle} #{show_attr != false && @attr ? '<attr class='+@attr+'>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
 
   end
 

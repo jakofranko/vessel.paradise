@@ -31,13 +31,13 @@ class ActionLook
   def portal
 
     if @host.parent.id == @host.id
-      return "<p>You are the paradox of a #{@host}.</p>"
+      return "<p>You are the paradox of #{@host}.</p>"
     elsif @host.id == @host.parent.unde
-      return "<p>You are a #{@host} in a paradox of #{@host.parent}.</p>"
+      return "<p>You are #{@host} in a paradox of #{@host.parent}.</p>"
     elsif @host.parent.id == @host.parent.unde
-      return "<p>You are a #{@host} in #{@host.parent}.</p>"
+      return "<p>You are #{@host} in #{@host.parent}.</p>"
     end
-    return "<p>"+"You are a #{@host} in #{@host.parent} of #{@host.parent.parent.to_s(false)}."+"</p>"
+    return "<p>You are #{@host} in #{@host.parent} of #{@host.parent.parent.to_s(false)}."+"</p>"
 
   end
 
@@ -83,7 +83,7 @@ class ActionLook
     html = ""
 
     count = 0
-    $forum.to_a("comment").reverse.each do |message|
+    $forum.to_a("comment").each do |message|
       if count > 7 then break end
       html += message.to_s
       count += 1

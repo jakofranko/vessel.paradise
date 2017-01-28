@@ -21,7 +21,8 @@ class ActionInspect
     if q.strip == "" then return inventory end
     if !target then return @host.act("look","Cannot find a target named #{q}.") end
 
-    return "You inspect #{target}. "
+    return "<p>You are inspecting #{target}.</p>
+    <p>The #{target.name}'s warp id is <action data-action='warp to #{target.id}'>#{target.id}</action>.</p>"
     
   end
 

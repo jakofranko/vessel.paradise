@@ -14,7 +14,7 @@ class Void
 
     super
 
-    @name = "void"
+    @name = "The Void"
     @note = ""
     @owner = 0
 

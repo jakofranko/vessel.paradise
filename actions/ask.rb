@@ -22,8 +22,8 @@ class ActionSay
 
   def act q = "Home"
 
-    $forum.append(encode(q))
-    return "<p>You said \"#{q}\".</p>"
+    $forum.append(encode(q+"?"))
+    return "<p>You asked \"#{q}\".</p>"
     
   end
 

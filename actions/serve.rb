@@ -33,7 +33,7 @@ class ActionServe
     corpse           = CorpseHttp.new(@host,@query)
     corpse.query     = q
     corpse.paradise  = $paradise
-    corpse.player    = $parade[q.to_i] ? $parade[q.to_i] : Ghost.new
+    corpse.player    = $parade[q.to_i] ? $parade[q.to_i] : Void.new
     corpse.player.id = q.split(" ").first.to_i
 
     corpse.title   = "Paradise ∴ #{q}"

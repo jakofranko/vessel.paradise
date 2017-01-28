@@ -20,7 +20,7 @@ class ActionWarp
     target = $parade[warp_id]
 
     if warp_id.to_i < 1 || warp_id.to_i > 99999 then return @host.act(:look,"You cannot warp there. #{warp_id} is not a valid warp id.") end
-    if !target then return "You cannot warp to into the void." end
+    if !target then return "<p>You cannot warp to into the void.</p>" end
 
     @host.set_unde(target.id)
 
