@@ -74,14 +74,14 @@ class ActionLook
 
     html = ""
 
-    $forum.each do |message|
+    count = 0
+    $forum.to_a("comment").reverse.each do |message|
+      if count > 3 then break end
       html += message.to_s
+      count += 1
     end
 
-    # html += "<li>A distant ghost asks \"Hello?\".</li>"
-    # html += "<li>\"It's good to be back!\", replies a town house.</li>"
-
-    return "<ul>"+html+"</ul>"
+    return "<ul class='forum'>"+html+"</ul>"
 
   end
 

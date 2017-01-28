@@ -14,9 +14,16 @@ class ActionSay
 
   end
 
+  def encode message
+
+    return "#{Timestamp.new} #{@host.unde.to_s.prepend('0',5)} #{@host.id.to_s.prepend('0',5)} #{message}"
+
+  end
+
   def act q = "Home"
 
-    return "hey"
+    $forum.append(encode(q))
+    return "saying: #{encode(q)}"
     
   end
 

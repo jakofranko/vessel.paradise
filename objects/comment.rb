@@ -50,11 +50,11 @@ class Comment
   def to_s
 
     if message[-1,1] == "?"
-      return "#{vessel_name} asked \"#{message}\".<br/>".capitalize
+      return "<li>"+"#{vessel_name} asked \"#{message}\".<br/>".capitalize+"</li>"
     elsif message[0,2] == "me"
-      return "A #{vessel_name} #{message[2,message.length-2].capitalize}.<br />".capitalize
+      return "<li>"+"A #{vessel_name} #{message[2,message.length-2].capitalize}.<br />".capitalize+"</li>"
     else
-      return "\"#{message.capitalize}\", says #{vessel_name}.<br />".capitalize
+      return "<li>\"#{message.capitalize}\", says #{vessel_name}.<br />".capitalize+"</li>"
     end
 
   end
