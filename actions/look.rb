@@ -74,8 +74,12 @@ class ActionLook
 
     html = ""
 
-    html += "<li>A distant ghost asks \"Hello?\".</li>"
-    html += "<li>\"It's good to be back!\", replies a town house.</li>"
+    $forum.each do |message|
+      html += message.to_s
+    end
+
+    # html += "<li>A distant ghost asks \"Hello?\".</li>"
+    # html += "<li>\"It's good to be back!\", replies a town house.</li>"
 
     return "<ul>"+html+"</ul>"
 

@@ -20,6 +20,7 @@ class ActionServe
     
     load_folder("#{@host.path}/objects/*")
 
+    $forum           = Memory_Array.new("forum",@host.path).to_a("comment")
     $paradise        = Memory_Array.new("paradise",@host.path)
     $parade          = $paradise.to_a("ghost")
 
