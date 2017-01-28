@@ -40,16 +40,28 @@ class Ghost
     install(:basic,:enter)
     install(:basic,:create)
 
+    install(:advanced,:inspect)
     install(:advanced,:warp)
-    install(:advanced,:transmute)
     install(:advanced,:take)
     install(:advanced,:drop)
 
+    install(:advanced,:transmute)
     install(:control,:note)
+    install(:control,:program)
+
     install(:control,:lock)
     install(:control,:unlock)
     install(:control,:show)
     install(:control,:hide)
+
+  end
+
+  def to_s show_attr = true
+
+    particle = "a "
+    if @note != "" || @attr != "" then particle = "the " end
+
+    return "<vessel class='#{classes}' data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'>#{particle} #{show_attr != false && @attr ? '<attr>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
 
   end
 
@@ -124,12 +136,6 @@ class Ghost
     if unde == id then html += "stem " end
 
     return html.strip
-
-  end
-
-  def to_s show_attr = true
-
-    return "<vessel class='#{classes}' data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'>#{show_attr != false && @attr ? '<attr>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
 
   end
 

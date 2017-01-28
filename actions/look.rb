@@ -29,7 +29,9 @@ class ActionLook
   def portal
 
     if @host.parent.id == @host.id
-      return "<p>You are in the paradox of a #{@host}.</p>"
+      return "<p>You are the paradox of a #{@host}.</p>"
+    elsif @host.id == @host.parent.unde
+      return "<p>You are a #{@host} in a paradox of the #{@host.parent}.</p>"
     elsif @host.parent.id == @host.parent.unde
       return "<p>You are a #{@host} in the #{@host.parent}.</p>"
     end
@@ -46,7 +48,9 @@ class ActionLook
       html += "You see a #{siblings[0]}. "
     elsif siblings.length == 2
       html += "You see a #{siblings[0]} and a #{siblings[1]}. "
-    elsif siblings.length > 2
+    elsif siblings.length == 3
+      html += "You see a #{siblings[0]}, a #{siblings[1]} and a #{siblings[2]}. "
+    elsif siblings.length > 3
       html += "You see the #{siblings[0]}, the #{siblings[1]} and #{siblings.length-2} other vessels. "
     else
       html += ""
@@ -58,7 +62,9 @@ class ActionLook
       html += "You carry a #{children[0]}. "
     elsif children.length == 2
       html += "You carry a #{children[0]} and a #{children[1]}. "
-    elsif children.length > 2
+    elsif children.length == 3
+      html += "You carry a #{children[0]}, a #{children[1]} and a #{children[2]}. "
+    elsif children.length > 3
       html += "You carry a #{children[0]}, a #{children[1]} and #{children.length-2} other vessels. "
     else
       html += ""
@@ -66,7 +72,7 @@ class ActionLook
 
     if siblings.length == 0 && children.length == 0 then html = "There is nothing." end
 
-    return "<action data-action='status ' class='status'><img src='public.paradise/media/vectors/status.svg'/></action>"+"<p>#{html}</p>"
+    return "<action data-action='inspect ' class='status'><img src='public.paradise/media/vectors/status.svg'/></action>"+"<p>#{html}</p>"
 
   end
 
@@ -76,7 +82,7 @@ class ActionLook
 
     count = 0
     $forum.to_a("comment").reverse.each do |message|
-      if count > 3 then break end
+      if count > 7 then break end
       html += message.to_s
       count += 1
     end
