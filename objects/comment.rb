@@ -31,7 +31,7 @@ class Comment
 
   def message
 
-    return @content["MESSAGE"]
+    return "<message>"+@content["MESSAGE"]+"</message>"
 
   end
 

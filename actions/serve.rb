@@ -50,7 +50,15 @@ class ActionServe
 
   def select_random_vessel
 
-    return "<meta http-equiv='refresh' content='0; url=/#{rand($parade.length)}' />"
+    candidates = []
+    $parade.each do |vessel|
+      if vessel.rank > 0 then next end
+      candidates.push(vessel)
+    end
+
+    candidate = candidates.length > 0 ? candidates[rand(candidates.length)].id : rand($parade.length)
+
+    return "<meta http-equiv='refresh' content='0; url=/#{candidate}'/>"
 
   end
 
@@ -94,7 +102,7 @@ class CorpseHttp
     say = "<action data-action='say ' class='say'><img src='public.paradise/media/vectors/say.svg'/></action>"
     help = "<action data-action='help ' class='help'><img src='public.paradise/media/vectors/help.svg'/></action>"
 
-    return "<view>"+@player.act(action,params)+input+page+say+help+"</view>"
+    return "<bg></bg><view>"+@player.act(action,params)+input+page+say+help+"</view>"
 
   end
   

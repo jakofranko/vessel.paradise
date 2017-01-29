@@ -229,4 +229,17 @@ class Ghost
     
   end
 
+  #
+
+  def rank
+
+    val = 0
+
+    if has_note then val += 1 end
+    if has_attr then val += 1 end
+    if has_program then val += 1 end
+
+    return val
+  end
+
 end
