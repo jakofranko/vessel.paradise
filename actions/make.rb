@@ -21,6 +21,7 @@ class ActionMake
     name = @host.parent.name
     attr = q.split(" ").last
 
+    if q.to_s.strip == "" then return @host.act(:look,"You cannot remove an attribute.") end
     if !is_valid(name,attr) then return @host.act(:look,"This vessel attribute is not allowed.") end
     if !is_unique(name,attr) then return @host.act(:look,"A vessel named \"#{attr+' '+name}\" already exists somewhere.") end
     if !is_alphabetic(name,attr) then return @host.act(:look,"A vessel attribute cannot include non alphabetic characters.") end
