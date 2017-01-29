@@ -25,7 +25,7 @@ class ActionSay
     if q.to_s.strip.length < 2 then return "<p>You said nothing.</p>" end
 
     $forum.to_a(:comment).reverse[0,1].each do |comment|
-      if comment.from == @host.id && comment.message == q then return "<p>You have just said that.</p>" end
+      if comment.from == @host.id && comment.message.strip == q.strip then return "<p>You have just said that.</p>" end
     end
 
     $forum.append(encode(q))
