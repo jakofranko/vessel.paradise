@@ -6,7 +6,7 @@
 0000-00001-00000-20170127153032 library                                                                 What, event.
 0000-00001-00000-00000000000000 section        forgotten                                                The library is awakening.
 0000-00011-00001-20170128142609 teapot         dusty          Warp to 23                                First note.
-0000-00007-00000-20170128155919 door           cyan           warp to 1
+0000-00001-00000-20170128164559 door           cyan           warp to 1
 0000-00002-00000-00000000000000 gallery        main               
 0000-00005-00000-00000000000000 mezzanine      upstairs           
 0000-00002-00000-20170128105646 palace         glass

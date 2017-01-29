@@ -28,12 +28,22 @@ class ActionInspect
 
   def inventory
 
-    html = ""
+    html = "<p>You are inspecting #{@host}.</p>"
 
-    html += "<p>Looking inward, you are carrying the following vessels.</p>"
+    if @host.children.length > 0
+      html += "<p>Looking inward, you carry:</p>"
 
-    @host.children.each do |vessel|
-      html += vessel.to_s+"<br />"
+      @host.children.each do |vessel|
+        html += vessel.to_s+"<br />"
+      end
+    end
+
+    if  @host.siblings.length > 0
+      html += "<p>Looking outward, you see:</p>"
+
+      @host.siblings.each do |vessel|
+        html += vessel.to_s+"<br />"
+      end
     end
 
     return html

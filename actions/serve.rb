@@ -30,11 +30,14 @@ class ActionServe
       id += 1
     end
 
+    player_id = q.split(" ").first.to_i
+    if player_id < 1 then return "<meta http-equiv='refresh' content='0; url=/#{rand($parade.length)}' />" end
+
     corpse           = CorpseHttp.new(@host,@query)
     corpse.query     = q
     corpse.paradise  = $paradise
     corpse.player    = $parade[q.to_i] ? $parade[q.to_i] : Void.new
-    corpse.player.id = q.split(" ").first.to_i
+    corpse.player.id = player_id
 
     corpse.title   = "Paradise ∴ #{q}"
 
