@@ -49,7 +49,6 @@ class Comment
 
   def to_s
 
-    if message.to_s.length < 3 then return "" end
     if message.to_i > 0 && $parade[message.to_i]
       return "<li>#{vessel_name} invites you to <action data-action='warp to #{message.to_i}'>#{$parade[message.to_i]}</action>.".capitalize+"</li>"
     elsif message[-1,1] == "?"
