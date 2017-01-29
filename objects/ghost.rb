@@ -171,7 +171,7 @@ class Ghost
 
   def is_stem
 
-    if parent.unde == @unde then return true end
+    if id == @unde then return true end
     return nil
 
   end
