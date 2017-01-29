@@ -131,9 +131,9 @@ class Ghost
 
     html = ""
     if has_program
-      if program.split(" ").first.like("warp") then html += "warp"
-      elsif program.split(" ").first.like("create") then html += "machine"
-      else html += "program" end
+      if program.split(" ").first.like("warp") then html += "warp "
+      elsif program.split(" ").first.like("create") then html += "machine "
+      else html += "program " end
     end
     if unde == id then html += "stem " end
 

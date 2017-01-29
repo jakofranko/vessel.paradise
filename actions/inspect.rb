@@ -18,21 +18,24 @@ class ActionInspect
 
     html = "<p>You are inspecting #{@host.parent}.</p>"
 
-    if @host.children.length > 0
-      html += "<table><tr><th>≡#{@host.id}</th><th>Inventory</th></tr>"
-      @host.children.each do |vessel|
-        html += "<tr><td>≡#{vessel.id}</td><td>"+vessel.to_s+"</td></tr>"
-      end
-      html += "</table>"
+    html += "<table>"
+    html += "<tr><th>Full name</th><td>#{@host.parent.attr} #{@host.parent.name}</td></tr>"
+    html += "<tr><th>Id</th><td>≡#{@host.parent.id} </td></tr>"
+    html += "<tr><th>Rank</th><td>#{@host.parent.rank}</td></tr>"
+
+    if @host.parent.has_program
+      html += "<tr><th>Program</th><td>#{@host.parent.program}</td></tr>"
     end
 
-    if @host.siblings.length > 0 && !@host.is_stem
-      html += "<table><tr><th>≡#{@host.parent.id}</th><th>#{@host.parent}</th></tr>"
+    if @host.siblings.length > 0
+      html += "<tr><th>Inventory<td>"
       @host.siblings.each do |vessel|
-        html += "<tr><td>≡#{vessel.id}</td><td>"+vessel.to_s+"</td></tr>"
+        html += "<action data-action='enter the #{vessel.name}'>#{vessel.attr} #{vessel.name} ≡#{vessel.id}</action></br />"
       end
-      html += "</table>"
+      html += "</td></tr>"
     end
+
+    html += "</table>"
 
     return html
     
