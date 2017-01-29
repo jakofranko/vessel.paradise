@@ -21,31 +21,29 @@ class ActionInspect
     if q.strip == "" then return inventory end
     if !target then return @host.act("look","Cannot find a target named #{q}.") end
 
-    return "<p>You are inspecting #{target} ##{@host.parent.id}.</p>
+    return "<p>You are inspecting #{target}.</p>
     <p>The #{target.name}'s warp id is <action data-action='warp to #{target.id}'>#{target.id}</action>.</p>"
     
   end
 
   def inventory
 
-    html = "<p>You are inspecting #{@host} ##{@host.parent.id}.</p>"
+    html = "<p>You are inspecting #{@host}, in #{@host.parent}.</p>"
 
     if @host.children.length > 0
-      html += "<p>Looking inward, you carry:</p>"
-
+      html += "<table><tr><th>≡#{@host.id}</th><th>Inventory</th></tr>"
       @host.children.each do |vessel|
-        html += vessel.to_s+" ##{vessel.id}<br />"
+        html += "<tr><td>≡#{vessel.id}</td><td>"+vessel.to_s+"</td></tr>"
       end
-      html += "<br />"
+      html += "</table>"
     end
 
     if  @host.siblings.length > 0
-      html += "<p>Looking outward, you see:</p>"
-
+      html += "<table><tr><th>≡#{@host.parent.id}</th><th>Visible</th></tr>"
       @host.siblings.each do |vessel|
-        html += vessel.to_s+" ##{vessel.id}<br />"
+        html += "<tr><td>≡#{vessel.id}</td><td>"+vessel.to_s+"</td></tr>"
       end
-      html += "<br />"
+      html += "</table>"
     end
 
     return html
