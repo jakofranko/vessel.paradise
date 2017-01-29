@@ -31,7 +31,7 @@ class Comment
 
   def message
 
-    return "<message>"+@content["MESSAGE"]+"</message>"
+    return @content["MESSAGE"]
 
   end
 
@@ -50,13 +50,13 @@ class Comment
   def to_s
 
     if message[-1,1] == "?"
-      return "<li>#{vessel_name} asked \"#{message}\".<br/>".capitalize+"</li>"
+      return "<li>#{vessel_name} asked \"<message>#{message}</message>\".<br/>".capitalize+"</li>"
     elsif message[-1,1] == "!"
-      return "<li>#{vessel_name} shouts \"#{message}\".<br/>".capitalize+"</li>"
+      return "<li>#{vessel_name} shouts \"<message>#{message}</message>\".<br/>".capitalize+"</li>"
     elsif message[0,3] == "me "
-      return "<li>#{vessel_name} #{message[3,message.length-3].capitalize}.<br />".capitalize+"</li>"
+      return "<li>#{vessel_name} <message>#{message[3,message.length-3].capitalize}</message>.<br />".capitalize+"</li>"
     else
-      return "<li>\"#{message.capitalize}\", says a #{vessel_name}.<br />".capitalize+"</li>"
+      return "<li>\"<message>#{message.capitalize}</message>\", says a #{vessel_name}.<br />".capitalize+"</li>"
     end
 
   end
