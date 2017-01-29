@@ -46,7 +46,6 @@ class Ghost
     install(:advanced,:drop)
 
     install(:communication,:say)
-    install(:communication,:ask)
 
     install(:advanced,:transmute)
     install(:advanced,:make)
