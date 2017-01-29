@@ -22,8 +22,8 @@ class ActionSay
 
   def act q = "Home"
 
-    if q.to_s.length < 2 then return "<p>You said nothing.</p>" end
-      
+    if q.to_s.strip.length < 2 then return "<p>You said nothing.</p>" end
+
     $forum.append(encode(q))
     return "<p>You said \"#{q}\".</p>"
     
