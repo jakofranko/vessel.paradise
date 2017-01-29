@@ -17,8 +17,8 @@ class ActionLook
   def act q = "Home", answer
 
     html = answer.to_s != "" ? "<p class='answer'>"+answer+"</p>" : portal
+    html += @host.parent.has_note ? "<p class='note'>#{@host.parent.note}</p>" : ""
     html += visibles
-    html += "<p class='note'>#{@host.parent.note}</p>"
     html += chat
     html += guide
 
@@ -59,7 +59,7 @@ class ActionLook
     end
 
     # Children
-    children = @host.children
+    children = @host.is_stem ? [] : @host.children
     if children.length == 1
       html += "You carry #{children[0]}. "
     elsif children.length == 2

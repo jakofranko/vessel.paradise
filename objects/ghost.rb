@@ -75,12 +75,16 @@ class Ghost
 
   end
 
-  def sibling name
+  def sibling q
 
-    name = name.split(" ").last
-    name = " #{name} ".gsub(" the ","").gsub(" a ","").gsub(" an ","").strip
+    q = " #{q} ".gsub(" the ","").gsub(" a ","").gsub(" an ","").strip
+    target_attr,target_name = q.split(" ").length == 1 ? ["",q] : q.split(" ")
+
     siblings.each do |vessel|
-      if vessel.name.like(name) then return vessel end
+      if vessel.name.like(target_name) && vessel.attr.like(target_attr) then return vessel end
+    end
+    siblings.each do |vessel|
+      if vessel.name.like(target_name) then return vessel end
     end
     return nil
     
@@ -114,15 +118,18 @@ class Ghost
 
   end
 
-  def child name
+  def child q
 
-    name = name.split(" ").last
-    name = " #{name} ".gsub(" the ","").gsub(" a ","").gsub(" an ","").strip
+    q = " #{q} ".gsub(" the ","").gsub(" a ","").gsub(" an ","").strip
+    target_attr,target_name = q.split(" ").length == 1 ? ["",q] : q.split(" ")
 
     children.each do |vessel|
-      if vessel.name.like(name) then return vessel end
+      if vessel.name.like(target_name) && vessel.attr.to_s.like(target_attr) then return vessel end
     end
 
+    children.each do |vessel|
+      if vessel.name.like(target_name) then return vessel end
+    end
     return nil
 
   end

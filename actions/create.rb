@@ -31,7 +31,7 @@ class ActionCreate
     if !is_unique(name,attr) then return @host.act(:look,"A vessel named \"#{attr+' '+name}\" already exists somewhere.") end
     if !is_alphabetic(name,attr) then return @host.act(:look,"A vessel name cannot include non alphabetic characters.") end
 
-    new_vessel = Ghost.new({"NAME" => name,"ATTR" => attr,"CODE" => "0000-#{@host.unde.to_s.prepend('0',5)}-#{@host.id.to_s.prepend('0',5)}-#{Timestamp.new}"})
+    new_vessel = Ghost.new({"NAME" => name.downcase,"ATTR" => attr.downcase,"CODE" => "0000-#{@host.unde.to_s.prepend('0',5)}-#{@host.id.to_s.prepend('0',5)}-#{Timestamp.new}"})
 
     $paradise.append(new_vessel.encode)
     @host.reload
