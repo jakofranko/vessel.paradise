@@ -49,6 +49,7 @@ class Ghost
     install(:communication,:ask)
 
     install(:advanced,:transmute)
+    install(:advanced,:make)
     install(:control,:note)
     install(:control,:program)
     install(:control,:use)
@@ -204,6 +205,14 @@ class Ghost
   def set_name val
 
     @name = val
+    save
+    reload
+
+  end
+
+  def set_attr val
+
+    @attr = val
     save
     reload
 

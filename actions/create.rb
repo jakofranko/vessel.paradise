@@ -21,6 +21,9 @@ class ActionCreate
     name = target.last
     attr = target[target.length-2] ? target[target.length-2] : ""
     if attr == name then attr = "" end
+    if attr == "the" then attr = "" end
+    if attr == "a" then attr = "" end
+    if attr == "an" then attr = "" end
 
     if name.length < 3 then return @host.act(:look,"The vessel name is too short.") end
     if attr.length < 3 then attr = "" end
