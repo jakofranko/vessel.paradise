@@ -21,29 +21,31 @@ class ActionInspect
     if q.strip == "" then return inventory end
     if !target then return @host.act("look","Cannot find a target named #{q}.") end
 
-    return "<p>You are inspecting #{target}.</p>
+    return "<p>You are inspecting #{target} ##{@host.parent.id}.</p>
     <p>The #{target.name}'s warp id is <action data-action='warp to #{target.id}'>#{target.id}</action>.</p>"
     
   end
 
   def inventory
 
-    html = "<p>You are inspecting #{@host}.</p>"
+    html = "<p>You are inspecting #{@host} ##{@host.parent.id}.</p>"
 
     if @host.children.length > 0
       html += "<p>Looking inward, you carry:</p>"
 
       @host.children.each do |vessel|
-        html += vessel.to_s+"<br />"
+        html += vessel.to_s+" ##{vessel.id}<br />"
       end
+      html += "<br />"
     end
 
     if  @host.siblings.length > 0
       html += "<p>Looking outward, you see:</p>"
 
       @host.siblings.each do |vessel|
-        html += vessel.to_s+"<br />"
+        html += vessel.to_s+" ##{vessel.id}<br />"
       end
+      html += "<br />"
     end
 
     return html
