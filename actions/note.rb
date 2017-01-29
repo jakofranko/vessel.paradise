@@ -16,6 +16,7 @@ class ActionNote
 
   def act q = "Home"
 
+    if is_valid(q) == false then return "<p>Nope!</p>" end
     @host.parent.set_note(q)
 
     if q.length < 5
@@ -24,6 +25,15 @@ class ActionNote
     end
 
     return @host.act(:look,"You added a note to #{@host.parent}.")
+
+  end
+
+  def is_valid note
+
+    $BADWORDS.each do |word|
+      if note.include?(word) then return false end
+    end
+    return true
 
   end
 

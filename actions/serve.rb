@@ -3,6 +3,8 @@
 
 $nataniev.require("corpse","http")
 
+$BADWORDS = ["dick","pussy","asshole","nigger","cock","jizz","faggot","nazi","cunt","sucker","bitch","fag","jew","nigga","anus"]
+
 class ActionServe
 
   include Action
@@ -31,8 +33,9 @@ class ActionServe
     end
 
     player_id = q.split(" ").first.to_i
-    if player_id < 1 then return "<meta http-equiv='refresh' content='0; url=/#{rand($parade.length)}' />" end
 
+    if player_id < 1 then return select_random_vessel end
+  
     corpse           = CorpseHttp.new(@host,@query)
     corpse.query     = q
     corpse.paradise  = $paradise
@@ -42,6 +45,12 @@ class ActionServe
     corpse.title   = "Paradise ∴ #{q}"
 
     return corpse.result
+
+  end
+
+  def select_random_vessel
+
+    return "<meta http-equiv='refresh' content='0; url=/#{rand($parade.length)}' />"
 
   end
 

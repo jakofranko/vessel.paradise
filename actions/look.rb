@@ -82,8 +82,10 @@ class ActionLook
 
     html = ""
 
+    messages = $forum.to_a("comment")
+
     count = 0
-    $forum.to_a("comment").each do |message|
+    messages[messages.length-8,8].each do |message|
       if count > 7 then break end
       html += message.to_s
       count += 1

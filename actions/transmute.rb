@@ -33,9 +33,7 @@ class ActionTransmute
 
   def is_valid name,attr = ""
 
-    bad_dict = ["dick","pussy","asshole","nigger"]
-
-    bad_dict.each do |word|
+    $BADWORDS.each do |word|
       if name.include?(word) || attr.include?(word) then return false end
     end
     return true
