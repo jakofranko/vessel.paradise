@@ -18,9 +18,11 @@ class ActionLeave
 
     if @host.parent.is_stem then return @host.act("look","You may not leave #{@host.parent}. You have reached the stem of the universe.") end
 
+    old_parent = @host.parent
+
     @host.set_unde(@host.parent.unde)
     
-    return @host.act("look","You left #{@host.parent}, and entered #{@host.parent.parent}. ")
+    return @host.act("look","You left #{old_parent}, and entered #{@host.parent.parent}. ")
     
   end
 

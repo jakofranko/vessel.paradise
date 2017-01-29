@@ -16,19 +16,7 @@ class ActionInspect
 
   def act q = "Home"
 
-    target = @host.sibling(q) ; target = target ? target : @host.child(q)
-    
-    if q.strip == "" then return inventory end
-    if !target then return @host.act("look","Cannot find a target named #{q}.") end
-
-    return "<p>You are inspecting #{target}.</p>
-    <p>The #{target.name}'s warp id is <action data-action='warp to #{target.id}'>#{target.id}</action>.</p>"
-    
-  end
-
-  def inventory
-
-    html = "<p>You are inspecting #{@host}, in #{@host.parent}.</p>"
+    html = "<p>You are inspecting #{@host.parent}.</p>"
 
     if @host.children.length > 0
       html += "<table><tr><th>≡#{@host.id}</th><th>Inventory</th></tr>"
@@ -38,8 +26,8 @@ class ActionInspect
       html += "</table>"
     end
 
-    if  @host.siblings.length > 0
-      html += "<table><tr><th>≡#{@host.parent.id}</th><th>Visible</th></tr>"
+    if @host.siblings.length > 0 && !@host.is_stem
+      html += "<table><tr><th>≡#{@host.parent.id}</th><th>#{@host.parent}</th></tr>"
       @host.siblings.each do |vessel|
         html += "<tr><td>≡#{vessel.id}</td><td>"+vessel.to_s+"</td></tr>"
       end
@@ -47,7 +35,7 @@ class ActionInspect
     end
 
     return html
-
+    
   end
 
 end
