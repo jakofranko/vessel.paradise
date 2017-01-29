@@ -49,14 +49,16 @@ class Comment
 
   def to_s
 
-    if message[-1,1] == "?"
-      return "<li>#{vessel_name} asked \"<message>#{message}</message>\".<br/>".capitalize+"</li>"
+    if message.to_i > 0 && $parade[message.to_i]
+      return "<li>#{vessel_name} invites you to <action data-action='warp to #{message.to_i}'>#{$parade[message.to_i]}</action>.".capitalize+"</li>"
+    elsif message[-1,1] == "?"
+      return "<li>#{vessel_name} asked \"<message>#{message}</message>\".".capitalize+"</li>"
     elsif message[-1,1] == "!"
-      return "<li>#{vessel_name} shouts \"<message>#{message}</message>\".<br/>".capitalize+"</li>"
+      return "<li>#{vessel_name} shouts \"<message>#{message}</message>\".".capitalize+"</li>"
     elsif message[0,3] == "me "
-      return "<li>#{vessel_name} <message>#{message[3,message.length-3].capitalize}</message>.<br />".capitalize+"</li>"
+      return "<li>#{vessel_name} <message>#{message[3,message.length-3].capitalize}</message>.".capitalize+"</li>"
     else
-      return "<li>\"<message>#{message.capitalize}</message>\", says a #{vessel_name}.<br />".capitalize+"</li>"
+      return "<li>\"<message>#{message.capitalize}</message>\", says a #{vessel_name}.".capitalize+"</li>"
     end
 
   end
