@@ -58,7 +58,7 @@ class Comment
     elsif message[0,3] == "me "
       return "<li>#{vessel_name} <message>#{message[3,message.length-3].capitalize}</message>.".capitalize+"</li>"
     else
-      return "<li>\"<message>#{message.capitalize}</message>\", says a #{vessel_name}.".capitalize+"</li>"
+      return "<li>\"<message>#{message.capitalize}</message>\", says #{vessel_name}.".capitalize+"</li>"
     end
 
   end
