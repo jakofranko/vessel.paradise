@@ -19,7 +19,7 @@ class ActionBecome
 
   def act q = "Home"
 
-    target = visible_named(q).to_s
+    target = visible_named(q)
 
     if !target then return @host.act("look","Cannot find a target named #{q}.") end
 
