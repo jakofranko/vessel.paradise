@@ -51,7 +51,7 @@ class Comment
 
     if message.to_i > 0 && $parade[message.to_i]
       return "<li>#{vessel_name} invites you to <action data-action='warp to #{message.to_i}'>#{$parade[message.to_i]}</action>.".capitalize+"</li>"
-    elsif message.split(" ").first.like("who") || message.split(" ").first.like("what") || message.split(" ").first.like("where") || message.split(" ").first.like("when") || message.split(" ").first.like("how")
+    elsif message.split(" ").first.like("who") || message.split(" ").first.like("what") || message.split(" ").first.like("where") || message.split(" ").first.like("when") || message.split(" ").first.like("how") || message.split(" ").first.like("why") || message.split(" ").first.like("which")
       return "<li>#{vessel_name} asked \"<message>#{message}?</message>\".".capitalize+"</li>"
     elsif message[-1,1] == "!"
       return "<li>#{vessel_name} shouts \"<message>#{message}</message>\".".capitalize+"</li>"
