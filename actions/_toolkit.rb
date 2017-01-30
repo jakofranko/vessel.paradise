@@ -43,7 +43,7 @@ module ActionToolkit
 
   end
 
-  def visible_name attr_name
+  def visible_named attr_name
 
     attr_name = remove_articles(attr_name).split
 
