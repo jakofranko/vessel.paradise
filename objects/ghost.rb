@@ -55,14 +55,14 @@ class Ghost
 
   end
 
-  def to_s show_attr = true
+  def to_s show_attr = true, show_particle = true
 
     particle = "a "
     if @note != "" || @attr != "" then particle = "the " end
     if @attr && @attr[0,1] == "a" then particle = "an " end
     if @attr.to_s == "" && @name[0,1] == "a" then particle = "an " end
 
-    return "<vessel class='#{classes}' data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'>#{particle} #{show_attr != false && @attr ? '<attr class='+@attr+'>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
+    return "<vessel class='#{classes}' data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'>#{show_particle != false ? particle : ''} #{show_attr != false && @attr ? '<attr class='+@attr+'>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
 
   end
 

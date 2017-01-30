@@ -17,7 +17,7 @@ class ActionLook
   def act q = "Home", answer
 
     html = answer.to_s != "" ? "<p class='answer'>"+answer+"</p>" : portal
-    html += @host.parent.has_note ? "<p class='note'>#{@host.parent.note}</p>" : ""
+    html += note
     html += visibles
     html += chat
     html += guide
@@ -38,6 +38,20 @@ class ActionLook
       return "<p>You are #{@host} in #{@host.parent}.</p>"
     end
     return "<p>You are #{@host} in #{@host.parent} of #{@host.parent.parent.to_s(false)}."+"</p>"
+
+  end
+
+  def note
+
+    if !@host.parent.has_note then return "" end
+
+    html = @host.parent.note
+
+    @host.siblings.each do |vessel|
+      html = html.sub(" #{vessel.name} "," #{vessel.to_s(false,false)} ")
+    end
+
+    return "<p class='note'>#{html}</p>"
 
   end
 
