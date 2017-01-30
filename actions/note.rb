@@ -17,6 +17,8 @@ class ActionNote
   def act q = "Home"
 
     if is_valid(q) == false then return "<p>Nope!</p>" end
+    if q.length > 300 then return "<p>The note cannot be more than 300 characters.</p>" end
+      
     @host.parent.set_note(q)
 
     if q.length < 5
