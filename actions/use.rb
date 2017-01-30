@@ -26,11 +26,9 @@ class ActionUse
 
     action = target.program.to_s.split(" ").first
 
-    return wildcard(target.program)
-
     if !@host.can(action) then return @host.act("look","The program is invalid.") end
 
-    return @host.act(action,target.program.sub(action,"").strip)
+    return @host.act(action,wildcard(target.program).sub(action,"").strip)
     
   end
 
