@@ -1,9 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+require_relative "_toolkit.rb"
+
 class ActionDrop
 
   include Action
+  include ActionToolkit
   
   def initialize q = nil
 
@@ -16,7 +19,7 @@ class ActionDrop
 
   def act q = "Home"
 
-    target = @host.child(q)
+    target = child_named(q)
 
     if !target then return @host.act("look","Cannot find a target named #{q}.") end
 

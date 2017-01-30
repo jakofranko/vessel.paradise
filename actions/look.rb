@@ -1,9 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+require_relative "_toolkit.rb"
+
 class ActionLook
 
   include Action
+  include ActionToolkit
   
   def initialize q = nil
 
@@ -119,18 +122,6 @@ class ActionLook
     if !@host.parent.has_attr then html += "<li>Add an <action data-action='rename '>attribute</action> to the parent vessel.</li>" end
 
     return "<ul class='guide'>#{html}</ul>"
-
-  end
-
-  def wildcard q
-
-    if q.include?("(random ")
-      string = q.split("(random ").last.split(")").first.strip
-      params = string.split(" ")
-      return q.sub("(random #{string})",params[rand(params.length)].to_s)
-    end
-
-    return q
 
   end
 

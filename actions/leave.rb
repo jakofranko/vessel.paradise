@@ -1,9 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+require_relative "_toolkit.rb"
+
 class ActionLeave
 
   include Action
+  include ActionToolkit
   
   def initialize q = nil
 

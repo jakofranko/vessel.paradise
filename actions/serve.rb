@@ -3,8 +3,6 @@
 
 $nataniev.require("corpse","http")
 
-$BADWORDS = ["dick","pussy","asshole","nigger","cock","jizz","faggot","nazi","cunt","sucker","bitch","fag","jew","nigga","anus"]
-
 class ActionServe
 
   include Action

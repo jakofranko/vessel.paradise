@@ -1,9 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+require_relative "_toolkit.rb"
+
 class ActionSay
 
   include Action
+  include ActionToolkit
   
   def initialize q = nil
 
@@ -29,6 +32,7 @@ class ActionSay
     end
 
     $forum.append(encode(q))
+    
     return "<p>You said \"#{q}\".</p>"
     
   end

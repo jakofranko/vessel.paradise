@@ -1,9 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+require_relative "_toolkit.rb"
+
 class ActionTake
 
   include Action
+  include ActionToolkit
   
   def initialize q = nil
 
@@ -16,7 +19,7 @@ class ActionTake
 
   def act q = "Home"
 
-    target = @host.sibling(q)
+    target = sibling_named(q)
 
     if !target then return @host.act("look","Cannot find a target named #{q}.") end
 

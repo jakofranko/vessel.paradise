@@ -74,21 +74,6 @@ class Ghost
 
   end
 
-  def sibling q
-
-    q = " #{q} ".gsub(" the ","").gsub(" a ","").gsub(" an ","").strip
-    target_attr,target_name = q.split(" ").length == 1 ? ["",q] : q.split(" ")
-
-    siblings.each do |vessel|
-      if vessel.name.like(target_name) && vessel.attr.like(target_attr) then return vessel end
-    end
-    siblings.each do |vessel|
-      if vessel.name.like(target_name) then return vessel end
-    end
-    return nil
-    
-  end
-
   def siblings
 
     if @siblings then return @siblings end
@@ -114,22 +99,6 @@ class Ghost
       @children.push(vessel)
     end
     return @children
-
-  end
-
-  def child q
-
-    q = " #{q} ".gsub(" the ","").gsub(" a ","").gsub(" an ","").strip
-    target_attr,target_name = q.split(" ").length == 1 ? ["",q] : q.split(" ")
-
-    children.each do |vessel|
-      if vessel.name.like(target_name) && vessel.attr.to_s.like(target_attr) then return vessel end
-    end
-
-    children.each do |vessel|
-      if vessel.name.like(target_name) then return vessel end
-    end
-    return nil
 
   end
 

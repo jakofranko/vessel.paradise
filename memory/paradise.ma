@@ -47,10 +47,10 @@
 0000-00043-00016-20170129201517 dupe
 0000-00001-00001-20170129164551 box
 0000-00044-00027-20170129172021 workshop       void                                                                        Made from broken pieces of ancient Mudslide Mountain technology
-0000-00044-00027-20170129223034 box            insulating                                                                  i gots a widget
+0000-00044-00027-20170130105223 box            silver         i gots a widget                           hello there hello here
 0000-00044-00027-20170129172502 trashcan                   
 0000-00044-00027-20170129172609 widget         matrix                   
-0000-00045-00027-20170129172647 widget                   
+0000-00003-00027-20170130105629 widget
 0000-00016-00016-20170129192927 sun            black                   
 0000-00001-00016-20170129182050 door           red                   
 0000-00110-00024-20170130044749 lost           unfound        say are you lost q                                           Until they claim otherwise, shrouded in their own mist, all beings are lost.
@@ -146,3 +146,4 @@
 0000-00126-00039-20170130033703 tarot                   
 0000-00051-00051-20170130035608 translator                    warp 110                   
 0000-00110-00051-20170130041047 crystal        glitching                                                                   Shimmering digitally, flickering in and out of existence, it makes the sound of an electric fire.
+0000-00045-00048-20170130104459 kettle

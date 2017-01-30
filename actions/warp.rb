@@ -1,9 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+require_relative "_toolkit.rb"
+
 class ActionWarp
 
   include Action
+  include ActionToolkit
   
   def initialize q = nil
 
@@ -16,13 +19,9 @@ class ActionWarp
 
   def act q = "Home"
 
-    warp_id = q.split(" ").last.to_i
-    target = $parade[warp_id]
+    target = distant_id(q.split(" ").last.to_i)
 
-    if q.to_s.strip == "" then return @host.act(:look,"You need to input a warp id.") end
-
-    if warp_id.to_i < 1 || warp_id.to_i > 99999 then return @host.act(:look,"You cannot warp there. #{warp_id} is not a valid warp id.") end
-    if !target then return "<p>You cannot warp to into the void.</p>" end
+    if !target then return @host.act("look","Cannot warp into the void.") end
 
     @host.set_unde(target.id)
 
