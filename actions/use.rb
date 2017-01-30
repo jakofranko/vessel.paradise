@@ -23,10 +23,24 @@ class ActionUse
 
     action = target.program.to_s.split(" ").first
 
+    return wildcard(target.program)
+
     if !@host.can(action) then return @host.act("look","The program is invalid.") end
 
     return @host.act(action,target.program.sub(action,"").strip)
     
+  end
+
+  def wildcard q
+
+    if q.include?("(random ")
+      string = q.split("(random ").last.split(")").first.strip
+      params = string.split(" ")
+      return q.sub("(random #{string})",params[rand(params.length)].to_s)
+    end
+
+    return q
+
   end
 
 end
