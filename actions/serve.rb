@@ -77,6 +77,8 @@ class CorpseHttp
     add_meta("keywords","aliceffekt, traumae, devine lu linvega")
     add_meta("viewport","width=device-width, initial-scale=1, maximum-scale=1")
     add_meta("apple-mobile-web-app-capable","yes")
+    add_meta("apple-touch-fullscreen","yes")
+    add_meta("apple-mobile-web-app-status-bar-style","black-translucent")
     
     add_link("style.reset.css")
     add_link("style.fonts.css")
