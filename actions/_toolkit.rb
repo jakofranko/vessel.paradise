@@ -124,7 +124,7 @@ module ActionToolkit
 
     ratio = words_after.length.to_f / words_before.length.to_f
 
-    if ratio < 0.5 then return nil end
+    if ratio < 0.2 then return nil end
 
     return true
 
