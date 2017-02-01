@@ -43,7 +43,7 @@ class Comment
 
   def vessel_name
 
-    return $parade[from] ? $parade[from] : "ghost"
+    return $parade[from] ? $parade[from].to_s(true,true,false) : "ghost"
 
   end
 

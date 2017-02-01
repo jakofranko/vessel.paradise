@@ -36,11 +36,11 @@ class ActionLook
     if @host.parent.id == @host.id
       return "<p>You are the paradox of #{@host}.</p>"
     elsif @host.id == @host.parent.unde
-      return "<p>You are #{@host} in a paradox of #{@host.parent}.</p>"
+      return "<p>You are #{@host} in a paradox of #{@host.parent.to_s(true,true,false)}.</p>"
     elsif @host.parent.id == @host.parent.unde
-      return "<p>You are #{@host} in #{@host.parent}.</p>"
+      return "<p>You are #{@host} in #{@host.parent.to_s(true,true,false)}.</p>"
     end
-    return "<p>You are #{@host} in #{@host.parent} of #{@host.parent.parent.to_s(false)}."+"</p>"
+    return "<p>You are #{@host} in #{@host.parent.to_s(true,true,false)} of #{@host.parent.parent.to_s(false,true,false)}."+"</p>"
 
   end
 
