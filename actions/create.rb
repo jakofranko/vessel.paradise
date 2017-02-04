@@ -25,6 +25,7 @@ class ActionCreate
     attr = target.length == 2 ? target[target.length-2] : ""
 
     # Lengths
+    if name.to_s == "" then return @host.act(:look,"The vessel name is too short.") end
     if name.length < 3 then return @host.act(:look,"The vessel name is too short.") end
     if name.length > 14 then return @host.act(:look,"The vessel name is too long.") end
     if attr.length > 14 then return @host.act(:look,"The vessel attribute is too long.") end
