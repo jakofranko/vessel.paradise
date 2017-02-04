@@ -33,7 +33,7 @@ class ActionInspect
     if @host.siblings.length > 0
       html += "<tr><th>Inventory</th><td>"
       @host.siblings.each do |vessel|
-        html += "<action data-action='enter the #{vessel.name}'>#{vessel.attr} #{vessel.name} ≡#{vessel.id}</action></br />"
+        html += "<action data-action='enter the #{vessel.name}'>#{vessel.attr} #{vessel.name} ≡#{vessel.id}</action><br />"
       end
       html += "</td></tr>"
     end
