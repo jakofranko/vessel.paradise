@@ -21,7 +21,7 @@ class ActionMake
 
     attr = q.split(" ").last
 
-    if q.to_s.strip == "" then return @host.act(:look,"You cannot remove an attribute.") end
+    if !is_long_enough(attr) then return @host.act(:look,"This vessel attribute is too short.") end
     if !is_valid(attr) then return @host.act(:look,"This vessel attribute is not allowed.") end
     if !is_alphabetic(attr) then return @host.act(:look,"A vessel attribute cannot include non alphabetic characters.") end
     if !is_unique(name,attr) then return @host.act(:look,"A vessel named \"#{attr+' '+name}\" already exists somewhere.") end

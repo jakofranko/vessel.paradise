@@ -23,6 +23,7 @@ class ActionTransmute
 
     name = q.split(" ").last
 
+    if !is_long_enough(name) then return @host.act(:look,"This vessel name is too short.") end
     if !is_valid(name) then return @host.act(:look,"This vessel name is not allowed.") end
     if !is_unique(name,@host.parent.attr) then return @host.act(:look,"A vessel named \"#{name}\" already exists somewhere.") end
     if !is_alphabetic(name) then return @host.act(:look,"A vessel name cannot include non alphabetic characters.") end

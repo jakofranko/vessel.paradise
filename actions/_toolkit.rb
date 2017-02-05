@@ -24,6 +24,13 @@ module ActionToolkit
 
   end
 
+  def is_long_enough word, min = 3,max = 14
+
+    if word.length < min then return false end
+    return true
+
+  end
+
   def is_valid word
 
     $BADWORDS.each do |bad_word|

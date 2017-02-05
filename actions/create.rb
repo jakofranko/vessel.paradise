@@ -26,12 +26,11 @@ class ActionCreate
 
     # Lengths
     if name.to_s == "" then return @host.act(:look,"The vessel name is too short.") end
-    if name.length < 3 then return @host.act(:look,"The vessel name is too short.") end
     if name.length > 14 then return @host.act(:look,"The vessel name is too long.") end
     if attr.length > 14 then return @host.act(:look,"The vessel attribute is too long.") end
     
     # Checks
-
+    if !is_long_enough(name) then return @host.act(:look,"This vessel name is too short.") end
     if !is_unique(name,attr) then return @host.act(:look,"A vessel named \"#{attr+' '+name}\" already exists somewhere.") end
     if !is_valid(name) then return @host.act(:look,"This vessel name is not allowed.") end
     if !is_valid(attr) then return @host.act(:look,"This vessel attribute is not allowed.") end
