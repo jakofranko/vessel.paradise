@@ -22,6 +22,7 @@ class ActionWarp
     target = distant_id(q.split(" ").last.to_i)
 
     if !target then return @host.act("look","Cannot warp into the void.") end
+    if @host.is_locked == true then return "<p>#{@host} is locked.</p>" end
 
     @host.set_unde(target.id)
 

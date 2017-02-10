@@ -20,6 +20,7 @@ class ActionLeave
   def act q = "Home"
 
     if @host.parent.is_stem then return @host.act("look","You may not leave #{@host.parent}. You have reached the stem of the universe.") end
+    if @host.is_locked == true then return "<p>#{@host} is locked.</p>" end
 
     old_parent = @host.parent
 

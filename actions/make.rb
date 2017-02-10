@@ -25,6 +25,7 @@ class ActionMake
     if !is_valid(attr) then return @host.act(:look,"This vessel attribute is not allowed.") end
     if !is_alphabetic(attr) then return @host.act(:look,"A vessel attribute cannot include non alphabetic characters.") end
     if !is_unique(name,attr) then return @host.act(:look,"A vessel named \"#{attr+' '+name}\" already exists somewhere.") end
+    if @host.is_locked == true then return "<p>#{@host} is locked.</p>" end
     
     @host.parent.set_attr(attr)
 

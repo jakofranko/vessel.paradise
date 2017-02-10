@@ -13,6 +13,11 @@ class Ghost
   attr_accessor :owner
   attr_accessor :program
 
+  attr_accessor :is_locked
+  attr_accessor :is_hidden
+  attr_accessor :is_quiet 
+  attr_accessor :is_frozen
+
   def initialize content
 
     super
@@ -26,6 +31,13 @@ class Ghost
     @unde  = @content["CODE"] ? @content["CODE"].split("-")[1].to_i : 1
     @owner = @content["CODE"] ? @content["CODE"].split("-")[2].to_i : 0
     @time  = @content["CODE"] ? @content["CODE"].split("-")[3] : Timestamp.new
+
+    # Code
+
+    @is_locked = @perm[0,1].to_i == 1 ? true : false
+    @is_hidden = @perm[1,1].to_i == 1 ? true : false
+    @is_quiet  = @perm[2,1].to_i == 1 ? true : false
+    @is_frozen = @perm[3,1].to_i == 1 ? true : false
     
     @program = @content["PROGRAM"]
 
@@ -44,11 +56,14 @@ class Ghost
     install(:advanced,:warp)
     install(:advanced,:take)
     install(:advanced,:drop)
+    install(:advanced,:lock)
+    install(:advanced,:unlock)
 
     install(:communication,:say)
 
     install(:advanced,:transmute)
     install(:advanced,:make)
+
     install(:control,:note)
     install(:control,:program)
     install(:control,:use)
@@ -127,7 +142,13 @@ class Ghost
 
   def encode
 
-    return "#{@perm}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@program.to_s.append(' ',61)} #{@note}".strip
+    code = ""
+    code += @is_locked == true ? "1" : "0"
+    code += @is_hidden == true ? "1" : "0"
+    code += @is_quiet  == true ? "1" : "0"
+    code += @is_frozen == true ? "1" : "0"
+
+    return "#{code}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@program.to_s.append(' ',61)} #{@note}".strip
 
   end
 
@@ -196,6 +217,14 @@ class Ghost
 
   end
 
+  def set_locked val
+
+    @is_locked = val
+    save
+    reload
+
+  end
+
   # Testers
 
   def has_note
@@ -225,8 +254,10 @@ class Ghost
     if has_note then val += 1 end
     if has_attr then val += 1 end
     if has_program then val += 1 end
+    if is_locked then val += 1 end
 
     return val
+    
   end
 
 end

@@ -22,6 +22,7 @@ class ActionTake
     target = sibling_named(q)
 
     if !target then return @host.act("look","Cannot find a target named #{q}.") end
+    if target.is_locked == true then return "<p>#{target} is locked.</p>" end
 
     target.set_unde(@host.id)
 

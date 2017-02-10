@@ -19,10 +19,10 @@
 0000-00014-00010-20170130135340 cog            green
 1111-00176-00000-20170206230832 nullspace
 0000-00016-00013-20170204010935 vektra         infinite                                                                     Vektra, the singularity.
-0000-00017-00011-20170130133749 city           red            This is a test
+0000-00426-00011-20170210160600 city           red            This is a test
 0000-00007-00015-20170129135521 eigengrau      eigengrau                   
 0000-00031-00010-20170129181209 marble         red            warp to 1                   
-0000-00017-00019-20170129181108 center         city                                                                        this is a wip
+0000-00020-00019-20170210154502 center         city                                                                         this is a wip
 0000-00225-00016-20170131221222 soul           devoured                                                                     Soul of the Vektra.
 0000-00026-00010-20170129142342 monolith       monolith                   
 0000-00013-00019-20170129165251 painting       chartreuse                   
@@ -147,7 +147,7 @@
 0000-00051-00051-20170130035608 translator                    warp 110                   
 0000-00110-00051-20170130041047 crystal        glitching                                                                   Shimmering digitally, flickering in and out of existence, it makes the sound of an electric fire.
 0000-00324-00048-20170204232110 ball           crystal        use (random ant bat keg ham cot)
-0000-00017-00017-20170130131705 warp           blue
+0000-00145-00017-20170210160232 warp           blue
 0000-00139-00054-20170202130959 golem                                                                                       This is the golem
 0000-00002-00028-20170201091323 clock
 0000-00148-00095-20170206200720 hypersquare
@@ -428,3 +428,4 @@
 0000-00015-00291-20170209084954 aids
 0000-00283-00123-20170209161228 diggle
 0000-00420-00123-20170209162450 warpdrive
+1000-00145-00017-20170210160603 bread          purple

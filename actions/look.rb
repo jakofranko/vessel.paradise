@@ -35,8 +35,6 @@ class ActionLook
 
     if @host.parent.id == @host.id
       return "<p>You are the paradox of #{@host}.</p>"
-    elsif @host.id == @host.parent.unde
-      return "<p>You are #{@host} in a paradox of #{@host.parent.to_s(true,true,false)}.</p>"
     elsif @host.parent.id == @host.parent.unde
       return "<p>You are #{@host} in #{@host.parent.to_s(true,true,false)}.</p>"
     end
@@ -77,19 +75,19 @@ class ActionLook
 
     # Children
     children = @host.is_stem ? [] : @host.children
-    if children.length == 1
-      html += "You carry #{children[0]}. "
-    elsif children.length == 2
-      html += "You carry #{children[0]} and #{children[1]}. "
-    elsif children.length == 3
-      html += "You carry #{children[0]}, #{children[1]} and #{children[2]}. "
-    elsif children.length > 3
-      html += "You carry #{children[0]}, #{children[1]} and #{children.length-2} other vessels. "
-    else
-      html += ""
-    end
+    # if children.length == 1
+    #   html += "You carry #{children[0]}. "
+    # elsif children.length == 2
+    #   html += "You carry #{children[0]} and #{children[1]}. "
+    # elsif children.length == 3
+    #   html += "You carry #{children[0]}, #{children[1]} and #{children[2]}. "
+    # elsif children.length > 3
+    #   html += "You carry #{children[0]}, #{children[1]} and #{children.length-2} other vessels. "
+    # else
+    #   html += ""
+    # end
 
-    if siblings.length == 0 && children.length == 0 then html = "There is nothing." end
+    if siblings.length == 0 then html = "You see nothing." end
 
     return "<action data-action='inspect ' class='status'><img src='public.paradise/media/vectors/status.svg'/></action>"+"<p>#{html}</p>"
 
