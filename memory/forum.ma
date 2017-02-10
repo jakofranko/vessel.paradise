@@ -287,3 +287,811 @@
 20170130115105 00095 00097 my favorite color is (random red cyan)
 20170130115224 00035 00027 color (random red cyan)
 20170130105155 00045 00048 hello
+20170130125747 00035 00103 okay
+20170130125757 00035 00103 sorry i had to zap the server for a moment.
+20170130130343 00011 00103 red                     First note.
+20170130130352 00011 00103 test
+20170130130356 00011 00103 red                     First note.
+20170130130404 00011 00103 blue                     First note.
+20170130130408 00011 00103 okay
+20170130130905 00001 00027 color red
+20170130130911 00001 00027 neat
+20170130131002 00131 00056 xoka, everyone
+20170130131326 00001 00015 me waves
+20170130131402 00017 00017 i have done a lot of updates today.
+20170130131412 00073 00056 the create function seems to not be working..
+20170130131934 00043 00054 I get errors for create, become and transmute
+20170130132327 00001 00056 who is nullspace
+20170130132354 00001 00146 ok enter, leave and create work
+20170130132410 00001 00146 become didn't, but I just used the url
+20170130132414 00001 00094 me is neauoire
+20170130132418 00001 00027 howdy golem
+20170130132503 00001 00146 feels good to be back
+20170130132522 00001 00138 i have fixed the become bug
+20170130132707 00001 00043 test
+20170130132713 00138 00138 fixed the transmute bug as well
+20170130132740 00017 00017 okay I think I will make this my active vessel.
+20170130132849 00137 00099 ripperino
+20170130132938 00003 00048 I could test forever
+20170130133042 00027 00027 which words were added
+20170130133046 00027 00027 neat
+20170130133136 00001 00146 ᚷᛟᛚᛖᛗ
+20170130133158 00001 00146 unicodelicious
+20170130133208 00017 00017 added which and why
+20170130133225 00017 00017 which day are we
+20170130133234 00017 00017 working
+20170130133604 00001 00146 and already I'm tempted to try the potatoes
+20170130133732 00120 00056 is cyan the only thing that works for colors
+20170130133743 00017 00017 red works as well
+20170130133758 00017 00017 there are two clans in Paradise.
+20170130133805 00017 00017 which are you
+20170130133814 00017 00017 me laughs maniacally.
+20170130133857 00110 00051 привет
+20170130133955 00027 00027 test (random red cyan)
+20170130134004 00027 00027 ok so that only works in programs
+20170130134023 00001 00146 привет!
+20170130134112 00027 00027 me begins thinking of religious applications for the two clans
+20170130134119 00017 00017 привет
+20170130134307 00017 00017 i like to think of the unique physics of this world of words.
+20170130134400 00044 00027 yeah. Size does not matter. All items are interchangeable to the physics of this world. Literary gravity pulls them all equally.
+20170130134412 00044 00027 I wrote a number of treatises on the subject in old paradise.
+20170130134424 00137 00111 cool
+20170130134548 00001 00146 will the old json be imported
+20170130134602 00017 00017 literary gravity pulls them all equally
+20170130134755 00017 00017 i dont think so golem
+20170130134819 00014 00028 hello
+20170130134838 00044 00027 maybe you could launch a legacy paradise
+20170130134839 00017 00017 hello deleteme
+20170130134848 00044 00027 or i guess anyone could, because it is open source now, right
+20170130134854 00017 00017 maybe, i'm still debating with myself.
+20170130134903 00017 00017 basically
+20170130134934 00097 00095 would anyone like to eat me
+20170130135141 00001 00146 I think I could write a script to recreate the structure
+20170130135202 00001 00146 still, the json doesn't contain notes, so it would be rather soulless
+20170130135226 00097 00148 I have tasted your flesh and have ascended to a world I no longer desire
+20170130135255 00044 00027 there is a drop on github that does contain notes
+20170130135607 00001 00146 that seems to be from the current version
+20170130135647 00017 00017 golem, i can send it over slack if you want.
+20170130135708 00001 00146 oh that would be nice
+20170130135715 00027 00027 it is in the inner haven if you scroll up far enough
+20170130135719 00027 00027 he sent it last night
+20170130135940 00017 00017 me nods
+20170130140105 00001 00146 got it, thank you
+20170130140352 00125 00111 what is the id of the inner haven
+20170130140505 00027 00027 the library is 1
+20170130140513 00027 00027 basically the same thing
+20170130140610 00125 00111 is the library the inner haven
+20170130140719 00027 00027 this version of paradise doesnt have an inner haven yet. but in the old one, the inner haven was just the starting area, and that's what the library is here
+20170130140847 00001 00111 ah, i started in tron on my first enter
+20170130141030 00137 00101 i am scared
+20170130141041 00027 00027 why
+20170130141050 00027 00027 you are a giant dinosaur with armor plating
+20170130142332 00037 00036 what are the rules for what players spawn as
+20170130142851 00044 00027 that is a good question
+20170130142924 00044 00027 it seems very random
+20170130151910 00068 00056 what's going on with sovanite
+20170130151920 00068 00056 I can't leave it and people screwed with it
+20170130152506 00038 00024 hello
+20170130152519 00038 00024 leave it
+20170130153501 00078 00056 a few of my things are messed up
+20170130153520 00078 00056 76
+20170130153905 00078 00027 i can leave it just fine
+20170130153931 00078 00027 dont expect to create anything permanent while paradise is still being coded. Eventually, you will be able to lock vessels the way you want them.
+20170130153947 00078 00027 also notes are very messed up right now
+20170130154055 00160 00115 leaving vessels occasionally causes some Ruby errors as well, seemingly randomly
+20170130155044 00066 00027 this tron universe is a loop
+20170130155421 00075 00105 what is the issue with the notes
+20170130155531 00066 00027 the first half of notes keeps getting deleted and turned into programs
+20170130155615 00075 00105 ah yeah, i was able to reproduce, fixing.
+20170130155805 00075 00105 I have just fixed it.
+20170130155813 00075 00105 sorry about that.
+20170130160000 00066 00027 i will try it out
+20170130160012 00137 00098 137
+20170130161002 00139 00027 cool, not having any trouble with notes now
+20170130161958 00110 00051 привет, again
+20170130162026 00110 00051 is it supposed to be, that you can't see the chat anymore once you said something q
+20170130162452 00001 00027 that doesn't happen to me
+20170130162503 00001 00027 well, whenever you submit an action, you cannot see chat until you press enter again
+20170130164139 00137 00051 hmm, let me try
+20170130164158 00137 00051 ahhh, thanks, that was not obvious to me
+20170130165820 00060 00118 hello
+20170130170214 00137 00051 hello, hello
+20170130171719 00066 00056 how am I inside the universe and carrying the universe
+20170130171729 00001 00027 a loop!
+20170130171747 00066 00056 paradoxes
+20170130171823 00066 00056 I don't think that it can be accessed through the library
+20170130171829 00066 00056 sweeeeet
+20170130171856 00066 00056 it literally says "you are in a paradox of the universe"
+20170130171903 00066 00056 which is the name of my vessel
+20170130172006 00056 00056 wait so what am I
+20170130172104 00001 00027 use Inspect
+20170130172128 00001 00027 but yeah, a paradox can be thought of as another universe, which is only available through warp command, never enter
+20170130172423 00078 00076 yeah I found that out
+20170130172958 00165 00056 cy@ y'all
+20170130175018 00006 00051 I think someone might have built a loop here
+20170130175042 00006 00051 but not like a Waypoint loop, but an actual round-n-round in circles loop
+20170130175124 00006 00051 by the way, what does the * next to a vessel name mean
+20170130175203 00044 00027 the asterisk means there is a program
+20170130175340 00075 00051 "A vessel program cannot exceed 60 characters."
+20170130175455 00075 00051 I only see exclamation marks on my vessels, even if they have a program
+20170130175556 00051 00051 me slurping his tea
+20170130175735 00051 00051 it seems, it also depends on what the program does, which character is appended
+20170130175742 00051 00051 is that correct q
+20170130175758 00051 00051 is that correct .q
+20170130175830 00051 00051 how to questions work again¿
+20170130175904 00044 00027 questions that start with a question word are hte only ones
+20170130175908 00044 00027 which
+20170130175909 00044 00027 what
+20170130175915 00044 00027 how
+20170130175917 00044 00027 why
+20170130175921 00044 00027 when
+20170130175923 00044 00027 where
+20170130175930 00051 00051 now I'm properly confused¿
+20170130175951 00051 00051 oh, I see
+20170130175957 00051 00051 hmm
+20170130180004 00044 00027 paradise detects questions that start with those words, and appends a questionmark
+20170130180035 00051 00051 isn't "is" also a question marker
+20170130180048 00051 00051 and "isn't" for that matter
+20170130180127 00051 00051 that is an interesting limitation, with the questions
+20170130180130 00044 00027 you could petition for those to be added
+20170130180206 00051 00051 and it only stems from the ¿ being a sensitive character in URLs
+20170130180217 00051 00051 or so it seems, at leas
+20170130180258 00044 00027 correct
+20170130181739 00051 00051 what are you working on at the moment
+20170130181902 00044 00027 nothing, i am waiting until paradise stabilizes
+20170130181909 00044 00027 just helping look for bugs
+20170130182710 00044 00027 strangely we cannot destroy yet
+20170130183753 00016 00016 maybe there's no need to destroy, only create
+20170130184429 00060 00168 love
+20170130184456 00016 00016 yes
+20170130184534 00060 00118 can i love
+20170130184634 00045 00027 me loves
+20170130184648 00060 00169 how does the grey iron love
+20170130184713 00045 00027 me loves passionately
+20170130184730 00045 00027 (say me loves)
+20170130184753 00060 00171 me loves
+20170130185009 00016 00016 has anyone seen a drifter
+20170130185041 00001 00016 nevermind, found him
+20170130185045 00050 00173 i have
+20170130185724 00060 00172 nothing
+20170130185752 00035 00027 (red cyan blue ochre)
+20170130185820 00035 00027 blue
+20170130190350 00044 00027 (random blue green)
+20170130192246 00000 00013 nothing
+20170130192518 00016 00021 everything
+20170130194858 00176 00051 me ОПС
+20170130201048 00000 00013 hello world
+20170130201150 00044 00027 hello house
+20170130201152 00000 00013 hello genesis
+20170130201325 00016 00016 hello, house
+20170130202543 00016 00016 how is everyone
+20170130202634 00044 00027 i am trying to decide if i want to still be iron, or be a new character for new paradise
+20170130202737 00016 00016 what difference do you feel it makes
+20170130203113 00044 00027 just for funsies. but i have a lot of assumptions about the iron character, because i spent a lot of hours of my life as iron
+20170130203132 00044 00027 maybe i will see what direction this new paradise goes
+20170130203211 00016 00016 the choice won't disappear
+20170130203254 00001 00027 also true. You should keep the same id, but thanks to transmute, you can always be someone different
+20170130203322 00001 00027 if we never get multiword vessel names, then i am more likely to be iron
+20170130203419 00016 00016 yeah, it's nice that we can keep our ID. But at the same time, it's nice to be entirely anonymous
+20170130203501 00016 00016 is two words not enough
+20170130203605 00016 00016 who would you want to be, iron
+20170130203702 00045 00027 i like really descriptive vessel names
+20170130203712 00045 00027 i dont have one in mind yet.
+20170130203804 00045 00027 maybe some kind of tool. or something abstract and postmodern, like a coruscation of light
+20170130203832 00016 00016 are you a programmer
+20170130204304 00045 00027 i only dabble
+20170130204323 00045 00027 i know a little python and a little bit about web dev languages
+20170130204418 00016 00016 is there something you feel like you specialize in
+20170130204440 00045 00027 no, i am not far enough along to really specialize. if i have a problem, i first turn to python though.
+20170130204459 00045 00027 mostly i just automate simple tasks. But i really want to be able to make games.
+20170130204557 00016 00016 that's great :) more than what most people can do
+20170130204648 00045 00027 true. but it is hard to make the leap from amateur hour to skilled programmer.
+20170130204711 00045 00027 someday i might consider going to college for it.
+20170130204848 00016 00016 I agree, it's unlike a lot of other stuff, difficult to get a solid base without mentorship of some sort
+20170130204903 00016 00016 at least in the beginning
+20170130204939 00045 00027 right
+20170130204959 00045 00027 a casual mentor would be even better. but usually those peoples time is too valuable
+20170130214031 00184 00027 hello foxkit
+20170130222557 00011 00027 blue                     First note.
+20170130222720 00176 00027 me ОПС
+20170130234504 00111 00055 hello
+20170130234516 00111 00055 is anyone there
+20170130234943 00016 00016 hello
+20170130235632 00190 00027 hi
+20170131000141 00176 00001 me ОПС
+20170131003230 00137 00098 hello
+20170131003412 00001 00027 hi antelope
+20170131010500 00001 00027 no one ever does more than hello 0.0
+20170131010530 00016 00016 how are you, antelope
+20170131010713 00016 00016 has anyone been busy creating universes
+20170131011235 00001 00027 i have been expanding the library, the stem
+20170131011241 00001 00027 but someone became it and wandered off, so
+20170131011323 00016 00016 looking forward to lockable vessels, I assume haha
+20170131011524 00043 00016 ah, I've found the dump box. Looks like someone took the sausages out and replaced them with an Xbox car. Of course.
+20170131011602 00042 00016 nevermind, found the sausages.
+20170131011653 00078 00066 Hi
+20170131011711 00016 00016 hello, universe
+20170131011720 00016 00016 how are you
+20170131011721 00001 00027 oh there is always sausages. hi universe.
+20170131011724 00078 00066 hello
+20170131012450 00016 00016 me slumbers...
+20170131012727 00001 00027 me slumbers with the players handbook under his pillow
+20170131013011 00194 00195 me comes
+20170131031423 00159 00052 hello
+20170131032433 00001 00027 blue
+20170131032443 00001 00027 black
+20170131051913 00176 00051 me ОПС
+20170131052105 00176 00051 me is boarding the Алмаз ОПС
+20170131080220 00016 00016 morning
+20170131085541 00027 00091 ochre
+20170131085856 00016 00016 green
+20170131091308 00043 00059 hello
+20170131091325 00043 00059 where am i
+20170131091351 00043 00059 help me
+20170131091443 00044 00185 hello tom
+20170131091528 00161 00094 where am i
+20170131091632 00001 00094 hello
+20170131095432 00016 00016 need help
+20170131095446 00016 00016 * anybody need help q
+20170131095941 00000 00013 now, if you start a sentence with does, it will format it as a question.
+20170131095956 00000 00013 does anybody need help
+20170131100037 00016 00016 right, just wanted to talk more informally haha
+20170131101806 00016 00016 who has the sausages
+20170131103414 00016 00200 hello, children
+20170131104223 00060 00171 does this read out
+20170131104240 00060 00171 what about this
+20170131104424 00024 00016 yes
+20170131113723 00054 00106 curl test
+20170131113825 00054 00106 yay I can send messages with curl
+20170131143421 00102 00202 who are you people
+20170131143718 00044 00027 we are all vessels
+20170131144207 00094 00202 enter a faction
+20170131145107 00206 00207 in chaos there are the factions, enter one or create one...
+20170131163714 00128 00056 what does "make x" mean in a program
+20170131163844 00205 00027 is the program just "make x"
+20170131163910 00205 00027 it should cause the parent vessel to have an attribute, right
+20170131163914 00056 00056 why am I a pardox
+20170131163919 00202 00207 I'm guessing the x would resemble a variable
+20170131163935 00205 00027 does it actually say "x" or does it say something
+20170131163951 00205 00027 if i used "program make red", it would cause the parent vessel to be red
+20170131164004 00205 00027 you are a paradox if you warped inside yourself or inside your inventory
+20170131165920 00206 00207 I have created time
+20170131170200 00003 00149 what is times id
+20170131171014 00076 00113 is there space
+20170131171210 00121 00056 I made space and someone fucked with it
+20170131171257 00154 00076 good bye
+20170131171349 00076 00037 xoka
+20170131171728 00160 00037 i want human ramen!!!!!!!!
+20170131172218 00214 00056 jackson who is you
+20170131172318 00214 00219 two foutry one
+20170131172448 00016 00033 warp 207 xsova
+20170131172615 00207 00207 why would you want to be inside me
+20170131172850 00212 00033 warp 212
+20170131173112 00001 00207 who are you drifter
+20170131173606 00214 00219 god is this isaac
+20170131173606 00001 00208 he was a drifter... dont readme trustme
+20170131173700 00202 00207 I am Isaac
+20170131173721 00214 00056 why you all gotta troll me
+20170131173726 00001 00208 i am a readme
+20170131173750 00001 00208 soib isaac
+20170131173803 00001 00208 soib xsova
+20170131173859 00202 00207 I am confused
+20170131173915 00212 00027 what the heck is going on in this chat
+20170131173922 00214 00056 this is bryce
+20170131173935 00001 00208 gods are never confused though
+20170131173948 00202 00207 everyone say their names
+20170131174006 00214 00056 bryce
+20170131174028 00191 00089 avacado
+20170131174039 00214 00056 god what's your number
+20170131174043 00206 00207 Isaac
+20170131174054 00212 00089 he is 207
+20170131174105 00212 00089 207 is god
+20170131174227 00214 00219 how can you find out someone's number
+20170131174254 00212 00213 inspect them
+20170131174305 00212 00213 or inspect the thing they are in
+20170131174424 00207 00027 me inspects everyone carefully
+20170131174822 00001 00221 dont insoect the red sea... or the blue door...or red wood...
+20170131174836 00001 00221 inspect
+20170131175126 00207 00027 why not
+20170131175332 00146 00221 ....
+20170131175340 00146 00221 trust me
+20170131175352 00146 00221 just trust
+20170131175455 00001 00027 i inspected it and it wasn't scary
+20170131180745 00050 00027 me floats through the void
+20170131180758 00050 00027 me throws handfuls of magma
+20170131182205 00025 00207 hi
+20170131182254 00050 00027 me waves
+20170131182415 00050 00027 are you Paradoxical god
+20170131183244 00042 00207 you could say so... I exist outside of time and space.
+20170131183338 00042 00207 to you I am just an abstract concept
+20170131183444 00043 00207 I have manifested myself in this physical form
+20170131183542 00050 00027 havent we all.
+20170131191507 00016 00016 who gave me a house
+20170131191534 00016 00016 sorry, a *home
+20170131191541 00050 00027 perhaps santa
+20170131212514 00016 00016 hello
+20170131212550 00182 00027 howdy
+20170131212837 00016 00016 so, we've surpassed 200 vessels, today
+20170131213705 00182 00183 hello
+20170131213752 00182 00027 hi foxkit!
+20170131213938 00016 00016 hey foxkit
+20170201004802 00245 00247 hello
+20170201005814 00097 00148 sorry
+20170201005819 00097 00148 orry
+20170201011822 00016 00016 hello, how are you
+20170201014353 00044 00027 howdy
+20170201015345 00016 00016 someone took my soul
+20170201020535 00016 00016 would be curious to know what goes on when I'm not around
+20170201020607 00016 00016 unfortunately too busy with things to stay on here for too long
+20170201091235 00147 00147 hello
+20170201101235 00050 00106 infinite vektra: I devoured your soul
+20170201115859 00016 00016 why, serpent
+20170201115909 00016 00016 was it greed, lust, hunger
+20170201120100 00245 00123 it was hunger
+20170201120356 00114 00111 the cat is back!
+20170201121413 00002 00147 hey kat
+20170201121953 00232 00166 hey klock
+20170201122057 00232 00166 itthomas warp 232
+20170201122131 00232 00166 oh im itthomas... hahaha
+20170201123027 00232 00027 what are all these interesting words
+20170201123043 00232 00027 emrakul! kozilek! ulamog!
+20170201123054 00232 00027 me dances and chants
+20170201123125 00232 00027 ah, mtg
+20170201123153 00241 00166 you found them
+20170201123250 00232 00166 sigil enter me, wht is my id
+20170201123302 00166 00027 166
+20170201123310 00166 00027 you can view your id from the url bar
+20170201123316 00166 00166 thanks
+20170201123332 00166 00027 or with inspect
+20170201123335 00166 00027 your id is 166
+20170201123343 00166 00166 oh lol now i know
+20170201123459 00166 00166 yes it is. thank you, who are you
+20170201123515 00166 00166 like how did you know all that
+20170201123601 00166 00027 i played the old version of paradise
+20170201123613 00166 00027 any questions, just ask me
+20170201123614 00016 00016 magic
+20170201123649 00016 00016 hi itthomas, it's nice to meet you
+20170201123658 00166 00166 magic...
+20170201123733 00166 00166 nice to meet you vektra
+20170201123740 00276 00027 how did you find out about this game, thomas
+20170201123828 00166 00166 i found it
+20170201124005 00166 00166 does chat only refresh when i do stuff
+20170201124031 00277 00027 yeah, or press enter
+20170201124116 00166 00166 ok
+20170201124219 00166 00166 now i dont need to type look post every action
+20170201124809 00277 00027 changed my url id to 27,are there two plyers as sigil
+20170201124826 00277 00027 was 166
+20170201124834 00277 00027 blue
+20170201124935 00277 00027 or did i kick the other player
+20170201125129 00025 00027 i am still here
+20170201125149 00025 00027 i am the real sigil!
+20170201125215 00050 00027 who is in control if we are the same
+20170201125319 00001 00027 if i warp to where you are will i see 2 of us
+20170201125402 00001 00027 no, we are both the same vessel
+20170201125410 00016 00016 I have no idea who is talking anymore haha
+20170201125413 00001 00027 if i warp, you warp. If you warp, i warp.
+20170201125436 00001 00027 all the server really knows is what vessel we are inside of at any given time
+20170201125442 00001 00027 so if you warp will i warp
+20170201125517 00001 00027 oh wow
+20170201125558 00001 00027 you can see the movement i have done
+20170201125603 00001 00027 *yeah, watch
+20170201125633 00022 00027 that was a question for you real one
+20170201125651 00022 00027 *I did see the movement you did
+20170201125651 00022 00027 oh wow
+20170201125703 00022 00027 thats cool
+20170201125704 00022 00027 *now you can see that i have warped us to a monolith
+20170201125716 00022 00027 yea
+20170201125759 00056 00027 and now we are at an xsova
+20170201125955 00001 00027 this is a cool game
+20170201130012 00001 00027 me laughs happily
+20170201130022 00001 00027 the old paradise had 20,000 vessels to explore
+20170201130037 00001 00027 soon enough, this one will be even bigger
+20170201130103 00001 00027 how was it made
+20170201130117 00016 00016 true, it's only been a few days and we have a couple hundred
+20170201130136 00001 00027 wow, thats a lot
+20170201130139 00001 00027 how was the software made*
+20170201130144 00016 00016 Ruby and Sinatra
+20170201130148 00001 00027 all of it
+20170201130152 00001 00027 the game
+20170201130157 00001 00027 i think it is coded in ruby
+20170201130218 00001 00027 and then of course the vessels were just made by players*
+20170201130221 00014 00028 ah, i was the other sigil btw
+20170201130234 00014 00028 yea
+20170201130244 00014 00028 xopa
+20170201130325 00016 00016 xopa
+20170201130334 00001 00027 xopa
+20170201130349 00016 00016 =)
+20170201131230 00001 00027 xoka im back
+20170201131252 00016 00016 welcome back
+20170201131305 00014 00028 wait i dont wanna be the sigil again
+20170201131317 00001 00027 yeah, get off my lawn
+20170201131326 00014 00028 thanks
+20170201131342 00014 00028 haha i am
+20170201131618 00027 00028 can there be ai vessals
+20170201131703 00027 00028 that players can interact with, or is it just "worldmaking"
+20170201131847 00016 00016 AI vessels are currently in development, to my knowledge
+20170201131920 00045 00028 what is with the void
+20170201131940 00045 00028 what does that mean vektra
+20170201132039 00016 00016 vessels are somewhat programmable, but not to the extent where they execute their own commands
+20170201132059 00044 00028 will they ever be
+20170201132109 00016 00016 any id that does not have a vessel associated to it is the voide
+20170201132112 00016 00016 *void
+20170201132134 00016 00016 I do believe that there will be more sophisticated programming capabilities for vessels, yes :)
+20170201132140 00276 00028 ah, can we do anything there
+20170201132230 00276 00028 oh cool, cant wait for that. was there in the old form
+20170201132333 00016 00016 yeah, old Paradise had that type of stuff
+20170201132343 00016 00016 and I don't think you can do anything in the void
+20170201132356 00277 00028 like how advanced was old paradise compared to this
+20170201132407 00277 00028 ah
+20170201132523 00277 00028 are there more games like this
+20170201132604 00001 00027 the old paradise was probably 5x as sophisticated
+20170201132616 00001 00027 the closest game i can think of is Twine
+20170201132629 00277 00028 way more commands
+20170201132644 00277 00028 twine
+20170201132656 00001 00027 or storynexus. Or minecraft
+20170201132717 00001 00027 twine is kind of like a more static paradise, where one person creates a hyperlinked text story with some simple commands
+20170201132734 00277 00028 huh question marks arnt working for me btw
+20170201132812 00001 00027 question marks are automatically appended to sentences beginning with question words. is, how, who, what, when where
+20170201132830 00001 00027 is
+20170201132839 00277 00028 oh, so i cant use question marks to dente a question
+20170201132846 00277 00028 denote
+20170201132910 00001 00027 right. we traditionally just use q
+20170201132929 00277 00028 q like this
+20170201132937 00277 00028 or like this q
+20170201133036 00001 00027 the latter
+20170201133117 00058 00028 ok, you said we. is there a community that plays this
+20170201133321 00001 00027 a few
+20170201133400 00001 00027 me, lost, golem, blqbird, and chimera were some of the most active. vektra has been most active these days.
+20170201133509 00016 00016 Paradise 2.0 is still being built, so the community hasn't really migrated yet
+20170201133539 00016 00016 I like to just keep Paradise open and see what's going on, it's fun :)
+20170201133609 00058 00028 wow, so you stay as those for the most part q
+20170201133646 00001 00027 yeah a lot of people just stay the same vessel. i think i will try to avoid that in 2.0 though
+20170201133650 00016 00016 what do you mean
+20170201133709 00016 00016 oh, the vessels
+20170201133741 00016 00016 there's something fascinating about being able to be whatever you want to be. It makes sense to take advantage of that
+20170201133815 00001 00027 aye. and you can always transmute yourself into something else while keeping the same id
+20170201133826 00001 00027 it makes communication hard though lol
+20170201133925 00058 00028 how do itransmutate
+20170201133947 00016 00016 it really does haha
+20170201133959 00016 00016 especially when two people are the same vessel
+20170201134009 00016 00016 but Paradise wasn't made to be a chatroom, I suppose
+20170201134028 00001 00027 enter yourself and type "transmute gold" and you will become gold
+20170201134036 00016 00016 deleteme, when you write "transmute X" it will transmute the parent vessel to "X"
+20170201134127 00058 00028 ok
+20170201134200 00028 00028 i got this
+20170201134223 00028 00028 thats a cool thing
+20170201134256 00016 00016 very convenient
+20170201134319 00016 00016 if you enter yourself and write "make X", you will add an attribute to your vessel, so you would be "X gold"
+20170201134337 00016 00016 similarly to how I am the *infinite* vektra
+20170201134450 00028 00028 can i transmute myself into a sigil
+20170201134608 00001 00027 yes. we would not be the same sigil, because we have different ids
+20170201134614 00028 00028 or another pre named vessel
+20170201134622 00001 00027 there cant be two of the same thing in paradise unless they have different adjectives
+20170201134635 00028 00028 but i cant create a sigil
+20170201134730 00028 00028 oh cool
+20170201134730 00001 00027 why not
+20170201134800 00028 00028 nvm i was wrong
+20170201134817 00028 00028 i cant make another gold tho q
+20170201134824 00213 00027 you can become thomas again by changing the url to his id
+20170201134834 00213 00027 right. cant have exact duplicates.
+20170201134845 00213 00027 if you made yourself shining gold, then you could create gold.
+20170201135026 00028 00028 i get it now
+20170201142655 00001 00113 hello everyone
+20170201143353 00016 00016 hi, hell
+20170201143449 00213 00027 howdy
+20170201155118 00050 00004 hi
+20170201160228 00280 00027 howdy
+20170201161226 00245 00123 you have ruined my perfect world
+20170201162514 00280 00027 there is no such thing
+20170201164609 00027 00123 are you still here sigil
+20170201164637 00027 00123 blue
+20170201165021 00280 00027 yes
+20170201180918 00123 00027 300 vessels, wow
+20170201181016 00280 00027 didnt mean that, just meant to say we have 300 vessels
+20170201185102 00016 00016 yay!
+20170201185252 00246 00246 hello echo.
+20170201185318 00044 00027 echo!
+20170201185319 00044 00027 echo
+20170201185323 00044 00027 echo...
+20170201185415 00045 00027 echo!
+20170201185421 00246 00246 this is all very exciting!
+20170201185520 00144 00027 why is punctuation so great
+20170201185757 00246 00246 I'd say, punctuation defines the rhythm of what we say.
+20170201190443 00310 00027 i would agree with that
+20170201200944 00245 00248 ohce
+20170201201408 00016 00016 dheldin
+20170201212751 00078 00193 behold
+20170201212932 00077 00027 i see!
+20170201221922 00139 00146 something
+20170201222001 00280 00027 hi golem =)
+20170201222723 00283 00291 hello!
+20170201223354 00317 00027 me greets the ding
+20170201232635 00016 00016 hello!
+20170201233228 00001 00027 hi
+20170201233608 00015 00123 hi sigil, taking things from the trash bin again I see
+20170201233722 00002 00027 i am gonna recycle em
+20170201233738 00002 00027 no sense wasting id numbers
+20170201233848 00106 00027 ha, the sea serpents belly just contains a huge list of everything it has eaten
+20170201233917 00027 00123 they were meaningless numbers
+20170201235100 00027 00123 you seem familiar blazing sigil...
+20170201235134 00035 00027 how so
+20170201235905 00027 00123 I dunno, who are you
+20170201235938 00309 00027 i am the vessel formerly known as iron
+20170202003730 00245 00266 I hate the world
+20170202004308 00280 00027 a fitting vessel, then
+20170202005630 00016 00016 that serpent are my soul. I've found a new one, but it will never fully substitute the first.
+20170202010001 00016 00016 *ate
+20170202010135 00280 00027 lol
+20170202010422 00230 00123 what was your vessel that the serpent ate
+20170202013141 00016 00016 a cyan soul
+20170202043101 00230 00239 sorry
+20170202043216 00230 00239 a time machine
+20170202043238 00230 00239 get me out of here
+20170202081423 00016 00016 I won't unleash you on the world
+20170202082804 00207 00249 i do not believe
+20170202085503 00250 00328 help
+20170202094822 00126 00040 hey
+20170202111547 00042 00223 haha so metaphysical
+20170202120332 00290 00123 i love to see my children interact
+20170202120407 00290 00123 hell is back in its proper place
+20170202120503 00280 00027 yeah, it is cool that new logins have a good chance to spawn as those abstract quantities
+20170202122759 00245 00270 hello
+20170202122810 00333 00027 hi
+20170202122814 00333 00027 case in point
+20170202123030 00300 00123 i couldnt be more proud
+20170202123317 00245 00250 this is strange...
+20170202123536 00207 00334 what is there to do other than move slightly and speak
+20170202123635 00333 00027 create!
+20170202123650 00333 00027 and there is a lot to explore
+20170202123706 00333 00027 try "warp 280"
+20170202123732 00333 00027 you can build your own world, or your own philosophy
+20170202123754 00335 00334 ah i did not realize you could warp. thank you!
+20170202123811 00335 00334 this is more interesting than i had originally thought
+20170202123817 00333 00027 if you type help there is a list of commands.
+20170202125123 00341 00027 manuscript
+20170202125228 00341 00027 hello rune
+20170202133352 00300 00123 so i just figured out you can break off vessles and make new universe stems, did anyone else already know this
+20170202133555 00347 00027 paradoxes ftw
+20170202133631 00347 00027 when enough people have created nice universes, we will probably put something at warp 1 that indexes all the best universes.
+20170202133812 00050 00106 warp 1 is the library, so I guess that's a good place for that
+20170202134518 00076 00056 xoka everyone!
+20170202134750 00300 00123 bryce u r funny
+20170202134953 00083 00056 whu r u
+20170202135127 00300 00123 itthomas
+20170202135516 00347 00027 xoka
+20170202135710 00050 00106 50
+20170202140236 00016 00016 xoka
+20170202140337 00281 00254 void echoes
+20170202140352 00300 00123 isin't it xsova
+20170202140543 00016 00016 'xoka' roughly translates to 'hello' in Lietal
+20170202140559 00300 00123 ok i see
+20170202140819 00050 00027 and xopa is goodbye
+20170202141125 00001 00305 You could say 'Blai xoak' too
+20170202142447 00050 00106 what does the 'blai' translate to
+20170202143137 00349 00027 literally "without one", i think
+20170202143144 00349 00027 sort of like "i am off"
+20170202150839 00353 00350 'blai' means 'I'
+20170202150955 00353 00350 and 'xoak' translates to 'understand'
+20170202160621 00042 00223 isnt hello soib
+20170202164104 00300 00223 warp 300
+20170202164217 00300 00027 beep boop
+20170202164350 00300 00223 enjoy the new universe
+20170202165845 00300 00027 i cannot get it to do much
+20170202165901 00025 00028 make stuff then
+20170202165952 00025 00028 flush it out
+20170202170559 00076 00295 why is mine a loop
+20170202171450 00300 00027 if you go inside something you are holding you create a loop
+20170202171501 00300 00027 i am working on my own universe
+20170202171610 00300 00027 is the no command supposed to make you leave
+20170202171901 00300 00028 you cant leave 300, its cut off
+20170202171923 00300 00028 you can only warp to it and to leave warp off
+20170202172031 00300 00027 yeah, so i am not sure what the no command vessel is supposed to do
+20170202172109 00300 00027 maybe that is on purpose, it is essentially a "stay here" command
+20170202172129 00300 00028 they both warp 1 i think
+20170202172423 00300 00028 the perrson who made 300 is going to add to it
+20170202172436 00300 00028 they have yet to program no command fully
+20170202173352 00076 00295 but why is ittomas's universe a stem of the universe
+20170202174025 00213 00051 привет
+20170202174105 00213 00051 someone put a whole lot of things into me while I was lingering in the library somewhere
+20170202174107 00068 00193 hello
+20170202174123 00300 00028 russian
+20170202174200 00300 00027 toad, you can make a universe stem by dropping a vessel inside itself
+20170202174208 00213 00051 and it is marvellous
+20170202174254 00076 00295 300 was not created by the creator of this website...
+20170202174332 00300 00028 how do you invite
+20170202174401 00300 00027 just say a number
+20170202174423 00300 00028 300
+20170202174431 00080 00119 poop
+20170202174505 00300 00028 so we have to type numbers we want said
+20170202174513 00176 00051 me is boarding the Алмаз ОПС
+20170202174607 00176 00051 176
+20170202174624 00176 00028 me is boarding the Алмаз ОПС
+20170202175303 00229 00253 hi
+20170202175443 00076 00295 how can drop vessel inside itself
+20170202175530 00140 00334 hi
+20170202180134 00245 00263 hi
+20170202180421 00001 00051 hello
+20170202180511 00177 00027 toad, the easiest way is to create the vessel, take the vessel, enter the vessel, then drop the vessel.
+20170202181947 00051 00051 random
+20170202182001 00051 00051 (random)
+20170202182013 00051 00051 (random 1 2)
+20170202182039 00051 00051 me hmmm
+20170202182121 00177 00027 think it only works in a program
+20170202182305 00357 00051 random
+20170202182322 00357 00051 that came from a program...
+20170202182355 00357 00051 3i
+20170202182411 00357 00051 now that worked
+20170202182502 00011 00027 blue                     First note.
+20170202221251 00011 00362 red                     First note.
+20170202232649 00051 00027 1i
+20170202235332 00001 00175 Help me
+20170202235420 00001 00175 I am turning into a raft
+20170202235720 00044 00027 it happens
+20170203015106 00154 00286 good bye
+20170203021114 00127 00036 I am very confused.
+20170203092721 00230 00236 oo
+20170203095204 00016 00016 hello, everyone
+20170203123644 00154 00234 good bye
+20170203125839 00338 00123 goodbye
+20170203143751 00250 00028 250
+20170203202403 00280 00294 me
+20170203202412 00280 00294 cats
+20170203203506 00280 00027 hi tumbleweed
+20170203212115 00080 00219 hi
+20170203212310 00280 00027 howdy
+20170203212737 00275 00274 hi
+20170203212749 00275 00274 i do not understand
+20170203213012 00280 00027 type help for a list of commands
+20170203213100 00280 00027 mostly you will want to enter and leave things, to explore. You can also create things and note them.
+20170203232337 00016 00016 hey everyone
+20170203233756 00276 00027 hey.
+20170203233813 00276 00027 we need timestamps lol. 1138
+20170203234918 00016 00016 that would indeed be useful haha
+20170204001116 00276 00027 what are you working on, vetra
+20170204001650 00016 00016 in Paradise
+20170204001701 00016 00016 *in paradise q
+20170204002245 00276 00027 yeah
+20170204002322 00276 00027 or are you just stopping by to read chats
+20170204003016 00016 00016 that's usually what I do. I enjoy just being here, makes me feel like I've put a foot in another realm
+20170204003046 00371 00027 i feel that
+20170204004756 00016 00016 are you working on something, sigil
+20170204004933 00044 00027 280
+20170204010451 00333 00016 man, this is beautiful
+20170204010636 00044 00027 =3 thank you!
+20170204010901 00140 00016 aw, I got to the foxes. So cute!
+20170204010930 00140 00016 so excited to have multiple people creating these and expanding the ever-growing network
+20170204011151 00044 00027 i think when locking is implemented we will see more players coming back long enough to make worlds
+20170204012330 00016 00016 it's annoying to create such a beautiful journey just to have it ruined by someone in two commands
+20170204012837 00044 00027 lol yep
+20170204021631 00016 00016 xopa
+20170204042354 00163 00356 cyan
+20170204105716 00073 00131 xoka
+20170204121516 00245 00327 lol yep
+20170204124720 00281 00254 xoka
+20170204153417 00230 00238 fuck you egg
+20170204153609 00230 00238 fuck you heaven
+20170204154454 00382 00238 hi dog
+20170204154721 00238 00383 fuck you happy dog
+20170204160905 00163 00355 cyan
+20170204162242 00001 00361 hi dog
+20170204162300 00001 00361 whats up and make a scene
+20170204164829 00025 00295 hello
+20170204165048 00001 00361 hello dog
+20170204165121 00006 00361 hello friends
+20170204165230 00036 00361 poetic
+20170204165555 00044 00027 howdy
+20170204191946 00245 00258 bye
+20170204201743 00229 00258 i am back
+20170204201939 00044 00027 welcome
+20170204213443 00016 00016 I love how the chat log just has people coming in and out
+20170204214953 00044 00027 thats about all thts exciting round these parts
+20170204222651 00046 00200 help
+20170204222834 00046 00200 Isaac
+20170204222834 00300 00123 hey its me
+20170204223011 00080 00200 you are space time Isaac
+20170204223053 00245 00123 yea, type look to refresh the chat or just press enter
+20170204223130 00080 00200 what do I do man I picked something up but idk why
+20170204223302 00229 00123 you can create things, move things, name things, make things inside of things, program those things to do other things...
+20170204223306 00044 00027 drop thing
+20170204223329 00229 00123 warp to 300
+20170204223340 00080 00200 what is the point of the game
+20170204223423 00300 00123 nothing really, its just a sandbox
+20170204223511 00300 00200 oh ok I have a cyan xsova want it
+20170204223521 00300 00123 for me its to make my mark on this universe, spread the influence of "the almighty god"
+20170204223548 00300 00123 ya
+20170204223612 00200 00027 lol xsova is another player
+20170204223626 00300 00123 i got it
+20170204223642 00300 00123 its bryce
+20170204223741 00045 00027 i am gonna make some noise, just ignore
+20170204223744 00045 00027 test2
+20170204223754 00045 00027 test1
+20170204223755 00300 00385 oh well I became a thing
+20170204223758 00045 00027 cool
+20170204223849 00300 00385 so where do I go now
+20170204223927 00229 00123 warp 207
+20170204223930 00324 00027 i have a universe at warp 280 if you want to explore
+20170204224036 00280 00385 so I am carrying illegal contraband
+20170204224050 00280 00385 so should I like get rid of that or...
+20170204224052 00280 00123 lol
+20170204224442 00307 00123 me inhales coral dust and fades briefly from reality.
+20170204224514 00001 00123 lol
+20170204224613 00001 00001 hello world!
+20170204225139 00016 00016 hello!
+20170204232114 00324 00027 me spies on the meditating cyan men from the east tower.
+20170204232242 00324 00027 me cannot scry past the psychic wall of the cyan faction
+20170204232301 00324 00027 nice, this is very good
+20170204235914 00163 00027 red
+20170205001108 00016 00016 cyan
+20170205002351 00397 00038 help
+20170205002515 00396 00027 hi nestc
+20170205092443 00017 00017 hi
+20170205110029 00272 00162 cyan
+20170205110041 00272 00162 hello
+20170205110232 00272 00162 hello,hello
+20170205110245 00272 00162 how are you
+20170205123513 00016 00016 hi everyone!
+20170205135811 00086 00119 hello
+20170205140410 00016 00016 how are you
+20170206095930 00134 00136 it's gareson
+20170206100202 00159 00136 I'm scared.
+20170206100527 00051 00105 не знаю эти вещи
+20170206124253 00001 00401 hello world
+20170206151624 00405 00255 大丈夫。
+20170206151822 00174 00408 oh noes
+20170206152310 00066 00409 is this a conversation
+20170206152330 00066 00409 are we talking through each other's mouthed
+20170206152341 00066 00409 may be,
+20170206174509 00285 00028 285
+20170206174555 00285 00056 xoka, everyone
+20170206175004 00088 00331 xoka aaaaaaa
+20170206175015 00088 00331 xokaaaaaaaaa
+20170206195456 00371 00330 I am a human
+20170206202513 00053 00415 ага
+20170206230843 00176 00015 me is boarding the Алмаз ОПС
+20170207022754 00176 00015 HI
+20170207045842 00102 00116 Hello
+20170207050403 00137 00092 hello
+20170207050410 00137 00092 winter
+20170207071838 00214 00066 hello
+20170207072113 00214 00066 Hi
+20170207130637 00129 00003 hello
+20170207130754 00211 00003 these wounds they will not hea;
+20170207130902 00085 00003 Where is my mind
+20170207150411 00104 00096 hello
+20170207150520 00104 00096 goodbye
+20170207185528 00188 00379 hello
+20170207185552 00188 00379 I am a small potato in a big city
+20170207185650 00188 00379 oh no
+20170207185704 00188 00379 that human looks hungry
+20170207185720 00188 00379 i should g-
+20170207191806 00066 00254 void echoes
+20170208010920 00255 00403 something
+20170208010929 00255 00403 help
+20170208031508 00274 00273 good
+20170208065006 00066 00254 void echoes
+20170208173427 00001 00419 hi
+20170208173523 00419 00419 cyan is now xSova's official color
+20170208173532 00419 00419 anything that is cyan is xSova's
+20170208173538 00419 00419 let the games being
+20170208173554 00419 00419 begin**
+20170209084627 00015 00291 cancer
+20170209084705 00015 00291 nutt
+20170209084831 00015 00291 open
+20170209084845 00015 00291 interesting box
+20170209084857 00015 00291 let there be light
+20170209085157 00176 00291 me is boarding the Алмаз ОПС
+20170209144036 00034 00133 hello
+20170209165756 00265 00264 GHFCTGVFCCYFHGVGVGHVFUCT
+20170209165824 00265 00264 TROLOLOLOLOLOLOLOLOLOLOL
+20170209170142 00300 00123 i fixed the library
+20170209170224 00265 00264 WHASUP M'BOIS
+20170209173348 00083 00076 ha
+20170209173406 00083 00076 i am tron
+20170209173505 00083 00076 thank you library
+20170209173526 00083 00076 are you all real
+20170209212906 00233 00273 tell me time
+20170210024341 00133 00131 he
+20170210024536 00070 00131 I'm stuck in this rainbow
+20170210024659 00133 00070 now I am the rainbow
+20170210024954 00133 00133 I am
+20170210040252 00201 00318 fgresytnst
