@@ -22,6 +22,7 @@ class ActionLock
     attr = q.split(" ").last
     
     if @host.parent.is_locked == true then return "<p>#{@host.parent} is already locked.</p>" end
+    if @host.parent.owner != @host.id then return "<p>You do not own #{@host.parent}.</p>" end
 
     @host.parent.set_locked(true)
 
