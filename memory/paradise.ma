@@ -16,7 +16,7 @@
 0000-00225-00003-20170131221213 apple          devoured
 0000-00003-00003-20170128110742 lagoon         blue           warp to 4                   
 0000-00000-00003-20170130152608 house
-0000-00014-00010-20170130135340 cog            green
+1000-00014-00010-20170210190228 cog            green
 1111-00176-00000-20170206230832 nullspace
 0000-00016-00013-20170204010935 vektra         infinite                                                                     Vektra, the singularity.
 0000-00426-00011-20170210160600 city           red            This is a test
@@ -29,7 +29,7 @@
 0000-00194-00016-20170131104805 essence        permanent                                                                    An energy ingrained in the fabric of time.
 0000-00001-00023-20170202175534 book           cyan
 0000-00029-00022-20170129142652 shapeshifter   shapeshifter                   
-0000-00044-00025-20170208113734 woldweller     aged                                                                         A dweller of the wild, uncultivated lands; a forest spirit; a sort of bowtruckle or small tree shepherd. The woldweller is creator, adventurer, and guardian.
+1000-00303-00025-20170210195040 woldweller     aged                                                                         A dweller of the wild, uncultivated lands; a forest spirit; a sort of bowtruckle or small tree shepherd. The woldweller is creator, adventurer, and guardian.
 0000-00400-00025-20170207133138 gold           golden                                                                       stuff
 0000-00030-00026-20170129144504 dodecahedron   red
 0000-00002-00029-20170201203418 dam            red
@@ -46,7 +46,7 @@
 0000-00186-00016-20170130220809 duplicator     duplicates     create dupe
 0000-00043-00016-20170131183755 answer         final
 0000-00015-00001-20170131183634 box            interesting
-0000-00044-00027-20170202233309 workshop       void                                                                         Made from broken pieces of ancient Mudslide Mountain technology . An insulating box can serve as a place for scope experiments. I keep my possessions in this locker . I throw things in the trash barrel when done with them. I have a mailbox you can use.
+1000-00044-00027-20170210194559 workshop       void                                                                         Made from broken pieces of ancient Mudslide Mountain technology . An insulating box can serve as a place for scope experiments. I keep my possessions in this locker . I throw things in the trash barrel when done with them. I have a mailbox you can use.
 0000-00044-00027-20170130221347 box            insulating
 0000-00188-00027-20170205002610 trashcan
 0000-00310-00027-20170201212518 birdcage       globeshaped                                                                  A fluffy grey parrot sits on a wooden perch. He says "You know Suo. You know Suo. You know..."
@@ -153,7 +153,7 @@
 0000-00148-00095-20170206200720 hypersquare
 0000-00078-00147-20170131185817 grinder        life           warp to 69
 0000-00014-00147-20170130135206 jug
-0000-00027-00027-20170202000219 glint                                                                                       A spark of light, as if struck from metaphysical steel by a piercing flint edge and reflected off a mirrored surface.
+0000-00027-00027-20170210195241 glint                                                                                       A spark of light, as if struck from metaphysical steel by a piercing flint edge and reflected off a mirrored surface.
 0000-00001-00147-20170201234244 grimoire       red                                                                          The book of the red faction
 0000-00283-00147-20170201234317 raccoon
 0000-00125-00111-20170131160020 town                                                                                        a small town
@@ -189,7 +189,7 @@
 0000-00180-00027-20170130214408 twig           whorled                                                                      In Paradise, all things are of a single size. Literary gravity exerts equal pull over each and every one.
 0000-00044-00027-20170205032537 locker         locked                                                                       where the Woldweller keeps his meagre possessions
 0000-00050-00027-20170130220910 laboratory     teapot                                                                       A laboratory where experiments on space , nullspace , and other created universes such as a polar orbit have been performed.
-0000-00001-00027-20170201180305 precipice      steep                                                                        The portal to the library next to a deep descent, where literal broken dreams and flying machines have been tossed to ruin on the rocks below. A jagged ravine gapes to the south.
+1000-00001-00027-20170210194714 precipice      steep                                                                        The portal to the library next to a deep descent, where literal broken dreams and flying machines have been tossed to ruin on the rocks below. A jagged ravine gapes to the south.
 0000-00027-00027-20170205031730 barrel         fiery                                                                        A container of raw materials for the Woldweller . You may see the Woldweller place the barrel and dig around inside it for things to transform into natural creations. You can leave trash here and it will be reborn as something useful.
 0000-00013-00027-20170130222629 warp           genesis                                                                      One way to reach 0
 0000-00180-00027-20170130230015 adderstone                                                                                  The hole in the stone whispers to you. Word and song is the lifeblood of the world.
@@ -278,15 +278,15 @@
 0000-00233-00166-20170209161722 emrakul
 0000-00233-00166-20170209161753 kozilek
 0000-00233-00166-20170201161734 ulamog
-0000-00044-00027-20170205032137 mailbox        flickering                                                                   The mailbox of the woldweller. Leave me a message!
+1000-00044-00027-20170210194640 mailbox        flickering                                                                   The mailbox of the woldweller. Leave me a message!
 0000-00276-00027-20170205032146 envelope       coy                                                                          Hi Woldweller! *poke*
 0000-00315-00027-20170201231840 castle         salty                                                                        A castle made of pebbles, mortared together by cracked salt. Where the keep's domed roof should be, a barrel cactus grows instead. The east tower has been abandoned to a saltwater kraken , but the keep is swarming with courtiers about their business.
 0000-00348-00028-20170204235728 symbol         lost                                                                         a relic lost to time, waiting to be found again...
-0000-00187-00027-20170204224118 ravine         jagged         illegal contraband                                            An empty, windblown ravine, where only sparse patches of spiny cacti break the monotony of grey dust. The earth is pitted with crevasse after crevasse, and wormy caverns have been eroded into the walls. Even the riverbed is dry.
+1000-00187-00027-20170210194856 ravine         jagged                                                                       An empty, windblown ravine, where only sparse patches of spiny cacti break the monotony of grey dust. The earth is pitted with crevasse after crevasse, and wormy caverns have been eroded into the walls. Even the riverbed is dry.
 0000-00206-00123-20170201163151 prophet        almighty                                                                     This is the true prophet to The God Almighty
 0000-00206-00123-20170201163000 apostles       almighty                                                                     These are the apostles to The God Almighty
 0000-00001-00123-20170201163654 bin            trash                                                                        the things here are trash
-0000-00187-00123-20170201180829 ornithopter    broken         warp 283
+1000-00187-00123-20170210194843 ornithopter    broken         warp 283                                                      Take these broken wings and learn to build
 0000-00245-00123-20170202123219 names          stolen
 0000-00036-00123-20170207172631 symbol
 0000-00285-00123-20170201171151 jspoon
@@ -304,9 +304,9 @@
 0000-00298-00123-20170202000129 anteater
 0000-00300-00123-20170202151239 universe       itthomas                                                                     You find yourself in a white room filled with empty space. The only object in this room is an old computer on a desk, the command line reads... This is the Universe of Itthomas, a separate stem of the Multiverse. You may come, you may go. C:Users>GuestVessel> Warp 1 (Y:N)
 0000-00280-00027-20170203172452 riverbed       dry                                                                          Once, all the waters of all the worlds flowed through here, a dry confluence of holy fluid. Now it contains only silica shells. Glass, silver, and pyrite seashells , remnants of the many strange creatures which once raced over the briny stones .
-0000-00280-00027-20170201183359 cacti          spiny                                                                        Slowly, over the timeless dreams that pass for eons in Paradise, the carbon of each cacti needle has been substituted, atom by atom, for silver. The desiccated surface of the plants is etched with tribal drawings .
-0000-00302-00027-20170201182616 drawings       tribal                                                                       The etchings show coral giving rise to desert. The runes "C.A.M" are repeated over and over.
-0000-00302-00027-20170202174546 needle         silvery                                                                      The needle that doomed Arachne. The needle that brought slumber to the princess. The needle that preserves Koschei. All of them are preserved here among the cacti.
+1000-00280-00027-20170210194946 cacti          spiny                                                                        Slowly, over the timeless dreams that pass for eons in Paradise, the carbon of each cacti needle has been substituted, atom by atom, for silver. The desiccated surface of the plants is etched with tribal drawings .
+1000-00302-00027-20170210194927 drawings       tribal                                                                       The etchings show coral giving rise to desert. The runes "C.A.M" are repeated over and over.
+1000-00302-00027-20170210194918 needle         silvery                                                                      The needle that doomed Arachne. The needle that brought slumber to the princess. The needle that preserves Koschei. All of them are preserved here among the cacti.
 0000-00060-00027-20170202142855 void           atom           atom                                                          In the beginning, the void created matter.
 0000-00302-00027-20170201183532 seaurchin      masquerading   say me hears the sea urchin say, "Bugger off."                This spiny little guy is pretending to be a cactus.
 0000-00301-00027-20170201184337 confluence     dry                                                                          Theopaleontologists are crawling all over the old confluence. All evidence shows that this place was positively overwhelmed by insatiable coral, which gave way to sand and dust . Some say even the most listless sand of this place might have unholy potency.
