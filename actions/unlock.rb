@@ -23,12 +23,12 @@ class ActionUnlock
 
     attr = q.split(" ").last
     
-    if @host.parent.is_locked == false then return "<p>#{@host.parent} is not locked.</p>" end
-    if @host.parent.owner != @host.id then return "<p>You do not own #{@host.parent}.</p>" end
+    if @host.parent.is_locked == false then return @host.answer(:error,"#{@host.parent} is not locked.") end
+    if @host.parent.owner != @host.id then return @host.answer(:error,"You do not own #{@host.parent}.") end
 
     @host.parent.set_locked(false)
 
-    return "<p>You unlocked the #{@host.parent.name}.</p>"
+    return @host.answer(:modal,"You unlocked the #{@host.parent.name}.")
     
   end
 

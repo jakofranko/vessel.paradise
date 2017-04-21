@@ -22,18 +22,20 @@ class ActionTransmute
   def act q = "Home"
 
     old_name = @host.parent.name
+    new_name = q.split(" ").last
 
-    name = q.split(" ").last
+    if old_name == new_name     then return @host.answer(:error,"The #{name} remains unchanged.") end
 
-    if !is_long_enough(name) then return @host.act(:look,"This vessel name is too short.") end
-    if !is_valid(name) then return @host.act(:look,"This vessel name is not allowed.") end
-    if !is_unique(name,@host.parent.attr) then return @host.act(:look,"A vessel named \"#{name}\" already exists somewhere.") end
-    if !is_alphabetic(name) then return @host.act(:look,"A vessel name cannot include non alphabetic characters.") end
-    if @host.parent.is_locked == true then return "<p>#{@host.parent} is locked.</p>" end
+    @host.parent.name = new_name
+    validity_check, validity_errors = @host.parent.is_valid
 
-    @host.parent.set_name(name)
+    if !validity_check          then return @host.answer(:error,"#{validity_errors.first}") end
+    if !@host.parent.is_unique  then return @host.answer(:error,"Another #{@host.parent} already exists.") end
+    if @host.parent.is_locked   then return @host.answer(:error,"#{@host.parent} is locked.") end
 
-    return "<p>You transmuted the #{old_name} into #{@host.parent}.</p>"
+    @host.parent.set_name(new_name)
+
+    return @host.answer(:modal,"You transmuted the #{old_name} into #{@host.parent}.")
     
   end
 

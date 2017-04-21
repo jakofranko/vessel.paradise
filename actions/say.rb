@@ -27,15 +27,15 @@ class ActionSay
 
   def act q = "Home"
 
-    if q.to_s.strip.length < 2 then return "<p>You said nothing.</p>" end
+    if q.to_s.strip.length < 2 then return @host.answer(:error,"You said nothing.") end
 
     $forum.to_a(:comment).reverse[0,1].each do |comment|
-      if comment.from == @host.id && comment.message.strip == q.strip then return "<p>You have just said that.</p>" end
+      if comment.from == @host.id && comment.message.strip == q.strip then return @host.answer(:error,"You have just said that.") end
     end
 
     $forum.append(encode(q))
     
-    return "<p>You said \"#{q}\".</p>"
+    return @host.answer(:modal,"You said \"#{q}\".")
     
   end
 

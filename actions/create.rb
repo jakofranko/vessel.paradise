@@ -30,13 +30,13 @@ class ActionCreate
 
     validity_check, validity_errors = new_vessel.is_valid
 
-    if !validity_check then return "<p>#{validity_errors.first}</p><p>Your new vessel was swallowed by the void.</p>" end
-    if !is_unique(name,attr) then return @host.act(:look,"A vessel named \"#{attr+' '+name}\" already exists.") end
+    if !validity_check then return @host.answer(:error,"#{validity_errors.first}") end
+    if !is_unique(name,attr) then return @host.answer(:error,"A vessel named \"#{attr+' '+name}\" already exists.") end
 
     $paradise.append(new_vessel.encode)
     @host.reload
 
-    return "<p>You created #{new_vessel.to_s(true,false)}.</p>"
+    return @host.answer(:modal,"You created #{new_vessel.to_s(true,false)}.")
 
   end
 

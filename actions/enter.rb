@@ -24,11 +24,11 @@ class ActionEnter
 
     target = visible_named(q)
 
-    if !target then return @host.act("look","Cannot find a target named #{q}.") end
+    if !target then return @host.answer(:error,"Cannot find a target named #{q}.") end
 
     @host.set_unde(target.id)
 
-    return @host.act("look","You entered #{target}. ")
+    return @host.answer(:modal,"You entered #{target}.")
 
   end
 

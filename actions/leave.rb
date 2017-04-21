@@ -20,14 +20,14 @@ class ActionLeave
 
   def act q = "Home"
 
-    if @host.parent.is_stem then return @host.act("look","You may not leave #{@host.parent}. You have reached the stem of the universe.") end
-    if @host.is_locked == true then return "<p>#{@host} is locked.</p>" end
+    if @host.parent.is_stem then return @host.answer(:error,"You may not leave #{@host.parent}. You have reached the stem of the universe.") end
+    if @host.is_locked == true then return @host.answer(:error,"#{@host} is locked.") end
 
     old_parent = @host.parent
 
     @host.set_unde(@host.parent.unde)
     
-    return @host.act("look","You left #{old_parent}, and entered #{@host.parent.parent}. ")
+    return @host.answer(:modal,"You left #{old_parent}, and entered #{@host.parent.parent}.")
     
   end
 

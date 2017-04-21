@@ -21,17 +21,21 @@ class ActionTransform
 
   def act q = "Home"
 
-    attr = q.split(" ").last
+    old_attr = @host.parent.attr
+    new_attr = q.split(" ").last
 
-    if !is_long_enough(attr) then return @host.act(:look,"This vessel attribute is too short.") end
-    if !is_valid(attr) then return @host.act(:look,"This vessel attribute is not allowed.") end
-    if !is_alphabetic(attr) then return @host.act(:look,"A vessel attribute cannot include non alphabetic characters.") end
-    if !is_unique(name,attr) then return @host.act(:look,"A vessel named \"#{attr+' '+name}\" already exists somewhere.") end
-    if @host.is_locked == true then return "<p>#{@host} is locked.</p>" end
-    
-    @host.parent.set_attr(attr)
+    if old_attr == new_attr     then return @host.answer(:error,"The #{attr} remains unchanged.") end
 
-    return "<p>You made the #{@host.parent.name}, #{attr}.</p>"
+    @host.parent.attr = new_attr
+    validity_check, validity_errors = @host.parent.is_valid
+
+    if !validity_check          then return @host.answer(:error,"#{validity_errors.first}") end
+    if !@host.parent.is_unique  then return @host.answer(:error,"Another #{@host.parent} already exists.") end
+    if @host.parent.is_locked   then return @host.answer(:error,"#{@host.parent} is locked.") end
+
+    @host.parent.set_attr(new_attr)
+
+    return @host.answer(:modal,"You transformed the #{@host.parent.name} into #{@host.parent}.")
     
   end
 

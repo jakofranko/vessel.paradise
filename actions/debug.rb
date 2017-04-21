@@ -30,17 +30,22 @@ class ActionDebug
       id += 1
     end
 
-
     vessel = $parade[589] # select_random_vessel
     vessel.id = 589
 
     puts "------------------"
-    puts "Working Vessel: #{vessel.to_debug}"
+    puts "BASICS(#{vessel.to_debug})"
     puts "------------------"
 
     puts vessel.act("warp","1")
     puts vessel.act("leave","")
     puts vessel.act("enter","the book")
+    puts vessel.act("create","a benchmark tool")
+    puts vessel.act("enter","the tool")
+
+    puts "------------------"
+    puts "PARENT(#{vessel.to_debug})"
+    puts "------------------"
 
     return "done."
 

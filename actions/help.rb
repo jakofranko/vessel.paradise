@@ -55,6 +55,7 @@ class ActionHelp
   def about
 
     return "<p>Paradise is a multiplayer playground where anyone can become anything and go anywhere. You can learn more about the project on the <a href='http://wiki.xxiivv.com/Paradise' target='_blank'>wiki</a>. </p>"
+    
   end
 
 end

@@ -3,7 +3,7 @@
 
 require_relative "_toolkit.rb"
 
-class ActionWarp
+class ActionCall
 
   include Action
   include ActionToolkit
@@ -12,8 +12,8 @@ class ActionWarp
 
     super
 
-    @name = "Warp"
-    @docs = "Enter a distant vessel from warp id."
+    @name = "Call"
+    @docs = "Call a distant program."
 
     @params = :id
 
@@ -21,6 +21,8 @@ class ActionWarp
 
   def act q = "Home"
 
+    return "HYE"
+    
     target = distant_id(q.split(" ").last.to_i)
 
     if !target then return @host.answer(:error,"Cannot warp into the void.") end

@@ -68,8 +68,15 @@ class Ghost
     install(:programming,:program)
     install(:programming,:use)
     install(:programming,:inspect)
+    install(:programming,:call)
 
-    install(:deconstruction,:destroy)
+    # install(:deconstruction,:destroy)
+
+  end
+
+  def answer type, message
+
+    return "<p>#{message}</p>"
 
   end
 
@@ -77,8 +84,10 @@ class Ghost
 
     particle = "a "
     if @note != "" || @attr != "" then particle = "the " end
-    if @attr && @attr[0,1] == "a" then particle = "an " end
     if @attr.to_s == "" && @name[0,1] == "a" then particle = "an " end
+    if @attr.to_s == "" && @name[0,1] == "i" then particle = "an " end
+    if @attr && @attr[0,1] == "a" then particle = "an " end
+    if @attr && @attr[0,1] == "i" then particle = "an " end
 
     action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'" : ""
 
@@ -288,6 +297,16 @@ class Ghost
     end
 
     return errors.length > 0 ? false : true, errors
+
+  end
+
+  def is_unique
+
+    $parade.each do |vessel|
+      if vessel.id == @id then next end
+      if vessel.name.like(@name) && vessel.attr.like(@attr) then return false end
+    end
+    return true
 
   end
 

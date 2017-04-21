@@ -1,9 +1,9 @@
 ~ NAME : Paradise
 ~ NOTE : Code[Locked,Hidden,Quiet,Frozen] - Parent - Owner - Type
 
-@ CODE                          NAME           ATTR           PROGRAM                                                      NOTE
+@ CODE                          NAME           ATTR           PROGRAM                                                       NOTE
 0000-00013-00000-00000000000000 Genesis        Ultra              
-0000-00262-00000-20170413164923 book           rune                                                                         You find yourself in a library of infinite shelves, perched on a precipice over a red sea . It has no windows , no doors ; for all you know it has no walls . You see that there are some items on a nearby shelf ; some are solid items , others are abstract concepts. The concept of chaos beckons you...
+1111-00001-00000-20170413164923 Inner          Haven                                                                        The library halway sleeps quietly, as a light snow seeps through holes in the glass dome above.
 0000-00086-00000-20170307003835 section        forgotten                                                                    crazy
 0000-00528-00001-20170408094812 runebook       blue
 0000-00050-00000-20170130220313 door           cyan           warp to 1
@@ -299,7 +299,7 @@
 0000-00318-00123-20170218035219 tumbleweed
 0000-00046-00123-20170320232703 wheelbarrow
 0000-00350-00123-20170418102412 pollution
-0000-00375-00123-20170307005403 insect
+0000-00001-00123-20170421131433 insect
 0000-00127-00123-20170330153509 boot
 0000-00129-00123-20170311161027 anteater
 0000-00300-00123-20170307045532 universe       wonder                                                                       do what you want, create good for others

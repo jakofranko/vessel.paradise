@@ -22,12 +22,12 @@ class ActionUse
 
     target = visible_named(q)
 
-    if !target then return @host.act("look","Cannot find a target named #{q}.") end
-    if !target.has_program then return @host.act("look","#{target} does not have a program.") end
+    if !target then return @host.answer(:error,"Cannot find a target named #{q}.") end
+    if !target.has_program then return @host.answer(:error,"#{target} does not have a program.") end
 
     action = target.program.to_s.split(" ").first
 
-    if !@host.can(action) then return @host.act("look","The program is invalid.") end
+    if !@host.can(action) then return @host.answer(:error,"The program is invalid.") end
 
     return @host.act(action,wildcard(target.program).sub(action,"").strip)
     

@@ -23,12 +23,12 @@ class ActionLock
 
     attr = q.split(" ").last
     
-    if @host.parent.is_locked == true then return "<p>#{@host.parent} is already locked.</p>" end
-    if @host.parent.owner != @host.id then return "<p>You do not own #{@host.parent}.</p>" end
+    if @host.parent.is_locked == true then return @host.answer(:error,"#{@host.parent} is already locked.") end
+    if @host.parent.owner != @host.id then return @host.answer(:error,"You do not own #{@host.parent}.") end
 
     @host.parent.set_locked(true)
 
-    return "<p>You locked the #{@host.parent.name}.</p>"
+    return @host.answer(:modal,"You locked the #{@host.parent.name}.")
     
   end
 
