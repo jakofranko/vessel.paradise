@@ -13,7 +13,7 @@ class ActionTransmute
     super
 
     @name = "Transmute"
-    @docs = "Change the name of the parent vessel."
+    @docs = "Change the parent vessel's name."
 
   end
 

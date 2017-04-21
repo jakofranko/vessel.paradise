@@ -35,7 +35,7 @@ class ActionHelp
 
     html = ""
     @host.actions.each do |cat,actions|
-      html += "<tr><th colspan='2'>#{cat}</th></tr>"
+      html += "<tr><th colspan='2'>#{cat.capitalize}</th></tr>"
       actions.each do |action|
         action = action.new
         html += "<tr><td>#{action.name}</td><td>#{action.docs}</td></tr>"

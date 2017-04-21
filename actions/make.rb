@@ -13,7 +13,7 @@ class ActionMake
     super
 
     @name = "Make"
-    @docs = "Change the attribute of the parent vessel."
+    @docs = "Change the parent vessel's attribute."
 
   end
 

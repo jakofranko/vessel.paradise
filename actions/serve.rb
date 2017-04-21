@@ -96,13 +96,17 @@ class CorpseHttp
     action = @query[1] ? @query[1] : "look"
     params = @query.join(" ").sub(id,"").sub(action,"").strip
 
-    input = "<input placeholder='What would you like to do?'/>"
-
-    page = "<page>#{@player.unde}</page>"
-    say = "<action data-action='say ' class='say'><img src='public.paradise/media/vectors/say.svg'/></action>"
-    help = "<action data-action='help ' class='help'><img src='public.paradise/media/vectors/help.svg'/></action>"
-
-    return "<bg></bg><view>"+@player.act(action,params)+input+page+say+help+"</view>"
+    return "<bg></bg>
+    <view>
+      #{@player.act(action,params)}
+      
+    </view>
+    <div class='terminal'>
+      <action data-action='say ' class='say'><img src='public.paradise/media/vectors/say.svg'/></action>
+      <action data-action='help ' class='help'><img src='public.paradise/media/vectors/help.svg'/></action>
+      <input placeholder='What would you like to do?'/>
+    </div>
+    <page>#{@player.unde}</page>"
 
   end
   

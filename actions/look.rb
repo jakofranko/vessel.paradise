@@ -25,8 +25,6 @@ class ActionLook
     html += chat
     html += guide
 
-    html += "<a class='expand_chat'><img src='public.paradise/media/vectors/chat.svg'/></a>"
-
     return html
 
   end
@@ -75,17 +73,13 @@ class ActionLook
 
     # Children
     children = @host.is_stem ? [] : @host.children
-    # if children.length == 1
-    #   html += "You carry #{children[0]}. "
-    # elsif children.length == 2
-    #   html += "You carry #{children[0]} and #{children[1]}. "
-    # elsif children.length == 3
-    #   html += "You carry #{children[0]}, #{children[1]} and #{children[2]}. "
-    # elsif children.length > 3
-    #   html += "You carry #{children[0]}, #{children[1]} and #{children.length-2} other vessels. "
-    # else
-    #   html += ""
-    # end
+    if children.length == 1
+      html += "You carry #{children[0]}. "
+    elsif children.length == 2
+      html += "You carry #{children[0]} and #{children[1]}. "
+    else
+      html += ""
+    end
 
     if siblings.length == 0 then html = "You see nothing." end
 
@@ -101,8 +95,8 @@ class ActionLook
 
     count = 0
     messages[messages.length-8,8].each do |message|
-      if count > 7 then break end
-      html += message.to_s
+      if count > 6 then break end
+      if message.timestamp.elapsed < 100000 then html += message.to_s end
       count += 1
     end
 
@@ -112,12 +106,27 @@ class ActionLook
 
   def guide
 
-    if @host.parent.owner != @host.id then return "" end
+    hints = []
+
+    # Own's
+    if @host.parent.owner == @host.id
+      hints.push("Vessel is complete.")
+      if !@host.parent.has_note then hints.push("Add a <action data-action='note '>note</action> to the parent vessel.") end
+      if !@host.parent.has_attr then hints.push("Add an <action data-action='make '>attribute</action> to the parent vessel.") end
+    # Improvements
+    elsif !@host.parent.is_locked
+      if !@host.parent.has_note then hints.push("Improve this vessel with a <action data-action='note '>note</action>.") end
+      if !@host.parent.has_attr then hints.push("Improve this vessel with an <action data-action='make '>attribute</action>.") end
+    end
+
+    if hints.length < 1 then return "" end
 
     html = ""
 
-    if !@host.parent.has_note then html += "<li>Add a <action data-action='note '>note</action> to the parent vessel.</li>" end
-    if !@host.parent.has_attr then html += "<li>Add an <action data-action='rename '>attribute</action> to the parent vessel.</li>" end
+    hints.each do |hint|
+      html += "<li>#{hint}</li>"
+    end
+
 
     return "<ul class='guide'>#{html}</ul>"
 

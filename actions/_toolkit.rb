@@ -1,8 +1,6 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-$BADWORDS = ["dick","pussy","asshole","nigger","cock","jizz","faggot","nazi","cunt","sucker","bitch","fag","jew","nigga","anus"]
-
 module ActionToolkit
   
   def remove_articles words
@@ -14,6 +12,16 @@ module ActionToolkit
     words = " #{words} ".sub(" one ","")
     words = " #{words} ".sub(" two ","")
     return words.strip
+
+  end
+
+  def is_unique name,attr
+
+    $parade.each do |vessel|
+      if vessel.name.like(name) && vessel.attr.like(attr) then return nil end
+    end
+
+    return true
 
   end
 
@@ -40,15 +48,7 @@ module ActionToolkit
 
   end
 
-  def is_unique name,attr
-
-    $parade.each do |vessel|
-      if vessel.name.like(name) && vessel.attr.like(attr) then return nil end
-    end
-
-    return true
-
-  end
+  
 
   def visible_named attr_name
 

@@ -53,7 +53,8 @@ class Ghost
     install(:basic,:enter)
     install(:basic,:create)
 
-    install(:advanced,:warp)
+    install(:movement,:warp)
+
     install(:advanced,:take)
     install(:advanced,:drop)
     install(:advanced,:lock)
@@ -61,12 +62,14 @@ class Ghost
 
     install(:communication,:say)
 
-    install(:advanced,:transmute)
-    install(:advanced,:make)
+    install(:narrative,:transmute)
+    install(:narrative,:make)
+    install(:narrative,:note)
 
-    install(:control,:note)
-    install(:control,:program)
-    install(:control,:use)
+    install(:programming,:program)
+    install(:programming,:use)
+
+    install(:deconstruction,:destroy)
 
   end
 
@@ -168,6 +171,12 @@ class Ghost
 
   end
 
+  def destroy
+
+    $paradise.overwrite_line(@id+4,"")
+
+  end
+
   def is_stem
 
     if id == @unde then return true end
@@ -229,7 +238,7 @@ class Ghost
 
   def has_note
 
-    return @note.to_s != "" && @note.length > 10 ? true : false
+    return @note.to_s != "" ? true : false
     
   end
 
@@ -258,6 +267,28 @@ class Ghost
 
     return val
     
+  end
+
+  def is_valid
+
+    errors = []
+
+    if name.to_s.strip == "" then errors.push("The vessel name cannot be blank.") end
+    if name.length > 14 then errors.push("The vessel name cannot be more than 14 characters long.") end
+    if name.length < 3 then errors.push("The vessel name cannot be less than 3 characters long.") end
+    if name.has_badword then errors.push("Please do not use the word #{name.has_badword} in Paradise.") end
+    if name.is_alphabetic == false then errors.push("Vessel names can only contain letters.") end
+
+    if has_attr
+      if attr.length > 14 then errors.push("The vessel attribute cannot be more than 14 characters long.") end
+      if attr.length < 3 then errors.push("The vessel attribute cannot be less than 3 characters long.") end
+      if attr.has_badword then errors.push("Please do not use the word #{attr.has_badword} in Paradise.") end
+      if attr.is_alphabetic == false then errors.push("Vessel attributes can only contain letters.") end
+      if name == attr then errors.push("Vessels cannot have the same attribute and name.") end
+    end
+
+    return errors.length > 0 ? false : true, errors
+
   end
 
 end
