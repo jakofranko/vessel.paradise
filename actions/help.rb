@@ -35,11 +35,18 @@ class ActionHelp
 
     html = ""
     @host.actions.each do |cat,actions|
-      html += "<tr><th colspan='2'>#{cat.capitalize}</th></tr>"
+      if cat == :generic then next end
+      html += "<tr><th>#{cat.capitalize}</th><td>"
       actions.each do |action|
         action = action.new
-        html += "<tr><td>#{action.name}</td><td>#{action.docs}</td></tr>"
+        html += "<b>#{action.name}</b> "
+        if action.target then html += "<span class='target'>#{action.target}</span> " end
+        if action.params then html += "<span class='params'>#{action.params}</span> " end
+        html += "<br />"
       end
+
+      html += "</td></tr>"
+      
     end
     return "<table>#{html}</table>"
 

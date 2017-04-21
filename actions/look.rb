@@ -94,8 +94,7 @@ class ActionLook
     messages = $forum.to_a("comment")
 
     count = 0
-    messages[messages.length-8,8].each do |message|
-      if count > 6 then break end
+    messages[messages.length-7,7].each do |message|
       if message.timestamp.elapsed < 100000 then html += message.to_s end
       count += 1
     end
@@ -108,6 +107,20 @@ class ActionLook
 
     hints = []
 
+    # Check Validity
+    validity_check, validity_errors = @host.is_valid
+    if validity_check == false then hints += validity_errors end
+    validity_check, validity_errors = @host.parent.is_valid
+    if validity_check == false then hints += validity_errors end
+
+    if hints.length > 0
+      html = ""
+      hints.each do |hint|
+        html += "<li>#{hint}</li>"
+      end
+      return "<ul class='guide alert'>#{html}</ul>"
+    end
+
     # Own's
     if @host.parent.owner == @host.id
       hints.push("Vessel is complete.")
@@ -119,15 +132,13 @@ class ActionLook
       if !@host.parent.has_attr then hints.push("Improve this vessel with an <action data-action='make '>attribute</action>.") end
     end
 
+    # All good!
     if hints.length < 1 then return "" end
 
     html = ""
-
     hints.each do |hint|
       html += "<li>#{hint}</li>"
     end
-
-
     return "<ul class='guide'>#{html}</ul>"
 
   end

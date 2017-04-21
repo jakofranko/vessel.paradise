@@ -3,7 +3,7 @@
 
 require_relative "_toolkit.rb"
 
-class ActionMake
+class ActionTransform
 
   include Action
   include ActionToolkit
@@ -12,8 +12,10 @@ class ActionMake
 
     super
 
-    @name = "Make"
-    @docs = "Change the parent vessel's attribute."
+    @name = "Transform"
+    @docs = "Define the parent vessel."
+
+    @target = :parent
 
   end
 

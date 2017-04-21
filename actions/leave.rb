@@ -14,6 +14,7 @@ class ActionLeave
 
     @name = "Leave"
     @docs = "Exit the parent vessel."
+    @target = :self
 
   end
 

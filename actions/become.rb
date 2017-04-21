@@ -14,6 +14,8 @@ class ActionBecome
 
     @name = "Become"
     @docs = "Become a visible vessel."
+    
+    @params = :visible
 
   end
 

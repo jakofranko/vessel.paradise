@@ -46,7 +46,6 @@ class Ghost
     
     install(:generic,:look)
     install(:generic,:help)
-    install(:generic,:inspect)
 
     install(:basic,:become)
     install(:basic,:leave)
@@ -63,11 +62,12 @@ class Ghost
     install(:communication,:say)
 
     install(:narrative,:transmute)
-    install(:narrative,:make)
-    install(:narrative,:note)
+    install(:narrative,:transform)
+    install(:narrative,:describe)
 
     install(:programming,:program)
     install(:programming,:use)
+    install(:programming,:inspect)
 
     install(:deconstruction,:destroy)
 

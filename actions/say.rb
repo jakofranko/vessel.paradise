@@ -15,6 +15,8 @@ class ActionSay
     @name = "Say"
     @docs = "Say something."
 
+    @params = :text
+
   end
 
   def encode message

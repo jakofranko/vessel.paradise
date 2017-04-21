@@ -99,7 +99,6 @@ class CorpseHttp
     return "<bg></bg>
     <view>
       #{@player.act(action,params)}
-      
     </view>
     <div class='terminal'>
       <action data-action='say ' class='say'><img src='public.paradise/media/vectors/say.svg'/></action>

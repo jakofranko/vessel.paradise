@@ -14,6 +14,7 @@ class ActionDestroy
 
     @name = "Destroy"
     @docs = "Destroy the target owned vessel."
+    @target = :visible
 
   end
 

@@ -15,6 +15,8 @@ class ActionCreate
     @name = "Create"
     @docs = "Create a new vessel."
 
+    @params = :name
+
   end
 
   def act q = "Home" 

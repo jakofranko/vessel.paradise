@@ -14,6 +14,9 @@ class ActionEnter
 
     @name = "Enter"
     @docs = "Enter a visible vessel."
+    
+    @params  = :visible
+    @target = nil
 
   end
 

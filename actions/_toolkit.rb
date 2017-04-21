@@ -1,6 +1,13 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+module Action
+
+  attr_accessor :params
+  attr_accessor :target
+
+end
+
 module ActionToolkit
   
   def remove_articles words
@@ -47,8 +54,6 @@ module ActionToolkit
     return true
 
   end
-
-  
 
   def visible_named attr_name
 

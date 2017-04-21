@@ -14,6 +14,7 @@ class ActionDrop
 
     @name = "Drop"
     @docs = "Drop a child vessel."
+    @target = :child
 
   end
 

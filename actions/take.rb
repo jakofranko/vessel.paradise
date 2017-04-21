@@ -14,6 +14,7 @@ class ActionTake
 
     @name = "Take"
     @docs = "Take a visible vessel."
+    @target = :visible
 
   end
 

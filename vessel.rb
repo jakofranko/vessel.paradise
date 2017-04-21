@@ -17,6 +17,7 @@ class VesselParadise
     install(:custom,:serve)
     install(:generic,:document)
     install(:generic,:help)
+    install(:custom,:debug)
 
   end
 

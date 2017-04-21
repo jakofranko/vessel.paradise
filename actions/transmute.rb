@@ -13,7 +13,9 @@ class ActionTransmute
     super
 
     @name = "Transmute"
-    @docs = "Change the parent vessel's name."
+    @docs = "Rename the parent vessel."
+    
+    @target = :parent
 
   end
 

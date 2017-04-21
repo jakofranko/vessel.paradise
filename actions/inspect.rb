@@ -14,6 +14,7 @@ class ActionInspect
 
     @name = "Inspect"
     @docs = "Get a visible vessel id."
+    @target = :parent
 
   end
 

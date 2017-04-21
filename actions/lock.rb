@@ -15,6 +15,8 @@ class ActionLock
     @name = "Lock"
     @docs = "Lock the parent vessel."
 
+    @target = :parent
+
   end
 
   def act q = "Home"
