@@ -33,10 +33,10 @@ class ActionLook
 
     if @host.parent.id == @host.id
       return "<p>You are the paradox of #{@host}.</p>"
-    elsif @host.parent.id == @host.parent.unde
-      return "<p>You are #{@host} in #{@host.parent.to_s(true,true,false)}.</p>"
+    elsif @host.parent.parent.is_paradox
+      return "<p>You are #{@host} in #{@host.parent.to_s(true,true,false)} of #{@host.parent.parent.to_s(false,true,false)}.</p>"
     end
-    return "<p>You are #{@host} in #{@host.parent.to_s(true,true,false)} of #{@host.parent.parent.to_s(false,true,false)}."+"</p>"
+    return "<p>You are #{@host} in #{@host.parent.to_s(true,true,false)}.</p>"
 
   end
 
@@ -72,7 +72,7 @@ class ActionLook
     end
 
     # Children
-    children = @host.is_stem ? [] : @host.children
+    children = @host.is_paradox ? [] : @host.children
     if children.length == 1
       html += "You carry #{children[0]}. "
     elsif children.length == 2
@@ -81,7 +81,7 @@ class ActionLook
       html += ""
     end
 
-    if siblings.length == 0 then html = "You see nothing." end
+    # if siblings.length == 0 then html = "You see nothing." end
 
     return "<action data-action='inspect ' class='status'><img src='public.paradise/media/vectors/status.svg'/></action>"+"<p>#{html}</p>"
 
@@ -104,6 +104,18 @@ class ActionLook
   end
 
   def guide
+
+    hints = []
+
+    # Statuses
+    if @host.parent.is_locked then hints.push("The #{@host.parent.name} is locked, you may not modify it.") end
+    if @host.parent.is_hidden then hints.push("The #{@host.parent.name} is hidden, you may not see its warp id.") end
+    if @host.parent.is_quiet then hints.push("The #{@host.parent.name} is quiet, you may not see other's vessels.") end
+    if @host.parent.is_frozen then hints.push("The #{@host.parent.name} is frozen, you may not interact with it.") end
+
+    if hints.length > 0
+      return "<ul class='guide code'><li>#{hints.last}</li></ul>"
+    end
 
     hints = []
 

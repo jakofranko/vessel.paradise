@@ -16,6 +16,7 @@ class ActionDescribe
     @docs = "Describe the parent vessel."
     
     @target = :parent
+    @params = :note
 
   end
 

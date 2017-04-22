@@ -20,7 +20,7 @@ class ActionHelp
   def act q = "Home"
 
     html = ""
-    html += "<p>Thank you for contacting the vessel help line.</p>"
+    html += "<p>Thank you for contacting VHL, the <vessel data-action='warp to 1'>Vessel Help Line</vessel>.</p>"
     html += "<p>Installed commands for #{@host} vessel. </p>"
 
     html += list_actions

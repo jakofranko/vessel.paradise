@@ -20,7 +20,7 @@ class ActionLeave
 
   def act q = "Home"
 
-    if @host.parent.is_stem then return @host.answer(:error,"You may not leave #{@host.parent}. You have reached the stem of the universe.") end
+    if @host.parent.is_paradox then return @host.answer(:error,"You may not leave #{@host.parent}. You have reached the stem of the universe.") end
     if @host.is_locked == true then return @host.answer(:error,"#{@host} is locked.") end
 
     old_parent = @host.parent

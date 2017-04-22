@@ -16,6 +16,7 @@ class ActionTransform
     @docs = "Define the parent vessel."
 
     @target = :parent
+    @params = :attr
 
   end
 

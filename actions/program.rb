@@ -16,6 +16,7 @@ class ActionProgram
     @docs = "Automate the parent vessel."
     
     @target = :parent
+    @params = :action
 
   end
 

@@ -14,7 +14,7 @@ class ActionUse
 
     @name = "Use"
     @docs = "Use an automated visible vessel."
-    @target = :visible
+    @params = :visible
 
   end
 

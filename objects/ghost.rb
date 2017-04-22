@@ -74,6 +74,19 @@ class Ghost
 
   end
 
+  def act action_name, params = nil
+
+    action = Object.const_get("Action#{action_name.capitalize}").new
+    action.host = self
+
+    if action.target == :parent && parent.is_locked then return answer(:error,"#{parent} is locked.") end
+
+    return action.act(params)
+
+    return "act:#{action_name}[#{params}] -> #{action.target}"
+
+  end
+
   def answer type, message
 
     return "<p>#{message}</p>"
@@ -109,10 +122,12 @@ class Ghost
 
     @siblings = []
     $parade.each do |vessel|
+      if vessel.parent.is_quiet && parent && vessel.owner != @id && vessel.owner != parent.owner then next end
       if vessel.unde == @unde && vessel.id != @id && vessel.id != @unde
         @siblings.push(vessel)
       end
     end
+
     return @siblings
 
   end
@@ -186,7 +201,7 @@ class Ghost
 
   end
 
-  def is_stem
+  def is_paradox
 
     if id == @unde then return true end
     return nil
