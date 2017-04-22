@@ -9,6 +9,11 @@ class Void
   attr_accessor :note
   attr_accessor :parent
   attr_accessor :owner
+  
+  attr_accessor :is_locked
+  attr_accessor :is_hidden
+  attr_accessor :is_quiet 
+  attr_accessor :is_frozen
 
   def initialize
 
