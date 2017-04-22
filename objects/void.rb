@@ -18,6 +18,11 @@ class Void
     @note = ""
     @owner = 0
 
+    @is_locked = true
+    @is_hidden = true
+    @is_quiet  = true
+    @is_frozen = true
+
   end
 
   def parent
