@@ -3,7 +3,7 @@
 
 require_relative "_toolkit.rb"
 
-class ActionUnlock
+class ActionDestroy
 
   include Action
   include ActionToolkit
@@ -12,14 +12,17 @@ class ActionUnlock
 
     super
 
-    @name = "Unlock"
-    @docs = "Unlock the parent vessel."
+    @name = "Destroy"
+    @docs = "Destroy the target owned vessel."
+    @target = :visible
 
-    @target = :parent
-    
   end
 
   def act q = "Home"
+
+    target = visible_named(q)
+
+    return target.destroy
 
     attr = q.split(" ").last
     

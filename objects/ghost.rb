@@ -46,14 +46,14 @@ class Ghost
     
     install(:generic,:look)
     install(:generic,:help)
-    install(:generic,:inspect)
 
     install(:basic,:become)
     install(:basic,:leave)
     install(:basic,:enter)
     install(:basic,:create)
 
-    install(:advanced,:warp)
+    install(:movement,:warp)
+
     install(:advanced,:take)
     install(:advanced,:drop)
     install(:advanced,:lock)
@@ -61,12 +61,35 @@ class Ghost
 
     install(:communication,:say)
 
-    install(:advanced,:transmute)
-    install(:advanced,:make)
+    install(:narrative,:transmute)
+    install(:narrative,:transform)
+    install(:narrative,:describe)
 
-    install(:control,:note)
-    install(:control,:program)
-    install(:control,:use)
+    install(:programming,:program)
+    install(:programming,:use)
+    install(:programming,:inspect)
+    install(:programming,:call)
+
+    # install(:deconstruction,:destroy)
+
+  end
+
+  def act action_name, params = nil
+
+    action = Object.const_get("Action#{action_name.capitalize}").new
+    action.host = self
+
+    if action.target == :parent && parent.is_locked then return answer(:error,"#{parent} is locked.") end
+
+    return action.act(params)
+
+    return "act:#{action_name}[#{params}] -> #{action.target}"
+
+  end
+
+  def answer type, message
+
+    return "<p>#{message}</p>"
 
   end
 
@@ -74,8 +97,10 @@ class Ghost
 
     particle = "a "
     if @note != "" || @attr != "" then particle = "the " end
-    if @attr && @attr[0,1] == "a" then particle = "an " end
     if @attr.to_s == "" && @name[0,1] == "a" then particle = "an " end
+    if @attr.to_s == "" && @name[0,1] == "i" then particle = "an " end
+    if @attr && @attr[0,1] == "a" then particle = "an " end
+    if @attr && @attr[0,1] == "i" then particle = "an " end
 
     action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'" : ""
 
@@ -97,10 +122,12 @@ class Ghost
 
     @siblings = []
     $parade.each do |vessel|
+      if vessel.parent.is_quiet && parent && vessel.owner != @id && vessel.owner != parent.owner then next end
       if vessel.unde == @unde && vessel.id != @id && vessel.id != @unde
         @siblings.push(vessel)
       end
     end
+
     return @siblings
 
   end
@@ -168,7 +195,13 @@ class Ghost
 
   end
 
-  def is_stem
+  def destroy
+
+    $paradise.overwrite_line(@id+4,"")
+
+  end
+
+  def is_paradox
 
     if id == @unde then return true end
     return nil
@@ -229,7 +262,7 @@ class Ghost
 
   def has_note
 
-    return @note.to_s != "" && @note.length > 10 ? true : false
+    return @note.to_s != "" ? true : false
     
   end
 
@@ -258,6 +291,38 @@ class Ghost
 
     return val
     
+  end
+
+  def is_valid
+
+    errors = []
+
+    if name.to_s.strip == "" then errors.push("The vessel name cannot be blank.") end
+    if name.length > 14 then errors.push("The vessel name cannot be more than 14 characters long.") end
+    if name.length < 3 then errors.push("The vessel name cannot be less than 3 characters long.") end
+    if name.has_badword then errors.push("Please do not use the word #{name.has_badword} in Paradise.") end
+    if name.is_alphabetic == false then errors.push("Vessel names can only contain letters.") end
+
+    if has_attr
+      if attr.length > 14 then errors.push("The vessel attribute cannot be more than 14 characters long.") end
+      if attr.length < 3 then errors.push("The vessel attribute cannot be less than 3 characters long.") end
+      if attr.has_badword then errors.push("Please do not use the word #{attr.has_badword} in Paradise.") end
+      if attr.is_alphabetic == false then errors.push("Vessel attributes can only contain letters.") end
+      if name == attr then errors.push("Vessels cannot have the same attribute and name.") end
+    end
+
+    return errors.length > 0 ? false : true, errors
+
+  end
+
+  def is_unique
+
+    $parade.each do |vessel|
+      if vessel.id == @id then next end
+      if vessel.name.like(@name) && vessel.attr.like(@attr) then return false end
+    end
+    return true
+
   end
 
 end

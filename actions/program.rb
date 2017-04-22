@@ -14,17 +14,20 @@ class ActionProgram
 
     @name = "Program"
     @docs = "Automate the parent vessel."
+    
+    @target = :parent
+    @params = :action
 
   end
 
   def act q = "Home"
 
-    if q.length > 60 then return "<p>A vessel program cannot exceed 60 characters.</p>" end
-    if @host.parent.is_locked == true then return "<p>#{@host.parent} is locked.</p>" end
+    if q.length > 60 then return @host.answer(:error,"A vessel program cannot exceed 60 characters.") end
+    if @host.parent.is_locked == true then return @host.answer(:error,"#{@host.parent} is locked.") end
 
     @host.parent.set_program(q)
 
-    return "<p>You updated #{@host.parent}'s program.</p>"
+    return @host.answer(:modal,"You updated #{@host.parent}'s program.")
 
   end
 

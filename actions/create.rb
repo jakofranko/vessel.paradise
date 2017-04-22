@@ -15,34 +15,28 @@ class ActionCreate
     @name = "Create"
     @docs = "Create a new vessel."
 
+    @params = :name
+
   end
 
   def act q = "Home" 
 
     target = remove_articles(q).split(" ")
 
-    name = target.last
-    attr = target.length == 2 ? target[target.length-2] : ""
-
-    # Lengths
-    if name.to_s == "" then return @host.act(:look,"The vessel name is too short.") end
-    if name.length > 14 then return @host.act(:look,"The vessel name is too long.") end
-    if attr.length > 14 then return @host.act(:look,"The vessel attribute is too long.") end
-    
-    # Checks
-    if !is_long_enough(name) then return @host.act(:look,"This vessel name is too short.") end
-    if !is_unique(name,attr) then return @host.act(:look,"A vessel named \"#{attr+' '+name}\" already exists somewhere.") end
-    if !is_valid(name) then return @host.act(:look,"This vessel name is not allowed.") end
-    if !is_valid(attr) then return @host.act(:look,"This vessel attribute is not allowed.") end
-    if !is_alphabetic(name) then return @host.act(:look,"A vessel name cannot include non alphabetic characters.") end
-    if !is_alphabetic(attr) then return @host.act(:look,"A vessel attribute cannot include non alphabetic characters.") end
+    name = target.last.to_s
+    attr = target.length == 2 ? target[target.length-2].to_s : ""
 
     new_vessel = Ghost.new({"NAME" => name.downcase,"ATTR" => attr.downcase,"CODE" => "0000-#{@host.unde.to_s.prepend('0',5)}-#{@host.id.to_s.prepend('0',5)}-#{Timestamp.new}"})
+
+    validity_check, validity_errors = new_vessel.is_valid
+
+    if !validity_check then return @host.answer(:error,"#{validity_errors.first}") end
+    if !is_unique(name,attr) then return @host.answer(:error,"A vessel named \"#{attr+' '+name}\" already exists.") end
 
     $paradise.append(new_vessel.encode)
     @host.reload
 
-    return "You created #{new_vessel}."
+    return @host.answer(:modal,"You created #{new_vessel.to_s(true,false)}.")
 
   end
 

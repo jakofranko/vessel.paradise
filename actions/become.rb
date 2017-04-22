@@ -14,6 +14,8 @@ class ActionBecome
 
     @name = "Become"
     @docs = "Become a visible vessel."
+    
+    @params = :visible
 
   end
 
@@ -21,7 +23,7 @@ class ActionBecome
 
     target = visible_named(q)
 
-    if !target then return @host.act("look","Cannot find a target named #{q}.") end
+    if !target then return @host.answer(:error,"Cannot find a target named #{q}.") end
 
     return "<p>You are becoming #{target}...</p>
     <meta http-equiv='refresh' content='1; url=/#{target.id}' />"

@@ -1,43 +1,43 @@
 ~ NAME : Paradise
 ~ NOTE : Code[Locked,Hidden,Quiet,Frozen] - Parent - Owner - Type
 
-@ CODE                          NAME           ATTR           PROGRAM                                                      NOTE
-0000-00013-00000-00000000000000 Genesis        Ultra              
-0000-00262-00000-20170413164923 book           rune                                                                         You find yourself in a library of infinite shelves, perched on a precipice over a red sea . It has no windows , no doors ; for all you know it has no walls . You see that there are some items on a nearby shelf ; some are solid items , others are abstract concepts. The concept of chaos beckons you...
-0000-00086-00000-20170307003835 section        forgotten                                                                    crazy
-0000-00528-00001-20170408094812 runebook       blue
-0000-00050-00000-20170130220313 door           cyan           warp to 1
-0000-00030-00000-20170406141044 gallery        ancient                                                                      A large mural covers one of the walls.
-0000-00022-00000-20170307140457 mezzanine      cyan                                                                         The main gallery
-0000-00002-00000-20170328081458 bird           glass
-0000-00225-00003-20170131221200 apple          devoured       warp to 3                                                     hello there
-0000-00225-00003-20170131221205 apple          devoured
-0000-00019-00003-20170129145649 teacup                        say i am a program                   
-0000-00008-00003-20170418085831 apple          devoured
-0000-00003-00003-20170128110742 lagoon         blue           warp to 4                   
-0000-00619-00003-20170404172407 house
-1000-00014-00010-20170307004711 cog            blue
-1111-00176-00000-20170306220218 nullspace      vessel
-0000-00001-00013-20170404001654 vektra         infinite                                                                     Vektra, the singularity.
-0000-00426-00011-20170210160600 city           red            This is a test
-0000-00007-00015-20170129135521 eigengrau      eigengrau                   
-0000-00031-00010-20170129181209 marble         red            warp to 1                   
-0000-00020-00019-20170213193829 center         city                                                                         this is a wip
-0000-00225-00016-20170131221222 soul           devoured                                                                     Soul of the Vektra.
-0000-00619-00010-20170307135901 monolith       monolith
-0000-00013-00019-20170410182839 painting       chartreuse
-0000-00194-00016-20170131104805 essence        permanent                                                                    An energy ingrained in the fabric of time.
-0000-00183-00023-20170307011202 book           cyan
-0000-00632-00022-20170307152930 book           shapeshifter   make (random broken orb pyramid rubic)
-0000-00613-00025-20170305232742 woldweller     aged                                                                         A dweller of the wild, uncultivated lands; a forest spirit; a sort of bowtruckle or small tree shepherd. The woldweller is creator, adventurer, and guardian.
-0000-00457-00025-20170305081015 gold           golden                                                                       stuff
-0000-00030-00026-20170129144504 dodecahedron   red
-0000-00002-00029-20170212171621 nose           blue
-0000-00339-00027-20170204142919 globe          red
-0000-00010-00027-20170129145457 teapot                        say i am a teapot
-0000-00003-00016-20170221192455 drifter                       warp (random 19 20 21 22 23 24 25 26 27 28 29 30)             Sends you on a small journey.
-0000-00225-00019-20170131221229 horse          devoured
-1000-00280-00027-20170212021849 paintcan       rusty                                                                        Red flakes fall like rain. Poisonous vapors rise from the scant bit of evaporating liquid in the bottom. They rise through a rusty hole as though it is a chimney.
+@ CODE                          NAME           ATTR           PROGRAM                                                       NOTE
+1111-00000-00000-00000000000000 Jail           Tempest
+1011-00001-00000-00000000000000 Haven          Inner                                                                        The library hallway sleeps quietly, as a light snow seeps through holes in the glass dome above.
+1011-00001-00000-00000000000000 hallway        library                                                                      An old red staircase creeps upwards and toward the isles of endless teapottering. On your right, a cyan elevator brings your downstairs into the pavillion of geometries.
+1011-00002-00000-00000000000000 pavillion      geometry                                                                     The pavillion is under construction, come back soon.
+1011-00002-00000-00000000000000 isles          teapottery                                                                   Countless rows of books on teapottering. Tomes and leaflets on the benefits of the teapot vessel, are littering the isles.
+1011-00002-00000-00000000000000 elevator       cyan           warp to 3
+1011-00004-00000-00000000000000 teapot         original       say me touched the original teapot                                                              
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
+1011-00000-00000-00000000000000 space          reserved
 0000-00361-00027-20170418093441 angel          golden
 0000-00183-00027-20170307011211 tome           cyan                                                                         The book of the cyan faction
 0000-00397-00027-20170306230705 nestc          vessel
@@ -299,7 +299,7 @@
 0000-00318-00123-20170218035219 tumbleweed
 0000-00046-00123-20170320232703 wheelbarrow
 0000-00350-00123-20170418102412 pollution
-0000-00375-00123-20170307005403 insect
+0000-00004-00123-20170421141910 insect
 0000-00127-00123-20170330153509 boot
 0000-00129-00123-20170311161027 anteater
 0000-00300-00123-20170307045532 universe       wonder                                                                       do what you want, create good for others
@@ -738,7 +738,12 @@
 0000-00732-00696-20170419123357 ivory
 0000-00247-00732-20170419123459 trimetrique
 0000-00223-00117-20170419125005 weasel
+<<<<<<< HEAD
 1000-00508-00065-20170419151618 fash           flappy
 0000-00637-00394-20170420135148 yes
 0000-00737-00394-20170420170910 mom
 0000-00117-00117-20170421101233 moderatulator
+=======
+
+0000-00002-00297-20170421135701 test           pink
+>>>>>>> d84b1495af27e265125534a93a5867c0212f0fad

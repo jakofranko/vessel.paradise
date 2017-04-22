@@ -20,7 +20,7 @@ class ActionHelp
   def act q = "Home"
 
     html = ""
-    html += "<p>Thank you for contacting the vessel help line.</p>"
+    html += "<p>Thank you for contacting VHL, the <vessel data-action='warp to 1'>Vessel Help Line</vessel>.</p>"
     html += "<p>Installed commands for #{@host} vessel. </p>"
 
     html += list_actions
@@ -35,11 +35,18 @@ class ActionHelp
 
     html = ""
     @host.actions.each do |cat,actions|
-      html += "<tr><th colspan='2'>#{cat}</th></tr>"
+      if cat == :generic then next end
+      html += "<tr><th>#{cat.capitalize}</th><td>"
       actions.each do |action|
         action = action.new
-        html += "<tr><td>#{action.name}</td><td>#{action.docs}</td></tr>"
+        html += "<b>#{action.name}</b> "
+        if action.target then html += "<span class='target'>#{action.target}</span> " end
+        if action.params then html += "<span class='params'>#{action.params}</span> " end
+        html += "<br />"
       end
+
+      html += "</td></tr>"
+      
     end
     return "<table>#{html}</table>"
 
@@ -48,6 +55,7 @@ class ActionHelp
   def about
 
     return "<p>Paradise is a multiplayer playground where anyone can become anything and go anywhere. You can learn more about the project on the <a href='http://wiki.xxiivv.com/Paradise' target='_blank'>wiki</a>. </p>"
+    
   end
 
 end

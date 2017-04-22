@@ -2046,9 +2046,8 @@
 20170418190039 00430 00455 what can a Dwellerbird do
 20170418200041 00275 00273 hello
 20170418200053 00275 00273 wavy don
-20170419001057 00569 00457 YOU EVER WONDER IF YOUR PARENTS AREN'T YOUR PARENTS&quest; YOUR FAMILY NOT YOUR FAMILY&quest; OR WHY YOUR CAT IS SIMULTANEOUSLY ALIVE AND DEAD&quest; REDDIT.COM&sol;R&sol;DIMENSIONALJUMPING! SWEET DREAMS!
-20170419011018 00268 00268 hey Bill, watch your goddamn ass you weasel, or I'll personally make sure you meet the Jorves
 20170419123519 00247 00732 I think this is getting more and more single player
+<<<<<<< HEAD
 20170419203410 00109 00619 The teapots are learning.
 20170420015506 00569 00457 ohoh, looks like someone's reading my messages! beaver, you know what 'fun' is&quest; it's watching all of you empty bags scream as the hole forms between dimensions, leaving me the only being powerful enough to take the reins of this world. and every other. and every other. and every other.
 20170420015650 00569 00457 you know, they don't make most teapots shaped as triangles, rue fold.
@@ -2096,3 +2095,9 @@
 20170422102342 00709 00457 said too much
 20170422102345 00709 00457 it is unseen
 20170422102437 00709 00457 hey vessels!
+=======
+20170420142440 00641 00589 test
+20170420161137 00222 00589 something
+20170421125908 00001 00297 debug quazar
+20170421142041 00004 00297 me touched the original teapot.
+>>>>>>> d84b1495af27e265125534a93a5867c0212f0fad

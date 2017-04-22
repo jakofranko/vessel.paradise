@@ -14,6 +14,7 @@ class ActionDrop
 
     @name = "Drop"
     @docs = "Drop a child vessel."
+    @target = :child
 
   end
 
@@ -21,12 +22,12 @@ class ActionDrop
 
     target = child_named(q)
 
-    if !target then return @host.act("look","Cannot find a target named #{q}.") end
-    if target.is_locked == true then return "<p>#{target} is locked.</p>" end
+    if !target then return @host.answer(:error,"Cannot find a target named #{q}.") end
+    if target.is_locked == true then return @host.answer(:error,"#{target} is locked.") end
 
     target.set_unde(@host.unde)
 
-    return "<p>You dropped #{target}.</p>"
+    return @host.answer(:modal,"You dropped #{target}.")
     
   end
 

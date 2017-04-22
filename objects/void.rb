@@ -32,7 +32,7 @@ class Void
 
   end
 
-  def is_stem
+  def is_paradox
 
     return true
 

@@ -1,7 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-$BADWORDS = ["dick","pussy","asshole","nigger","cock","jizz","faggot","nazi","cunt","sucker","bitch","fag","jew","nigga","anus"]
+module Action
+
+  attr_accessor :params
+  attr_accessor :target
+
+end
 
 module ActionToolkit
   
@@ -14,6 +19,16 @@ module ActionToolkit
     words = " #{words} ".sub(" one ","")
     words = " #{words} ".sub(" two ","")
     return words.strip
+
+  end
+
+  def is_unique name,attr
+
+    $parade.each do |vessel|
+      if vessel.name.like(name) && vessel.attr.like(attr) then return nil end
+    end
+
+    return true
 
   end
 
@@ -36,16 +51,6 @@ module ActionToolkit
     $BADWORDS.each do |bad_word|
       if word.include?(bad_word) then return nil end
     end
-    return true
-
-  end
-
-  def is_unique name,attr
-
-    $parade.each do |vessel|
-      if vessel.name.like(name) && vessel.attr.like(attr) then return nil end
-    end
-
     return true
 
   end
