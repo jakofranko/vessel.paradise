@@ -2049,3 +2049,50 @@
 20170419001057 00569 00457 YOU EVER WONDER IF YOUR PARENTS AREN'T YOUR PARENTS&quest; YOUR FAMILY NOT YOUR FAMILY&quest; OR WHY YOUR CAT IS SIMULTANEOUSLY ALIVE AND DEAD&quest; REDDIT.COM&sol;R&sol;DIMENSIONALJUMPING! SWEET DREAMS!
 20170419011018 00268 00268 hey Bill, watch your goddamn ass you weasel, or I'll personally make sure you meet the Jorves
 20170419123519 00247 00732 I think this is getting more and more single player
+20170419203410 00109 00619 The teapots are learning.
+20170420015506 00569 00457 ohoh, looks like someone's reading my messages! beaver, you know what 'fun' is&quest; it's watching all of you empty bags scream as the hole forms between dimensions, leaving me the only being powerful enough to take the reins of this world. and every other. and every other. and every other.
+20170420015650 00569 00457 you know, they don't make most teapots shaped as triangles, rue fold.
+20170420040706 00286 00361 you are a son of a bitch
+20170420040728 00286 00361 I will kick your butt
+20170420040821 00286 00361 me
+20170420041003 00286 00361 Curse you bill cipher!
+20170420041023 00286 00361 You are truly madness!
+20170420140731 00517 00514 I'm a ghost in a clock
+20170420225206 00569 00457 aw, that's nice. thank you, fork!
+20170421002329 00318 00294 what is the matter gentlemen
+20170421002346 00318 00294 I didn't put in any question mark.
+20170421002411 00318 00294 solve that if you will
+20170421002537 00318 00294 look at bill
+20170421080516 00617 00257 mercy has been demoted
+20170421142521 00620 00536 hola
+20170422014827 00537 00400 hi
+20170422094632 00569 00457 what
+20170422094654 00569 00457 'what' just adds a question mark.
+20170422094715 00569 00457 did when what
+20170422094809 00569 00457 good, at least only at the beginning of sentences. I don't know how i'd use what if it were to always add a &quest; then!
+20170422094955 00569 00457 interesting setup you vessels have here.
+20170422095328 00569 00457 you know, you coffers are hilarious! if i were a lowly teapot like the rest of you, i'd be always laughing! ha!
+20170422095359 00709 00457 (I am a fool)
+20170422095422 00709 00457 (I am a bill)
+20170422095446 00709 00457 (I am the one with eyes that see into the sky)
+20170422100814 00709 00457 nice try, omnipotence, but bill's gonna stick around!
+20170422101006 00709 00457 besides, i've still got teapots to convince, maybe a deal wouldn't be so bad after all&quest; you know, omnipotence, i'm here for you! just tell me what you want and I'll work it out.
+20170422101031 00709 00457 i'm always prepared for a new client!
+20170422101118 00709 00457 hey, want some <b>bold
+20170422101324 00709 00457 <small>
+20170422101412 00709 00457 <bdo>
+20170422101450 00709 00457 <bdo dir="rtl">
+20170422101555 00709 00457 <strike>
+20170422101747 00709 00457 <mark>
+20170422102233 00709 00457 <br>
+20170422102255 00709 00457 good to know that html tags work
+20170422102310 00709 00457 still sorta
+20170422102320 00709 00457 said too much
+20170422102330 00709 00457 it is unseen
+20170422102333 00709 00457 said too much
+20170422102336 00709 00457 it is unseen
+20170422102338 00709 00457 said too much
+20170422102341 00709 00457 it is unseen
+20170422102342 00709 00457 said too much
+20170422102345 00709 00457 it is unseen
+20170422102437 00709 00457 hey vessels!

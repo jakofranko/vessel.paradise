@@ -67,7 +67,7 @@
 0000-00225-00056-20170131221248 apple          devoured
 0000-00508-00056-20170227154054 flashlight     ambulatory                                                                   It would have been like a Roomba, but emitting light where you needed it. It would have doubled as a companion to talk to when no one else was around.
 0000-00619-00056-20170407015014 album          concept                                                                      It would follow an animal of some kind, like a fox or something, as it explored a psychedelic world.
-0000-00508-00056-20170225201327 character      viking                                                                       He would have held his sword proudly into the wind, in defiance of the gods, conflicted in his worship of the Gods of War.
+0000-00508-00056-20170419151624 character      viking                                                                       He would have held his sword proudly into the wind, in defiance of the gods, conflicted in his worship of the Gods of War.
 0000-00660-00056-20170321103532 universe                                                                                    empty
 0000-00043-00056-20170130180444 car            xbox
 0000-00066-00056-20170129200849 stars          beautiful                   
@@ -119,7 +119,7 @@
 0000-00183-00111-20170307011329 book           dusty
 0000-00160-00111-20170131171710 ramen                         say i want human ramen!!!!!!!!                                er
 0000-00444-00111-20170215150432 yajnev
-0000-00223-00035-20170216232147 death
+0000-00735-00035-20170420115358 death
 0000-00120-00035-20170307005705 defects
 0000-00442-00035-20170216232422 bit            green          say awesome                                                   It's a secret!
 0000-00120-00035-20170131032122 fun            nothing
@@ -170,7 +170,7 @@
 0000-00128-00056-20170130172939 space          sleeping
 0000-00285-00123-20170407010136 ithmaus                                                                                     you cannot comprehend the outside of time ... Itthomas
 0000-00225-00120-20170131221355 person         devoured
-0000-00393-00060-20170413115856 candle
+0000-00396-00060-20170420134836 candle
 0000-00225-00118-20170131221358 dog            devoured
 0000-00060-00169-20170212075755 wind           smartphone
 0000-00225-00170-20170131221410 woman          devoured
@@ -249,7 +249,7 @@
 0000-00273-00123-20170407010242 dimension      second
 0000-00629-00123-20170413120250 man            abstract
 0000-00246-00123-20170201190250 box            cardboard                                                                    it is slightly damp around one of its bottom edges.
-0000-00709-00123-20170419103359 omnipotence                   say (I am a fool)                                             It makes for a great fineshrine
+0000-00709-00123-20170422100053 omnipotence                   say THE BILL CIPHER, LET'S MAKE A DEAL.                       It makes for a great fineshrine
 0000-00248-00123-20170201201033 concept        abstract
 0000-00236-00123-20170202084230 life
 0000-00256-00123-20170215064653 serenity       wings
@@ -396,9 +396,9 @@
 1000-00324-00027-20170212023307 cot            stark          warp 258                                                      After an all nighter of planning, it's nice to be able to fall asleep right here in the office.
 1000-00396-00027-20170212023405 practice       transmutation  use (random liquid lid)                                       Practice your skills daily if you are cyan
 1000-00325-00027-20170212023354 deprivationpod                warp 396                                                      A sensory deprivation chamber, where no stimuli get in or out. Some people report peaceful hallucinations upon using.
-1000-00396-00027-20170212023411 liquid         cool           make (random slippery shadowy tiny veiled tea flat sly dark)  The soothing sensations of the cool liquid is the only thing you can sense. Everything else is probably an hallucination.
+1000-00738-00027-20170420135251 liquid         cool           make (random slippery shadowy tiny veiled tea flat sly dark)  The soothing sensations of the cool liquid is the only thing you can sense. Everything else is probably an hallucination.
 1000-00396-00027-20170212023415 lid            locking        transmute (random pot worm mask wyrm herb shade ant ham pen)  The lid of the sensory deprivation chamber locks firmly, filtering out all sound and smells.
-0000-00393-00027-20170204235424 critter        stealthy                                                                     This vessel is actually a disguised cyan vessel. Use it for transmutation practice if you like.
+0000-00393-00027-20170420135110 ham            tiny                                                                         This vessel is actually a disguised cyan vessel. Use it for transmutation practice if you like.
 0000-00632-00384-20170307152933 book           nestc
 0000-00188-00027-20170225195046 material
 0000-00432-00162-20170405175115 hello
@@ -446,7 +446,7 @@
 0000-00007-00135-20170215140021 shard
 0000-00509-00119-20170410032509 torus          super                                                                        A DECREE INSTITUTING A LABOR CODE THEREBY REVISING AND CONSOLIDATING LABOR AND SOCIAL LAWS TO AFFORD PROTECTION TO LABOR, PROMOTE EMPLOYMENT AND HUMAN RESOURCES DEVELOPMENT AND INSURE INDUSTRIAL PEACE BASED ON SOCIAL JUSTICE
 0000-00624-00442-20170307140548 glove
-0000-00620-00116-20170414130552 bar
+0000-00002-00116-20170420044206 bar
 0000-00230-00249-20170217021642 poop
 0000-00682-00123-20170417180331 twopac
 0000-00003-00123-20170216183124 spell          damnation      warp 243
@@ -459,7 +459,7 @@
 0000-00027-00196-20170309153710 fire
 0000-00430-00454-20170301011222 dwellerbird
 0000-00004-00220-20170331212938 air
-0000-00569-00383-20170419000606 cipher         bill                                                                         <font color="green"> HI I'M -- C, THAT SAME MESSAGE GUY!
+0000-00569-00383-20170422102612 cipher         bill                                                                         <font color="green"> HI I'M -- C, THAT SAME MESSAGE GUY!
 0000-00458-00457-20170301105043 instability
 1000-00459-00457-20170303234612 realm          nightmare                                                                    THE HOME OF YROO! Dare to enter the Fearamid&quest;
 0000-00002-00457-20170326005924 paradise       chaotic
@@ -510,7 +510,7 @@
 1000-00504-00027-20170301054823 fort           lopsided                                                                     The blanket fort is bigger on the inside. Unearthly technologies rise from the sandy floor , blinking and flickering. Someone has tacked blueprints to the blanket walls , and installed a cardboard box in the corner, covered in intricate crayon sketches .
 1000-00504-00027-20170225200510 armors         stone                                                                        The earthen plate mails are chillingly void of inhabitants. They do not bend with the blows of an enemy; rather, they shatter to absorb the full energy of the blow and reform at a whispered command. A twinkling light seems to beckon you, floating up in the knight's helm.
 1000-00506-00027-20170225201414 light          twinkling      warp 508
-1000-00508-00027-20170225200845 plane          brainstorm                                                                   This is the dimension where live all the ideas people have but don't write down. Many are half-conceived, but thousands more could have been world changing if just given the chance. All it would take was one more reminder that these ideas existed...
+1000-00508-00027-20170419151334 plane          nothing                                                                      This is the dimension where live all the ideas people have but don't write down. Many are half-conceived, but thousands more could have been world changing if just given the chance. All it would take was one more reminder that these ideas existed...
 0000-00010-00442-20170225201121 orb            golden
 0000-00509-00442-20170410031610 void           well                                                                         When a principal, whose future court attendance at a criminal action or proceeding is or may be required, initially comes under the control of a court, such court must, by a securing order, either release him on his own recognizance, fix bail or commit him to the custody of the sheriff.
 1000-00485-00027-20170225201718 tapestry       threadbare                                                                   The tapestry depicts a busy hangar , where dwarves chant spells over their tools before bringing them to bear on the strange contraptions of transportation inside. An enchanted airship docks here, straining at its ropes.
@@ -525,7 +525,7 @@
 0000-00096-00519-20170227133553 tesseract                     create a wrinkle in time
 0000-00096-00519-20170227133600 time
 0000-00496-00498-20170227230314 hero
-0000-00060-00522-20170405202400 superman
+0000-00172-00522-20170420145149 superman
 0000-00469-00457-20170228044454 box            metallic                                                                     Filled with darkness.
 0000-00522-00457-20170415120349 rag            used                                                                         later
 0000-00520-00457-20170228042215 cube           flat                                                                         IT'S ACTUALLY A SQUARE.
@@ -586,7 +586,7 @@
 1000-00513-00457-20170304041125 swirl          dimensional                                                                  GSV KLIGZO GL GSV RMURMRGV OLLK.
 0000-00529-00457-20170304034907 ring           etched                                                                       FHV GSV DSVVO ZMW XIZXP GSV XRKSVI; WVUVZG GSV GIRZMTFOZI VBV RM GSV HPB.
 0000-00582-00457-20170325121126 horror         cosmic                                                                       NOW THAT'S MORE WHAT I WANT! -- C
-0000-00469-00001-20170304085520 createcounter
+0000-00059-00001-20170420151911 createcounter
 0000-00585-00001-20170417035528 counter                                                                                     the counter
 0000-00371-00410-20170304201000 daniel
 0000-00586-00410-20170304201132 orb
@@ -619,9 +619,9 @@
 0000-00231-00237-20170306065630 vessel         new
 0000-00619-00537-20170309135726 woman          wonder                                                                       notable bondage user
 0000-00616-00297-20170307005507 rune           reef
-0000-00257-00257-20170307010026 create
+1000-00257-00257-20170421080544 create
 0000-00309-00298-20170307010246 repairer
-0000-00109-00001-20170410033615 fold           rue                                                                          An eerie empty street that goes past the horizon of your sight.
+0000-00703-00001-20170419204236 fold           rue                                                                          An eerie empty street that goes past the horizon of your sight.
 0000-00060-00619-20170307140152 reef           blue
 0000-00623-00619-20170307153212 shelf          book           warp (random 632 633 628)
 0000-00620-00619-20170307033004 algae
@@ -711,7 +711,7 @@
 0000-00121-00054-20170412174055 orange
 0000-00379-00379-20170412174247 apple
 0000-00437-00437-20170413224812 tiger          headed
-1000-00571-00457-20170414024050 mailbox        yellow                                                                       The mailbox growls as you get closer to its opening. <br> FEEL FREE TO LEAVE A NOTE. I'LL BE PLENTY GLAD TO READ WHAT YOU COFFERS WANT TO SAY TO ME. -- C
+1000-00571-00457-20170422100732 mailbox        yellow                                                                       The mailbox growls as you get closer to its opening. FEEL FREE TO LEAVE A NOTE. I'LL BE PLENTY GLAD TO READ WHAT YOU COFFERS WANT TO SAY TO ME. -- C<br>P.S. I AM NOT PART OF THOSE ASININE TEA VESSELS, SO I CAN'T DO BUGFIXES. BUT MAYBE WE CAN STRIKE A BLUE FLAME&quest; IF YOU GET MY POINT(S). -- C
 0000-00050-00106-20170416205341 man            handsome
 0000-00715-00352-20170416214008 quark
 0000-00536-00352-20170416213721 happiness
@@ -738,3 +738,7 @@
 0000-00732-00696-20170419123357 ivory
 0000-00247-00732-20170419123459 trimetrique
 0000-00223-00117-20170419125005 weasel
+1000-00508-00065-20170419151618 fash           flappy
+0000-00637-00394-20170420135148 yes
+0000-00737-00394-20170420170910 mom
+0000-00117-00117-20170421101233 moderatulator
