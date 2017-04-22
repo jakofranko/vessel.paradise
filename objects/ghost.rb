@@ -76,14 +76,14 @@ class Ghost
 
   def act action_name, params = nil
 
+    if Kernel.const_defined?("Action#{action_name.capitalize}") == false then return "<p>\"#{action_name.capitalize}\" is not a valid action.</p>" end
+
     action = Object.const_get("Action#{action_name.capitalize}").new
     action.host = self
 
     if action.target == :parent && parent.is_locked then return answer(:error,"#{parent} is locked.") end
 
     return action.act(params)
-
-    return "act:#{action_name}[#{params}] -> #{action.target}"
 
   end
 

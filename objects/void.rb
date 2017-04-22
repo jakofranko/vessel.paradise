@@ -30,6 +30,12 @@ class Void
 
   end
 
+  def act action_name, params = nil
+
+    return "The void cannot act."
+
+  end
+
   def parent
 
     return Void.new
