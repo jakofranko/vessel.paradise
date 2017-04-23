@@ -6,12 +6,14 @@ class Ghost
   include Vessel
 
   attr_accessor :id
+  attr_accessor :perm
   attr_accessor :name
   attr_accessor :note
   attr_accessor :attr
   attr_accessor :unde
   attr_accessor :owner
   attr_accessor :program
+  attr_accessor :content
 
   attr_accessor :is_locked
   attr_accessor :is_hidden
@@ -113,7 +115,7 @@ class Ghost
 
     action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'" : ""
 
-    return "<vessel class='#{classes}' #{action_attributes}>#{show_particle != false ? particle : ''} #{show_attr != false && @attr ? '<attr class='+@attr+'>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
+    return "<vessel class='#{@attr} #{classes}' #{action_attributes}>#{show_particle != false ? particle : ''} #{show_attr != false && @attr ? '<attr class='+@attr+'>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
 
   end
 
@@ -121,7 +123,7 @@ class Ghost
 
     @parent = @parent ? @parent : $parade[@unde]
 
-    return @parent ? (@parent.id = @unde ; @parent) : Void.new
+    return @parent ? (@parent.id = @unde ; @parent) : VesselVoid.new
 
   end
 
@@ -340,6 +342,12 @@ class Ghost
     end
     return true
 
+  end
+
+  def sight
+
+    return "(normal)"
+    
   end
 
 end

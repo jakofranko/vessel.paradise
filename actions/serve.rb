@@ -26,6 +26,13 @@ class ActionServe
 
     id = 0
     $parade.each do |vessel|
+      # Recast
+      if Kernel.const_defined?("Vessel#{vessel.perm.capitalize}")
+        $parade[id] = Object.const_get("Vessel#{vessel.perm.capitalize}").new(vessel.content)
+        puts "Recast: Vessel#{vessel.perm.capitalize}"
+      else
+        puts "Failed Recast: #{vessel.perm.capitalize}"
+      end
       vessel.id = id
       id += 1
     end
@@ -37,7 +44,7 @@ class ActionServe
     corpse           = CorpseHttp.new(@host,@query)
     corpse.query     = q
     corpse.paradise  = $paradise
-    corpse.player    = $parade[q.to_i] ? $parade[q.to_i] : Void.new
+    corpse.player    = $parade[q.to_i] ? $parade[q.to_i] : VesselVoid.new
     corpse.player.id = player_id
 
     corpse.title   = "Paradise ∴ #{q}"

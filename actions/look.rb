@@ -19,9 +19,12 @@ class ActionLook
 
   def act q = "Home", answer
 
-    html = answer.to_s != "" ? "<p class='answer'>"+answer+"</p>" : portal
+    html = answer.to_s != "" ? "<p class='answer'>"+answer+"</p>" : ""
+    p @host.parent
+    html += @host.parent.sight
     html += note
-    html += visibles
+    html += action
+    html += default
     html += chat
     html += guide
 
@@ -29,22 +32,9 @@ class ActionLook
 
   end
 
-  def portal
-
-    if @host.is_paradox
-      return "<p>You are #{@host} paradox.</p>"
-    elsif @host.parent.is_paradox
-      return "<p>You are #{@host} in #{@host.parent} paradox.</p>"
-    elsif @host.parent.parent.is_paradox
-      return "<p>You are #{@host} in #{@host.parent.to_s(true,true,false)} of #{@host.parent.parent.to_s(false,true,false)}.</p>"
-    end
-    return "<p>You are #{@host} in #{@host.parent.to_s(true,true,false)}.</p>"
-
-  end
-
   def note
 
-    if !@host.parent.has_note then return "" end
+    if !@host.parent.has_note then return "<p>The #{@host.parent.to_s(true,false,true)}</p>" end
 
     html = wildcard(@host.parent.note)
 
@@ -56,9 +46,36 @@ class ActionLook
 
   end
 
-  def visibles
+  def action
 
-    html = ""
+    @host.siblings.each do |vessel|
+      if vessel.has_program then return "<p class='action'><vessel data-action='use the #{vessel.name}'>Use the #{vessel.name}.</vessel></p>" end
+    end
+
+    if @host.siblings.length > 0
+      return "<p class='action'><vessel data-action='enter the #{@host.siblings.first.name}'>Enter #{@host.siblings.first}.</vessel></p>"
+    end
+
+    return ""
+
+  end
+
+  def portal
+
+    if @host.is_paradox
+      return "You are #{@host} paradox. "
+    elsif @host.parent.is_paradox
+      return "You are #{@host} in #{@host.parent} paradox. "
+    elsif @host.parent.parent.is_paradox
+      return "You are #{@host} in #{@host.parent.to_s(true,true,false)} of #{@host.parent.parent.to_s(false,true,false)}. "
+    end
+    return "You are #{@host} in #{@host.parent.to_s(true,true,false)}. "
+
+  end
+
+  def default
+
+    html = portal
     # Siblings
     siblings = @host.siblings
     if siblings.length == 1
@@ -83,7 +100,7 @@ class ActionLook
       html += ""
     end
 
-    return "<action data-action='inspect ' class='status'></action><p>#{html}</p>"
+    return "<p>#{html}</p>"
 
   end
 

@@ -1,9 +1,10 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Void
+class VesselVoid
 
   include Vessel
+  include VesselToolkit
 
   attr_accessor :unde
   attr_accessor :note
@@ -15,7 +16,7 @@ class Void
   attr_accessor :is_quiet 
   attr_accessor :is_frozen
 
-  def initialize
+  def initialize content = nil
 
     super
 
@@ -38,13 +39,7 @@ class Void
 
   def parent
 
-    return Void.new
-
-  end
-
-  def to_s show_attr = false
-
-    return "Void"
+    return VesselVoid.new
 
   end
 
