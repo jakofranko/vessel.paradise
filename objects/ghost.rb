@@ -98,9 +98,15 @@ class Ghost
     particle = "a "
     if @note != "" || @attr != "" then particle = "the " end
     if @attr.to_s == "" && @name[0,1] == "a" then particle = "an " end
+    if @attr.to_s == "" && @name[0,1] == "e" then particle = "an " end
     if @attr.to_s == "" && @name[0,1] == "i" then particle = "an " end
+    if @attr.to_s == "" && @name[0,1] == "o" then particle = "an " end
+    if @attr.to_s == "" && @name[0,1] == "u" then particle = "an " end
     if @attr && @attr[0,1] == "a" then particle = "an " end
+    if @attr && @attr[0,1] == "e" then particle = "an " end
     if @attr && @attr[0,1] == "i" then particle = "an " end
+    if @attr && @attr[0,1] == "o" then particle = "an " end
+    if @attr && @attr[0,1] == "u" then particle = "an " end
 
     action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'" : ""
 
