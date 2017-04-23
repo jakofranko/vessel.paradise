@@ -105,7 +105,7 @@
 0000-00100-00087-20170409160438 abe                           warp (random 101 102 103 104 105 106)                         No person shall be required to work for more than 6hrs during a calendar day without an interval of at least 30min for a meal. Any employer, superintendent, overseer or agent who violates this section shall be punished by a fine of not less than $300 nor more than $600.
 0000-00225-00087-20170131221340 stegosaurus    devoured       th armor plating.
 0000-00225-00087-20170131221344 teen           devoured
-0000-00045-00087-20170423072433 angst
+0100-00103-00087-20170423081106 angst
 0000-00273-00087-20170307171354 cloud                         warp (random 204 304 404 504 604)
 0000-00051-00087-20170204152107 humor
 0000-00050-00087-20170222202009 serpent        sea            warp 225                                                      unclassified marine animal either wholly or partly serpentine

@@ -31,8 +31,10 @@ class ActionLook
 
   def portal
 
-    if @host.parent.id == @host.id
-      return "<p>You are the paradox of #{@host}.</p>"
+    if @host.is_paradox
+      return "<p>You are #{@host} paradox.</p>"
+    elsif @host.parent.is_paradox
+      return "<p>You are #{@host} in #{@host.parent} paradox.</p>"
     elsif @host.parent.parent.is_paradox
       return "<p>You are #{@host} in #{@host.parent.to_s(true,true,false)} of #{@host.parent.parent.to_s(false,true,false)}.</p>"
     end
@@ -81,9 +83,7 @@ class ActionLook
       html += ""
     end
 
-    # if siblings.length == 0 then html = "You see nothing." end
-
-    return "<action data-action='inspect ' class='status'><img src='public.paradise/media/vectors/status.svg'/></action>"+"<p>#{html}</p>"
+    return "<action data-action='inspect ' class='status'></action><p>#{html}</p>"
 
   end
 
@@ -94,7 +94,7 @@ class ActionLook
     messages = $forum.to_a("comment")
 
     count = 0
-    messages[messages.length-7,7].each do |message|
+    messages[messages.length-5,5].each do |message|
       if message.timestamp.elapsed < 100000 then html += message.to_s end
       count += 1
     end

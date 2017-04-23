@@ -2047,7 +2047,6 @@
 20170418200041 00275 00273 hello
 20170418200053 00275 00273 wavy don
 20170419123519 00247 00732 I think this is getting more and more single player
-<<<<<<< HEAD
 20170419203410 00109 00619 The teapots are learning.
 20170420015506 00569 00457 ohoh, looks like someone's reading my messages! beaver, you know what 'fun' is&quest; it's watching all of you empty bags scream as the hole forms between dimensions, leaving me the only being powerful enough to take the reins of this world. and every other. and every other. and every other.
 20170420015650 00569 00457 you know, they don't make most teapots shaped as triangles, rue fold.
@@ -2082,14 +2081,3 @@
 20170422102320 00709 00457 said too much
 20170422102330 00709 00457 it is unseen
 20170422102333 00709 00457 said too much
-20170422102336 00709 00457 it is unseen
-20170422102338 00709 00457 said too much
-20170422102341 00709 00457 it is unseen
-20170422102342 00709 00457 said too much
-20170422102345 00709 00457 it is unseen
-20170422102437 00709 00457 hey vessels!
-20170423070054 00103 00210 
-20170423073004 00045 00103 45
-20170423073014 00045 00103 fuck
-20170423073033 00045 00103 what the hell
-20170423073059 00045 00103 who's

@@ -58,6 +58,8 @@ class Ghost
     install(:advanced,:drop)
     install(:advanced,:lock)
     install(:advanced,:unlock)
+    install(:advanced,:appear)
+    install(:advanced,:vanish)
 
     install(:communication,:say)
 
@@ -82,14 +84,15 @@ class Ghost
     action.host = self
 
     if action.target == :parent && parent.is_locked then return answer(:error,"#{parent} is locked.") end
+    if action.target == :self && is_locked then return answer(:error,"#{to_s} is locked.") end
 
     return action.act(params)
 
   end
 
-  def answer type, message
+  def answer type, message, etc = nil
 
-    return "<p>#{message}</p>"
+    return "<p>#{message}</p>#{etc ? '<p>'+etc+'</p>' : ''}"
 
   end
 
@@ -259,6 +262,14 @@ class Ghost
   def set_locked val
 
     @is_locked = val
+    save
+    reload
+
+  end
+
+  def set_hidden val
+
+    @is_hidden = val
     save
     reload
 
