@@ -42,7 +42,7 @@ class Ghost
     @is_quiet  = @perm[2,1].to_i == 1 ? true : false
     @is_frozen = @perm[3,1].to_i == 1 ? true : false
     
-    @program = @content["PROGRAM"]
+    @program = Program.new(@content["PROGRAM"])
 
     @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
     @docs = "Default Paradise vessel."
@@ -124,9 +124,9 @@ class Ghost
 
     html = ""
     if has_program
-      if program.split(" ").first.like("warp") then html += "warp "
-      elsif program.split(" ").first.like("create") then html += "machine "
-      elsif program.split(" ").first.like("say") then html += "speaker "
+      if program.to_s.split(" ").first.like("warp") then html += "warp "
+      elsif program.to_s.split(" ").first.like("create") then html += "machine "
+      elsif program.to_s.split(" ").first.like("say") then html += "speaker "
       else html += "program " end
     end
     if unde == id then html += "stem " end

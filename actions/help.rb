@@ -23,6 +23,8 @@ class ActionHelp
       return help_actions
     elsif q.to_s.like("wildcards")
       return help_wildcards
+    elsif q.to_s.like("programs")
+      return help_programs
     else
       return help_default
     end
@@ -33,13 +35,29 @@ class ActionHelp
 
   def help_default
 
-    return "<p>Thank you for contacting VHL, the <vessel data-action='warp to 1'>Vessel Help Line</vessel>.<p>What can we help you with today?</p>
+    html = "<p>Thank you for contacting VHL, the <vessel data-action='warp to 1'>Vessel Help Line</vessel>.<p>What can we help you with today?</p>
     <ul>
       <li><action data-action='help actions'>Actions</action></li>
       <li><action data-action='help wildcards'>Wildcards</action></li>
       <li><action data-action='help programs'>Programs</action></li>
     </ul>
     #{about}"
+
+    red = 0
+    cyan = 0
+
+    $parade.each do |vessel|
+      if vessel.attr == "red" then red += 1 end
+      if vessel.attr == "cyan" then cyan += 1 end
+    end
+
+    if red > cyan
+      html += "<p>The Red Spawn is winning with <b>#{(red/(cyan+red).to_f * 100).to_i}% control</b> over #{$parade.length} vessels.</p>"
+    else
+      html += "<p>The Cyan Mass is winning with <b>#{(cyan/(cyan+red).to_f * 100).to_i}% control</b> over #{$parade.length} vessels.</p>"
+    end
+
+    return html
 
   end
 
@@ -86,6 +104,23 @@ class ActionHelp
       end
     end
     html += "</table>"
+
+    return html
+
+  end
+
+  def help_programs
+
+    html = "<p>Thank you for contacting VHL, the <vessel data-action='warp to 1'>Vessel Help Line</vessel>.</p>"
+    html += "<p>Programs are simple automations that can be added onto vessels. </p>"
+
+    html += "<table>
+    <tr><th>Warp</th><td>warp to 10</td></tr>
+    <tr><th></th><td>warp to ((random 3,4,5))</td></tr>
+
+    <tr><th>Talkers</th><td>say hello</td></tr>
+    <tr><th></th><td>say time is ((time hour)):((time minute)).</td></tr>
+    </table>"
 
     return html
 

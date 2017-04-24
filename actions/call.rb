@@ -21,16 +21,12 @@ class ActionCall
 
   def act q = "Home"
 
-    return "HYE"
-    
     target = distant_id(q.split(" ").last.to_i)
 
-    if !target then return @host.answer(:error,"Cannot warp into the void.") end
-    if @host.is_locked == true then return @host.answer(:error,"#{@host} is locked.") end
+    if !target then return @host.answer(:error,"The target vessel did not answer.") end
+    if !target.has_program then return @host.answer(:error,"The target vessel has no program.") end
 
-    @host.set_unde(target.id)
-
-    return @host.answer(:modal,"You warped to #{target}.")
+    return target.act(target.program.action,target.program.params)
 
   end
 
