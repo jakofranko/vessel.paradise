@@ -1,9 +1,10 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Ghost
+class VesselHome
 
   include Vessel
+  include VesselToolkit
 
   attr_accessor :id
   attr_accessor :perm
@@ -25,6 +26,10 @@ class Ghost
     super
 
     @content = content
+
+    puts "------------"
+    p @content
+    puts "------------"
 
     @name = @content["NAME"] ? @content["NAME"] : "nullspace"
     @attr = @content["ATTR"] ? @content["ATTR"] : ""
@@ -119,44 +124,6 @@ class Ghost
 
   end
 
-  def parent
-
-    @parent = @parent ? @parent : $parade[@unde]
-
-    return @parent ? (@parent.id = @unde ; @parent) : VesselVoid.new
-
-  end
-
-  def siblings
-
-    if @siblings then return @siblings end
-
-    @siblings = []
-    $parade.each do |vessel|
-      if vessel.parent.is_quiet && parent && vessel.owner != @id && vessel.owner != parent.owner then next end
-      if vessel.unde == @unde && vessel.id != @id && vessel.id != @unde
-        @siblings.push(vessel)
-      end
-    end
-
-    return @siblings
-
-  end
-
-  def children
-
-    if @children then return @children end
-
-    @children = []
-    $parade.each do |vessel|
-      if vessel.unde != @id then next end
-      if vessel.name == @name then next end
-      @children.push(vessel)
-    end
-    return @children
-
-  end
-
   def classes
 
     html = ""
@@ -169,46 +136,6 @@ class Ghost
     if unde == id then html += "stem " end
 
     return html.strip
-
-  end
-
-  def to_debug
-
-    return "#{@name}:#{@attr}(#{@id})"
-
-  end
-
-  def encode
-
-    code = ""
-    code += @is_locked == true ? "1" : "0"
-    code += @is_hidden == true ? "1" : "0"
-    code += @is_quiet  == true ? "1" : "0"
-    code += @is_frozen == true ? "1" : "0"
-
-    return "#{code}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@program.to_s.append(' ',61)} #{@note}".strip
-
-  end
-
-  def save
-
-    $paradise.overwrite_line(@id+4,encode)
-
-    return true
-
-  end
-
-  def reload
-
-    @siblings = nil
-    @children = nil
-    @parent = nil
-
-  end
-
-  def destroy
-
-    $paradise.overwrite_line(@id+4,"")
 
   end
 
@@ -346,8 +273,70 @@ class Ghost
 
   def sight
 
-    return "(normal)"
+    return "unde:#{@unde}"
+
+    html = sight_note
+    html += sight_action
+    html += sight_default
+    html += sight_guide
+
+    return html   
     
+  end
+
+  def sight_note
+
+    if !has_note then return "" end
+
+    html = Wildcard.new(note).to_s
+
+    children.each do |vessel|
+      html = html.sub(" #{vessel.name} "," #{vessel.to_s(false,false)} ")
+    end
+
+    return "<p class='note'>#{html}</p>"
+
+  end
+
+
+  def sight_action
+
+    children.each do |vessel|
+      if vessel.has_program then return "<p class='action'><vessel data-action='use the #{vessel.name}'>Use the #{vessel.name}.</vessel></p>" end
+    end
+
+    if children.length > 0
+      return "<p class='action'><vessel data-action='enter the #{children.first.name}'>Enter #{children.first}.</vessel></p>"
+    end
+
+    return ""
+
+  end
+
+  def sight_default
+
+    html = "" # sight_portal
+
+    if children.length == 1
+      html += "You see #{children[0]}. "
+    elsif children.length == 2
+      html += "You see #{children[0]} and #{children[1]}. "
+    elsif children.length == 3
+      html += "You see #{children[0]}, #{children[1]} and #{children[2]}. "
+    elsif children.length > 3
+      html += "You see #{children[0]}, #{children[1]} and #{children.length-2} other vessels. "
+    else
+      html += ""
+    end
+
+    return "<p>#{html}</p>"
+
+  end
+
+  def sight_guide
+
+    return "<ul class='guide code'><li>You are in the Inner Haven.</li></ul>"
+
   end
 
 end

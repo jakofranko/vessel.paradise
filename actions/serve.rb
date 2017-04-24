@@ -19,20 +19,16 @@ class ActionServe
   def act q = nil
     
     load_folder("#{@host.path}/objects/*")
+    load_folder("#{@host.path}/vessels/*")
+    load_folder("#{@host.path}/actions/*")
 
     $forum           = Memory_Array.new("forum",@host.path)
     $paradise        = Memory_Array.new("paradise",@host.path)
     $parade          = $paradise.to_a("ghost")
 
+
     id = 0
     $parade.each do |vessel|
-      # Recast
-      if Kernel.const_defined?("Vessel#{vessel.perm.capitalize}")
-        $parade[id] = Object.const_get("Vessel#{vessel.perm.capitalize}").new(vessel.content)
-        puts "Recast: Vessel#{vessel.perm.capitalize}"
-      else
-        puts "Failed Recast: #{vessel.perm.capitalize}"
-      end
       vessel.id = id
       id += 1
     end

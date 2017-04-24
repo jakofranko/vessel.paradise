@@ -2,11 +2,11 @@
 ~ NOTE : Code[Locked,Hidden,Quiet,Frozen] - Parent - Owner - Type
 
 @ CODE                          NAME           ATTR           PROGRAM                                                       NOTE
-VOID-00000-00000-00000000000000 Parade         Tempest
+1011-00000-00000-00000000000000 Parade         Tempest
 1011-00001-00000-00000000000000 Haven          Inner                                                                        The library hallway sleeps quietly, as a light snow seeps through holes in the glass dome above.
 1011-00001-00000-00000000000000 hallway        library                                                                      A red staircase creeps upstairs, and a cyan elevator disapears into the basement.
-1011-00002-00000-00000000000000 pavillion      geometry                                                                     The pavillion is under construction, come back soon.
-HOME-00002-00000-00000000000000 isles          teapottery                                                                   Countless rows of books and tomes on the benefits of the teapot vessel, are littering the isles.
+1011-00002-00000-00000000000000 pavillion      geometry                                                                     The pavillion displays a list of warp zones. ((random blue,red,pink))
+1011-00002-00000-00000000000000 isles          teapottery                                                                   Countless rows of books and tomes on the benefits of the teapot vessel, are littering the isles.
 1011-00002-00000-00000000000000 elevator       cyan           warp to 3
 1011-00002-00000-00000000000000 staircase      red            warp to 4
 1011-00004-00000-00000000000000 teapot         original       say me touched the original teapot                                                              
@@ -105,7 +105,7 @@ HOME-00002-00000-00000000000000 isles          teapottery                       
 0000-00100-00087-20170409160438 abe                           warp (random 101 102 103 104 105 106)                         No person shall be required to work for more than 6hrs during a calendar day without an interval of at least 30min for a meal. Any employer, superintendent, overseer or agent who violates this section shall be punished by a fine of not less than $300 nor more than $600.
 0000-00225-00087-20170131221340 stegosaurus    devoured       th armor plating.
 0000-00225-00087-20170131221344 teen           devoured
-0100-00004-00087-20170423085712 angst
+0100-00004-00087-20170423123830 angst
 0000-00273-00087-20170307171354 cloud                         warp (random 204 304 404 504 604)
 0000-00051-00087-20170204152107 humor
 0000-00050-00087-20170222202009 serpent        sea            warp 225                                                      unclassified marine animal either wholly or partly serpentine
