@@ -4,7 +4,7 @@
 class Ghost
 
   include Vessel
-  include VesselToolkit
+  # include VesselToolkit
 
   attr_accessor :id
   attr_accessor :perm
@@ -20,6 +20,8 @@ class Ghost
   attr_accessor :is_hidden
   attr_accessor :is_quiet 
   attr_accessor :is_frozen
+
+  attr_accessor :is_paradox
 
   def initialize content
 
@@ -37,10 +39,11 @@ class Ghost
 
     # Code
 
-    @is_locked = @perm[0,1].to_i == 1 ? true : false
-    @is_hidden = @perm[1,1].to_i == 1 ? true : false
-    @is_quiet  = @perm[2,1].to_i == 1 ? true : false
-    @is_frozen = @perm[3,1].to_i == 1 ? true : false
+    @is_locked  = @perm[0,1].to_i == 1 ? true : false
+    @is_hidden  = @perm[1,1].to_i == 1 ? true : false
+    @is_quiet   = @perm[2,1].to_i == 1 ? true : false
+    @is_frozen  = @perm[3,1].to_i == 1 ? true : false
+    @is_paradox = id == @unde ? true : false
     
     @program = Program.new(@content["PROGRAM"])
 
@@ -68,7 +71,7 @@ class Ghost
 
     install(:narrative,:transmute)
     install(:narrative,:transform)
-    install(:narrative,:describe)
+    install(:narrative,:note)
 
     install(:programming,:program)
     install(:programming,:use)
@@ -86,10 +89,18 @@ class Ghost
     action = Object.const_get("Action#{action_name.capitalize}").new
     action.host = self
 
-    if action.target == :parent && parent.is_locked then return answer(:error,"#{parent} is locked.") end
-    if action.target == :self && is_locked then return answer(:error,"#{to_s} is locked.") end
+    # Auto
+    if action.target == :parent then target = self.parent end
+    if action.target == :self then target = self end
 
-    return action.act(params)
+    # Target
+    if action.target == :visible then target = visible(params) end
+    if action.target == :warp_id then target = distant(params) end
+    if action.target == :child then target = child(params) end
+
+    # return "#{action.target} (#{params}) -> #{target} #{}"
+
+    return action.act(target,params)
 
   end
 
@@ -123,15 +134,22 @@ class Ghost
   def classes
 
     html = ""
-    if has_program
-      if program.to_s.split(" ").first.like("warp") then html += "warp "
-      elsif program.to_s.split(" ").first.like("create") then html += "machine "
-      elsif program.to_s.split(" ").first.like("say") then html += "speaker "
-      else html += "program " end
-    end
-    if unde == id then html += "stem " end
-
+    if has_program then html += "program #{program.type}" end
+    if is_paradox  then html += "stem " end
     return html.strip
+
+  end
+
+  def portal
+
+    if is_paradox
+      return "You are #{to_s} paradox. "
+    elsif is_paradox
+      return "You are #{to_s} in #{parent} paradox. "
+    elsif is_paradox
+      return "You are #{to_s} in #{parent.to_s(true,true,false)} of #{parent.parent.to_s(false,true,false)}. "
+    end
+    return "You are #{to_s} in #{parent.to_s(true,true,false)}. "
 
   end
 
@@ -175,10 +193,67 @@ class Ghost
 
   end
 
-  def is_paradox
+  def parent
 
-    if id == @unde then return true end
+    @parent = @parent ? @parent : $parade[@unde]
+
+    return @parent ? (@parent.id = @unde ; @parent) : VesselVoid.new
+
+  end
+
+  def siblings
+
+    return parent.children
+
+  end
+
+  def children
+
+    if @children then return @children end
+
+    @children = []
+    $parade.each do |vessel|
+      if vessel.unde != @id then next end
+      # if vessel.name == @name then next end
+      # if is_quiet && vessel.owner != owner && vessel.owner != @id then next end
+      @children.push(vessel)
+    end
+    return @children
+
+  end
+
+  def visible name
+
+    name = remove_articles(name).split
+
+    (siblings + children).each do |vessel|
+      if vessel.name.like(name) then return vessel end
+    end
+
     return nil
+
+  end
+
+  def distant id
+
+    id = remove_articles(id).to_i
+    if id.to_i < 1 || id.to_i > 99999 then return nil end
+    if !$parade[id] then return nil end
+
+    return $parade[id]
+
+  end
+
+  def remove_articles words
+
+    words = " #{words} ".sub(" the ","")
+    words = " #{words} ".sub(" a ","")
+    words = " #{words} ".sub(" an ","")
+    words = " #{words} ".sub(" some ","")
+    words = " #{words} ".sub(" one ","")
+    words = " #{words} ".sub(" two ","")
+    words = " #{words} ".sub(" to ","")
+    return words.strip
 
   end
 
@@ -324,13 +399,25 @@ class Ghost
 
     if !has_note then return "" end
 
-    html = parse_wildcards(note)
+    html = ""
+    note.split(". ").each do |sentence|
+      if sentence.strip == "" then next end
+      html += "<p class='note'>#{sentence}</p>"
+    end
+
+    html = parse_wildcards(html)
+    html = parse_vessels_in_note(html)
+
+    return html
+
+  end
+
+  def parse_vessels_in_note html
 
     children.each do |vessel|
       html = html.sub(" #{vessel.name} "," #{vessel.to_s(false,false)} ")
     end
-
-    return "<p class='note'>#{html}</p>"
+    return html
 
   end
 
@@ -367,7 +454,7 @@ class Ghost
 
   def sight_default
 
-    html = "" # sight_portal
+    html = ""
 
     if children.length == 1
       html += "You see #{children[0]}. "
@@ -378,7 +465,7 @@ class Ghost
     elsif children.length > 3
       html += "You see #{children[0]}, #{children[1]} and #{children.length-2} other vessels. "
     else
-      html += ""
+      html += "There is nothing here, why don't you create something."
     end
 
     return "<p>#{html}</p>"

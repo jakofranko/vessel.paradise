@@ -26,7 +26,6 @@ class ActionServe
     $paradise        = Memory_Array.new("paradise",@host.path)
     $parade          = $paradise.to_a("ghost")
 
-
     id = 0
     $parade.each do |vessel|
       vessel.id = id

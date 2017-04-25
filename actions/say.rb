@@ -25,7 +25,7 @@ class ActionSay
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     q = q.gsub(/[^a-zZ-Z0-9\s\!\?\.\,\']/i, '')
 

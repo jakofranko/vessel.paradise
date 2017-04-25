@@ -15,13 +15,11 @@ class ActionCall
     @name = "Call"
     @docs = "Call a distant program."
 
-    @params = :id
+    @target = :warp_id
 
   end
 
-  def act q = "Home"
-
-    target = distant_id(q.split(" ").last.to_i)
+  def act target = nil, params = ""
 
     if !target then return @host.answer(:error,"The target vessel did not answer.") end
     if !target.has_program then return @host.answer(:error,"The target vessel has no program.") end

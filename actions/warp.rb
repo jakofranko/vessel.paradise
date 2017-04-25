@@ -15,13 +15,11 @@ class ActionWarp
     @name = "Warp"
     @docs = "Enter a distant vessel from warp id."
 
-    @params = :id
+    @target = :warp_id
 
   end
 
-  def act q = "Home"
-
-    target = distant_id(q.split(" ").last.to_i)
+  def act target = nil, params = ""
 
     if !target then return @host.answer(:error,"Cannot warp into the void.") end
     if @host.is_locked == true then return @host.answer(:error,"#{@host} is locked.") end

@@ -19,7 +19,7 @@ class ActionCreate
 
   end
 
-  def act q = "Home" 
+  def act target = nil, params = ""
 
     target = remove_articles(q).split(" ")
 

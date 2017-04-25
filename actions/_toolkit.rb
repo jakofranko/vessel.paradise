@@ -55,7 +55,7 @@ module ActionToolkit
 
   end
 
-  def visible_named attr_name
+  def visible attr_name
 
     attr_name = remove_articles(attr_name).split
 
@@ -110,15 +110,6 @@ module ActionToolkit
       if vessel.name.like(target_name) then return vessel end
     end
     return nil
-
-  end
-
-  def distant_id warp_id
-
-    if warp_id.to_i < 1 || warp_id.to_i > 99999 then return nil end
-    if !$parade[warp_id] then return nil end
-
-    return $parade[warp_id]
 
   end
 

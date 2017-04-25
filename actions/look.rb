@@ -17,7 +17,7 @@ class ActionLook
 
   end
 
-  def act q = nil
+  def act target = nil, params = ""
 
     return "<h1>#{@host.portal}</h1>#{@host.parent.sight}"
 

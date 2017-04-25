@@ -20,7 +20,7 @@ class ActionTransmute
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     old_name = @host.parent.name
     new_name = q.split(" ").last

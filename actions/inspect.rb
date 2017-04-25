@@ -14,26 +14,31 @@ class ActionInspect
 
     @name = "Inspect"
     @docs = "Get a visible vessel id."
-    @target = :parent
+    @target = :visible
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
-    html = "<p>You are inspecting #{@host.parent}.</p>"
+    if !target then target = @host.parent end
+
+    html = "<p>You are inspecting #{target}.</p>"
 
     html += "<table>"
-    html += "<tr><th>Full name</th><td>#{@host.parent.attr} #{@host.parent.name}</td></tr>"
-    html += "<tr><th>Id</th><td>≡#{@host.parent.id} </td></tr>"
-    html += "<tr><th>Rank</th><td>#{@host.parent.rank}</td></tr>"
+    html += "<tr><th>Id</th><td>#{!target.is_hidden ? '≡'+target.id.to_s : '≡'} </td></tr>"
+    html += "<tr><th>Name</th><td>#{target.attr} #{target.name}</td></tr>"
+    html += "<tr><th>Rank</th><td>#{target.rank}</td></tr>"
 
-    if @host.parent.has_program
-      html += "<tr><th>Program</th><td>#{@host.parent.program}</td></tr>"
+    if target.has_program
+      html += "<tr><th>Program</th><td>#{target.program}</td></tr>"
+    end
+    if target.has_note
+      html += "<tr><th>Note</th><td>#{target.note}</td></tr>"
     end
 
-    if @host.siblings.length > 0
+    if target.children.length > 0
       html += "<tr><th>Inventory</th><td>"
-      @host.siblings.each do |vessel|
+      target.children.each do |vessel|
         html += "<action data-action='drop the #{vessel.name}'>#{vessel.attr} #{vessel.name} ≡#{vessel.id}</action><br />"
       end
       html += "</td></tr>"

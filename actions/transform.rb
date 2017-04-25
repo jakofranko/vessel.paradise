@@ -20,7 +20,7 @@ class ActionTransform
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     old_attr = @host.parent.attr
     new_attr = q.split(" ").last

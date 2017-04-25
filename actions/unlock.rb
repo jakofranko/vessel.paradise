@@ -19,7 +19,7 @@ class ActionUnlock
     
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     attr = q.split(" ").last
     

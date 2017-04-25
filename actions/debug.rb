@@ -14,7 +14,7 @@ class ActionDebug
 
   end
 
-  def act q = nil
+  def act target = nil, params = ""
 
     load_folder("#{@host.path}/objects/*")
 

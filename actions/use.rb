@@ -14,11 +14,12 @@ class ActionUse
 
     @name = "Use"
     @docs = "Use an automated visible vessel."
-    @params = :visible
+    @target = :visible
+    @params = :io
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     target = visible_named(q)
 

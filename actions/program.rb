@@ -20,7 +20,7 @@ class ActionProgram
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     if q.length > 60 then return @host.answer(:error,"A vessel program cannot exceed 60 characters.") end
     if @host.parent.is_locked == true then return @host.answer(:error,"#{@host.parent} is locked.") end

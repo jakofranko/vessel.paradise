@@ -19,7 +19,7 @@ class ActionAppear
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     @host.set_hidden(false)
 

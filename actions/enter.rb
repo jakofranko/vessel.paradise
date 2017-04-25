@@ -15,14 +15,11 @@ class ActionEnter
     @name = "Enter"
     @docs = "Enter a visible vessel."
     
-    @params  = :visible
-    @target = nil
+    @target = :visible
 
   end
 
-  def act q = "Home"
-
-    target = visible_named(q)
+  def act target = nil, params = ""
 
     if !target then return @host.answer(:error,"Cannot find a target named #{q}.") end
 

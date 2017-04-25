@@ -18,7 +18,7 @@ class ActionLeave
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     if @host.parent.is_paradox then return @host.answer(:error,"You may not leave #{@host.parent}. You have reached the stem of the universe.") end
     if @host.is_locked == true then return @host.answer(:error,"#{@host} is locked.") end

@@ -18,7 +18,7 @@ class ActionDrop
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     target = child_named(q)
 

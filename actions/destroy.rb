@@ -18,7 +18,7 @@ class ActionDestroy
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     target = visible_named(q)
 

@@ -17,13 +17,13 @@ class ActionHelp
 
   end
 
-  def act q = nil
+  def act target = nil, params = ""
 
-    if q.to_s.like("actions")
+    if params.to_s.like("actions")
       return help_actions
-    elsif q.to_s.like("wildcards")
+    elsif params.to_s.like("wildcards")
       return help_wildcards
-    elsif q.to_s.like("programs")
+    elsif params.to_s.like("programs")
       return help_programs
     else
       return help_default

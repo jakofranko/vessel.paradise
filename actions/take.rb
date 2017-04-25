@@ -18,7 +18,7 @@ class ActionTake
 
   end
 
-  def act q = "Home"
+  def act target = nil, params = ""
 
     target = sibling_named(q)
 
