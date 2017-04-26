@@ -11,6 +11,7 @@ class Ghost
   attr_accessor :name
   attr_accessor :note
   attr_accessor :attr
+  attr_accessor :link
   attr_accessor :unde
   attr_accessor :owner
   attr_accessor :program
@@ -31,6 +32,7 @@ class Ghost
 
     @name = @content["NAME"] ? @content["NAME"] : "nullspace"
     @attr = @content["ATTR"] ? @content["ATTR"] : ""
+    @link = @content["LINK"] ? @content["LINK"] : "in"
     @note = @content["NOTE"] ? @content["NOTE"] : ""
     @perm  = @content["CODE"] ? @content["CODE"].split("-")[0] : "1111"
     @unde  = @content["CODE"] ? @content["CODE"].split("-")[1].to_i : 1
@@ -58,6 +60,7 @@ class Ghost
     install(:basic,:enter)
     install(:basic,:create)
 
+    install(:movement,:move)
     install(:movement,:warp)
 
     install(:advanced,:take)
@@ -94,9 +97,9 @@ class Ghost
     if action.target == :self then target = self end
 
     # Target
-    if action.target == :visible then target = visible(params) end
-    if action.target == :warp_id then target = distant(params) end
-    if action.target == :child then target = child(params) end
+    if action.target == :visible then target = find_visible(params) end
+    if action.target == :warp_id then target = find_distant(params) end
+    if action.target == :child then target = find_child(params) end
 
     # return "#{action.target} (#{params}) -> #{target} #{}"
 
@@ -113,7 +116,6 @@ class Ghost
   def to_s show_attr = true, show_particle = true, show_action = true
 
     particle = "a "
-    if @note != "" || @attr != "" then particle = "the " end
     if @attr.to_s == "" && @name[0,1] == "a" then particle = "an " end
     if @attr.to_s == "" && @name[0,1] == "e" then particle = "an " end
     if @attr.to_s == "" && @name[0,1] == "i" then particle = "an " end
@@ -124,6 +126,7 @@ class Ghost
     if @attr && @attr[0,1] == "i" then particle = "an " end
     if @attr && @attr[0,1] == "o" then particle = "an " end
     if @attr && @attr[0,1] == "u" then particle = "an " end
+    if !has_attr then particle = "the " end
 
     action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'" : ""
 
@@ -143,13 +146,11 @@ class Ghost
   def portal
 
     if is_paradox
-      return "You are #{to_s} paradox. "
-    elsif is_paradox
-      return "You are #{to_s} in #{parent} paradox. "
-    elsif is_paradox
-      return "You are #{to_s} in #{parent.to_s(true,true,false)} of #{parent.parent.to_s(false,true,false)}. "
+      return "#{to_s}"
+    elsif parent.is_paradox
+      return "#{parent}"
     end
-    return "You are #{to_s} in #{parent.to_s(true,true,false)}. "
+    return "#{to_s} #{@link} #{parent.to_s(true,true,false)}. "
 
   end
 
@@ -167,7 +168,7 @@ class Ghost
     code += @is_quiet  == true ? "1" : "0"
     code += @is_frozen == true ? "1" : "0"
 
-    return "#{code}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@program.to_s.append(' ',61)} #{@note}".strip
+    return "#{code}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@link.to_s.append(' ',14)} #{@program.to_s.append(' ',61)} #{@note}".strip
 
   end
 
@@ -214,7 +215,8 @@ class Ghost
     @children = []
     $parade.each do |vessel|
       if vessel.unde != @id then next end
-      # if vessel.name == @name then next end
+      if vessel.id == @id then next end
+      puts "#{vessel.name} -> #{vessel.id} = #{@id}"
       # if is_quiet && vessel.owner != owner && vessel.owner != @id then next end
       @children.push(vessel)
     end
@@ -222,7 +224,14 @@ class Ghost
 
   end
 
-  def visible name
+  def find_distant id
+
+    id = remove_articles(id).to_i
+    return $parade[id] ? $parade[id] : nil
+
+  end
+
+  def find_visible name
 
     name = remove_articles(name).split
 
@@ -234,13 +243,15 @@ class Ghost
 
   end
 
-  def distant id
+  def find_child name
 
-    id = remove_articles(id).to_i
-    if id.to_i < 1 || id.to_i > 99999 then return nil end
-    if !$parade[id] then return nil end
+    name = remove_articles(name).split
 
-    return $parade[id]
+    (siblings + children).each do |vessel|
+      if vessel.name.like(name) then return vessel end
+    end
+
+    return nil
 
   end
 
@@ -267,9 +278,10 @@ class Ghost
 
   end
 
-  def set_unde val
+  def set_unde val,link = "in"
 
     @unde = val.to_i
+    @link = link
     save
     reload
 
@@ -352,6 +364,19 @@ class Ghost
     
   end
 
+  def value
+
+    if has_attr then return 0 end
+
+    c = 0
+    $parade.each do |vessel|
+      if vessel.name.like(@name) then c += 1 end
+    end
+
+    return c
+
+  end
+
   def is_valid
 
     errors = []
@@ -384,6 +409,13 @@ class Ghost
 
   end
 
+  def is_paradox
+
+    if id == unde then return true end
+    return false
+
+  end
+
   def sight
 
     html = sight_note
@@ -397,7 +429,7 @@ class Ghost
 
   def sight_note
 
-    if !has_note then return "" end
+    if !has_note then return "<p>This vessel is blank.</p>" end
 
     html = ""
     note.split(". ").each do |sentence|
@@ -445,7 +477,7 @@ class Ghost
     end
 
     if children.length > 0
-      return "<p class='action'><vessel data-action='enter the #{children.first.name}'>Enter #{children.first}.</vessel></p>"
+      return "<p class='action'><vessel data-action='enter the #{children.first.name}'>Enter the #{children.first.name}.</vessel></p>"
     end
 
     return ""

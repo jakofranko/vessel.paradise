@@ -21,7 +21,7 @@ class ActionCreate
 
   def act target = nil, params = ""
 
-    target = remove_articles(q).split(" ")
+    target = remove_articles(params).split(" ")
 
     name = target.last.to_s
     attr = target.length == 2 ? target[target.length-2].to_s : ""
@@ -36,7 +36,7 @@ class ActionCreate
     $paradise.append(new_vessel.encode)
     @host.reload
 
-    return @host.answer(:modal,"You created #{new_vessel.to_s(true,false)}.")
+    return @host.answer(:modal,"You created #{new_vessel.to_s(true,true)}.")
 
   end
 

@@ -27,7 +27,8 @@ class ActionInspect
     html += "<table>"
     html += "<tr><th>Id</th><td>#{!target.is_hidden ? '≡'+target.id.to_s : '≡'} </td></tr>"
     html += "<tr><th>Name</th><td>#{target.attr} #{target.name}</td></tr>"
-    html += "<tr><th>Rank</th><td>#{target.rank}</td></tr>"
+    html += "<tr><th>Rank</th><td>+#{target.rank}</td></tr>"
+    html += "<tr><th>Value</th><td>$#{target.value}</td></tr>"
 
     if target.has_program
       html += "<tr><th>Program</th><td>#{target.program}</td></tr>"
