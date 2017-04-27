@@ -106,8 +106,7 @@ class CorpseHttp
       <action data-action='say ' class='say'><img src='public.paradise/media/vectors/say.svg'/></action>
       <action data-action='help ' class='help'><img src='public.paradise/media/vectors/help.svg'/></action>
       <input placeholder='What would you like to do?'/>
-    </div>
-    <page>#{@player.parent.is_hidden ? '≡' : @player.unde}</page>"
+    </div>"
 
   end
   

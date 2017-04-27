@@ -2075,11 +2075,7 @@
 20170422095446 00709 00457 (I am the one with eyes that see into the sky)
 20170422100814 00709 00457 nice try, omnipotence, but bill's gonna stick around!
 20170422101006 00709 00457 besides, i've still got teapots to convince, maybe a deal wouldn't be so bad after all&quest; you know, omnipotence, i'm here for you! just tell me what you want and I'll work it out.
-20170422101031 00709 00457 i'm always prepared for a new client!
-20170422102255 00709 00457 good to know that html tags work
-20170422102310 00709 00457 still sorta
-20170422102320 00709 00457 said too much
-20170422102330 00709 00457 it is unseen
-20170422102333 00709 00457 said too much
-20170423085058 00004 00103 me touched the original teapot
-20170423085103 00004 00103 test
+20170422101031 00709 00450 i'm always prepared for a new client!
+20170422102330 00709 00457 It remains unseen wether I will accept it or not
+20170423085058 00004 00102 me waves in discontent
+20170423085103 00004 00036 But, there is not enough food for all of us in here

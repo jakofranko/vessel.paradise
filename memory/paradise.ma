@@ -3,13 +3,15 @@
 
 @ CODE                          NAME           ATTR           LINK           PROGRAM                                                       NOTE
 1011-00000-00000-00000000000000 Parade         Tempest                   
-1011-00001-00000-00000000000000 Haven                                                                                                      The library hallway sleeps quietly, as a light snow seeps through holes in the glass dome above.
-1011-00001-00000-00000000000000 hallway        library                                                                                     A red staircase creeps upstairs, and a cyan elevator disapears into the basement.
+1011-00001-00000-00000000000000 Haven                                                                                                      The hallway sleeps quietly, as a light snow seeps through holes in the glass dome above.
+1011-00001-00000-00000000000000 hallway        library                                                                                     A red staircase creeps upstairs, and a cyan elevator disapears into the basement. A doorway open to the library gardens.
 1011-00002-00000-00000000000000 pavillion      geometry                                                                                    The pavillion displays a list of warp zones. ((random blue,red,pink))
 1011-00002-00000-00000000000000 isles          teapottery                                                                                  Countless rows of books and tomes on the benefits of the teapot vessel, are littering the isles.
 1011-00002-00000-00000000000000 elevator       cyan                          warp to 3
 1011-00002-00000-00000000000000 staircase      red                           warp to 4
 1011-00004-00000-00000000000000 teapot         original                      say me touched the original teapot                                                              
+1011-00002-00000-00000000000000 gardens                                                                                                    Wip.
+1011-00008-00000-00000000000000 tree           glass                                                                                       All over the crystalized bark, little marks of ((vessel name)) feet.
 1011-00000-00000-00000000000000 space          reserved                      
 1011-00000-00000-00000000000000 space          reserved                      
 1011-00000-00000-00000000000000 space          reserved                      
@@ -36,9 +38,7 @@
 1011-00000-00000-00000000000000 space          reserved                      
 1011-00000-00000-00000000000000 space          reserved                      
 1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-0100-00001-00027-20170426134211 owl                           in
+0100-00009-00027-20170427135302 owl                           on a branch in
 0000-00183-00027-20170307011211 tome           cyan                                                                                        The book of the cyan faction
 0000-00397-00027-20170306230705 nestc          vessel                        
 0000-00071-00001-20170217070931 disc           citrine                                                                                     A chimaera reads a tarot nearby.

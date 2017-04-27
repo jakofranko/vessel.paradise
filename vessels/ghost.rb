@@ -61,7 +61,7 @@ class Ghost
     install(:basic,:create)
 
     install(:movement,:move)
-    install(:movement,:warp)
+    install(:movement,:teleport)
 
     install(:advanced,:take)
     install(:advanced,:drop)
@@ -109,11 +109,11 @@ class Ghost
 
   def answer type, message, etc = nil
 
-    return "<h1>#{portal}</h1><p>#{message}</p>#{etc ? '<p>'+etc+'</p>' : ''}"
+    return "<p>#{message}</p>#{etc ? '<p>'+etc+'</p>' : ''}"
 
   end
 
-  def to_s show_attr = true, show_particle = true, show_action = true
+  def to_s show_attr = true, show_particle = true, show_action = true, html_tags = true
 
     particle = "a "
     if @attr.to_s == "" && @name[0,1] == "a" then particle = "an " end
@@ -121,14 +121,16 @@ class Ghost
     if @attr.to_s == "" && @name[0,1] == "i" then particle = "an " end
     if @attr.to_s == "" && @name[0,1] == "o" then particle = "an " end
     if @attr.to_s == "" && @name[0,1] == "u" then particle = "an " end
-    if @attr && @attr[0,1] == "a" then particle = "an " end
-    if @attr && @attr[0,1] == "e" then particle = "an " end
-    if @attr && @attr[0,1] == "i" then particle = "an " end
-    if @attr && @attr[0,1] == "o" then particle = "an " end
-    if @attr && @attr[0,1] == "u" then particle = "an " end
+    if show_attr && @attr && @attr[0,1] == "a" then particle = "an " end
+    if show_attr && @attr && @attr[0,1] == "e" then particle = "an " end
+    if show_attr && @attr && @attr[0,1] == "i" then particle = "an " end
+    if show_attr && @attr && @attr[0,1] == "o" then particle = "an " end
+    if show_attr && @attr && @attr[0,1] == "u" then particle = "an " end
     if !has_attr then particle = "the " end
 
     action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'" : ""
+
+    if !html_tags then return "#{show_particle != false ? particle : ''} #{show_attr != false && @attr ? @attr+' ' : ''}#{@name}" end
 
     return "<vessel class='#{@attr} #{classes}' #{action_attributes}>#{show_particle != false ? particle : ''} #{show_attr != false && @attr ? '<attr class='+@attr+'>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
 
@@ -140,17 +142,6 @@ class Ghost
     if has_program then html += "program #{program.type}" end
     if is_paradox  then html += "stem " end
     return html.strip
-
-  end
-
-  def portal
-
-    if is_paradox
-      return "#{to_s}"
-    elsif parent.is_paradox
-      return "#{parent}"
-    end
-    return "#{to_s} #{@link} #{parent.to_s(true,true,false)}. "
 
   end
 
@@ -216,8 +207,7 @@ class Ghost
     $parade.each do |vessel|
       if vessel.unde != @id then next end
       if vessel.id == @id then next end
-      puts "#{vessel.name} -> #{vessel.id} = #{@id}"
-      # if is_quiet && vessel.owner != owner && vessel.owner != @id then next end
+      if is_quiet && vessel.owner != owner && vessel.owner != @id then next end
       @children.push(vessel)
     end
     return @children
@@ -235,7 +225,7 @@ class Ghost
 
     name = remove_articles(name).split
 
-    (siblings + children).each do |vessel|
+    (siblings + children + [parent,self]).each do |vessel|
       if vessel.name.like(name) then return vessel end
     end
 
@@ -413,146 +403,6 @@ class Ghost
 
     if id == unde then return true end
     return false
-
-  end
-
-  def sight
-
-    html = sight_note
-    html += sight_action
-    html += sight_default
-    html += sight_guide
-
-    return html   
-    
-  end
-
-  def sight_note
-
-    if !has_note then return "<p>This vessel is blank.</p>" end
-
-    html = ""
-    note.split(". ").each do |sentence|
-      if sentence.strip == "" then next end
-      html += "<p class='note'>#{sentence}</p>"
-    end
-
-    html = parse_wildcards(html)
-    html = parse_vessels_in_note(html)
-
-    return html
-
-  end
-
-  def parse_vessels_in_note html
-
-    children.each do |vessel|
-      html = html.sub(" #{vessel.name} "," #{vessel.to_s(false,false)} ")
-    end
-    return html
-
-  end
-
-  def parse_wildcards text
-
-    text.scan(/(?:\(\()([\w\W]*?)(?=\)\))/).each do |str,details|
-      key = str.split(" ").first
-      value = str.sub("#{key} ","").strip
-      if Kernel.const_defined?("Wildcard#{key.capitalize}")
-        wc = Object.const_get("Wildcard#{key.capitalize}").new(self,value)
-        text = text.gsub("((#{str}))",wc.to_s)
-      else
-        text = text.gsub(str,"Error:#{key}.")
-      end
-    end
-
-    return text
-
-  end
-
-  def sight_action
-
-    children.each do |vessel|
-      if vessel.has_program then return "<p class='action'><vessel data-action='use the #{vessel.name}'>Use the #{vessel.name}.</vessel></p>" end
-    end
-
-    if children.length > 0
-      return "<p class='action'><vessel data-action='enter the #{children.first.name}'>Enter the #{children.first.name}.</vessel></p>"
-    end
-
-    return ""
-
-  end
-
-  def sight_default
-
-    html = ""
-
-    if children.length == 1
-      html += "You see #{children[0]}. "
-    elsif children.length == 2
-      html += "You see #{children[0]} and #{children[1]}. "
-    elsif children.length == 3
-      html += "You see #{children[0]}, #{children[1]} and #{children[2]}. "
-    elsif children.length > 3
-      html += "You see #{children[0]}, #{children[1]} and #{children.length-2} other vessels. "
-    else
-      html += "There is nothing here, why don't you create something."
-    end
-
-    return "<p>#{html}</p>"
-
-  end
-
-  def sight_guide
-
-    hints = []
-
-    # Statuses
-    if is_locked then hints.push("The #{name} is locked, you may not modify it.") end
-    if is_hidden then hints.push("The #{name} is hidden, you may not see its warp id.") end
-    if is_quiet then hints.push("The #{name} is quiet, you may not see other's vessels.") end
-    if is_frozen then hints.push("The #{name} is frozen, you may not interact with it.") end
-
-    if hints.length > 0
-      return "<ul class='guide code'><li>#{hints.last}</li></ul>"
-    end
-
-    hints = []
-
-    # Check Validity
-    validity_check, validity_errors = is_valid
-    if validity_check == false then hints += validity_errors end
-    validity_check, validity_errors = is_valid
-    if validity_check == false then hints += validity_errors end
-
-    if hints.length > 0
-      html = ""
-      hints.each do |hint|
-        html += "<li>#{hint}</li>"
-      end
-      return "<ul class='guide alert'>#{html}</ul>"
-    end
-
-    # Own's
-    if owner == id
-      hints.push("Vessel is complete.")
-      if !has_note then hints.push("Add a <action data-action='describe '>description</action> to the parent vessel.") end
-      if !has_attr then hints.push("Add an <action data-action='transform '>attribute</action> to the parent vessel.") end
-    # Improvements
-    elsif !is_locked
-      if !has_note then hints.push("Improve this vessel with a <action data-action='describe '>description</action>.") end
-      if !has_attr then hints.push("Improve this vessel with an <action data-action='transform '>attribute</action>.") end
-    end
-
-    # All good!
-    if hints.length < 1 then return "" end
-
-    html = ""
-    hints.each do |hint|
-      html += "<li>#{hint}</li>"
-    end
-    return "<ul class='guide'>#{html}</ul>"
 
   end
 
