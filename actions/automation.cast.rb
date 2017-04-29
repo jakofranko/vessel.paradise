@@ -13,18 +13,24 @@ class ActionCast
     super
 
     @name = "Cast"
-    @docs = "Use a vessel program's from anywhere."
-    @examples = ["cast the vanish spell onto the black cat\n<comment>The black cat is now hidden.</comment>"]
+    @docs = "Use a vessel program's from anywhere. By default, the spell will be cast onto the current active vessel, casting can also target a visible vessel."
+    @examples = [
+      "cast the vanish spell\n<comment>The black cat is now hidden.</comment>",
+      "cast the vanish spell onto the purple bat\n<comment>The purple bat is now hidden.</comment>"
+    ]
 
 
   end
 
   def act target = nil, params = ""
 
+    target = @host.find_distant(params)
+
     if !target then return @host.answer(:error,"The target vessel did not answer.") end
     if !target.has_program then return @host.answer(:error,"The target vessel has no program.") end
 
-    return target.act(target.program.action,target.program.params)
+
+    return @host.act(target.program.action,target.program.params)
 
   end
 

@@ -40,13 +40,13 @@ class ActionLook
     else
       html = "#{@host} #{@host.link} #{@host.parent.to_s(true,true,false)}."
     end
-    return "<h1 class='portal'>#{html}</h1>"    
+    return "<h1 id='portal'>#{html}</h1>"    
 
   end
 
   def page
 
-    return "<h2 class='page'>#{@host.parent.is_hidden ? '≡' : @host.parent.id}</h2>"
+    return "<h2 id='page'>#{@host.parent.is_hidden ? '≡' : @host.parent.id}</h2>"
 
   end
 
@@ -57,7 +57,7 @@ class ActionLook
     html = parse_wildcards(@host.parent.note)
     html = parse_vessels_in_note(html)
 
-    return "<p class='note'>#{html}</p>"
+    return "<p id='note'>#{html}</p>"
 
   end
 
@@ -89,7 +89,7 @@ class ActionLook
     end
 
     if @host.siblings.length > 0
-      return "<p class='action'><vessel data-action='enter the #{@host.siblings.first.name}'>Enter the #{@host.siblings.first.name}.</vessel></p>"
+      return "<p id='action'><vessel data-action='enter the #{@host.siblings.first.name}'>Enter the #{@host.siblings.first.name}.</vessel></p>"
     end
 
     return ""
@@ -127,6 +127,8 @@ class ActionLook
 
     html = ""
 
+    if @host.parent.is_quiet then return "" end
+
     messages = $forum.to_a("comment")
 
     messages[messages.length-3,3].each do |message|
@@ -147,7 +149,7 @@ class ActionLook
       id += 1
     end
 
-    return "<ul class='guide'>#{html}</ul>"
+    return "<ul id='guide'>#{html}</ul>"
 
   end
 

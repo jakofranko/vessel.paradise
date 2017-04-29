@@ -190,7 +190,14 @@ class Ghost
 
   def siblings
 
-    return parent.children
+    if @siblings then return @siblings end
+
+    @siblings = []
+    parent.children.each do |vessel|
+      if vessel.id == @id then next end
+      @siblings.push(vessel)
+    end
+    return @siblings
 
   end
 
@@ -209,10 +216,20 @@ class Ghost
 
   end
 
-  def find_distant id
+  def find_distant param
 
-    id = remove_articles(id).to_i
-    return $parade[id] ? $parade[id] : nil
+    param = remove_articles(param)
+
+    if param.to_i > 0 && $parade[param.to_i] then return $parade[param.to_i] end
+
+    name = param.split(" ").last
+    attr = param.split(" ").length > 1 ? param.split(" ").first : nil
+
+    $parade.each do |vessel|
+      if vessel.name.like(name) && vessel.attr.like(attr) then return vessel end
+    end
+
+    return nil
 
   end
 

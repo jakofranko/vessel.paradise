@@ -3,7 +3,7 @@
 
 require_relative "wildcard.rb"
 
-class WildcardInventory
+class WildcardChildren
 
   include Wildcard
 
@@ -11,7 +11,7 @@ class WildcardInventory
 
     super
 
-    @docs = "Display children vessels."
+    @docs = "Display children vessels. Its purpose is to access the current vessel's inventory."
     @options = ["count","random"]
 
   end

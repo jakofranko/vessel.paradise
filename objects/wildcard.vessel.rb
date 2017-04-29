@@ -11,7 +11,7 @@ class WildcardVessel
 
     super
 
-    @docs = "Displays vessel details."
+    @docs = "Displays current vessel or parent vessel details."
     @options = ["id","name","attr","rank","parent id","parent name","parent attr"]
 
   end

@@ -11,7 +11,7 @@ class WildcardTime
 
     super
 
-    @docs = "Displays time data."
+    @docs = "The wildcard will be replaced by various time data."
     @options = ["year","month","day","hour","minute","second"]
 
   end

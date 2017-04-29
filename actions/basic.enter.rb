@@ -21,6 +21,8 @@ class ActionEnter
 
   def act target = nil, params = ""
 
+    target = @host.find_visible(params)
+    
     if !target then return @host.answer(:error,"Cannot find a target named #{q}.") end
 
     @host.set_unde(target.id)

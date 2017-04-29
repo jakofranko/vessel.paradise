@@ -13,7 +13,7 @@ class ActionBecome
     super
 
     @name = "Become"
-    @docs = "Become the visible vessel."
+    @docs = "Become a visible vessel, the target vessel must be present and visible in the current parent vessel."
 
     @examples = ["become the black cat\n<comment>You are a black cat.</comment>"]
 

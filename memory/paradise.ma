@@ -1,44 +1,44 @@
 ~ NAME : Paradise
-~ NOTE : Code[Locked,Hidden,Quiet,Frozen] - Parent - Owner - Type
+~ NOTE : Code[Locked,Hidden,Silent,Tunnel] - Parent - Owner - Type
 
 @ CODE                          NAME           ATTR           LINK           PROGRAM                                                       NOTE
-1011-00000-00000-00000000000000 Parade         Tempest                   
-1011-00001-00000-00000000000000 Haven                                                                                                      The hallway sleeps quietly, as a light snow seeps through holes in the glass dome above.
-1011-00001-00000-00000000000000 hallway        library                                                                                     A red staircase creeps upstairs, and a cyan elevator disapears into the basement. A doorway open to the library gardens.
-1011-00002-00000-00000000000000 pavillion      geometry                                                                                    The pavillion displays a list of warp zones. ((random blue,red,pink))
-1011-00002-00000-00000000000000 isles          teapottery                                                                                  Countless rows of books and tomes on the benefits of the teapot vessel, are littering the isles.
-1011-00002-00000-00000000000000 elevator       cyan                          warp to 3
-1011-00002-00000-00000000000000 staircase      red                           warp to 4
-1011-00004-00000-00000000000000 teapot         original                      say me touched the original teapot                                                              
-1011-00002-00000-00000000000000 gardens                                                                                                    Wip.
-1011-00008-00000-00000000000000 tree           glass                                                                                       All over the crystalized bark, little marks of ((vessel name)) feet.
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-1011-00000-00000-00000000000000 space          reserved                      
-0100-00009-00027-20170427135302 owl                           on a branch in
+1010-00000-00000-00000000000000 Parade         Tempest                   
+1010-00001-00000-00000000000000 Haven                                                                                                      The hallway sleeps quietly, as a light snow seeps through holes in the glass dome above.
+1010-00001-00000-00000000000000 hallway        library                                                                                     A red staircase creeps upstairs, and a cyan elevator disapears into the basement. A doorway open to the library gardens.
+1010-00002-00000-00000000000000 pavillion      geometry                                                                                    The pavillion displays a list of warp zones. ((random blue,red,pink))
+1010-00002-00000-00000000000000 isles          teapottery                                                                                  Countless rows of books and tomes on the benefits of the teapot vessel, are littering the isles.
+1010-00002-00000-00000000000000 elevator       cyan                          warp to 3
+1010-00002-00000-00000000000000 staircase      red                           warp to 4
+1010-00004-00000-00000000000000 teapot         original                      say me touched the original teapot                                                              
+1010-00002-00000-00000000000000 gardens                                                                                                    Wip.
+1010-00008-00000-00000000000000 tree           glass                                                                                       All over the crystalized bark, little marks of ((vessel name)) feet.
+1010-00003-00000-00000000000000 wardrobe       trial
+1010-00010-00000-00000000000000 spellbook      old                                                                                         A collection of generic spells from the Geomaitre. The spells can be used anywhere within Paradise. ((layout inventory))
+1010-00011-00000-00000000000000 spell          lock           on             set is_locked true
+1010-00011-00000-00000000000000 spell          vanish         on             set is_hidden true
+1010-00011-00000-00000000000000 spell          silence        on             set is_silent true
+1010-00011-00000-00000000000000 spell          tunnel         on             set is_tunnel true
+1010-00000-00000-00000000000000                 
+1010-00000-00000-00000000000000                 
+1010-00010-00000-00000000000000 tome           blue
+1010-00018-00000-00000000000000 portal         town           in             warp to 1
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+0100-00001-00027-20170429103538 owl                           in
 0000-00183-00027-20170307011211 tome           cyan                                                                                        The book of the cyan faction
 0000-00397-00027-20170306230705 nestc          vessel                        
 0000-00071-00001-20170217070931 disc           citrine                                                                                     A chimaera reads a tarot nearby.

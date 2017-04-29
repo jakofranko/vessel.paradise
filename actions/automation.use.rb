@@ -20,6 +20,8 @@ class ActionUse
 
   def act target = nil, params = ""
 
+    target = @host.find_visible(params)
+    
     if !target then return @host.answer(:error,"Cannot find vessel.") end
     if !target.has_program then return @host.answer(:error,"#{target} does not have a program.") end
     if !@host.can(target.program.action) then return @host.answer(:error,"The program is invalid.") end

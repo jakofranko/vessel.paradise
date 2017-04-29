@@ -11,7 +11,7 @@ class WildcardRandom
 
     super
 
-    @docs = "Displays a random word."
+    @docs = "Displays a random word from a series of words, separated by commas."
     @options = ["red,green,blue"]
 
   end

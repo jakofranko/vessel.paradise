@@ -13,7 +13,7 @@ class ActionCreate
     super
 
     @name = "Create"
-    @docs = "Create a new vessel at your current location. Vessel names and attributes must include less than 14 characters and be unique."
+    @docs = "Create a new vessel at your current location. Vessel names and attributes must include less than 14 characters and be unique. "
 
     @examples = ["create a black cat\n<comment>You see a black cat.</comment>"]
 
