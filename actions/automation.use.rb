@@ -13,9 +13,8 @@ class ActionUse
     super
 
     @name = "Use"
-    @docs = "Use an automated visible vessel."
-    @target = :visible
-    @params = :io
+    @docs = "Add an automation program to a vessel, making it available to the use command."
+    @examples = ["use the coffee machine\n<comment>You see a coffee.</comment>"]
 
   end
 

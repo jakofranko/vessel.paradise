@@ -3,7 +3,7 @@
 
 require_relative "_toolkit.rb"
 
-class ActionDrop
+class ActionTake
 
   include Action
   include ActionToolkit
@@ -12,22 +12,22 @@ class ActionDrop
 
     super
 
-    @name = "Drop"
-    @docs = "Drop a child vessel."
-    @target = :child
+    @name = "Take"
+    @docs = "Move a visible vessel into a child vessel."
+    @examples = ["take the scissor\n<comment>You carry the scissor.</comment>"]
 
   end
 
   def act target = nil, params = ""
 
-    target = child_named(q)
+    target = sibling_named(q)
 
     if !target then return @host.answer(:error,"Cannot find a target named #{q}.") end
     if target.is_locked == true then return @host.answer(:error,"#{target} is locked.") end
 
-    target.set_unde(@host.unde)
+    target.set_unde(@host.id)
 
-    return @host.answer(:modal,"You dropped #{target}.")
+    return @host.answer(:modal,"You took #{target}.")
     
   end
 

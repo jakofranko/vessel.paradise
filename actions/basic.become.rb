@@ -13,9 +13,9 @@ class ActionBecome
     super
 
     @name = "Become"
-    @docs = "Become a visible vessel."
-    
-    @params = :visible
+    @docs = "Become the visible vessel."
+
+    @examples = ["become the black cat\n<comment>You are a black cat.</comment>"]
 
   end
 

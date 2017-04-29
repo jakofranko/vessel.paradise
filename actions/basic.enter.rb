@@ -15,7 +15,7 @@ class ActionEnter
     @name = "Enter"
     @docs = "Enter a visible vessel."
     
-    @target = :visible
+    @examples = ["enter the library\n<comment>You are in the library.</comment>"]
 
   end
 

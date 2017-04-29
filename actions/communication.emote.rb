@@ -3,7 +3,7 @@
 
 require_relative "_toolkit.rb"
 
-class ActionSay
+class ActionEmote
 
   include Action
   include ActionToolkit
@@ -12,10 +12,9 @@ class ActionSay
 
     super
 
-    @name = "Say"
-    @docs = "Say something."
-
-    @params = :text
+    @name = "Emote"
+    @docs = "Add an emote message into the global dialog."
+    @examples = ["waves\n<comment>A black cat waves.</comment>"]
 
   end
 

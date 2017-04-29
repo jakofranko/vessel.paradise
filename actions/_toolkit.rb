@@ -5,11 +5,20 @@ module Action
 
   attr_accessor :params
   attr_accessor :target
+  attr_accessor :examples
 
 end
 
 module ActionToolkit
-  
+
+  def initialize host = nil
+
+    super
+
+    @examples = {}
+
+  end
+
   def remove_articles words
 
     words = " #{words} ".sub(" the ","")

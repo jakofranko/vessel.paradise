@@ -66,23 +66,31 @@ class ActionHelp
     html = "<p>Thank you for contacting VHL, the <vessel data-action='warp to 1'>Vessel Help Line</vessel>.</p>"
     html += "<p>Installed commands for #{@host} vessel. </p>"
 
-    html += "<table>"
+    html += "<ul class='index'>"
+    @host.actions.each do |cat,actions|
+      if cat == :generic then next end
+      html += "<li>#{cat.capitalize}</li>"
+      html += "<ul>"
+      actions.each do |action|
+        action = action.new
+        html += "<li>#{action.name.capitalize}</li>"
+      end
+      html += "</ul>"
+    end
+    html += "</ul>"
 
     @host.actions.each do |cat,actions|
       if cat == :generic then next end
-      html += "<tr><th>#{cat.capitalize}</th><td>"
+      html += "<h3>#{cat.capitalize}</h3>"
       actions.each do |action|
         action = action.new
-        html += "<b>#{action.name}</b> "
-        if action.target then html += "<span class='target'>#{action.target}</span> " end
-        if action.params then html += "<span class='params'>#{action.params}</span> " end
-        html += "<br />"
+        html += "<h4>#{action.name.capitalize}</h4>"
+        action.examples.each do |example|
+          html += "<code>#{example}</code>"
+        end
+        html += "<p>#{action.docs}</p>"
       end
-
-      html += "</td></tr>"
-      
     end
-    html += "</table>"
 
     return html
 

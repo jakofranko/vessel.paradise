@@ -3,7 +3,7 @@
 
 require_relative "_toolkit.rb"
 
-class ActionTeleport
+class ActionWarp
 
   include Action
   include ActionToolkit
@@ -12,10 +12,9 @@ class ActionTeleport
 
     super
 
-    @name = "Teleport"
-    @docs = "Enter a distant vessel from warp id."
-
-    @target = :warp_id
+    @name = "Warp"
+    @docs = "Enter an existing distant vessel."
+    @examples = ["warp to the library\n<comment>The black cat is in the library.</comment>"]
 
   end
 
@@ -26,7 +25,7 @@ class ActionTeleport
 
     @host.set_unde(target.id)
 
-    return @host.answer(:modal,"You teleported to #{target}.")
+    return @host.answer(:modal,"You warped to #{target}.")
 
   end
 

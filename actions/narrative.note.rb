@@ -13,10 +13,8 @@ class ActionNote
     super
 
     @name = "Note"
-    @docs = "Describe the parent vessel."
-    
-    @target = :parent
-    @params = :note
+    @docs = "Add a description to the current parent vessel."
+    @examples = ["note the cat is dark.\n<comment>The cat is dark.</comment>"]
 
   end
 

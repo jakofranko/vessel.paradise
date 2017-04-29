@@ -54,34 +54,29 @@ class Ghost
     
     install(:generic,:look)
     install(:generic,:help)
+    install(:generic,:inspect)
 
-    install(:basic,:become)
-    install(:basic,:leave)
-    install(:basic,:enter)
     install(:basic,:create)
+    install(:basic,:become)
+    install(:basic,:enter)
+    install(:basic,:leave)
 
     install(:movement,:move)
-    install(:movement,:teleport)
-
-    install(:advanced,:take)
-    install(:advanced,:drop)
-    install(:advanced,:lock)
-    install(:advanced,:unlock)
-    install(:advanced,:appear)
-    install(:advanced,:vanish)
+    install(:movement,:warp)
+    install(:movement,:take)
+    install(:movement,:drop)
 
     install(:communication,:say)
+    install(:communication,:emote)
+    install(:communication,:signal)
 
-    install(:narrative,:transmute)
-    install(:narrative,:transform)
     install(:narrative,:note)
+    install(:narrative,:transform)
+    install(:narrative,:set)
 
     install(:programming,:program)
     install(:programming,:use)
-    install(:programming,:inspect)
-    install(:programming,:call)
-
-    # install(:deconstruction,:destroy)
+    install(:programming,:cast)
 
   end
 
@@ -403,6 +398,37 @@ class Ghost
 
     if id == unde then return true end
     return false
+
+  end
+
+  def guides
+
+    hints = []
+
+    # Statuses
+    if is_locked then hints.push("The #{name} is locked, you may not modify it.") end
+    if is_hidden then hints.push("The #{name} is hidden, you may not see its warp id.") end
+    if is_quiet then hints.push("The #{name} is quiet, you may not see other's vessels.") end
+    if is_frozen then hints.push("The #{name} is frozen, you may not interact with it.") end
+
+    # Check Validity
+    validity_check, validity_errors = is_valid
+    if validity_check == false then hints += validity_errors end
+    validity_check, validity_errors = is_valid
+    if validity_check == false then hints += validity_errors end
+
+    # Own's
+    if owner == id
+      hints.push("Vessel is complete.")
+      if !has_note then hints.push("Add a <action data-action='describe '>description</action> to the parent vessel.") end
+      if !has_attr then hints.push("Add an <action data-action='transform '>attribute</action> to the parent vessel.") end
+    # Improvements
+    elsif !is_locked
+      if !has_note then hints.push("Improve this vessel with a <action data-action='describe '>description</action>.") end
+      if !has_attr then hints.push("Improve this vessel with an <action data-action='transform '>attribute</action>.") end
+    end
+
+    return hints
 
   end
 

@@ -13,10 +13,8 @@ class ActionProgram
     super
 
     @name = "Program"
-    @docs = "Automate the parent vessel."
-    
-    @target = :parent
-    @params = :action
+    @docs = "Add an automation program to a vessel, making it available to the use command."
+    @examples = ["program create a coffee"]
 
   end
 

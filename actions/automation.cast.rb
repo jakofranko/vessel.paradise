@@ -3,7 +3,7 @@
 
 require_relative "_toolkit.rb"
 
-class ActionCall
+class ActionCast
 
   include Action
   include ActionToolkit
@@ -12,10 +12,10 @@ class ActionCall
 
     super
 
-    @name = "Call"
-    @docs = "Call a distant program."
+    @name = "Cast"
+    @docs = "Use a vessel program's from anywhere."
+    @examples = ["cast the vanish spell onto the black cat\n<comment>The black cat is now hidden.</comment>"]
 
-    @target = :warp_id
 
   end
 

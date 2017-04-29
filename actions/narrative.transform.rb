@@ -13,10 +13,8 @@ class ActionTransform
     super
 
     @name = "Transform"
-    @docs = "Define the parent vessel."
-
-    @target = :parent
-    @params = :attr
+    @docs = "Change your current vessel name and attribute."
+    @examples = ["transform into a red bat\n<comment>You are a red bat.</comment>"]
 
   end
 

@@ -14,7 +14,7 @@ class ActionLeave
 
     @name = "Leave"
     @docs = "Exit the parent vessel."
-    @target = :self
+    @examples = ["leave\n<comment>You are a black cat in the yard.</comment>"]
 
   end
 

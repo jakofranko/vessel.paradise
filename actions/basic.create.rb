@@ -13,9 +13,9 @@ class ActionCreate
     super
 
     @name = "Create"
-    @docs = "Create a new vessel."
+    @docs = "Create a new vessel at your current location. Vessel names and attributes must include less than 14 characters and be unique."
 
-    @params = :name
+    @examples = ["create a black cat\n<comment>You see a black cat.</comment>"]
 
   end
 

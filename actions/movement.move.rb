@@ -13,9 +13,8 @@ class ActionMove
     super
 
     @name = "Move"
-    @docs = "Move around."
-
-    @target = :self
+    @docs = "Become related to the target visible vessel with a custom relationship word."
+    @examples = ["move under the carpet\n<comment>The black cat is under the carpet.</comment>"]
 
   end
 
