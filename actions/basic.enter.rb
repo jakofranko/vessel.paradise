@@ -23,11 +23,11 @@ class ActionEnter
 
     target = @host.find_visible(params)
     
-    if !target then return @host.answer(:error,"Cannot find a target named #{q}.") end
+    if !target then return @host.answer(:error,"Cannot find a target named #{params}.") end
 
     @host.set_unde(target.id)
 
-    return @host.answer(:modal,"You entered #{target}.")
+    return @host.answer(:modal,"You entered the #{target.to_s(true,false)}.")
 
   end
 

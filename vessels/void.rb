@@ -13,8 +13,8 @@ class VesselVoid
   
   attr_accessor :is_locked
   attr_accessor :is_hidden
-  attr_accessor :is_quiet 
-  attr_accessor :is_frozen
+  attr_accessor :is_silent
+  attr_accessor :is_tunnel
 
   def initialize content = nil
 
@@ -26,8 +26,8 @@ class VesselVoid
 
     @is_locked = true
     @is_hidden = true
-    @is_quiet  = true
-    @is_frozen = true
+    @is_silent = true
+    @is_tunnel = true
 
   end
 

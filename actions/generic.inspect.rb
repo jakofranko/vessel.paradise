@@ -20,6 +20,9 @@ class ActionInspect
 
   def act target = nil, params = ""
 
+    # return "#{params}"
+    target = @host.find_visible(params)
+
     if !target then target = @host.parent end
 
     html = "<p>You are inspecting #{target}.</p>"
@@ -31,10 +34,10 @@ class ActionInspect
     html += "<tr><th>Value</th><td>$#{target.value}</td></tr>"
 
     if target.has_program
-      html += "<tr><th>Program</th><td>#{target.program}</td></tr>"
+      html += "<tr><th>Program</th><td><code>#{target.program}\n#{target.program.render}</code></td></tr>"
     end
     if target.has_note
-      html += "<tr><th>Note</th><td>#{target.note}</td></tr>"
+      html += "<tr><th>Note</th><td><p>#{target.note}</p></td></tr>"
     end
 
     if target.children.length > 0

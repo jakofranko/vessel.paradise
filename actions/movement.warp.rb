@@ -22,6 +22,7 @@ class ActionWarp
   def act target = nil, params = ""
 
     target = @host.find_distant(params)
+
     if !target then return @host.answer(:error,"Cannot warp into the void.") end
     if @host.is_locked == true then return @host.answer(:error,"#{@host} is locked.") end
 

@@ -5,23 +5,29 @@
 1010-00000-00000-00000000000000 Parade         Tempest                   
 1010-00001-00000-00000000000000 Haven                                                                                                      The hallway sleeps quietly, as a light snow seeps through holes in the glass dome above.
 1010-00001-00000-00000000000000 hallway        library                                                                                     A red staircase creeps upstairs, and a cyan elevator disapears into the basement. A doorway open to the library gardens.
-1010-00002-00000-00000000000000 pavillion      geometry                                                                                    The pavillion displays a list of warp zones. ((random blue,red,pink))
+1010-00002-00000-00000000000000 pavillion      geometry                                                                                    The vast circular room hosts, at its center, a telescope held above the floor onto which a map has been painted. 
 1010-00002-00000-00000000000000 isles          teapottery                                                                                  Countless rows of books and tomes on the benefits of the teapot vessel, are littering the isles.
 1010-00002-00000-00000000000000 elevator       cyan                          warp to 3
 1010-00002-00000-00000000000000 staircase      red                           warp to 4
 1010-00004-00000-00000000000000 teapot         original                      say me touched the original teapot                                                              
 1010-00002-00000-00000000000000 gardens                                                                                                    Wip.
 1010-00008-00000-00000000000000 tree           glass                                                                                       All over the crystalized bark, little marks of ((vessel name)) feet.
-1010-00003-00000-00000000000000 wardrobe       trial
-1010-00010-00000-00000000000000 spellbook      old                                                                                         A collection of generic spells from the Geomaitre. The spells can be used anywhere within Paradise. ((layout inventory))
-1010-00011-00000-00000000000000 spell          lock           on             set is_locked true
-1010-00011-00000-00000000000000 spell          vanish         on             set is_hidden true
-1010-00011-00000-00000000000000 spell          silence        on             set is_silent true
-1010-00011-00000-00000000000000 spell          tunnel         on             set is_tunnel true
-1010-00000-00000-00000000000000                 
-1010-00000-00000-00000000000000                 
-1010-00010-00000-00000000000000 tome           blue
+1010-00003-00000-00000000000000 office         hexagonal                                                                                   From the nature of the decypherable notes, this workshop appears to be used in trying to make sense of conceptspace.
+1010-00010-00000-00000000000000 spellbook      old                                                                                         This collection of generic spells can be <action data-action='help with programming'>casted</action> anywhere within Paradise. Inspect the spells to find out how to use them. ((layout inventory))
+1010-00011-00000-00000000000000 spell          lock           on             set is_locked true                                            The lock spell is used to protect a vessel from casual vandalism, it can only be used on a vessel of your own with a rank above 50.
+1010-00011-00000-00000000000000 spell          vanish         on             set is_hidden true                                            
+1010-00011-00000-00000000000000 spell          silence        on             set is_silent true                                            
+1010-00011-00000-00000000000000 spell          tunnel         on             set is_tunnel true                                            
+1010-00000-00000-00000000000000 spell
+1010-00000-00000-00000000000000 spell
+1010-00010-00000-00000000000000 tome           blue                                                                                        This collection of generic portals can be <action data-action='help with programming'>casted</action> anywhere within Paradise. Inspect the portals to find out how to use them. ((layout inventory))
 1010-00018-00000-00000000000000 portal         town           in             warp to 1
+1010-00018-00000-00000000000000 portal         random                        warp to ((vessel random id))
+1010-00000-00000-00000000000000 portal
+1010-00000-00000-00000000000000 portal
+1010-00000-00000-00000000000000 portal
+1010-00000-00000-00000000000000 portal
+1010-00003-00000-00000000000000 telescope      brass                         warp to 3
 1010-00000-00000-00000000000000 space          reserved                      
 1010-00000-00000-00000000000000 space          reserved                      
 1010-00000-00000-00000000000000 space          reserved                      
@@ -32,13 +38,7 @@
 1010-00000-00000-00000000000000 space          reserved                      
 1010-00000-00000-00000000000000 space          reserved                      
 1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-0100-00001-00027-20170429103538 owl                           in
+0100-00581-00027-20170430075441 owl                           in
 0000-00183-00027-20170307011211 tome           cyan                                                                                        The book of the cyan faction
 0000-00397-00027-20170306230705 nestc          vessel                        
 0000-00071-00001-20170217070931 disc           citrine                                                                                     A chimaera reads a tarot nearby.
@@ -76,14 +76,14 @@
 0000-00004-00056-20170226140446 sova           bad                                                                                         A chimaera reads a tarot nearby.
 0000-00225-00034-20170131221255 ducky          devoured                      say I'm a duck
 0000-00133-00056-20170210025254 book           itself                        warp to 34
-0000-00051-00051-20170129201610 tobacco        pouch                         create cigarette                                             There is only a little tobacco left. Enough to roll a cigarette.
+0000-00051-00051-20170129201610 tobacco        pouch                         create cigarette                                              There is only a little tobacco left. Enough to roll a cigarette.
 0000-00051-00051-20170130205429 cigarette      white                         humor                                                         lungs is comforting.
 0000-00219-00056-20170209173848 tron           cyan                          Effervescent blue                                             Effervescent blue energy entangles every available surface. Every now and then, data port access is available.
 1000-00310-00027-20170212022806 lantern        intermittent                                                                                The position of the lantern, the arrangement of its shutters, the qualities of its light... all come together to create coded messages for visitors.
 0000-00619-00056-20170307135658 feather        black                         warp (random 5 6 9)
 0000-00076-00027-20170129222906 port           data                          warp 80                   
 0000-00079-00027-20170207132926 grid           block                                                                                       Towering electric blue skyscrapers soar into the sky. Protective programs zoom around suspiciously in the air.
-0000-00080-00027-20170129204637 program        protective                                                                                 Automated programs leap from the virus-seeking ship, armed to the teeth.
+0000-00080-00027-20170129204637 program        protective                                                                                  Automated programs leap from the virus-seeking ship, armed to the teeth.
 0000-00051-00051-20170131052839 clad           iron                          warp 27                                                       Teleport to iron
 0000-00628-00027-20170307053231 runebook       green                         say me zooms around on the lightcycle                         port
 0000-00025-00056-20170225195038 bots           defensive                     
@@ -128,7 +128,7 @@
 0000-00457-00052-20170228041108 time           space                         
 0000-00004-00052-20170129222931 crack          interesting                                  
 0000-00124-00052-20170131155543 wonderland     wonderful                                                                                   a wonderland for all who find it, enjoy
-0000-00126-00039-20170130034023 orb            obsidian                                                                                   A chimaera reads a tarot nearby.
+0000-00126-00039-20170130034023 orb            obsidian                                                                                    A chimaera reads a tarot nearby.
 0000-00113-00056-20170129224049 shell          confused                                  
 0000-00066-00052-20170130172919 paradox        green                         make x
 0000-00056-00052-20170207130647 personality    tea                           
@@ -145,7 +145,7 @@
 1000-00139-00027-20170212022903 burrow         fox                                                                                         A pack of fox kits are here, all of them tumbling over their patient parents
 0000-00283-00039-20170310045556 tarot                                                                                                      tarot
 0000-00051-00051-20170130035608 translator                                   warp 110                   
-0000-00110-00051-20170130041047 crystal        glitching                                                                                  Shimmering digitally, flickering in and out of existence, it makes the sound of an electric fire.
+0000-00110-00051-20170130041047 crystal        glitching                                                                                   Shimmering digitally, flickering in and out of existence, it makes the sound of an electric fire.
 0000-00324-00048-20170204232110 ball           crystal                       use (random ant bat keg ham cot)
 0000-00145-00017-20170210160232 warp           blue                          
 0000-00139-00054-20170202130959 golem                                                                                                      This is the golem
@@ -646,7 +646,7 @@
 0000-00022-00619-20170326173249 clarification                                
 0000-00563-00563-20170311200120 this           take                          create (random big yig tink pink) (random rink bink spink)
 0000-00563-00563-20170311200112 rink                                   
-1000-00644-00585-20170404193714 countrix                                                                                                   The <bdi><pre>countrix. <br>This text is breaking down into <code>code and will eventually<br> t r a i l o f f . . .
+1000-00644-00585-20170404193714 countrix                                                                                                   
 1000-00722-00585-20170417034704 fulfillment    cheese                                                                                      This establishment is technically a bad, leave all of your vessels at the doorstep.
 1000-00645-00585-20170312014819 doorstep                                                                                                   You see, you see you see.
 1000-00646-00585-20170312014806 buffalobuffalo buffalobuffalo                                                                              Buffalo buffalo buffalo Buffalo buffalo buffalo Buffalo buffalo.

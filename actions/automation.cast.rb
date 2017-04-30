@@ -29,8 +29,7 @@ class ActionCast
     if !target then return @host.answer(:error,"The target vessel did not answer.") end
     if !target.has_program then return @host.answer(:error,"The target vessel has no program.") end
 
-
-    return @host.act(target.program.action,target.program.params)
+    return @host.act(target.program.action,target.program.params.wildcards(@host))
 
   end
 

@@ -19,8 +19,8 @@ class Ghost
 
   attr_accessor :is_locked
   attr_accessor :is_hidden
-  attr_accessor :is_quiet 
-  attr_accessor :is_frozen
+  attr_accessor :is_silent
+  attr_accessor :is_tunnel
 
   attr_accessor :is_paradox
 
@@ -43,11 +43,11 @@ class Ghost
 
     @is_locked  = @perm[0,1].to_i == 1 ? true : false
     @is_hidden  = @perm[1,1].to_i == 1 ? true : false
-    @is_quiet   = @perm[2,1].to_i == 1 ? true : false
-    @is_frozen  = @perm[3,1].to_i == 1 ? true : false
+    @is_silent  = @perm[2,1].to_i == 1 ? true : false
+    @is_tunnel  = @perm[3,1].to_i == 1 ? true : false
     @is_paradox = id == @unde ? true : false
     
-    @program = Program.new(@content["PROGRAM"])
+    @program = Program.new(self,@content["PROGRAM"])
 
     @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
     @docs = "Default Paradise vessel."
@@ -110,20 +110,19 @@ class Ghost
 
   def to_s show_attr = true, show_particle = true, show_action = true, html_tags = true
 
-    particle = "a "
-    if @attr.to_s == "" && @name[0,1] == "a" then particle = "an " end
-    if @attr.to_s == "" && @name[0,1] == "e" then particle = "an " end
-    if @attr.to_s == "" && @name[0,1] == "i" then particle = "an " end
-    if @attr.to_s == "" && @name[0,1] == "o" then particle = "an " end
-    if @attr.to_s == "" && @name[0,1] == "u" then particle = "an " end
-    if show_attr && @attr && @attr[0,1] == "a" then particle = "an " end
-    if show_attr && @attr && @attr[0,1] == "e" then particle = "an " end
-    if show_attr && @attr && @attr[0,1] == "i" then particle = "an " end
-    if show_attr && @attr && @attr[0,1] == "o" then particle = "an " end
-    if show_attr && @attr && @attr[0,1] == "u" then particle = "an " end
-    if !has_attr then particle = "the " end
+    particle = "the"
+    if !show_attr && @attr && @attr[0,1] == "a" then particle = "an " end
+    if !show_attr && @attr && @attr[0,1] == "e" then particle = "an " end
+    if !show_attr && @attr && @attr[0,1] == "i" then particle = "an " end
+    if !show_attr && @attr && @attr[0,1] == "o" then particle = "an " end
+    if !show_attr && @attr && @attr[0,1] == "u" then particle = "an " end
+    if !show_attr && @attr && @attr[0,2] == "ha" then particle = "an " end
+    if !show_attr && @attr && @attr[0,2] == "he" then particle = "an " end
+    if !show_attr && @attr && @attr[0,2] == "hi" then particle = "an " end
+    if !show_attr && @attr && @attr[0,2] == "ho" then particle = "an " end
+    if !show_attr && @attr && @attr[0,2] == "hu" then particle = "an " end
 
-    action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@name : 'enter the '+@name}'" : ""
+    action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@attr+' '+@name : 'enter the '+@attr+' '+@name}'" : ""
 
     if !html_tags then return "#{show_particle != false ? particle : ''} #{show_attr != false && @attr ? @attr+' ' : ''}#{@name}" end
 
@@ -151,8 +150,8 @@ class Ghost
     code = ""
     code += @is_locked == true ? "1" : "0"
     code += @is_hidden == true ? "1" : "0"
-    code += @is_quiet  == true ? "1" : "0"
-    code += @is_frozen == true ? "1" : "0"
+    code += @is_silent == true ? "1" : "0"
+    code += @is_tunnel == true ? "1" : "0"
 
     return "#{code}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@link.to_s.append(' ',14)} #{@program.to_s.append(' ',61)} #{@note}".strip
 
@@ -209,24 +208,28 @@ class Ghost
     $parade.each do |vessel|
       if vessel.unde != @id then next end
       if vessel.id == @id then next end
-      if is_quiet && vessel.owner != owner && vessel.owner != @id then next end
+      if is_silent && vessel.owner != owner && vessel.owner != @id then next end
       @children.push(vessel)
     end
     return @children
 
   end
 
-  def find_distant param
+  def find_distant params
 
-    param = remove_articles(param)
+    parts = params.split(" ")
 
-    if param.to_i > 0 && $parade[param.to_i] then return $parade[param.to_i] end
+    if parts.last.to_i > 0 && $parade[parts.last.to_i] then return $parade[parts.last.to_i] end
 
-    name = param.split(" ").last
-    attr = param.split(" ").length > 1 ? param.split(" ").first : nil
+    name = parts[-1,1]
+    attr = parts.length > 1 ? parts[-2,1] : nil
 
     $parade.each do |vessel|
       if vessel.name.like(name) && vessel.attr.like(attr) then return vessel end
+    end
+
+    $parade.each do |vessel|
+      if vessel.name.like(name) then return vessel end
     end
 
     return nil
@@ -235,7 +238,14 @@ class Ghost
 
   def find_visible name
 
-    name = remove_articles(name).split
+    parts = remove_articles(name).split(" ")
+
+    name = parts[-1,1]
+    attr = parts.length > 1 ? parts[-2,1] : nil
+
+    (siblings + children + [parent,self]).each do |vessel|
+      if vessel.name.like(name) && vessel.attr.like(attr) then return vessel end
+    end
 
     (siblings + children + [parent,self]).each do |vessel|
       if vessel.name.like(name) then return vessel end
@@ -254,6 +264,18 @@ class Ghost
     end
 
     return nil
+
+  end
+
+  def find_random
+
+    candidates = []
+    $parade.each do |vessel|
+      if vessel.is_hidden then next end
+      candidates.push(vessel)
+    end
+
+    return candidates[Time.new.to_i * 579 % candidates.length]
 
   end
 
@@ -353,16 +375,15 @@ class Ghost
 
   def rank
 
-    val = 0
+    sum = 0
 
-    if has_note then val += 1 end
-    if has_attr then val += 1 end
-    if has_program then val += 1 end
-    if is_locked then val += 1 end
-    if is_hidden then val += 1 end
-    if is_quiet then val += 1 end
+    values = [has_note,has_attr,has_program,is_locked,is_hidden,is_silent,is_tunnel]
 
-    return val
+    values.each do |val|
+      sum += val ? 1 : 0
+    end
+
+    return ((sum/values.length.to_f) * 100).to_i
     
   end
 
@@ -425,8 +446,8 @@ class Ghost
     # Statuses
     if is_locked then hints.push("The #{name} is locked, you may not modify it.") end
     if is_hidden then hints.push("The #{name} is hidden, you may not see its warp id.") end
-    if is_quiet then hints.push("The #{name} is quiet, you may not see other's vessels.") end
-    if is_frozen then hints.push("The #{name} is frozen, you may not interact with it.") end
+    if is_silent then hints.push("The #{name} is quiet, you may not see other's vessels.") end
+    if is_tunnel then hints.push("The #{name} is a tunnel.") end
 
     # Check Validity
     validity_check, validity_errors = is_valid

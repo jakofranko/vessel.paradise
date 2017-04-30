@@ -34,7 +34,7 @@ class ActionLook
 
     html = ""
     if @host.is_paradox
-      html = "#{@host}"
+      html = "#{@host} Paradox"
     elsif @host.parent.is_paradox
       html = "#{@host.parent}"
     else
@@ -73,7 +73,7 @@ class ActionLook
       html += "You see #{@host.siblings[0]}, #{@host.siblings[1]} and #{@host.siblings[2]}. "
     elsif @host.siblings.length > 3
       html += "You see #{@host.siblings[0]}, #{@host.siblings[1]} and #{@host.siblings.length-2} other vessels. "
-    elsif !@host.parent.is_quiet
+    elsif !@host.parent.is_silent
       html += "There is nothing here, why don't you create something."
     end
 
@@ -85,12 +85,12 @@ class ActionLook
   def action
 
     @host.siblings.each do |vessel|
-      if vessel.has_program then return "<p class='action'><vessel data-action='use the #{vessel.name}'>Use the #{vessel.name}.</vessel></p>" end
+      if vessel.has_program then return "<p id='action'><vessel data-action='use #{vessel.to_s(true,true,false,false)}'>Use #{vessel.to_s(true,true,false,false)}.</vessel></p>" end
     end
 
-    if @host.siblings.length > 0
-      return "<p id='action'><vessel data-action='enter the #{@host.siblings.first.name}'>Enter the #{@host.siblings.first.name}.</vessel></p>"
-    end
+    # if @host.siblings.length > 0
+    #   return "<p id='action'><vessel data-action='enter the #{@host.siblings.first.name}'>Enter the #{@host.siblings.first.name}.</vessel></p>"
+    # end
 
     return ""
 
@@ -127,7 +127,7 @@ class ActionLook
 
     html = ""
 
-    if @host.parent.is_quiet then return "" end
+    if @host.parent.is_silent then return "" end
 
     messages = $forum.to_a("comment")
 
@@ -135,7 +135,7 @@ class ActionLook
       html += message.to_s
     end
 
-    return "<ul class='forum'>"+html+"</ul>"
+    return "<ul id='forum'>"+html+"</ul>"
 
   end
 

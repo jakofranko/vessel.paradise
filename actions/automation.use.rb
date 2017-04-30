@@ -26,7 +26,7 @@ class ActionUse
     if !target.has_program then return @host.answer(:error,"#{target} does not have a program.") end
     if !@host.can(target.program.action) then return @host.answer(:error,"The program is invalid.") end
 
-    return @host.act(target.program.action,target.program.params)
+    return @host.act(target.program.action,target.program.params.wildcards(@host))
     
   end
 
