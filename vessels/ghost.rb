@@ -187,6 +187,12 @@ class Ghost
 
   end
 
+  def creator
+
+    return $parade[owner]
+    
+  end
+
   def siblings
 
     if @siblings then return @siblings end
@@ -371,13 +377,26 @@ class Ghost
     
   end
 
+  def has_children
+
+    return children.length > 0 ? true : false
+
+  end
+
+  def is_paradox
+
+    if id == unde then return true end
+    return false
+
+  end
+
   #
 
   def rank
 
     sum = 0
 
-    values = [has_note,has_attr,has_program,is_locked,is_hidden,is_silent,is_tunnel]
+    values = [has_note,has_attr,has_program,has_children,is_paradox,is_locked,is_hidden,is_silent,is_tunnel]
 
     values.each do |val|
       sum += val ? 1 : 0
@@ -429,13 +448,6 @@ class Ghost
       if vessel.name.like(@name) && vessel.attr.like(@attr) then return false end
     end
     return true
-
-  end
-
-  def is_paradox
-
-    if id == unde then return true end
-    return false
 
   end
 

@@ -2,43 +2,43 @@
 ~ NOTE : Code[Locked,Hidden,Silent,Tunnel] - Parent - Owner - Type
 
 @ CODE                          NAME           ATTR           LINK           PROGRAM                                                       NOTE
-1010-00000-00000-00000000000000 Parade         Tempest                   
-1010-00001-00000-00000000000000 Haven                                                                                                      The hallway sleeps quietly, as a light snow seeps through holes in the glass dome above.
-1010-00001-00000-00000000000000 hallway        library                                                                                     A red staircase creeps upstairs, and a cyan elevator disapears into the basement. A doorway open to the library gardens.
-1010-00002-00000-00000000000000 pavillion      geometry                                                                                    The vast circular room hosts, at its center, a telescope held above the floor onto which a map has been painted. 
+1010-00000-00000-00000000000000 Geomaitre
+1010-00001-00000-00000000000000 Haven                                                                                                      Welcome ((vessel name)), you have found the Haven, a singular paradox in the shape of an ancient library, host to all the knowledge a ghost might need to navigate the endless shores of Paradise.. A light and localized snow appears to fall upon the old library.
+1010-00001-00000-00000000000000 library        ancient                                                                                     A red staircase creeps upstairs toward the isles, and a cyan elevator disapears in the basement into the pavillion. 
+1010-00002-00000-00000000000000 staircase      red                           warp to 4
 1010-00002-00000-00000000000000 isles          teapottery                                                                                  Countless rows of books and tomes on the benefits of the teapot vessel, are littering the isles.
 1010-00002-00000-00000000000000 elevator       cyan                          warp to 3
-1010-00002-00000-00000000000000 staircase      red                           warp to 4
-1010-00004-00000-00000000000000 teapot         original                      say me touched the original teapot                                                              
-1010-00002-00000-00000000000000 gardens                                                                                                    Wip.
+1010-00002-00000-00000000000000 pavillion      geometry                                                                                    The vast circular room hosts, at its center, a telescope held above the floor onto which a map has been painted.. In a corner, you notice the crimson bound books of the hexagonal shelves.
+1010-00006-00000-00000000000000 telescope      brass                         warp to 25                                                    Looking into the telescope reveals the location of important paradoxes, and their creators. ((paradise paradoxes))
+1010-00006-00000-00000000000000 shelves        hexagonal                                                                                   From the nature of the decypherable notes, the shelves appears to contain spells that facilitate the traversing of the world.. Inspect the spells to find out how to use them. ((paradise spells))
+1010-00008-00000-00000000000000 spell          lock           on             set is_locked true                                            The lock spell is used to protect a vessel from casual vandalism, it can only be used on a vessel of your own with a rank above 50.
+1010-00008-00000-00000000000000 spell          vanish         on             set is_hidden true                                            
+1010-00008-00000-00000000000000 spell          silence        on             set is_silent true                                            
+1010-00008-00000-00000000000000 spell          tunnel         on             set is_tunnel true                                            
+1010-00008-00000-00000000000000 portal         town           in             warp to 1
+1010-00008-00000-00000000000000 portal         random                        warp to ((vessel random id))
+1010-00010-00000-00000000000000 **************************
+1010-00010-00000-00000000000000 **************************
+1010-00004-00000-00000000000000 **************************
+1010-00000-00000-00000000000000 spell
+1010-00000-00000-00000000000000 spell
+1010-00000-00000-00000000000000 portal
+1010-00000-00000-00000000000000 portal
+1010-00000-00000-00000000000000 portal
+1010-00000-00000-00000000000000 portal
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00000-00000-00000000000000 space          reserved                      
+1010-00001-00000-00000000000000 shores         endless                                                                                     Wip.
 1010-00008-00000-00000000000000 tree           glass                                                                                       All over the crystalized bark, little marks of ((vessel name)) feet.
-1010-00003-00000-00000000000000 office         hexagonal                                                                                   From the nature of the decypherable notes, this workshop appears to be used in trying to make sense of conceptspace.
-1010-00010-00000-00000000000000 spellbook      old                                                                                         This collection of generic spells can be <action data-action='help with programming'>casted</action> anywhere within Paradise. Inspect the spells to find out how to use them. ((layout inventory))
-1010-00011-00000-00000000000000 spell          lock           on             set is_locked true                                            The lock spell is used to protect a vessel from casual vandalism, it can only be used on a vessel of your own with a rank above 50.
-1010-00011-00000-00000000000000 spell          vanish         on             set is_hidden true                                            
-1010-00011-00000-00000000000000 spell          silence        on             set is_silent true                                            
-1010-00011-00000-00000000000000 spell          tunnel         on             set is_tunnel true                                            
-1010-00000-00000-00000000000000 spell
-1010-00000-00000-00000000000000 spell
-1010-00010-00000-00000000000000 tome           blue                                                                                        This collection of generic portals can be <action data-action='help with programming'>casted</action> anywhere within Paradise. Inspect the portals to find out how to use them. ((layout inventory))
-1010-00018-00000-00000000000000 portal         town           in             warp to 1
-1010-00018-00000-00000000000000 portal         random                        warp to ((vessel random id))
-1010-00000-00000-00000000000000 portal
-1010-00000-00000-00000000000000 portal
-1010-00000-00000-00000000000000 portal
-1010-00000-00000-00000000000000 portal
-1010-00003-00000-00000000000000 telescope      brass                         warp to 3
 1010-00000-00000-00000000000000 space          reserved                      
 1010-00000-00000-00000000000000 space          reserved                      
 1010-00000-00000-00000000000000 space          reserved                      
 1010-00000-00000-00000000000000 space          reserved                      
 1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-1010-00000-00000-00000000000000 space          reserved                      
-0100-00581-00027-20170430075441 owl                           in
+0100-00008-00027-20170430100825 owl                           in
 0000-00183-00027-20170307011211 tome           cyan                                                                                        The book of the cyan faction
 0000-00397-00027-20170306230705 nestc          vessel                        
 0000-00071-00001-20170217070931 disc           citrine                                                                                     A chimaera reads a tarot nearby.

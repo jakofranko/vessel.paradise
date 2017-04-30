@@ -54,7 +54,8 @@ class ActionLook
 
     if !@host.parent.has_note then return "" end
 
-    html = parse_wildcards(@host.parent.note)
+    html = @host.parent.note.wildcards(@host)
+    html = html.gsub(".. ",". <br /><br />")
     html = parse_vessels_in_note(html)
 
     return "<p id='note'>#{html}</p>"
@@ -88,10 +89,6 @@ class ActionLook
       if vessel.has_program then return "<p id='action'><vessel data-action='use #{vessel.to_s(true,true,false,false)}'>Use #{vessel.to_s(true,true,false,false)}.</vessel></p>" end
     end
 
-    # if @host.siblings.length > 0
-    #   return "<p id='action'><vessel data-action='enter the #{@host.siblings.first.name}'>Enter the #{@host.siblings.first.name}.</vessel></p>"
-    # end
-
     return ""
 
   end
@@ -99,9 +96,16 @@ class ActionLook
 
   def parse_vessels_in_note html
 
+    html = html.gsub(","," , ")
+    html = html.gsub("."," . ")
+
     @host.siblings.each do |vessel|
       html = html.sub(" #{vessel.name} "," #{vessel.to_s(false,false,true,true)} ")
     end
+
+    html = html.gsub(" , ",", ")
+    html = html.gsub(" . ",". ")
+
     return html
 
   end

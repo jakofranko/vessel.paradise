@@ -28,22 +28,21 @@ class ActionInspect
     html = "<p>You are inspecting #{target}.</p>"
 
     html += "<table>"
-    html += "<tr><th>Id</th><td>#{!target.is_hidden ? '≡'+target.id.to_s : '≡'} </td></tr>"
-    html += "<tr><th>Name</th><td>#{target.attr} #{target.name}</td></tr>"
-    html += "<tr><th>Rank</th><td>+#{target.rank}</td></tr>"
-    html += "<tr><th>Value</th><td>$#{target.value}</td></tr>"
+    html += "<tr><th>Main</th><td>The #{target.attr} #{target.name} #{!target.is_hidden ? '≡ '+target.id.to_s : '≡'} </td></tr>"
+    html += "<tr><th>Owner</th><td>#{target.creator.to_s(true,true,false,false)}</td></tr>"
+    html += "<tr><th>Rank</th><td>#{target.rank}.#{target.value}</td></tr>"
 
     if target.has_program
-      html += "<tr><th>Program</th><td><code>#{target.program}\n#{target.program.render}</code></td></tr>"
+      html += "<tr><th>Program</th><td><code>#{target.program}\n#{target.program.to_s.include?("((") ? target.program.render : ''}</code></td></tr>"
     end
     if target.has_note
       html += "<tr><th>Note</th><td><p>#{target.note}</p></td></tr>"
     end
 
     if target.children.length > 0
-      html += "<tr><th>Inventory</th><td>"
+      html += "<tr><th>Children</th><td>"
       target.children.each do |vessel|
-        html += "<action data-action='drop the #{vessel.name}'>#{vessel.attr} #{vessel.name} ≡#{vessel.id}</action><br />"
+        html += "#{vessel}<br/>"
       end
       html += "</td></tr>"
     end
