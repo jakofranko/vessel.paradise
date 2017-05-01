@@ -2079,3 +2079,5 @@
 20170422102330 00709 00457 It remains unseen wether I will accept it or not
 20170423085058 00004 00102 me waves in discontent
 20170423085103 00004 00036 But, there is not enough food for all of us in here
+20170501133808 00737 00036 me is surprived
+20170501134101 00737 00036 90

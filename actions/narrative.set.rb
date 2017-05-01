@@ -6,7 +6,6 @@ require_relative "_toolkit.rb"
 class ActionSet
 
   include Action
-  include ActionToolkit
   
   def initialize q = nil
 
@@ -14,17 +13,22 @@ class ActionSet
 
     @name = "Set"
     @verb = "Setting"
-    @docs = "Directly write attributes for the current active vessel."
-    @examples = ["set parent 16\n<comment>You are now in the yard.</comment>"]
+    @docs = "Directly write attributes for a owned vessel, the set command is meant to be used with programs and casted as spells."
+    @examples = ["set is_locked true\n<comment>You have locked the yard.</comment>"]
 
   end
 
   def act params = ""
 
-    if params.split(" ").length != 2 then return @host.answer(self,:error,"#{topic} can learn about the setting command by typing <action data-action='help with narrative'>help with narrative</action>.") end
+    parts = params.split(" ")
+    flags = ["is_locked","is_hidden","is_silent","is_tunnel"]
 
-    flag = params.split(" ").first
-    value = params.split(" ").last.to_sym
+    flag  = parts.first
+    value = parts.last.to_sym
+
+    if parts.length != 2            then return @host.answer(self,:error,"#{params} is not a valid setting","You can learn about the setting command by typing <action data-action='help with narrative'>help with narrative</action>.") end
+    if !flags.include?(flag)        then return @host.answer(self,:error,"#{flag} is not a valid flag. ","You can learn about the setting command by typing <action data-action='help with narrative'>help with narrative</action>.") end
+    if @host.owner != $player_id    then return @host.answer(self,:error,"#{topic} do not own #{@host}.") end
 
     if flag.like("is_locked") then return set_locked(value) end
     if flag.like("is_hidden") then return set_hidden(value) end

@@ -6,7 +6,6 @@ require_relative "_toolkit.rb"
 class ActionTake
 
   include Action
-  include ActionToolkit
   
   def initialize q = nil
 
@@ -23,8 +22,8 @@ class ActionTake
 
     target = @host.find_visible(params)
 
-    if !target then return @host.answer(self,:error,"Cannot see the target vessel.") end
-    if target.is_locked == true then return @host.answer(self,:error,"#{target} is locked.") end
+    if !target                      then return @host.answer(self,:error,"Cannot find the target vessel.") end
+    if target.is_locked             then return @host.answer(self,:error,"#{target} is locked.") end
 
     target.set_unde(@host.id)
 

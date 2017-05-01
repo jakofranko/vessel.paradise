@@ -6,7 +6,6 @@ require_relative "_toolkit.rb"
 class ActionHelp
 
   include Action
-  include ActionToolkit
   
   def initialize q = nil
 
@@ -23,8 +22,9 @@ class ActionHelp
 
     @wildcards = [WildcardTime,WildcardRandom,WildcardVessel,WildcardChildren,WildcardSiblings]
 
-    if target.like("wildcards") then return help_wildcards end
-    if target.like("attributes") then return help_attributes end
+    if target.like("wildcards")     then return help_wildcards end
+    if target.like("attributes")    then return help_attributes end
+    if target.like("spells")        then return help_spells end
     if @host.actions[target.to_sym] then return help_action(target.to_sym) end
 
     return help_default
@@ -73,7 +73,16 @@ class ActionHelp
 
     html += "<li><action data-action='help with attributes'>Attributes</action></li>"
     html += "<ul>"
-    ["Locked","Hidden","Silent","Tunnel"].each do |attribute|
+    ["is_locked","is_hidden","is_silent","is_tunnel"].each do |attribute|
+      html += "<li>#{attribute}</li>"
+    end
+    html += "</ul>"
+
+    # Spells
+
+    html += "<li><action data-action='help with spells'>Spells</action></li>"
+    html += "<ul>"
+    ["Misc"].each do |attribute|
       html += "<li>#{attribute}</li>"
     end
     html += "</ul>"
@@ -125,7 +134,6 @@ class ActionHelp
 
   def help_wildcards
 
-
     html = "<h3>Wildcards</h3>"
 
     @wildcards.each do |wildcard|
@@ -146,6 +154,27 @@ class ActionHelp
   def help_attributes
 
     return "<p>Coming soon.</p>"
+
+  end
+
+  def help_spells
+
+    html = "<h3>The Spellbook</h3>"
+
+    html += "<p>The spellbook lists all known spells across paradise, to be used with the cast command.</p>"
+    html += "<table>"
+    $parade.each do |vessel|
+      if !vessel.has_program then next end
+      if !vessel.is_locked then next end
+      if !vessel.has_attr then next end
+      if !vessel.name.like("spell") then next end
+
+      owner = vessel.owner != 0 ? ", by the #{vessel.creator.to_s(true,false,false,false)}" : ""
+      html += "<tr><td><action data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize}</action>#{owner}</td><td><code>#{vessel.program}</code></td></tr>"
+    end
+    html += "</table>"
+
+    return html
 
   end
 

@@ -6,7 +6,6 @@ require_relative "_toolkit.rb"
 class ActionCast
 
   include Action
-  include ActionToolkit
   
   def initialize q = nil
 
@@ -15,10 +14,7 @@ class ActionCast
     @name = "Cast"
     @docs = "Use a vessel program's from anywhere. By default, the spell will be cast onto the current active vessel, casting can also target a visible vessel."
     @verb = "Casting"
-    @examples = [
-      "cast the vanish spell\n<comment>The black cat is now hidden.</comment>",
-      "cast the vanish spell onto the purple bat\n<comment>The purple bat is now hidden.</comment>"
-    ]
+    @examples = ["cast the vanish spell\n<comment>The black cat is now hidden.</comment>","cast the vanish spell onto the purple bat\n<comment>The purple bat is now hidden.</comment>"]
 
   end
 
@@ -32,8 +28,8 @@ class ActionCast
 
     spell = @host.find_distant(spell_name)
 
-    if !spell then return @host.answer(self,:error,"This spell is unknown.") end
-    if !spell.program.is_valid then return @host.answer(self,:error,"#{spell} is not a valid spell.") end
+    if !spell                       then return @host.answer(self,:error,"This spell is unknown.") end
+    if !spell.program.is_valid      then return @host.answer(self,:error,"#{spell} is not a valid spell.") end
      
     return @host.act(spell.program.action,spell.program.params.wildcards(@host))
 
@@ -44,9 +40,9 @@ class ActionCast
     spell = @host.find_distant(spell_name)
     target = @host.find_visible(target_name)
 
-    if !spell then return @host.answer(self,:error,"This spell is unknown.") end
-    if !spell.program.is_valid then return @host.answer(self,:error,"#{spell} is not a valid spell.") end
-    if !target then return @host.answer(self,:error,"The target vessel is not valid.") end
+    if !spell                       then return @host.answer(self,:error,"This spell is unknown.") end
+    if !spell.program.is_valid      then return @host.answer(self,:error,"#{spell} is not a valid spell.") end
+    if !target                      then return @host.answer(self,:error,"The target vessel is not valid.") end
 
     return target.act(spell.program.action,spell.program.params.wildcards(target))
 

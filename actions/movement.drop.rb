@@ -6,7 +6,6 @@ require_relative "_toolkit.rb"
 class ActionDrop
 
   include Action
-  include ActionToolkit
   
   def initialize q = nil
 
@@ -23,8 +22,8 @@ class ActionDrop
 
     target = @host.find_child(params)
 
-    if !target then return @host.answer(self,:error,"Cannot find children.") end
-    if target.is_locked == true then return @host.answer(self,:error,"#{target} is locked.") end
+    if !target                      then return @host.answer(self,:error,"Cannot find the target vessel.") end
+    if target.is_locked             then return @host.answer(self,:error,"#{target} is locked.") end
 
     target.set_unde(@host.unde)
 

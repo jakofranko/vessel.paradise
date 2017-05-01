@@ -40,6 +40,7 @@ class Program
 
   def is_valid
 
+    if @raw.length > 60 then return false end
     return @host.can(@action)
 
   end

@@ -59,12 +59,6 @@ class Comment
 
   end
 
-  def to_code
-
-    return "#{Timestamp.new} #{from.to_s.prepend('0',5)} #{host.to_s.prepend('0',5)} #{message}"
-
-  end
-
   def feedback
 
     if is_question then return "You asked \"#{message}\"?" end
@@ -87,10 +81,17 @@ class Comment
 
   end
 
+  def to_code
+
+    return "#{Timestamp.new} #{from.to_s.prepend('0',5)} #{host.to_s.prepend('0',5)} #{message}"
+
+  end
+
   def is_valid
 
     if message == "" then return false, "You said nothing." end
     if message.upcase == message && message.to_i < 1 then return false, "Please, don't shout." end
+    if message.downcase != message.gsub(/[^a-zZ-Z0-9\s\!\?\.\,\']/i, '').downcase then return false, "Dialogs can only include alphanumeric characters and punctuation." end
 
     return true
 
@@ -124,6 +125,15 @@ class Comment
   def is_warp
 
     return message.to_i > 0 ? true : false
+
+  end
+
+  def is_repeated
+
+    $forum.to_a(:comment).reverse[0,1].each do |comment|
+      if comment.message == message then return true end
+    end
+    return false
 
   end
   

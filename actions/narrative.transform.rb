@@ -6,7 +6,6 @@ require_relative "_toolkit.rb"
 class ActionTransform
 
   include Action
-  include ActionToolkit
   
   def initialize q = nil
 
@@ -30,13 +29,13 @@ class ActionTransform
 
     validity_check, validity_errors = @host.is_valid
 
-    if !validity_check          then return @host.answer(self,:error,"#{validity_errors.first}") end
-    if !@host.is_unique         then return @host.answer(self,:error,"Another #{@host} already exists.") end
-    if @host.is_locked          then return @host.answer(self,:error,"#{@host} is locked.") end
+    if !validity_check              then return @host.answer(self,:error,"#{validity_errors.first}") end
+    if !@host.is_unique             then return @host.answer(self,:error,"Another #{@host.to_s(true,false)} already exists.") end
+    if @host.is_locked              then return @host.answer(self,:error,"#{@host} is locked.") end
 
     @host.save
 
-    return @host.answer(self,:modal,"#{topic} transformed into the #{attr ? attr+' ' : ''}#{name}.")
+    return @host.answer(self,:modal,"#{topic} transformed into #{@host}.")
     
   end
 

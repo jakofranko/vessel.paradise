@@ -6,7 +6,6 @@ require_relative "_toolkit.rb"
 class ActionEnter
 
   include Action
-  include ActionToolkit
   
   def initialize q = nil
 
@@ -24,8 +23,9 @@ class ActionEnter
     target = @host.find_visible(params)
     prev = @host.parent
     
+    if !target                      then return @host.answer(self,:error,"#{topic} could not find the target vessel.") end
     if target.id == @host.parent.id then return @host.answer(self,:error,"#{topic} already are in #{target.to_s(true,true,false,false)}.") end
-    if !target then return @host.answer(self,:error,"#{topic} cannot find a target named #{params}.") end
+      if @host.is_locked == true    then return @host.answer(self,:error,"#{@host} is locked.") end
 
     @host.set_unde(target.id)
 

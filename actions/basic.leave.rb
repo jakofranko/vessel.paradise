@@ -6,7 +6,6 @@ require_relative "_toolkit.rb"
 class ActionLeave
 
   include Action
-  include ActionToolkit
   
   def initialize q = nil
 
@@ -24,8 +23,8 @@ class ActionLeave
     target = @host.parent.parent
     prev = @host.parent
 
-    if @host.parent.is_paradox then return @host.answer(self,:error,"#{topic} have reached the stem of the universe. The #{@host.parent.name} is a paradox and may not be exited. ") end
-    if @host.is_locked == true then return @host.answer(self,:error,"#{topic} are locked.") end
+    if @host.parent.is_paradox      then return @host.answer(self,:error,"#{topic} have reached the stem of the universe. The #{@host.parent.name} is a paradox and may not be exited. ") end
+    if @host.is_locked == true      then return @host.answer(self,:error,"#{@host} is locked.") end
 
     @host.set_unde(target.id)
     

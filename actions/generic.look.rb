@@ -6,7 +6,6 @@ require_relative "_toolkit.rb"
 class ActionLook
 
   include Action
-  include ActionToolkit
   
   def initialize q = nil
 

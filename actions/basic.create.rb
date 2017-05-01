@@ -6,7 +6,6 @@ require_relative "_toolkit.rb"
 class ActionCreate
 
   include Action
-  include ActionToolkit
   
   def initialize q = nil
 
@@ -21,20 +20,18 @@ class ActionCreate
 
   def act params = ""
 
-    target = params.remove_articles.split(" ")
-
-    name = target.last.to_s
-    attr = target.length == 2 ? target[target.length-2].to_s : ""
+    parts = params.remove_articles.split(" ")
+    name = parts.last
+    attr = parts.length > 1 ? parts[parts.length-2] : ""
 
     new_vessel = Ghost.new({"NAME" => name.downcase,"ATTR" => attr.downcase,"CODE" => "0000-#{@host.unde.to_s.prepend('0',5)}-#{@host.id.to_s.prepend('0',5)}-#{Timestamp.new}"})
 
     validity_check, validity_errors = new_vessel.is_valid
 
-    if !validity_check then return @host.answer(self,:error,"#{validity_errors.first}") end
-    if !is_unique(name,attr) then return @host.answer(self,:error,"A vessel named \"#{attr+' '+name}\" already exists.") end
+    if !validity_check              then return @host.answer(self,:error,"#{validity_errors.first}") end
+    if !@host.is_unique             then return @host.answer(self,:error,"Another #{@host.to_s(true,false)} already exists.") end
 
     $paradise.append(new_vessel.encode)
-    @host.reload
 
     return @host.answer(self,:modal,"#{topic} created #{new_vessel.to_s(true,true)}.")
 
