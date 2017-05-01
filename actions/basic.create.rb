@@ -13,6 +13,7 @@ class ActionCreate
     super
 
     @name = "Create"
+    @verb = "Creating"
     @docs = "Create a new vessel at your current location. Vessel names and attributes must include less than 14 characters and be unique. "
 
     @examples = ["create a black cat\n<comment>You see a black cat.</comment>"]
@@ -30,13 +31,13 @@ class ActionCreate
 
     validity_check, validity_errors = new_vessel.is_valid
 
-    if !validity_check then return @host.answer(:error,"#{validity_errors.first}") end
-    if !is_unique(name,attr) then return @host.answer(:error,"A vessel named \"#{attr+' '+name}\" already exists.") end
+    if !validity_check then return @host.answer(self,:error,"#{validity_errors.first}") end
+    if !is_unique(name,attr) then return @host.answer(self,:error,"A vessel named \"#{attr+' '+name}\" already exists.") end
 
     $paradise.append(new_vessel.encode)
     @host.reload
 
-    return @host.answer(:modal,"You created #{new_vessel.to_s(true,true)}.")
+    return @host.answer(self,:modal,"You created #{new_vessel.to_s(true,true)}.")
 
   end
 

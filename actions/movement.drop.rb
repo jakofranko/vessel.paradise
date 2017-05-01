@@ -13,6 +13,7 @@ class ActionDrop
     super
 
     @name = "Drop"
+    @verb = "Droping"
     @docs = "Move a child vessel into the parent vessel."
     @examples = ["drop the scissor\n<comment>You see the scissor.</comment>"]
 
@@ -22,12 +23,12 @@ class ActionDrop
 
     target = child_named(q)
 
-    if !target then return @host.answer(:error,"Cannot find a target named #{q}.") end
-    if target.is_locked == true then return @host.answer(:error,"#{target} is locked.") end
+    if !target then return @host.answer(self,:error,"Cannot find a target named #{q}.") end
+    if target.is_locked == true then return @host.answer(self,:error,"#{target} is locked.") end
 
     target.set_unde(@host.unde)
 
-    return @host.answer(:modal,"You dropped #{target}.")
+    return @host.answer(self,:modal,"You dropped #{target}.")
     
   end
 

@@ -14,6 +14,7 @@ class ActionLook
 
     @name = "Look"
     @docs = "Sight."
+    @verb = "Looking"
 
   end
 
@@ -38,7 +39,7 @@ class ActionLook
     elsif @host.parent.is_paradox
       html = "#{@host.parent}"
     else
-      html = "#{@host} #{@host.link} #{@host.parent.to_s(true,true,false)}."
+      html = "#{@host} #{@host.link} #{@host.parent.to_s(true,true,false)}"
     end
     return "<h1 id='portal'>#{html}</h1>"    
 
@@ -56,6 +57,9 @@ class ActionLook
 
     html = @host.parent.note.wildcards(@host)
     html = html.gsub(".. ",". <br /><br />")
+    html = html.gsub(":. ",": <br /><br />")
+    html = html.gsub("?. ","? <br /><br />")
+    html = html.gsub(",. ",", <br /><br />")
     html = parse_vessels_in_note(html)
 
     return "<p id='note'>#{html}</p>"

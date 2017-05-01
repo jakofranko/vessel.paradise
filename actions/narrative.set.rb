@@ -13,6 +13,7 @@ class ActionSet
     super
 
     @name = "Set"
+    @verb = "Setting"
     @docs = "Directly write attributes for the current active vessel."
     @examples = ["set parent 16\n<comment>You are now in the yard.</comment>"]
 

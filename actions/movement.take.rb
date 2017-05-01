@@ -13,6 +13,7 @@ class ActionTake
     super
 
     @name = "Take"
+    @verb = "Taking"
     @docs = "Move a visible vessel into a child vessel."
     @examples = ["take the scissor\n<comment>You carry the scissor.</comment>"]
 
@@ -22,12 +23,12 @@ class ActionTake
 
     target = sibling_named(q)
 
-    if !target then return @host.answer(:error,"Cannot find a target named #{q}.") end
-    if target.is_locked == true then return @host.answer(:error,"#{target} is locked.") end
+    if !target then return @host.answer(self,:error,"Cannot find a target named #{q}.") end
+    if target.is_locked == true then return @host.answer(self,:error,"#{target} is locked.") end
 
     target.set_unde(@host.id)
 
-    return @host.answer(:modal,"You took #{target}.")
+    return @host.answer(self,:modal,"You took #{target}.")
     
   end
 

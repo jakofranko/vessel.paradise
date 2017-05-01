@@ -102,9 +102,11 @@ class Ghost
 
   end
 
-  def answer type, message, etc = nil
+  def answer action, type, message, etc = nil
 
-    return "<p>#{message}</p>#{etc ? '<p>'+etc+'</p>' : ''}"
+    if type == :error then return "<h3>#{action.verb} Failed</h3><p>#{message}</p><p class='small'>#{etc ? etc : 'Press <b>enter</b> to continue.'}</p>" end
+
+    return "<h3>#{action.verb}...</h3><p>#{message}</p><p class='small'>#{etc ? etc : 'Press <b>enter</b> to continue.'}</p>"
 
   end
 
@@ -458,8 +460,9 @@ class Ghost
     # Statuses
     if is_locked then hints.push("The #{name} is locked, you may not modify it.") end
     if is_hidden then hints.push("The #{name} is hidden, you may not see its warp id.") end
-    if is_silent then hints.push("The #{name} is quiet, you may not see other's vessels.") end
+    if is_silent then hints.push("The #{name} is silent, you may not see other's vessels.") end
     if is_tunnel then hints.push("The #{name} is a tunnel.") end
+    if is_paradox then hints.push("The #{name} is a paradox, you may not leave.") end
 
     # Check Validity
     validity_check, validity_errors = is_valid

@@ -3,10 +3,12 @@
 
 module Action
 
+  attr_accessor :verb
+
   attr_accessor :params
   attr_accessor :target
   attr_accessor :examples
-
+  
 end
 
 module ActionToolkit

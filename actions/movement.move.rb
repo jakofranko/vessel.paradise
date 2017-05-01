@@ -13,6 +13,7 @@ class ActionMove
     super
 
     @name = "Move"
+    @verb = "Moving"
     @docs = "Become related to the target visible vessel with a custom relationship word."
     @examples = ["move under the carpet\n<comment>The black cat is under the carpet.</comment>"]
 
@@ -22,7 +23,7 @@ class ActionMove
 
     name = params.split(" ").last.strip
     target = @host.find_visible(name)
-    if !target then return @host.answer(:error,"#{@host} could not move there.") end
+    if !target then return @host.answer(self,:error,"#{@host} could not move there.") end
 
     link = params.sub(target.name,"")
     link = link.sub(target.attr,"")
@@ -31,7 +32,7 @@ class ActionMove
 
     @host.set_unde(target.id,link)
 
-    return @host.answer(:modal,"#{@host.to_s(true,true,false,false).capitalize} moved #{link} #{target.to_s(true,true,false,false)}.")
+    return @host.answer(self,:modal,"#{@host.to_s(true,true,false,false).capitalize} moved #{link} #{target.to_s(true,true,false,false)}.")
     
   end
 

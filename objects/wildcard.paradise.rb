@@ -20,6 +20,8 @@ class WildcardParadise
 
     if @value.like("paradoxes") then return paradoxes end
     if @value.like("spells") then return spells end
+    if @value.like("glossary") then return glossary end
+
     return "?"
 
   end
@@ -57,6 +59,32 @@ class WildcardParadise
       html += "<li><action data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action>#{owner}</li>"
     end
 
+    return "<ul class='basic'>#{html}</ul>"
+
+  end
+
+  def glossary
+
+    g = {}
+    g["a vessel"] = "is a ghost carrier. A pocket of conceptspace that has an attribute and a name, that can travel through Paradise."
+    g["a paradox"] = "is impossible space, often folded onto itself, creating stems to universes."
+    g["the parade"] = "is the sum of Paradise's activity."
+    g["a tunnel"] = "is a vessel or action type accessible across all space. Cast and Warp are tuneling actions, allowing a ghost to traverse distances instantly. A tuneling vessel will be accessible through notes across distances."
+    g["the haven"] = "is a tutorial region with various documentation vessels."
+    g["nullspace"] = "is a warp id disassociated from a vessel."
+    g["a ghost"] = "is a vessel controller, a player."
+    g["conceptspace"] = "is the sum of vessels with non-spacial attributes, or hard to visualize attributes. "
+    g["thingspace"] = "is the sum of vessels with eucledian and real-world attributes."
+    g["the void"] = "is unbuilt vessel space."
+    g["the negative void"] = "is unbuilt vessel space with negative IDs."
+    g["cyan mass"] = "is the sum of the cyan faction vessels."
+    g["red spawn"] = "is the sum of the red faction vessels."
+    g["a signal"] = "is the broadcasting of a warp id."
+  
+    html = ""    
+    g.sort.each do |term,definition|
+      html += "<li><b>#{term.capitalize}</b>, #{definition}</li>"
+    end
     return "<ul class='basic'>#{html}</ul>"
 
   end

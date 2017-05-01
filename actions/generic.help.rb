@@ -73,7 +73,7 @@ class ActionHelp
 
     html += "<li><action data-action='help with attributes'>Attributes</action></li>"
     html += "<ul>"
-    ["Locked","Hidden","Quiet","Tunnel"].each do |attribute|
+    ["Locked","Hidden","Silent","Tunnel"].each do |attribute|
       html += "<li>#{attribute}</li>"
     end
     html += "</ul>"

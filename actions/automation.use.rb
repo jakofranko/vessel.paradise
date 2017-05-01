@@ -13,6 +13,7 @@ class ActionUse
     super
 
     @name = "Use"
+    @verb = "Using"
     @docs = "Add an automation program to a vessel, making it available to the use command."
     @examples = ["use the coffee machine\n<comment>You see a coffee.</comment>"]
 
@@ -22,13 +23,12 @@ class ActionUse
 
     target = @host.find_visible(params)
     
-    if !target then return @host.answer(:error,"Cannot find vessel.") end
-    if !target.has_program then return @host.answer(:error,"#{target} does not have a program.") end
-    if !@host.can(target.program.action) then return @host.answer(:error,"The program is invalid.") end
+    if !target then return @host.answer(self,:error,"You do not see #{params}.") end
+    if !target.has_program then return @host.answer(self,:error,"#{target} does not have a program.") end
+    if !@host.can(target.program.action) then return @host.answer(self,:error,"The program is invalid.") end
 
-    answer = @host.act(target.program.action,target.program.params.wildcards(@host)).gsub("<p>","").gsub("</p>","")
-    answer = answer.sub("You ","")
-    return @host.answer(:error,"You used the #{target.name}, and #{answer}")
+    answer = @host.act(target.program.action,target.program.params.wildcards(@host))
+    return answer
     
   end
 

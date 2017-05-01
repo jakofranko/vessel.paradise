@@ -13,6 +13,7 @@ class ActionWarp
     super
 
     @name = "Warp"
+    @verb = "Warping"
     @docs = "Enter a distant vessel by either its name, or its warp id. The vessel must be visible."
     @examples = ["warp to the library\n<comment>The black cat is in the library.</comment>",
       "warp to 1\n<comment>The black cat is in the library.</comment>"]
@@ -22,13 +23,16 @@ class ActionWarp
   def act target = nil, params = ""
 
     target = @host.find_distant(params)
+    prev = @host.parent
 
-    if !target then return @host.answer(:error,"Cannot warp into the void.") end
-    if @host.is_locked == true then return @host.answer(:error,"#{@host} is locked.") end
+    if params.split(" ").last.to_i < 0 then return @host.answer(self,:error,"Your current vessel may not travel in negative space.") end
+    if !target then return @host.answer(self,:error,"Cannot warp into the void.") end
+    if target.id == @host.parent.id then return @host.answer(self,:error,"You already are in #{target.to_s(true,true,false,false)}.") end
+    if @host.is_locked == true then return @host.answer(self,:error,"#{@host} is locked.") end
 
     @host.set_unde(target.id)
 
-    return @host.answer(:modal,"You warped to #{target}.")
+    return @host.answer(self,:modal,"You left #{prev.to_s(true,true,false,false)} and warped to #{target.to_s(true,true,false,false)}.")
 
   end
 

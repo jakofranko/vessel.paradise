@@ -13,6 +13,7 @@ class ActionSignal
     super
 
     @name = "Signal"
+    @verb = "Signaling"
     @docs = "Broadcast your current visible parent vessel."
     @examples = ["signal\n<comment>The black cat signals the yard.</comment>"]
 
@@ -26,21 +27,23 @@ class ActionSignal
 
   def act target = nil, params = ""
 
+    if @host.parent.is_silent then return @host.answer(self,:error,"The #{@host.parent.name} is a silent vessel, you may not talk in here.") end
+      
     q = q.gsub(/[^a-zZ-Z0-9\s\!\?\.\,\']/i, '')
 
     new_comment = Comment.new
     new_comment.inject(@host,q.to_s.strip) # 
 
     is_valid, error = new_comment.is_valid
-    if !is_valid then return @host.answer(:error,error) end
+    if !is_valid then return @host.answer(self,:error,error) end
 
     $forum.to_a(:comment).reverse[0,1].each do |comment|
-      if comment.from == @host.id && comment.message == new_comment.message then return @host.answer(:error,"You have just said that.") end
+      if comment.from == @host.id && comment.message == new_comment.message then return @host.answer(self,:error,"You have just said that.") end
     end
 
     $forum.append(new_comment.to_code)
 
-    return @host.answer(:modal,new_comment.feedback)
+    return @host.answer(self,:modal,new_comment.feedback)
     
   end
 
