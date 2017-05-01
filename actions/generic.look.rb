@@ -92,7 +92,6 @@ class ActionLook
     @host.siblings.each do |vessel|
       if vessel.has_program then return "<p id='action'><vessel data-action='use #{vessel.to_s(true,true,false,false)}'>Use #{vessel.to_s(true,true,false,false)}.</vessel></p>" end
     end
-
     return ""
 
   end

@@ -202,7 +202,7 @@ class Ghost
     $parade.each do |vessel|
       if vessel.unde != @unde then next end
       if vessel.id == @id then next end
-      if is_silent && vessel.owner != owner && vessel.owner != @id then next end
+      if parent.is_silent && vessel.owner != parent.owner && vessel.owner != parent.id then next end
       @siblings.push(vessel)
     end
     return @siblings

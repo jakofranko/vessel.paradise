@@ -21,7 +21,6 @@ class ActionInspect
 
   def act target = nil, params = ""
 
-    # return "#{params}"
     target = @host.find_visible(params)
 
     if !target then target = @host.parent end
@@ -31,7 +30,8 @@ class ActionInspect
     html += "<table>"
     html += "<tr><th>Main</th><td>The #{target.attr} #{target.name} #{!target.is_hidden ? '≡ '+target.id.to_s : '≡'} </td></tr>"
     html += "<tr><th>Owner</th><td>#{target.creator.to_s(true,true,false,false)}</td></tr>"
-    html += "<tr><th>Rating</th><td>#{target.rank}.#{target.rating}</td></tr>"
+    html += "<tr><th>Rating</th><td>#{target.rating}</td></tr>"
+    html += "<tr><th>Permissions</th><td>#{target.perm}</td></tr>"
 
     if target.has_program
       html += "<tr><th>Program</th><td><code>#{target.program}\n#{target.program.to_s.include?("((") ? target.program.render : ''}</code></td></tr>"
@@ -41,7 +41,7 @@ class ActionInspect
     end
 
     if target.children.length > 0
-      html += "<tr><th>Children</th><td>"
+      html += "<tr><th>#{target.children.length} Children</th><td>"
       target.children.each do |vessel|
         html += "#{vessel}<br/>"
       end
