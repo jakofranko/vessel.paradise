@@ -19,14 +19,16 @@ class ActionProgram
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
-    if q.length > 60 then return @host.answer(self,:error,"A vessel program cannot exceed 60 characters.") end
-    if @host.parent.is_locked == true then return @host.answer(self,:error,"#{@host.parent} is locked.") end
+    target = @host.parent
+    
+    if params.length > 60 then return @host.answer(self,:error,"A vessel program cannot exceed 60 characters.") end
+    if target.is_locked == true then return @host.answer(self,:error,"#{target} is locked.") end
 
-    @host.parent.set_program(q)
+    target.set_program(params)
 
-    return @host.answer(self,:modal,"#{topic} updated #{@host.parent}'s program.")
+    return @host.answer(self,:modal,"#{topic} updated #{target}'s program.")
 
   end
 

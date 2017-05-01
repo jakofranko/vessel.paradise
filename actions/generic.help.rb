@@ -17,7 +17,7 @@ class ActionHelp
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
     target = params.split(" ").last.to_s
 

@@ -15,12 +15,11 @@ class ActionEnter
     @name = "Enter"
     @docs = "Enter a visible vessel."
     @verb = "Entering"
-    
     @examples = ["enter the library\n<comment>You are in the library.</comment>"]
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
     target = @host.find_visible(params)
     prev = @host.parent

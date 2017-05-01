@@ -19,23 +19,24 @@ class ActionTransform
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
-    old_attr = @host.parent.attr
-    new_attr = q.split(" ").last
+    parts = params.remove_articles.split(" ")
+    name = parts.last
+    attr = parts.length > 1 ? parts[parts.length-2] : nil
 
-    if old_attr == new_attr     then return @host.answer(self,:error,"The #{attr} remains unchanged.") end
+    @host.name = name
+    @host.attr = attr
 
-    @host.parent.attr = new_attr
-    validity_check, validity_errors = @host.parent.is_valid
+    validity_check, validity_errors = @host.is_valid
 
     if !validity_check          then return @host.answer(self,:error,"#{validity_errors.first}") end
-    if !@host.parent.is_unique  then return @host.answer(self,:error,"Another #{@host.parent} already exists.") end
-    if @host.parent.is_locked   then return @host.answer(self,:error,"#{@host.parent} is locked.") end
+    if !@host.is_unique         then return @host.answer(self,:error,"Another #{@host} already exists.") end
+    if @host.is_locked          then return @host.answer(self,:error,"#{@host} is locked.") end
 
-    @host.parent.set_attr(new_attr)
+    @host.save
 
-    return @host.answer(self,:modal,"#{topic} transformed the #{@host.parent.name} into #{@host.parent}.")
+    return @host.answer(self,:modal,"#{topic} transformed into the #{attr ? attr+' ' : ''}#{name}.")
     
   end
 

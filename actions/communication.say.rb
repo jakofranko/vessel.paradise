@@ -19,13 +19,7 @@ class ActionSay
 
   end
 
-  def encode message
-
-    return "#{Timestamp.new} #{@host.unde.to_s.prepend('0',5)} #{@host.id.to_s.prepend('0',5)} #{message}"
-
-  end
-
-  def act target = nil, params = ""
+  def act params = ""
 
     if @host.parent.is_silent then return @host.answer(self,:error,"The #{@host.parent.name} is a silent vessel, #{topic.downcase} may not talk in here.") end
 
@@ -45,6 +39,12 @@ class ActionSay
 
     return @host.answer(self,:modal,new_comment.feedback)
     
+  end
+
+  def encode message
+
+    return "#{Timestamp.new} #{@host.unde.to_s.prepend('0',5)} #{@host.id.to_s.prepend('0',5)} #{message}"
+
   end
 
 end

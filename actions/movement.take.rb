@@ -19,11 +19,11 @@ class ActionTake
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
-    target = sibling_named(q)
+    target = @host.find_visible(params)
 
-    if !target then return @host.answer(self,:error,"Cannot find a target named #{q}.") end
+    if !target then return @host.answer(self,:error,"Cannot see the target vessel.") end
     if target.is_locked == true then return @host.answer(self,:error,"#{target} is locked.") end
 
     target.set_unde(@host.id)

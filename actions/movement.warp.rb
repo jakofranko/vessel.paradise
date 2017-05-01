@@ -20,7 +20,7 @@ class ActionWarp
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
     target = @host.find_distant(params)
     prev = @host.parent

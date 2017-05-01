@@ -44,8 +44,6 @@ class Ghost
     @is_silent  = @perm[2,1].to_i == 1 ? true : false
     @is_tunnel  = @perm[3,1].to_i == 1 ? true : false
     @is_paradox = id == @unde ? true : false
-    
-    @program = Program.new(self,@content["PROGRAM"])
 
     @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
     @docs = "Default Paradise vessel."
@@ -79,12 +77,12 @@ class Ghost
 
   def act action_name, params = nil
 
-    if Kernel.const_defined?("Action#{action_name.capitalize}") == false then return "<p>\"#{action_name.capitalize}\" is not a valid action.</p>" end
+    if Kernel.const_defined?("Action#{action_name.capitalize}") == false then return answer(ActionLook.new,:error,"\"#{action_name.capitalize}\" is not a valid action.") end
 
     action = Object.const_get("Action#{action_name.capitalize}").new
     action.host = self
 
-    return action.act(nil,params)
+    return action.act(params)
 
   end
 
@@ -127,12 +125,6 @@ class Ghost
 
   end
 
-  def to_debug
-
-    return "#{@name}:#{@attr}(#{@id})"
-
-  end
-
   def encode
 
     code = ""
@@ -141,7 +133,7 @@ class Ghost
     code += @is_silent == true ? "1" : "0"
     code += @is_tunnel == true ? "1" : "0"
 
-    return "#{code}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@program.to_s.append(' ',61)} #{@note}".strip
+    return "#{code}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{program.to_s.append(' ',61)} #{@note}".strip
 
   end
 
@@ -161,12 +153,6 @@ class Ghost
 
   end
 
-  def destroy
-
-    $paradise.overwrite_line(@id+4,"")
-
-  end
-
   def parent
 
     @parent = @parent ? @parent : $parade[@unde]
@@ -175,9 +161,17 @@ class Ghost
 
   end
 
+  def program
+
+    return Program.new(self,@content["PROGRAM"])
+
+  end
+
   def creator
 
-    return $parade[owner]
+    @creator = @creator ? @creator : $parade[owner]
+
+    return @creator ? @creator : VesselVoid.new
     
   end
 
@@ -202,7 +196,7 @@ class Ghost
     $parade.each do |vessel|
       if vessel.unde != @unde then next end
       if vessel.id == @id then next end
-      if parent.is_silent && vessel.owner != parent.owner && vessel.owner != parent.id then next end
+      if parent.is_silent && vessel.owner != parent.owner && vessel.owner != id then next end
       @siblings.push(vessel)
     end
     return @siblings
@@ -243,7 +237,7 @@ class Ghost
 
   def find_visible name
 
-    parts = remove_articles(name).split(" ")
+    parts = name.remove_articles.split(" ")
 
     name = parts[-1,1]
     attr = parts.length > 1 ? parts[-2,1] : nil
@@ -262,7 +256,7 @@ class Ghost
 
   def find_child name
 
-    name = remove_articles(name).split
+    parts = name.remove_articles.split(" ")
 
     (siblings + children).each do |vessel|
       if vessel.name.like(name) then return vessel end
@@ -281,19 +275,6 @@ class Ghost
     end
 
     return candidates[Time.new.to_i * 579 % candidates.length]
-
-  end
-
-  def remove_articles words
-
-    words = " #{words} ".sub(" the ","")
-    words = " #{words} ".sub(" a ","")
-    words = " #{words} ".sub(" an ","")
-    words = " #{words} ".sub(" some ","")
-    words = " #{words} ".sub(" one ","")
-    words = " #{words} ".sub(" two ","")
-    words = " #{words} ".sub(" to ","")
-    return words.strip
 
   end
 
@@ -317,7 +298,7 @@ class Ghost
 
   def set_program val
 
-    @program = val
+    @content["PROGRAM"] = val
     save
     reload
 
@@ -387,7 +368,7 @@ class Ghost
 
   def has_program
 
-    return @program.to_s != "" ? true : false
+    return program.is_valid
     
   end
 
@@ -404,34 +385,17 @@ class Ghost
 
   end
 
-  #
+  def is_unique
 
-  def rating
-
-    sum = 0
-
-    values = [has_note,has_attr,has_program,has_children,is_paradox,is_locked,is_hidden,is_silent,is_tunnel]
-
-    values.each do |val|
-      sum += val ? 1 : 0
-    end
-
-    return ((sum/values.length.to_f) * 100).to_i
-    
-  end
-
-  def value
-
-    if has_attr then return 0 end
-
-    c = 0
     $parade.each do |vessel|
-      if vessel.name.like(@name) then c += 1 end
+      if vessel.id == @id then next end
+      if vessel.name.like(@name) && vessel.attr.like(@attr) then return false end
     end
-
-    return c
+    return true
 
   end
+
+  #
 
   def is_valid
 
@@ -452,16 +416,6 @@ class Ghost
     end
 
     return errors.length > 0 ? false : true, errors
-
-  end
-
-  def is_unique
-
-    $parade.each do |vessel|
-      if vessel.id == @id then next end
-      if vessel.name.like(@name) && vessel.attr.like(@attr) then return false end
-    end
-    return true
 
   end
 
@@ -495,6 +449,20 @@ class Ghost
 
     return hints
 
+  end
+
+  def rating
+
+    sum = 0
+
+    values = [has_note,has_attr,has_program,has_children,is_paradox,is_locked,is_hidden,is_silent,is_tunnel]
+
+    values.each do |val|
+      sum += val ? 1 : 0
+    end
+
+    return ((sum/values.length.to_f) * 100).to_i
+    
   end
 
 end

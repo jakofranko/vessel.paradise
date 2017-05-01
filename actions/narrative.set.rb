@@ -19,7 +19,7 @@ class ActionSet
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
     if params.split(" ").length != 2 then return @host.answer(self,:error,"#{topic} can learn about the setting command by typing <action data-action='help with narrative'>help with narrative</action>.") end
 

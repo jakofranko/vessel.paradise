@@ -22,12 +22,9 @@ class ActionCast
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
-    if params.include?(" onto ") then return cast_proxy(params.split(" onto ").first,params.split(" onto ").last)
-    else return cast_default(params) end
-
-    return "#{params}"
+    return params.include?(" onto ") ? cast_proxy(params.split(" onto ").first,params.split(" onto ").last) : cast_default(params)
 
   end
 

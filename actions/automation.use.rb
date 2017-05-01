@@ -19,7 +19,7 @@ class ActionUse
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
     target = @host.find_visible(params)
     

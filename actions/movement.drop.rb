@@ -19,11 +19,11 @@ class ActionDrop
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
-    target = child_named(q)
+    target = @host.find_child(params)
 
-    if !target then return @host.answer(self,:error,"Cannot find a target named #{q}.") end
+    if !target then return @host.answer(self,:error,"Cannot find children.") end
     if target.is_locked == true then return @host.answer(self,:error,"#{target} is locked.") end
 
     target.set_unde(@host.unde)

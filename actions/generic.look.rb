@@ -18,7 +18,7 @@ class ActionLook
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
     return "
     #{portal}

@@ -19,10 +19,10 @@ class ActionNote
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
     if params.length > 300 then return @host.answer(self,:error,"The note cannot be more than 300 characters.") end
-    if params.has_badword then return @host.answer(self,:error,"<b>#{q.has_badword}</b>, no.") end
+    if params.has_badword then return @host.answer(self,:error,"<b>#{params.has_badword}</b>, no.") end
     if @host.parent.owner.to_i != @host.id.to_i && !is_improvement(@host.parent.note,params) then return @host.answer(self,:error,"This was not an improvement on the current note.") end
     if @host.parent.is_locked == true then return @host.answer(self,:error,"#{@host.parent} is locked.") end
     

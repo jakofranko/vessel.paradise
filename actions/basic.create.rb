@@ -15,14 +15,13 @@ class ActionCreate
     @name = "Create"
     @verb = "Creating"
     @docs = "Create a new vessel at your current location. Vessel names and attributes must include less than 14 characters and be unique. "
-
     @examples = ["create a black cat\n<comment>You see a black cat.</comment>"]
 
   end
 
-  def act target = nil, params = ""
+  def act params = ""
 
-    target = remove_articles(params).split(" ")
+    target = params.remove_articles.split(" ")
 
     name = target.last.to_s
     attr = target.length == 2 ? target[target.length-2].to_s : ""
