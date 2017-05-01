@@ -39,7 +39,7 @@ class ActionLook
     elsif @host.parent.is_paradox
       html = "#{@host.parent}"
     else
-      html = "#{@host} #{@host.link} #{@host.parent.to_s(true,true,false)}"
+      html = "#{@host} in #{@host.parent.to_s(true,true,false)}"
     end
     return "<h1 id='portal'>#{html}</h1>"    
 

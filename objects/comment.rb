@@ -55,7 +55,7 @@ class Comment
     if !$parade[from] then return "ghost" end
 
     vessel = $parade[from]
-    return "#{vessel.to_s(true,true,false,false)} #{vessel.link} #{vessel.parent.to_s(false,true,false,false)}"
+    return "#{vessel.to_s(true,true,false,false)}"
 
   end
 

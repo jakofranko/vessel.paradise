@@ -11,7 +11,6 @@ class Ghost
   attr_accessor :name
   attr_accessor :note
   attr_accessor :attr
-  attr_accessor :link
   attr_accessor :unde
   attr_accessor :owner
   attr_accessor :program
@@ -32,7 +31,6 @@ class Ghost
 
     @name = @content["NAME"] ? @content["NAME"] : "nullspace"
     @attr = @content["ATTR"] ? @content["ATTR"] : ""
-    @link = @content["LINK"] ? @content["LINK"] : "in"
     @note = @content["NOTE"] ? @content["NOTE"] : ""
     @perm  = @content["CODE"] ? @content["CODE"].split("-")[0] : "1111"
     @unde  = @content["CODE"] ? @content["CODE"].split("-")[1].to_i : 1
@@ -61,7 +59,6 @@ class Ghost
     install(:basic,:enter)
     install(:basic,:leave)
 
-    install(:movement,:move)
     install(:movement,:warp)
     install(:movement,:take)
     install(:movement,:drop)
@@ -155,7 +152,7 @@ class Ghost
     code += @is_silent == true ? "1" : "0"
     code += @is_tunnel == true ? "1" : "0"
 
-    return "#{code}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@link.to_s.append(' ',14)} #{@program.to_s.append(' ',61)} #{@note}".strip
+    return "#{code}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{@program.to_s.append(' ',61)} #{@note}".strip
 
   end
 
@@ -310,10 +307,9 @@ class Ghost
 
   end
 
-  def set_unde val,link = "in"
+  def set_unde val
 
     @unde = val.to_i
-    @link = link
     save
     reload
 
