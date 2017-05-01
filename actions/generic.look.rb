@@ -78,7 +78,7 @@ class ActionLook
       html += "You see #{@host.siblings[0]}, #{@host.siblings[1]} and #{@host.siblings[2]}. "
     elsif @host.siblings.length > 3
       html += "You see #{@host.siblings[0]}, #{@host.siblings[1]} and #{@host.siblings.length-2} other vessels. "
-    elsif !@host.parent.is_silent
+    elsif !@host.parent.is_silent && !@host.parent.has_note
       html += "There is nothing here, why don't you create something."
     end
 
@@ -105,6 +105,9 @@ class ActionLook
 
     @host.siblings.each do |vessel|
       html = html.sub(" #{vessel.name} "," #{vessel.to_s(false,false,true,true)} ")
+    end
+    @host.tunnels.each do |vessel|
+      html = html.sub(" #{vessel.attr} #{vessel.name} "," <vessel class='tunnel' data-action='warp to the #{vessel.attr} #{vessel.name}'>#{vessel.attr} #{vessel.name}</vessel> ")
     end
 
     html = html.gsub(" , ",", ")
@@ -139,7 +142,9 @@ class ActionLook
 
     messages = $forum.to_a("comment")
 
-    messages[messages.length-3,3].each do |message|
+    selection = @host.parent.name.like("lobby") ? messages[messages.length-7,7] : messages[messages.length-3,3]
+
+    selection.each do |message|
       html += message.to_s
     end
 

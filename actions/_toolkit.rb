@@ -156,4 +156,10 @@ module ActionToolkit
 
   end
 
+  def topic
+
+    return $player_id == @host.id ? "You" : "The #{@host.name}"
+
+  end
+
 end

@@ -35,7 +35,7 @@ class ActionTransform
 
     @host.parent.set_attr(new_attr)
 
-    return @host.answer(self,:modal,"You transformed the #{@host.parent.name} into #{@host.parent}.")
+    return @host.answer(self,:modal,"#{topic} transformed the #{@host.parent.name} into #{@host.parent}.")
     
   end
 

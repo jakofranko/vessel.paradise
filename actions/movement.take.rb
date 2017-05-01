@@ -28,7 +28,7 @@ class ActionTake
 
     target.set_unde(@host.id)
 
-    return @host.answer(self,:modal,"You took #{target}.")
+    return @host.answer(self,:modal,"#{topic} took #{target}.")
     
   end
 

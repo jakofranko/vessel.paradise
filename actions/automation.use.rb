@@ -23,7 +23,7 @@ class ActionUse
 
     target = @host.find_visible(params)
     
-    if !target then return @host.answer(self,:error,"You do not see #{params}.") end
+    if !target then return @host.answer(self,:error,"#{topic} do not see #{params}.") end
     if !target.has_program then return @host.answer(self,:error,"#{target} does not have a program.") end
     if !@host.can(target.program.action) then return @host.answer(self,:error,"The program is invalid.") end
 

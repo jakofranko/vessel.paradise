@@ -21,7 +21,7 @@ class ActionSet
 
   def act target = nil, params = ""
 
-    return "?"
+    return "Coming soon."
     
   end
 

@@ -32,15 +32,15 @@ class ActionServe
       id += 1
     end
 
-    player_id = q.split(" ").first.to_i
+    $player_id = q.split(" ").first.to_i
 
-    if player_id < 1 then return select_random_vessel end
+    if $player_id < 1 then return select_random_vessel end
   
     corpse           = CorpseHttp.new(@host,@query)
     corpse.query     = q
     corpse.paradise  = $paradise
     corpse.player    = $parade[q.to_i] ? $parade[q.to_i] : VesselVoid.new
-    corpse.player.id = player_id
+    corpse.player.id = $player_id
 
     corpse.title   = "Paradise ∴ #{q}"
 
@@ -52,7 +52,7 @@ class ActionServe
 
     candidates = []
     $parade.each do |vessel|
-      if vessel.rank > 0 then next end
+      if vessel.rating > 0 then next end
       candidates.push(vessel)
     end
 

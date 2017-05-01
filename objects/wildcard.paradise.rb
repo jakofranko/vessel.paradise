@@ -21,6 +21,7 @@ class WildcardParadise
     if @value.like("paradoxes") then return paradoxes end
     if @value.like("spells") then return spells end
     if @value.like("glossary") then return glossary end
+    if @value.like("tunnels") then return tunnels end
 
     return "?"
 
@@ -35,7 +36,7 @@ class WildcardParadise
       if !vessel.is_locked then next end
       if vessel.is_hidden then next end
       if vessel.id < 1 then next end
-      if vessel.rank < 50 then next end
+      if vessel.rating < 50 then next end
 
       owner = vessel.owner != 0 ? ", by the #{vessel.creator.to_s(true,false,false,false)}" : ""
       html += "<li><action data-action='warp to #{vessel.id}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action>#{owner}</li>"
@@ -57,6 +58,25 @@ class WildcardParadise
 
       owner = vessel.owner != 0 ? ", by the #{vessel.creator.to_s(true,false,false,false)}" : ""
       html += "<li><action data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action>#{owner}</li>"
+    end
+
+    return "<ul class='basic'>#{html}</ul>"
+
+  end
+
+  def tunnels
+
+    html = ""
+
+    $parade.each do |vessel|
+      if vessel.is_hidden then next end
+      if !vessel.has_note then next end
+      if !vessel.is_locked then next end
+      if !vessel.note.include?("train station") then next end
+      if vessel.id == @host.parent.id then next end
+
+      owner = vessel.owner != 0 ? ", by the #{vessel.creator.to_s(true,false,false,false)}" : ""
+      html += "<li><action data-action='warp to the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action>#{owner}</li>"
     end
 
     return "<ul class='basic'>#{html}</ul>"

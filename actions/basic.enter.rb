@@ -25,12 +25,12 @@ class ActionEnter
     target = @host.find_visible(params)
     prev = @host.parent
     
-    if target.id == @host.parent.id then return @host.answer(self,:error,"You already are in #{target.to_s(true,true,false,false)}.") end
-    if !target then return @host.answer(self,:error,"Cannot find a target named #{params}.") end
+    if target.id == @host.parent.id then return @host.answer(self,:error,"#{topic} already are in #{target.to_s(true,true,false,false)}.") end
+    if !target then return @host.answer(self,:error,"#{topic} cannot find a target named #{params}.") end
 
     @host.set_unde(target.id)
 
-    return @host.answer(self,:modal,"You have entered the #{target.to_s(true,false,false,false)}. ", "Press <b>enter</b> to continue or type <action data-action='leave'>leave</action> to return to #{prev.to_s(true,true,false,false)}.")
+    return @host.answer(self,:modal,"#{topic} have entered the #{target.to_s(true,false,false,false)}. ", "Press <b>enter</b> to continue or type <action data-action='leave'>leave</action> to return to #{prev.to_s(true,true,false,false)}.")
 
   end
 

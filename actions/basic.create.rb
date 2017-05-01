@@ -37,7 +37,7 @@ class ActionCreate
     $paradise.append(new_vessel.encode)
     @host.reload
 
-    return @host.answer(self,:modal,"You created #{new_vessel.to_s(true,true)}.")
+    return @host.answer(self,:modal,"#{topic} created #{new_vessel.to_s(true,true)}.")
 
   end
 

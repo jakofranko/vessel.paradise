@@ -38,4 +38,10 @@ class Program
 
   end
 
+  def is_valid
+
+    return @host.can(@action)
+
+  end
+
 end

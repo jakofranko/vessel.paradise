@@ -4,9 +4,9 @@
 @ CODE                          NAME           ATTR           PROGRAM                                                       NOTE
 1010-00000-00000-00000000000000 Geomaitre
 1010-00001-00000-00000000000000 Haven                                                                                       Welcome ((vessel name)), you have found the Haven, a singular paradox in the shape of an ancient library, host to all the knowledge a ghost might need to navigate the endless shores of Paradise.
-1010-00001-00000-00000000000000 library        ancient                                                                      A red staircase creeps upstairs toward the veranda, and a cyan elevator disapears in the basement into the pavillion. 
+1010-00001-00000-00000000000000 library        ancient                                                                      A red staircase creeps upstairs toward the veranda, and a cyan elevator disapears in the basement into the pavillion.. A few teapots away, a welcoming ((vessel name))-shaped door invites you into the residence.
 1000-00002-00000-00000000000000 staircase      red            warp to 4                                                     Sneaking into the staircase revealed nothing and you wonder why this place exists at all. It is obviously dusty and obviously red.
-1010-00002-00000-00000000000000 veranda        neue                                                                         You have reached the glass balcony sleeping above the library.. Resting onto a stompy tea table is a small black book, the glossary.
+1010-00002-00000-00000000000000 veranda        neue                                                                         A translucent dome, arcs over the veranda, filtering the pale light of this endless daytime.. The glass balcony overlooks the lower levels of the library. Resting onto a low wooden table, next to a still brewing teapot, is a small black book, the glossary.. From here, you can see a nearby train station, fading into the outskirts of the haven shores.
 1010-00002-00000-00000000000000 elevator       cyan           warp to 6                                                     You find the elevator to be immobile and without inner workings, you wonder how it could ever get to any place at all, you ponder about the physics of the world. 
 1010-00002-00000-00000000000000 pavillion      geometry                                                                     The vast circular room hosts, at its center, a telescope held above the floor onto which a map has been painted.. In a corner, you notice the crimson bound books of the hexagonal shelves.
 1010-00006-00000-00000000000000 telescope      brass          warp to 7                                                     Looking into the telescope reveals the location of important paradoxes, and their creators. ((paradise paradoxes))
@@ -16,29 +16,29 @@
 1010-00008-00000-00000000000000 spell          silence        set is_silent true                                            The silence spell is used to quiet the noice of other players within the target vessel.
 1010-00008-00000-00000000000000 spell          tunnel         set is_tunnel true                                            The tunnel spell makes a vessel accessible in notes across the whole of paradise.
 1010-00008-00000-00000000000000 spell          petunia        warp to ((vessel random id))                                  The petunia spell is a warp spell that sends the target vessel to a random vessel.
-1010-00000-00000-00000000000000 spell          discard        warp to 23                                                    The discard spell is a warp spell that sends the target vessel to the Haven discard.
+1010-00000-00000-00000000000000 spell          discard        warp to 20                                                    The discard spell is a warp spell that sends the target vessel to the Haven discard.
 1010-00000-00000-00000000000000 
 1010-00000-00000-00000000000000 
-1010-00000-00000-00000000000000 
-1010-00000-00000-00000000000000 
-1010-00000-00000-00000000000000 
-1010-00000-00000-00000000000000 
-1010-00000-00000-00000000000000 
-1010-00000-00000-00000000000000 
-1000-00004-00000-00000000000000 discard                                                                                     The discard is the recipient vessel of the discard spell, a sort of vessel recyling station.. See something you like? Take it away, improve it, toss it back. ((siblings list))
+1010-00002-00000-00000000000000 residence                                                                                   The residence wing of the library hosts the social lobby where vessels are welcome to discuss, and the private room in which you may to storage vessels.. One one of the unlit walls lay closed the discard service trapdoor.
+1000-00017-00000-00000000000000 lobby          residence                                                                    The haven residence lobby is a low ceilinged room circularly furnished of confortably covered armchairs.
+1010-00017-00000-00000000000000 room           private                                                                      The residence is your own private room in haven, a place to store vessels other than within your own uncluttered self.. Your ((vessel name)) is the only vessel with a key to this room, anything that you leave here will only ever be visible by you.
+1010-00017-00000-00000000000000 discard                                                                                     The discard is the recipient vessel of the discard spell, a sort of vessel recyling station.. See something you like? Take it away, improve it or toss it back. ((siblings list))
 1010-00004-00000-00000000000000 glossary                                                                                    The glossary contains definitions for commonly used Paradise terms. ((paradise glossary))
-1010-00000-00000-00000000000000 
+1011-00025-00000-00000000000000 station        train                                                                        On one side, green colored roofs cover the various platforms of the station and on the other, the information kiosk lays dormant and unmaned. ((paradise tunnels))
 1010-00005-00000-00000000000000 workings       inner                                                                        From the Order of The Letterists,. The deepest perceptible fabric has revealed to us, its building blocks to be letters, a set of characters with which we can build anything. Assembling into words untruthful, extraparadistical and foreign shapes never beheld in our world.. Our consciousness, residing unobservably between our eternaly unmoving static pages. Could it be that we find ourselves in a mere interactive fiction?. The note appears to be lost in thoughts. 
-1010-00003-00000-00000000000000 piano          red            emote is playing on the red piano.
-1010-00000-00000-00000000000000 
-1010-00001-00000-00000000000000 shores         endless                                                                      Wip.
-1010-00008-00000-00000000000000 
-1010-00000-00000-00000000000000 
+1000-00003-00000-00000000000000 piano          red            emote is playing on the red piano.                            Re, Mi, Sol, Do, Re. Re, Mi, Sol, Do, Re, Do. 
+1010-00001-00000-00000000000000 shores         endless                                                                      You have reached the limits of the haven, and are about to leave its endless shores. Remember that your return will always be welcomed.
+1010-00022-00000-00000000000000 kiosk          information                                                                  How odd, a trainstation?. You have found one of the many stations. The station exists across all vessels at once.. To create a new station, once need only create a vessel with a mention of it and a tunnel onto this place will then exist. 
 1010-00000-00000-00000000000000 
 1010-00000-00000-00000000000000 
 1010-00000-00000-00000000000000 
 1010-00000-00000-00000000000000 
-0100-00026-00027-20170430171519 owl
+1000-00004-00000-00000000000000                                                                                      
+1010-00000-00000-00000000000000 
+1010-00000-00000-00000000000000 
+1010-00000-00000-00000000000000 
+1010-00000-00000-00000000000000 
+0100-00019-00027-20170430213319 owl
 0000-00183-00027-20170307011211 tome           cyan                                                                         The book of the cyan faction
 0000-00397-00027-20170306230705 nestc          vessel         
 0000-00071-00001-20170217070931 disc           citrine                                                                      A chimaera reads a tarot nearby.
@@ -739,3 +739,4 @@
 0000-00247-00732-20170419123459 trimetrique                             
 0000-00223-00117-20170419125005 weasel                                            
 0000-00036-00036-20170426130941 tool           portal         
+0000-00020-00036-20170430215011 apple          weird

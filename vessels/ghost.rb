@@ -84,18 +84,7 @@ class Ghost
     action = Object.const_get("Action#{action_name.capitalize}").new
     action.host = self
 
-    # Auto
-    if action.target == :parent then target = self.parent end
-    if action.target == :self then target = self end
-
-    # Target
-    if action.target == :visible then target = find_visible(params) end
-    if action.target == :warp_id then target = find_distant(params) end
-    if action.target == :child then target = find_child(params) end
-
-    # return "#{action.target} (#{params}) -> #{target} #{}"
-
-    return action.act(target,params)
+    return action.act(nil,params)
 
   end
 
@@ -121,7 +110,7 @@ class Ghost
     if !show_attr && @attr && @attr[0,2] == "ho" then particle = "an " end
     if !show_attr && @attr && @attr[0,2] == "hu" then particle = "an " end
 
-    action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+@attr+' '+@name : 'enter the '+@attr+' '+@name}'" : ""
+    action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+(has_attr ? @attr+' ' : '')+@name : 'enter the '+(has_attr ? @attr+' ' : '')+@name}'" : ""
 
     if !html_tags then return "#{show_particle != false ? particle : ''} #{show_attr != false && @attr ? @attr+' ' : ''}#{@name}" end
 
@@ -192,13 +181,28 @@ class Ghost
     
   end
 
+  def tunnels
+
+    if @tunnels then return @tunnels end
+
+    @tunnels = []
+    $parade.each do |vessel|
+      if !vessel.is_tunnel then next end
+      @tunnels.push(vessel)
+    end
+    return @tunnels
+
+  end
+
   def siblings
 
     if @siblings then return @siblings end
 
     @siblings = []
-    parent.children.each do |vessel|
+    $parade.each do |vessel|
+      if vessel.unde != @unde then next end
       if vessel.id == @id then next end
+      if is_silent && vessel.owner != owner && vessel.owner != @id then next end
       @siblings.push(vessel)
     end
     return @siblings
@@ -230,11 +234,7 @@ class Ghost
     attr = parts.length > 1 ? parts[-2,1] : nil
 
     $parade.each do |vessel|
-      if vessel.name.like(name) && vessel.attr.like(attr) then return vessel end
-    end
-
-    $parade.each do |vessel|
-      if vessel.name.like(name) then return vessel end
+      if vessel.name.like(name) && (attr && vessel.attr.like(attr)) then return vessel end
     end
 
     return nil
@@ -390,7 +390,7 @@ class Ghost
 
   #
 
-  def rank
+  def rating
 
     sum = 0
 

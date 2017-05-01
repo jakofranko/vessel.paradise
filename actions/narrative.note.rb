@@ -28,7 +28,7 @@ class ActionNote
     
     @host.parent.set_note(params)
 
-    return @host.answer(self,:modal,"You updated #{@host.parent}'s note.")
+    return @host.answer(self,:modal,"#{topic} updated #{@host.parent}'s note.")
 
   end
 

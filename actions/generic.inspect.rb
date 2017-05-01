@@ -26,12 +26,12 @@ class ActionInspect
 
     if !target then target = @host.parent end
 
-    html = "<p>You are inspecting #{target}.</p>"
+    html = ""
 
     html += "<table>"
     html += "<tr><th>Main</th><td>The #{target.attr} #{target.name} #{!target.is_hidden ? '≡ '+target.id.to_s : '≡'} </td></tr>"
     html += "<tr><th>Owner</th><td>#{target.creator.to_s(true,true,false,false)}</td></tr>"
-    html += "<tr><th>Rank</th><td>#{target.rank}.#{target.value}</td></tr>"
+    html += "<tr><th>Rating</th><td>#{target.rank}.#{target.rating}</td></tr>"
 
     if target.has_program
       html += "<tr><th>Program</th><td><code>#{target.program}\n#{target.program.to_s.include?("((") ? target.program.render : ''}</code></td></tr>"

@@ -55,7 +55,7 @@ class ActionDebug
 
     candidates = []
     $parade.each do |vessel|
-      if vessel.rank > 0 then next end
+      if vessel.rating > 0 then next end
       candidates.push(vessel)
     end
 

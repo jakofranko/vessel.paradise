@@ -27,7 +27,7 @@ class ActionSay
 
   def act target = nil, params = ""
 
-    if @host.parent.is_silent then return @host.answer(self,:error,"The #{@host.parent.name} is a silent vessel, you may not talk in here.") end
+    if @host.parent.is_silent then return @host.answer(self,:error,"The #{@host.parent.name} is a silent vessel, #{topic.downcase} may not talk in here.") end
 
     q = q.gsub(/[^a-zZ-Z0-9\s\!\?\.\,\']/i, '')
 
@@ -38,7 +38,7 @@ class ActionSay
     if !is_valid then return @host.answer(self,:error,error) end
 
     $forum.to_a(:comment).reverse[0,1].each do |comment|
-      if comment.from == @host.id && comment.message == new_comment.message then return @host.answer(self,:error,"You have just said that.") end
+      if comment.from == @host.id && comment.message == new_comment.message then return @host.answer(self,:error,"#{topic} just said that.") end
     end
 
     $forum.append(new_comment.to_code)

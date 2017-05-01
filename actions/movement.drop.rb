@@ -28,7 +28,7 @@ class ActionDrop
 
     target.set_unde(@host.unde)
 
-    return @host.answer(self,:modal,"You dropped #{target}.")
+    return @host.answer(self,:modal,"#{topic} dropped #{target}.")
     
   end
 

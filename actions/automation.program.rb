@@ -26,7 +26,7 @@ class ActionProgram
 
     @host.parent.set_program(q)
 
-    return @host.answer(self,:modal,"You updated #{@host.parent}'s program.")
+    return @host.answer(self,:modal,"#{topic} updated #{@host.parent}'s program.")
 
   end
 

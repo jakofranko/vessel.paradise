@@ -19,10 +19,13 @@ class WildcardSiblings
   def to_s
 
     if @value.like("count") then return @host.siblings.length.to_s end
-    if @value.like("random") && @host.siblings.length > 0 then return @host.siblings.sample.name end
-    if @value.like("list") && @host.siblings.length > 0 then return list end
+      
+    if @host.siblings.length < 1 then return "" end
 
-    return "error"
+    if @value.like("random") then return @host.siblings.sample.name end
+    if @value.like("list") then return list end
+
+    return ""
 
   end
 

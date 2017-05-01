@@ -24,7 +24,7 @@ class ActionBecome
 
     target = visible_named(q)
 
-    if !target then return @host.answer(self,:error,"Cannot find a target named #{q}.") end
+    if !target then return @host.answer(self,:error,"#{topic} cannot find a target named #{q}.") end
 
     return "<p>You are becoming #{target}...</p>
     <meta http-equiv='refresh' content='1; url=/#{target.id}' />"
