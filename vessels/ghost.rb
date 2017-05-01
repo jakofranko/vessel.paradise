@@ -355,6 +355,22 @@ class Ghost
 
   end
 
+  def set_silent val
+
+    @is_silent = val
+    save
+    reload
+
+  end
+
+  def set_tunnel val
+
+    @is_tunnel = val
+    save
+    reload
+
+  end
+
   # Testers
 
   def has_note

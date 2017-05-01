@@ -31,14 +31,14 @@ class ActionCast
 
   end
 
-  def cast_default params
+  def cast_default spell_name
 
-    target = @host.find_distant(params)
+    spell = @host.find_distant(spell_name)
 
-    if !target then return @host.answer(self,:error,"The target vessel did not answer.") end
-    if !target.has_program then return @host.answer(self,:error,"The target vessel has no program.") end
-      
-    return @host.act(target.program.action,target.program.params.wildcards(@host))
+    if !spell then return @host.answer(self,:error,"This spell is unknown.") end
+    if !spell.program.is_valid then return @host.answer(self,:error,"#{spell} is not a valid spell.") end
+     
+    return @host.act(spell.program.action,spell.program.params.wildcards(@host))
 
   end
 
