@@ -38,7 +38,7 @@ class WildcardParadise
       if vessel.id < 1 then next end
       if vessel.rating < 50 then next end
 
-      owner = vessel.owner != 0 ? ", by the #{vessel.creator.to_s(true,false,false,false)}" : ""
+      owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
       html += "<li><action data-action='warp to #{vessel.id}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action>#{owner}</li>"
     end
 
@@ -56,7 +56,7 @@ class WildcardParadise
       if !vessel.has_attr then next end
       if !vessel.name.like("spell") then next end
 
-      owner = vessel.owner != 0 ? ", by the #{vessel.creator.to_s(true,false,false,false)}" : ""
+      owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
       html += "<li><action data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action>#{owner}</li>"
     end
 
@@ -75,7 +75,7 @@ class WildcardParadise
       if !vessel.note.include?("train station") then next end
       if vessel.id == @host.parent.id then next end
 
-      owner = vessel.owner != 0 ? ", by the #{vessel.creator.to_s(true,false,false,false)}" : ""
+      owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
       html += "<li><action data-action='warp to the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action>#{owner}</li>"
     end
 

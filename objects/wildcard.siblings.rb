@@ -34,7 +34,7 @@ class WildcardSiblings
     html = ""
 
     @host.siblings.each do |vessel|
-      owner = vessel.owner != 0 ? ", by the #{vessel.creator.to_s(true,false,false,false)}" : ""
+      owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
       html += "<li><action data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action>#{owner}</li>"
     end
 

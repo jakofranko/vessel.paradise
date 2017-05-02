@@ -169,7 +169,7 @@ class ActionHelp
       if !vessel.has_attr then next end
       if !vessel.name.like("spell") then next end
 
-      owner = vessel.owner != 0 ? ", by the #{vessel.creator.to_s(true,false,false,false)}" : ""
+      owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
       html += "<tr><td><action data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize}</action>#{owner}</td><td><code>#{vessel.program}</code></td></tr>"
     end
     html += "</table>"

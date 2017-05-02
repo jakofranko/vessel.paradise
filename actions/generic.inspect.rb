@@ -27,7 +27,7 @@ class ActionInspect
     html = "<h3>Inspecting the #{target.name}</h3>"
     html += "<table>"
     html += "<tr><th>Main</th><td>The #{target.attr} #{target.name} #{!target.is_hidden ? '≡ '+target.id.to_s : '≡'} </td></tr>"
-    html += "<tr><th>Owner</th><td>#{target.creator.to_s(true,true,false,false)}</td></tr>"
+    html += "<tr><th>Owner</th><td>#{target.creator}</td></tr>"
     html += "<tr><th>Rating</th><td>#{target.rating}</td></tr>"
     html += "<tr><th>Permissions</th><td>#{target.perm}</td></tr>"
 

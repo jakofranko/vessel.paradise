@@ -94,25 +94,21 @@ class Ghost
 
   end
 
-  def to_s show_attr = true, show_particle = true, show_action = true, html_tags = true
+  def to_html action_override = nil, class_override = nil
 
-    particle = "the"
-    if !show_attr && @attr && @attr[0,1] == "a" then particle = "an " end
-    if !show_attr && @attr && @attr[0,1] == "e" then particle = "an " end
-    if !show_attr && @attr && @attr[0,1] == "i" then particle = "an " end
-    if !show_attr && @attr && @attr[0,1] == "o" then particle = "an " end
-    if !show_attr && @attr && @attr[0,1] == "u" then particle = "an " end
-    if !show_attr && @attr && @attr[0,2] == "ha" then particle = "an " end
-    if !show_attr && @attr && @attr[0,2] == "he" then particle = "an " end
-    if !show_attr && @attr && @attr[0,2] == "hi" then particle = "an " end
-    if !show_attr && @attr && @attr[0,2] == "ho" then particle = "an " end
-    if !show_attr && @attr && @attr[0,2] == "hu" then particle = "an " end
+    attr        = @attr ? "#{@attr} " : ""
+    name        = "#{@name}"
+    action      = has_program ? "use the #{attr}#{name}" : "enter the #{attr}#{name}"
+    action      = action_override ? action_override : action
+    action_tags = "data-name='#{@name}' data-attr='#{@attr}' data-action='#{action}'"
 
-    action_attributes = show_action == true ? "data-name='#{@name}' data-attr='#{@attr}' data-action='#{has_program ? 'use the '+(has_attr ? @attr+' ' : '')+@name : 'enter the '+(has_attr ? @attr+' ' : '')+@name}'" : ""
+    return "<vessel class='#{@attr} #{class_override ? class_override : classes}' #{action_tags}>#{attr}<name>#{name}</name></vessel>"
 
-    if !html_tags then return "#{show_particle != false ? particle : ''} #{show_attr != false && @attr ? @attr+' ' : ''}#{@name}" end
+  end
 
-    return "<vessel class='#{@attr} #{classes}' #{action_attributes}>#{show_particle != false ? particle : ''} #{show_attr != false && @attr ? '<attr class='+@attr+'>'+@attr+'</attr> ' : ''}<name>#{@name}</name></vessel>"
+  def to_s 
+
+    return "#{attr ? attr+' ' : ''}#{name}"    
 
   end
 
@@ -161,6 +157,22 @@ class Ghost
 
   end
 
+  def stem
+
+    i = 0
+
+    stem = parent
+
+    while i < 50
+      stem = stem.parent
+      if stem.id == stem.parent.id then return stem end
+      i += 1
+    end
+
+    return self
+
+  end
+
   def program
 
     return Program.new(self,@content["PROGRAM"])
@@ -195,8 +207,10 @@ class Ghost
     @siblings = []
     $parade.each do |vessel|
       if vessel.unde != @unde then next end
+      if vessel.id == parent.id then next end
       if vessel.id == @id then next end
       if parent.is_silent && vessel.owner != parent.owner && vessel.owner != id then next end
+      puts "#{vessel.name} -> #{vessel.id} : #{parent.id}"
       @siblings.push(vessel)
     end
     return @siblings
@@ -356,7 +370,7 @@ class Ghost
 
   def has_note
 
-    return @note.to_s != "" ? true : false
+    return @note.to_s.strip != "" ? true : false
     
   end
 
@@ -436,16 +450,13 @@ class Ghost
     validity_check, validity_errors = is_valid
     if validity_check == false then hints += validity_errors end
 
-    # Own's
-    if owner == id
-      hints.push("Vessel is complete.")
-      if !has_note then hints.push("Add a <action data-action='describe '>description</action> to the parent vessel.") end
-      if !has_attr then hints.push("Add an <action data-action='transform '>attribute</action> to the parent vessel.") end
     # Improvements
-    elsif !is_locked
-      if !has_note then hints.push("Improve this vessel with a <action data-action='describe '>description</action>.") end
-      if !has_attr then hints.push("Improve this vessel with an <action data-action='transform '>attribute</action>.") end
+    if !is_locked && !has_program && !has_note
+      hints.push("Improve this vessel with a <action data-action='note '>description</action>.")
+      hints.push("Automate this vessel with a <action data-action='program '>program</action>.")
     end
+
+    if owner == $player_id then hints.push("You own this #{name}.") end
 
     return hints
 

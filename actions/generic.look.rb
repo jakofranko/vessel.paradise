@@ -34,11 +34,11 @@ class ActionLook
 
     html = ""
     if @host.is_paradox
-      html = "#{@host} Paradox"
+      html = "The #{@host} Paradox"
     elsif @host.parent.is_paradox
-      html = "#{@host.parent}"
+      html = "The #{@host.parent}"
     else
-      html = "#{@host} in #{@host.parent.to_s(true,true,false)}"
+      html = "#{@host} in the #{@host.parent}"
     end
     return "<h1 id='portal'>#{html}</h1>"    
 
@@ -67,16 +67,23 @@ class ActionLook
 
   def default
 
+    filtered_siblings = []
+
+    @host.siblings.each do |vessel|
+      if @host.parent.note.include?(vessel.to_s) then next end
+      filtered_siblings.push(vessel)
+    end
+
     html = ""
 
-    if @host.siblings.length == 1
-      html += "You see #{@host.siblings[0]}. "
-    elsif @host.siblings.length == 2
-      html += "You see #{@host.siblings[0]} and #{@host.siblings[1]}. "
-    elsif @host.siblings.length == 3
-      html += "You see #{@host.siblings[0]}, #{@host.siblings[1]} and #{@host.siblings[2]}. "
-    elsif @host.siblings.length > 3
-      html += "You see #{@host.siblings[0]}, #{@host.siblings[1]} and #{@host.siblings.length-2} other vessels. "
+    if filtered_siblings.length == 1
+      html += "You see the #{filtered_siblings[0].to_html}. "
+    elsif filtered_siblings.length == 2
+      html += "You see the #{filtered_siblings[0].to_html} and the #{filtered_siblings[1].to_html}. "
+    elsif filtered_siblings.length == 3
+      html += "You see the #{filtered_siblings[0].to_html}, the #{filtered_siblings[1].to_html} and the #{filtered_siblings[2].to_html}. "
+    elsif filtered_siblings.length > 3
+      html += "You see the #{filtered_siblings[0].to_html}, the #{filtered_siblings[1].to_html} and #{filtered_siblings.length-2} other vessels. "
     elsif !@host.parent.is_silent && !@host.parent.has_note
       html += "There is nothing here, why don't you create something."
     end
@@ -89,7 +96,7 @@ class ActionLook
   def action
 
     @host.siblings.each do |vessel|
-      if vessel.has_program then return "<p id='action'><vessel data-action='use #{vessel.to_s(true,true,false,false)}'>Use #{vessel.to_s(true,true,false,false)}.</vessel></p>" end
+      if vessel.has_program then return "<p id='action'><vessel data-action='use the #{vessel}'>Use the #{vessel}.</vessel></p>" end
     end
     return ""
 
@@ -102,10 +109,12 @@ class ActionLook
     html = html.gsub("."," . ")
 
     @host.siblings.each do |vessel|
-      html = html.sub(" #{vessel.name} "," #{vessel.to_s(false,false,true,true)} ")
+      html = html.sub(" #{vessel.has_attr ? vessel.attr+' ' : ''}#{vessel.name} "," #{vessel.to_html} ")
     end
     @host.tunnels.each do |vessel|
-      html = html.sub(" #{vessel.attr} #{vessel.name} "," <vessel class='tunnel' data-action='warp to the #{vessel.attr} #{vessel.name}'>#{vessel.attr} #{vessel.name}</vessel> ")
+      action_override = "warp to #{vessel.id}"
+      class_override  = "tunnel"
+      html = html.sub(" #{vessel.attr} #{vessel.name} "," #{vessel.to_html(action_override,class_override)} ")
     end
 
     html = html.gsub(" , ",", ")

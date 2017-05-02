@@ -12,7 +12,7 @@ class WildcardVessel
     super
 
     @docs = "Displays current vessel or parent vessel details."
-    @options = ["id","name","attr","rating","parent id","parent name","parent attr","random id","random name","random attr"]
+    @options = ["id","name","parent id","parent name","stem id","stem name","random id","random name"]
 
   end
 
@@ -21,14 +21,14 @@ class WildcardVessel
     target_name = @value.split(" ").first
     target = @host
     if target_name.like("parent") then target = @host.parent end
+    if target_name.like("stem") then target = @host.stem end
     if target_name.like("random") then target = @host.find_random end
 
     target_detail = @value.split(" ").last
 
     if target_detail.like("id") && !target.is_hidden then return target.id.to_s end
+    if target_detail.like("stem") then return target.stem end
     if target_detail.like("name") then return target.name end
-    if target_detail.like("attr") then return target.attr end
-    if target_detail.like("rating") then return target.rating.to_s end
     
     return "?"
 

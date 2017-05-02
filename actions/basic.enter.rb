@@ -24,12 +24,12 @@ class ActionEnter
     prev = @host.parent
     
     if !target                      then return @host.answer(self,:error,"#{topic} could not find the target vessel.") end
-    if target.id == @host.parent.id then return @host.answer(self,:error,"#{topic} already are in #{target.to_s(true,true,false,false)}.") end
+    if target.id == @host.parent.id then return @host.answer(self,:error,"#{topic} already are in #{target}.") end
       if @host.is_locked == true    then return @host.answer(self,:error,"#{@host} is locked.") end
 
     @host.set_unde(target.id)
 
-    return @host.answer(self,:modal,"#{topic} have entered the #{target.to_s(true,false,false,false)}. ", "Press <b>enter</b> to continue or type <action data-action='leave'>leave</action> to return to #{prev.to_s(true,true,false,false)}.")
+    return @host.answer(self,:modal,"#{topic} have entered the #{target}. ", "Press <b>enter</b> to continue or type <action data-action='leave'>leave</action> to return to #{prev}.")
 
   end
 

@@ -11,19 +11,22 @@ class WildcardTime
 
     super
 
-    @docs = "The wildcard will be replaced by various time data."
-    @options = ["year","month","day","hour","minute","second"]
+    @docs = "The wildcard will be replaced by various time data. The Paradise time is using <a href='http://wiki.xxiivv.com/Desamber'>Desamber</a> time."
+    @options = ["date","year","month","day","clock","above","below"]
 
   end
 
   def to_s
 
-    if @value.like("year") then return Timestamp.new.y.to_s end
-    if @value.like("month") then return Timestamp.new.m.to_s end
-    if @value.like("day") then return Timestamp.new.d.to_s end
-    if @value.like("hour") then return Timestamp.new.H.to_s end
-    if @value.like("minute") then return Timestamp.new.M.to_s end
-    if @value.like("second") then return Timestamp.new.S.to_s end
+    d = Desamber.new
+
+    if @value.like("date")  then return d.to_s end
+    if @value.like("year")  then return d.year.to_s end
+    if @value.like("month") then return d.monthName.to_s end
+    if @value.like("day")   then return d.equalDay.to_s end
+    if @value.like("clock") then return d.clock.to_s end
+    if @value.like("above") then return d.above.to_s end
+    if @value.like("below") then return d.below.to_s end
 
     return "error"
 

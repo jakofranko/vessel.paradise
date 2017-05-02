@@ -26,7 +26,7 @@ class ActionSay
     is_valid, error = new_comment.is_valid
 
     if !is_valid                    then return @host.answer(self,:error,error) end
-    if @host.parent.is_silent       then return @host.answer(self,:error,"The #{@host.parent.name} is a silent vessel, #{topic.downcase} may not talk in here.") end
+    if @host.parent.is_silent       then return @host.answer(self,:error,"The #{@host.parent} is a silent vessel, #{topic.downcase} may not talk in here.") end
     if new_comment.is_repeated      then return @host.answer(self,:error,"#{topic} just said that.") end
 
     $forum.append(new_comment.to_code)

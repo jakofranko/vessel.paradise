@@ -28,7 +28,7 @@ class ActionLeave
 
     @host.set_unde(target.id)
     
-    return @host.answer(self,:modal,"#{topic} have left #{prev.to_s(true,true,false,false)}, and entered <i>#{target.to_s(true,true,false,false)}</i>.")
+    return @host.answer(self,:modal,"#{topic} have left #{prev}, and entered <i>#{target}</i>.")
     
   end
 
