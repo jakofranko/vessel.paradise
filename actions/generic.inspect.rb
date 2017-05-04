@@ -24,26 +24,19 @@ class ActionInspect
 
     if !target then target = @host.parent end
 
-    html = "<h3>Inspecting the #{target.name}</h3>"
-    html += "<table>"
-    html += "<tr><th>Main</th><td>The #{target.attr} #{target.name} #{!target.is_hidden ? '≡ '+target.id.to_s : '≡'} </td></tr>"
-    html += "<tr><th>Owner</th><td>#{target.creator}</td></tr>"
-    html += "<tr><th>Rating</th><td>#{target.rating}</td></tr>"
-    html += "<tr><th>Permissions</th><td>#{target.perm}</td></tr>"
+    html = "<h3>the #{target}</h3>"
+    html += "<h4>General</h4>"
+    html += "<p>The #{target}, owned by the #{target.creator}, has the #{target.id} warp id, and a vessel rating of #{target.rating}.</p>"
+    html += "<h4>Position</h4>"
+    html += "<p>The #{target.name} is currently #{target.depth} levels deep within the #{target.stem} paradox.</p>"
 
-    if target.has_program
-      html += "<tr><th>Program</th><td><code>#{target.program}\n#{target.program.to_s.include?("((") ? target.program.render : ''}</code></td></tr>"
-    end
     if target.has_note
-      html += "<tr><th>Note</th><td><p>#{target.note}</p></td></tr>"
+      html += "<h4>Note</h4>"
+      html += "<p>#{target.note}</p>"
     end
-
-    if target.children.length > 0
-      html += "<tr><th>#{target.children.length} Children</th><td>"
-      target.children.each do |vessel|
-        html += "#{vessel}<br/>"
-      end
-      html += "</td></tr>"
+    if target.has_program
+      html += "<h4>Program</h4>"
+      html += "<code>#{target.program}</code>"
     end
 
     html += "</table>"

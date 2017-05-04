@@ -23,15 +23,15 @@ class String
   def remove_articles
 
     text = " #{self} "
-    text = " #{text} ".sub(" into ","")
-    text = " #{text} ".sub(" some ","")
-    text = " #{text} ".sub(" the ","")
-    text = " #{text} ".sub(" one ","")
-    text = " #{text} ".sub(" two ","")
-    text = " #{text} ".sub(" a ","")
-    text = " #{text} ".sub(" an ","")
-    text = " #{text} ".sub(" to ","")
-    text = " #{text} ".sub(" in ","")
+    text = " #{text} ".gsub(" into "," ")
+    text = " #{text} ".gsub(" some "," ")
+    text = " #{text} ".gsub(" the "," ")
+    text = " #{text} ".gsub(" one "," ")
+    text = " #{text} ".gsub(" two "," ")
+    text = " #{text} ".gsub(" a "," ")
+    text = " #{text} ".gsub(" an "," ")
+    text = " #{text} ".gsub(" to "," ")
+    text = " #{text} ".gsub(" in "," ")
     return text.strip
 
   end

@@ -159,17 +159,35 @@ class Ghost
 
   def stem
 
-    i = 0
+    if @stem then return @stem end
 
-    stem = parent
+    @depth = 0
 
-    while i < 50
-      stem = stem.parent
-      if stem.id == stem.parent.id then return stem end
-      i += 1
+    @stem = parent
+
+    while @depth < 50
+      @stem = stem.parent
+      if @stem.id == @stem.parent.id then return @stem end
+      @depth += 1
     end
 
-    return self
+    return @self
+
+  end
+
+  def depth
+
+    @depth = 0
+
+    @stem = parent
+
+    while @depth < 50
+      @stem = stem.parent
+      if @stem.id == @stem.parent.id then return @depth+1 end
+      @depth += 1
+    end
+
+    return @depth+1
 
   end
 
@@ -233,15 +251,21 @@ class Ghost
 
   def find_distant params
 
-    parts = params.split(" ")
+    parts = params.remove_articles.split(" ")
 
     if parts.last.to_i > 0 && $parade[parts.last.to_i] then return $parade[parts.last.to_i] end
 
     name = parts[-1,1]
     attr = parts.length > 1 ? parts[-2,1] : nil
 
+    # Precise
     $parade.each do |vessel|
       if vessel.name.like(name) && (attr && vessel.attr.like(attr)) then return vessel end
+    end
+
+    # Flexible
+    $parade.shuffle.each do |vessel|
+      if vessel.name.like(name) then return vessel end
     end
 
     return nil
@@ -255,10 +279,12 @@ class Ghost
     name = parts[-1,1]
     attr = parts.length > 1 ? parts[-2,1] : nil
 
+    # Precise
     (siblings + children + [parent,self]).each do |vessel|
       if vessel.name.like(name) && vessel.attr.like(attr) then return vessel end
     end
 
+    # Flexible
     (siblings + children + [parent,self]).each do |vessel|
       if vessel.name.like(name) then return vessel end
     end
@@ -274,9 +300,12 @@ class Ghost
     name = parts[-1,1]
     attr = parts.length > 1 ? parts[-2,1] : nil
 
+    # Precise
     children.each do |vessel|
       if vessel.name.like(name) && vessel.attr.like(attr) then return vessel end
     end
+
+    # Flexible
     children.each do |vessel|
       if vessel.name.like(name) then return vessel end
     end
@@ -309,7 +338,7 @@ class Ghost
 
   def set_unde val
 
-    @unde = val.to_i
+    @unde = val.to_i > 99999 ? 99999 : val.to_i
     save
     reload
 

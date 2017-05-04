@@ -24,7 +24,7 @@ class ActionWarp
     prev = @host.parent
 
     if @host.is_locked              then return @host.answer(self,:error,"#{@host} is locked.") end
-    if !target                      then return @host.answer(self,:error,"#{topic} cannot warp into the void.") end
+    if !target                      then return @host.answer(self,:error,"Could not find the target vessel.") end
     if target.is_hidden             then return @host.answer(self,:error,"#{target} cannot be warped into.") end
     if target.id == @host.parent.id then return @host.answer(self,:error,"#{topic} already in #{target}.") end
     

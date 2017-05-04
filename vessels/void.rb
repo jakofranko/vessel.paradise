@@ -20,7 +20,7 @@ class VesselVoid
 
     super
 
-    @name = "The Void"
+    @name = "Void"
     @note = ""
     @owner = 0
 
@@ -30,6 +30,8 @@ class VesselVoid
     @is_tunnel = true
 
   end
+
+  def to_s ; return "Void" end
 
   def act action_name, params = nil
 
@@ -48,5 +50,17 @@ class VesselVoid
     return true
 
   end
+
+  def creator ; return VesselVoid.new end
+  def rating ; return 0 end
+  def depth ; return 0 end
+  def stem ; return VesselVoid.new end
+  def has_program ; return false end
+  def has_note ; return true end
+
+  def note ; return "You find yourself in the void. A pocket of unused and immutable vessel space. " end
+
+  def guides ; return ["Sector is unmonitored by service vessels.","The void is unstable, vessels created here my be moved or destroyed."] end
+
 
 end

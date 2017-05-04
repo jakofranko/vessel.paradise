@@ -86,26 +86,42 @@ class WildcardParadise
   def glossary
 
     g = {}
-    g["a vessel"] = "is a ghost carrier. A pocket of conceptspace that has an attribute and a name, that can travel through Paradise."
-    g["a paradox"] = "is impossible space, often folded onto itself, creating stems to universes."
-    g["the parade"] = "is the sum of Paradise's activity."
-    g["a tunnel"] = "is a vessel or action type accessible across all space. Cast and Warp are tuneling actions, allowing a ghost to traverse distances instantly. A tuneling vessel will be accessible through notes across distances."
-    g["the haven"] = "is a tutorial region with various documentation vessels."
-    g["nullspace"] = "is a warp id disassociated from a vessel."
-    g["a ghost"] = "is a vessel controller, a player."
-    g["conceptspace"] = "is the sum of vessels with non-spacial attributes, or hard to visualize attributes. "
-    g["thingspace"] = "is the sum of vessels with eucledian and real-world attributes."
-    g["the void"] = "is unbuilt vessel space."
-    g["the negative void"] = "is unbuilt vessel space with negative IDs."
-    g["cyan mass"] = "is the sum of the cyan faction vessels."
-    g["red spawn"] = "is the sum of the red faction vessels."
-    g["a signal"] = "is the broadcasting of a warp id."
+
+    g[:general] = {}
+    g[:general]["a ghost"] = "is a vessel controller, a player."
+    g[:general]["a vessel"] = "is a ghost carrier. A pocket of conceptspace that has an attribute and a name, that can travel through Paradise."
+    g[:general]["a paradox"] = "is impossible space, often folded onto itself, creating stems to universes. "
+    g[:general]["a tunnel"] = "is a vessel or action type accessible across all space. Cast and Warp are tuneling actions, allowing ghosts to traverse vast distances instantly. A tuneling vessel will be accessible through notes across distances."
+    g[:general]["a signal"] = "is the broadcasting of a warp id."
+
+    # g["the parade"] = "is another name for all of Paradise's activity."
+    # g["the haven"] = "is a tutorial region with various documentation vessels."
+    
+    g[:void] = {}
+    g[:void]["the void"] = "is generic unbuilt vessel space, any warp id that is yet unused."
+    g[:void]["the ultravoid"] = "is the hyptothesized vessel space of negative warp id."
+
+    # g["cyan mass"] = "is the sum of the cyan faction vessels."
+    # g["red spawn"] = "is the sum of the red faction vessels."
+
+
+    g[:fashion] = {}
+    g[:fashion]["thingspace"] = "is a type of vessels with eucledian and real-world attributes. Often the default simplistic mindset of new players."
+    g[:fashion]["conceptspace"] = "is a type of vessels with non-spacial attributes, or hard to visualize attributes. It has been suggested that the Parade is a research project exploring the limits of conceptspace."
+    g[:fashion]["illegalspace"] = "is a type of vessels with non-paradise attributes, often the result of exploits. A vessel with a number for a name, for instance."
+    
   
     html = ""    
-    g.sort.each do |term,definition|
-      html += "<li><b>#{term.capitalize}</b>, #{definition}</li>"
+    g.each do |cat,terms|
+      html += "<h4>#{cat}</h4>"
+      html += "<ul class='basic' style='margin-bottom:30px'>"
+      terms.each do |term,definition|
+        html += "<li><b>#{term.capitalize}</b>, #{definition}</li>"
+      end
+      html += "</ul>"
+      
     end
-    return "<ul class='basic'>#{html}</ul>"
+    return html
 
   end
 
