@@ -15,8 +15,8 @@ echo "TASK: NOTE/PROGRAM/SET ================================="
 sleep 0.5; ruby nataniev.operator.rb paradise serve 36
 sleep 0.5; ruby nataniev.operator.rb paradise serve 36 note benchmark note
 sleep 0.5; ruby nataniev.operator.rb paradise serve 36 program create benchmark program
-sleep 0.5; ruby nataniev.operator.rb paradise serve 36 cast the vanish spell on the benchmark note
-sleep 0.5; ruby nataniev.operator.rb paradise serve 36 cast the petunia spell on the benchmark note
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 cast the vanish spell onto the benchmark note
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 cast the petunia spell onto the benchmark note
 
 echo "TASK: TAKE/DROP/INSPECT/TRANSFORM ================================="
 sleep 0.5; ruby nataniev.operator.rb paradise serve 36
