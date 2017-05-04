@@ -20,10 +20,9 @@ class ActionSignal
 
   def act params = ""
 
-    warp_id = params.split(" ").last.to_i
-    if warp_id < 1 then return @host.answer(self,:error,"\"#{params}\" is not a valid warp id.") end
+    if @host.parent.is_hidden then return @host.answer(self,:error,"The #{@host.parent} is hidden.") end
 
-    return @host.act("say","#{warp_id}")
+    return @host.act("say","#{@host.parent.id}")
     
   end
 

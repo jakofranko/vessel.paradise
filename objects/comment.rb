@@ -75,7 +75,7 @@ class Comment
     if is_question then return "<li>#{vessel_name.capitalize} asked \"<message>#{message.capitalize}?</message>\".</li>" end
     if is_shout then return "<li>#{vessel_name.capitalize} shouts \"<message>#{message.capitalize}</message>\".</li>" end
     if is_emote then return "<li>#{vessel_name.capitalize} <message>#{message[3,message.length-3]}</message>.</li>" end
-    if is_warp then return "<li>#{vessel_name.capitalize} invites you to <action data-action='warp to #{message.to_i}'>the #{$parade[message.to_i]}</action>.</li>" end
+    if is_warp then return "<li>#{vessel_name.capitalize} signals from the <action data-action='warp to #{message.to_i}'>#{$parade[message.to_i]}</action>.</li>" end
 
     return "<li>— \"<message>#{message.capitalize}</message>\", says #{vessel_name}.</li>"
 

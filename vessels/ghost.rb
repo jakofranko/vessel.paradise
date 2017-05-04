@@ -271,7 +271,13 @@ class Ghost
 
     parts = name.remove_articles.split(" ")
 
-    (siblings + children).each do |vessel|
+    name = parts[-1,1]
+    attr = parts.length > 1 ? parts[-2,1] : nil
+
+    children.each do |vessel|
+      if vessel.name.like(name) && vessel.attr.like(attr) then return vessel end
+    end
+    children.each do |vessel|
       if vessel.name.like(name) then return vessel end
     end
 
