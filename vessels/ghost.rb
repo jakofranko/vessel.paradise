@@ -210,7 +210,6 @@ class Ghost
       if vessel.id == parent.id then next end
       if vessel.id == @id then next end
       if parent.is_silent && vessel.owner != parent.owner && vessel.owner != id then next end
-      puts "#{vessel.name} -> #{vessel.id} : #{parent.id}"
       @siblings.push(vessel)
     end
     return @siblings

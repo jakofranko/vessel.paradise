@@ -1,40 +1,54 @@
 #!/bin/bash
 cd `dirname "$BASH_SOURCE"`
-{
-  # Basic[Warp/Create/Enter/Describe/Transmute/Transform]
+cd ../../..
+ls
 
-  sleep 2; open http://localhost:8888/297
-  sleep 2; open http://localhost:8888/297+warp+to+1
-  sleep 2; open http://localhost:8888/297+create+a+benchmark+tool
-  sleep 2; open http://localhost:8888/297+enter+the+benchmark+tool
-  sleep 2; open http://localhost:8888/297+describe+This+is+the+paradise+debug+quazar
-  sleep 2; open http://localhost:8888/297+transmute+into+a+quazar
-  sleep 2; open http://localhost:8888/297+transform+debug
-  sleep 2; open http://localhost:8888/297
+echo "TASK: WARP/CREATE/ENTER/LEAVE/ ================================="
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 warp to 1
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 create a benchmark tool
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 enter the benchmark tool
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 leave
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 enter the benchmark tool
 
-  # Programming[Program/Use]
+echo "TASK: NOTE/PROGRAM/SET ================================="
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 note benchmark note
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 program create benchmark program
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 cast the vanish spell on the benchmark note
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 cast the petunia spell on the benchmark note
 
-  sleep 2; open http://localhost:8888/297+program+say+Debug+Quazar!
-  sleep 2; open http://localhost:8888/297+leave
-  sleep 2; open http://localhost:8888/297+use+the+debug+quazar
-  sleep 2; open http://localhost:8888/297
+echo "TASK: TAKE/DROP/INSPECT/TRANSFORM ================================="
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 create a tiny quazar
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 take the tiny quazar
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 drop the tiny quazar
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 inspect the tiny quazar
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 transform into a benchmark vessel
 
-  # Advanced[Take,Drop,Lock,Unlock]
+echo "TASK: HELP ================================="
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 help
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 help with wildcards
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 help with attributes
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 help with spells
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 help with basic
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 help with movement
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 help with communication
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 help with narrative
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 help with programming
 
-  sleep 2; open http://localhost:8888/297+take+the+debug+quazar
-  sleep 2; open http://localhost:8888/297+drop+the+debug+quazar
-  sleep 2; open http://localhost:8888/297+enter+the+debug+quazar
-  sleep 2; open http://localhost:8888/297+lock
-  sleep 2; open http://localhost:8888/297+unlock
-  sleep 2; open http://localhost:8888/297+leave
+echo "TASK: SAY/EMOTE/SIGNAL ================================="
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 say hello
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 emote acts like a word
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 signal
 
-  # Paradox[take,paradox use, paradox warp]
-
-  sleep 2; open http://localhost:8888/297+take+the+debug+quazar
-  sleep 2; open http://localhost:8888/297+use+the+debug+quazar
-  sleep 2; open http://localhost:8888/297+warp+to+297
-  sleep 2; open http://localhost:8888/297+inspect
-  sleep 2; open http://localhost:8888/297+help
-  sleep 2; open http://localhost:8888/297+call+2
-
-}&  
+echo "TASK: LIMITS ================================="
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 warp to 0
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 warp to -1
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 warp to 99999999999
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 warp to the apple tree
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 warp to the quazar
+sleep 0.5; ruby nataniev.operator.rb paradise serve 36 warp to haven
