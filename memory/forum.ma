@@ -2081,3 +2081,84 @@
 20170423085103 00004 00036 But, there is not enough food for all of us in here
 20170501133808 00737 00036 me is surprived
 20170501134101 00737 00036 90
+20170502191431 00090 00706 hello
+20170502191552 00090 00706 me is curious about network
+20170502194158 00225 00706 90
+20170502194247 00090 00706 Turns out 'Note' permits HTML.
+20170502194324 00090 00706 Come to my devoured juice for a quick demo
+20170502194329 00090 00706 90
+20170503060504 00534 00330 poopstex
+20170503193723 00569 00457 red spawn
+20170503193747 00569 00457 huh, does paradise have a villain now
+20170503194000 00569 00457 just a ease of access tip please change the is commands to just commands like make islocked just locked
+20170503194500 00751 00457 i do not own bill cipher
+20170503194529 00751 00457 set islocked false, 'you do not own billcipher'
+20170504012031 00508 00065 happens when you stare at the abyss for too long
+20170504020224 00569 00457 yeah, 'viking character', i LIVE in the abyss.
+20170504153344 00225 00196 I'm a duck
+20170504154205 00018 00747 I believe you can only lock things if you are a paradox of yourself
+20170504154219 00018 00747 not sure though
+20170504154409 00018 00747 no, I just tried it, that doesn't work. You have to somehow own yourself
+20170504165950 00569 00457 it's probably a bug
+20170504170026 00569 00457 set doesn't work well. maybe the lock and unlock commands can go back to being just lock and unlock
+20170504170105 00569 00457 i mean i'm all for upgrades but some things just don't need to change
+20170504170313 00569 00457 hey, by the way, i wish to transform my PARENT, not me
+20170504171047 00018 00747 looks like transform only works on your current vessel. To transform your parent, you'll need to become it first
+20170504171308 00018 00747 also, it looks like the old lock and unlock commands are transitioning to these new spells. These look to be bugged right now though...
+20170504224608 00217 00762 claudio is hot
+20170504224634 00217 00762 i know i am hot and i like kate
+20170505050718 00763 00463 cipher, come in.
+20170505101258 00701 00702 helo
+20170505101319 00701 00702 how are you
+20170505101722 00003 00702 me is playing on the red piano.
+20170506012108 00569 00457 please let's not have a ranking system, unless ranking has to do with completeness
+20170506012615 00569 00457 I like this place because of its unique lack of story. I don't see this place becoming like just a regular text adventure. I mean, on the wiki Nataniev is a platform for such things, maybe the story could be a separate program on top.
+20170506012704 00569 00457 like those special websites
+20170506014451 00459 00768 Hey you coffers! I have a new form now!
+20170506014905 00769 00767 rating how
+20170506015957 00569 00768 and boy am i now more me than ever
+20170506104836 00106 00657 hello
+20170506104901 00106 00657 I am new
+20170506145326 00049 00746 hello
+20170506145802 00049 00746 is anyone there
+20170506145819 00715 00716 who are you
+20170506150359 00450 00755 I am Abigail
+20170506150607 00450 00755 you are a old and dusty book
+20170506150650 00450 00755 what do I look like
+20170506150817 00450 00755 hello box
+20170506154838 00569 00768 Hello, vessels!
+20170506155407 00709 00768 me does it work
+20170506155424 00709 00768 me emote also works
+20170506155445 00709 00768 me me works
+20170506160957 00324 00768 me squints
+20170506161026 00324 00768 alright, who disabled all caps vessel messages
+20170506161235 00324 00768 cramping my style, i see, i get that. must be so funny to you caskets now, ISN'T IT
+20170506161326 00324 00768 Red faction, is that right
+20170506161337 00324 00768 How cute! If i had my own faction, it would be the weirdest faction ever!
+20170506161403 00324 00768 by the way, your question marks are broken
+20170506185137 00495 00639 hello
+20170506201957 00018 00036 just updated a few things, improved the cast command.
+20170506202007 00018 00036 enjoy!
+20170506204119 00709 00768 hey owl, mind if you could remove the intermission after an action, the 'enter to continue'
+20170506204206 00709 00768 or at least make the vessel info be persistent, as in, you enter something and it shows the vessel information right away
+20170506204234 00709 00768 thanks, bye!
+20170506204303 00709 00768 me shrinks
+20170506210029 00722 00768 the program test was successful
+20170506212830 00785 00785 XDUAVgQFYbuBGvmvJfFOSCwDTM5UB1QxRsQXVK4jSm4l
+20170506213258 00512 00768 512
+20170506213432 00225 00072 I'm a duck
+20170506213508 00225 00768 i liked inspect better before
+20170506213601 00225 00768 now what '16 other vessels', what are their names!
+20170506213632 00225 00768 a!
+20170506233622 00508 00065 welcome to
+20170507011620 00534 00330 poopstex
+20170507043056 00579 00457 unlocking is still broken, great going guys
+20170507043154 00579 00457 look, just give us 'lock' and 'unlock' back, please. it worked fine the way it was before.
+20170507111138 00570 00675 you were scared
+20170507111218 00570 00675 you are still scared
+20170507111319 00570 00675 everything is okey you shouldn't be scared
+20170507120353 00188 00706 enter
+20170507181509 00569 00768 vessels are so interesting! interesting as in hilarious! hilarious as in interesting! interesting as in hilarious! hilarious as in interesting! interesting as in hilarious! hilarious as in interesting! interesting as in hilarious! hilarious as in interesting!
+20170508064107 00059 00584 tag
+20170508195713 00324 00585 pootstex inspect is not descriptive enough, no more listing of inventory vessels
+20170508200209 00585 00585 hey Geomaitre i found your vessel pootstex
