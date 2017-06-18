@@ -15,6 +15,7 @@ class VesselParadise
     @site = "http://paradise.xxiivv.com"
     
     install(:custom,:serve)
+    install(:custom,:query)
     install(:generic,:document)
     install(:generic,:help)
 
