@@ -24,18 +24,12 @@ class ActionQuery
 
     $forum = Memory_Array.new("forum",@host.path)
 
-    messages = $forum.to_a
-
-    html = ""
-    messages.each do |message|
-      html += message.to_s
+    a = []
+    Memory_Array.new("forum",@host.path).to_a.reverse[0,10].each do |message|
+      a.push({:time => message["TIMESTAMP"], :host => message["HOST"], :from => message["FROM"], :text => message["MESSAGE"]})
     end
 
-    return html
-
-    return $forum.to_s
-
-    return "hello"
+    return a.to_json
 
   end
 
