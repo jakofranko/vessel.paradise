@@ -77,6 +77,8 @@ class Ghost
 
   def act action_name, params = nil
 
+    if !params.match(/\A[a-zA-Z0-9 \)\(\.\,\+\?\!)]*\z/) then return "<h3>#{action_name} Failure</h3><p>This command contained unallowed characters.</p>" end
+
     if Kernel.const_defined?("Action#{action_name.capitalize}") == false then return answer(ActionLook.new,:error,"\"#{action_name.capitalize}\" is not a valid action.") end
 
     action = Object.const_get("Action#{action_name.capitalize}").new
