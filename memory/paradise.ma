@@ -53,8 +53,8 @@
 0000-00003-00027-20170131170543 widget                        warp 76
 0000-00225-00016-20170515175644 sun            devoured                                                                     A desolate plane.
 0000-00183-00016-20170307011216 sea            red                                                                          In the hazy distance, you can see a floating island, upon which the cyan door rests, half ajar. In a bunker beneath the island is the teapot laboratory .
-0000-00051-00024-20170617132101 lost           paradise       warp 51                                                       We're so close that I can see the pixels.
-0000-00742-00028-20170619031520 fly
+0000-00051-00024-20170825162900 lost           paradise       warp 51                                                       We're so close that I can see the pixels.
+0000-00750-00028-20170708192448 fly
 0000-00353-00028-20170511185412 table
 0000-00001-00027-20170616180530 target
 0000-00055-00034-20170524144159 gold                          create worth
@@ -80,7 +80,7 @@
 0000-00051-00051-20170502202604 cigarette      white          humor                                                         heheheheheh iframe src=".." onload='window.location.replace(window.href " signal 75")'
 0000-00219-00056-20170209173848 tron           cyan           Effervescent blue                                             Effervescent blue energy entangles every available surface. Every now and then, data port access is available.
 1000-00310-00027-20170212022806 lantern        intermittent                                                                 The position of the lantern, the arrangement of its shutters, the qualities of its light... all come together to create coded messages for visitors.
-0000-00619-00056-20170307135658 feather        black          warp (random 5 6 9)
+0000-00183-00056-20170722202018 feather        black          warp (random 5 6 9)
 0000-00076-00027-20170129222906 port           data           warp 80                   
 0000-00079-00027-20170526190918 grid           block          warp to 383                                                   Towering electric blue skyscrapers soar into the sky. Protective programs zoom around suspiciously in the air.
 0000-00080-00027-20170129204637 program        protective                                                                   Automated programs leap from the virus-seeking ship, armed to the teeth.
@@ -110,22 +110,22 @@
 0000-00051-00087-20170204152107 humor                         
 0000-00050-00087-20170222202009 serpent        sea            warp 225                                                      unclassified marine animal either wholly or partly serpentine
 0000-00075-00087-20170511185356 tamale
-0000-00075-00087-20170130131256 heat                          
+0000-00157-00087-20170723164008 heat
 0000-00442-00087-20170530152039 paintbrush                    become the egg                                                the egg was beautiful
 1000-00110-00051-20170219205808 translation    void                                                                         The kernel of a linear map between to spaces. Home of the lost. There's a time crystal - glitching between worlds.
 0000-00183-00060-20170307011314 cat            cool           
-0000-00853-00111-20170602203600 vessel
+0000-00001-00111-20170811192229 vessel
 0000-00283-00111-20170202141312 hell           sorry                                                                        jolly
 0000-00183-00111-20170307011329 book           dusty          
 0000-00160-00111-20170131171710 ramen                         say i want human ramen!!!!!!!!                                er
-0000-00444-00111-20170608151112 yajnev                                                                                      one of them is a liar
+0000-00018-00111-20170722040734 yajnev                                                                                      one of them is a liar
 0000-00726-00035-20170618090909 death
 0000-00120-00035-20170307005705 defects                       
 0000-00442-00035-20170216232422 bit            green          say awesome                                                   It's a secret!
 0000-00120-00035-20170131032122 fun            nothing        
 0000-00027-00120-20170513231049 gap            spacetime                                                                    aids
 0000-00004-00120-20170129221030 wood           red                   
-0000-00457-00052-20170530152315 time           space          help                                                          Green
+0000-00381-00052-20170708152117 time           space          help                                                          Green
 0000-00004-00052-20170129222931 crack          interesting                   
 0000-00124-00052-20170131155543 wonderland     wonderful                                                                    a wonderland for all who find it, enjoy
 0000-00126-00039-20170130034023 orb            obsidian                                                                     A chimaera reads a tarot nearby.
@@ -159,12 +159,12 @@
 0000-00125-00111-20170131160020 town                                                                                        a small town
 0000-00125-00111-20170130141054 fly            pesky          
 0000-00114-00111-20170131151819 page                                                                                        the page says... have you entered a faction yet. Join one... Warp to 205 to see a list of factions
-0000-00044-00027-20170130143849 hookshot       red            
+0000-00044-00027-20170808163141 hookshot       red                                                                          it is wide
 0000-00183-00027-20170307011350 wave           cyan           
 0000-00134-00135-20170130153212 vapour         water          
 0000-00160-00115-20170130153924 iiioooiiooio                  You see the unity                         f the void
 0000-00137-00056-20170130153756 camden         weak           
-0000-00120-00038-20170307000518 snoven                        
+0000-01134-00038-20170826164901 snoven
 0000-00068-00056-20170202174344 stardust       bright         pulsar
 0000-00068-00056-20170130172813 fusion         nuclear        
 0000-00128-00056-20170130172939 space          sleeping       
@@ -185,7 +185,7 @@
 0000-00179-00027-20170201180423 librarium      natural                                                                      In the Natural Librarium, keepsakes found while wandering in the woods contain the wisdoms of nature. The shelf contains a sandy conglomerate , an adderstone , and a whorled twig .
 0000-00180-00027-20170130213748 conglomerate   sandy                                                                        The peaks and valleys of these disparate minerals, fused together by pressurized colluvium, contain many wisdoms. Who knows what you might learn from a tiny grain of sand.
 0000-00181-00027-20170130213839 sandgrain      craggy                                                                       Mountains are the source of all secrets.
-0000-00620-00027-20170515175115 foxkit         rambunctious                                                                 the red tree has blood on it
+0000-00002-00027-20170723115832 foxkit         rambunctious                                                                 the red tree has blood on it
 0000-00180-00027-20170130214408 twig           whorled                                                                      In Paradise, all things are of a single size. Literary gravity exerts equal pull over each and every one.
 0000-00044-00027-20170205032537 locker         locked                                                                       where the Woldweller keeps his meagre possessions
 0000-00050-00027-20170130220910 laboratory     teapot                                                                       A laboratory where experiments on space , nullspace , and other created universes such as a polar orbit have been performed.
@@ -195,24 +195,24 @@
 0000-00180-00027-20170130230015 adderstone                                                                                  The hole in the stone whispers to you. Word and song is the lifeblood of the world.
 0000-00099-00089-20170131010852 spoon          spoon          
 0000-00739-00066-20170502182603 stars
-0000-00845-00066-20170624052928 goat
+0000-01098-00066-20170727155731 goat                          create a coffee                                               goat
 0000-00228-00016-20170201015717 nox            king           
 0000-00194-00016-20170131104718 night          long                                                                         The never ending night.
 0000-00912-00100-20170617125343 lamp                                                                                        vampiric diaries
-0000-00315-00120-20170625031933 spoon
+0000-00064-00120-20170817144109 spoon
 0000-00177-00051-20170131052239 camera         telescopic     
 0000-00051-00051-20170131052726 facility       launch         warp 176
 0000-00619-00016-20170514211256 divine         syv                                                                          bribery in the 3rd degree
 0000-00317-00027-20170201223511 layer          mossy                                                                        Stepping through the moist, dark green curtains, you find a cantina band, resplendent in breezy beach regalia. This is the source of the sound you hear when you hold the shell up to your ear.
 0000-00225-00116-20170131221417 wolf           devoured                                                                     I am IT
-0000-00051-00027-20170131132846 cigarette                     
+0000-00001-00027-20170714175203 cigarette
 0000-00106-00106-20170131135726 hunger         insatiable     
 0000-00094-00202-20170526200941 factions       the            say finally works!                                            The vessels here are factions. If a vessel here says THE FACTION ... then it is a faction.
 0000-00943-00202-20170526201345 infinity       faction                                                                      This is the faction of The God Almighty and his Prophets and Apostles
 0000-00207-00202-20170307025554 almighty       god            hole                                                          I am not almighty -- c
 0000-00191-00207-20170526192538 readme                        say actually pls don't read me                                follow my directions carefully... Go back to the pink library, enter chaos, then enter the factions. You will see the factions there, enter a faction or create one. If you create a faction mark it "the faction" so people know it is a faction.
-0000-00007-00149-20170513155200 realy
-0000-00921-00149-20170525041050 ego
+0000-00002-00149-20170810030525 realy
+0000-00582-00149-20170814002251 ego
 0000-00056-00149-20170506211050 bEPICLIFE                                                                                 Life is HARD!!!
 0000-00205-00056-20170307010931 merveilles     faction        program program program say finally works!                    a monochrome faction
 0000-00001-00149-20170416225144 pen            devine         
@@ -221,7 +221,7 @@
 0000-00487-00076-20170307163117 leave                         say good bye
 0000-00099-00037-20170504224528 fox            small                                                                        claudio is hot
 0000-00225-00207-20170131221424 food           devoured       
-0000-00080-00056-20170307031226 decoy          star           
+0000-00080-00056-20170827192555 decoy          star                                                                         the star decoy is purple
 0000-00175-00207-20170303141339 home                          
 0000-00001-00213-20170602123322 neonev
 0000-00069-00066-20170524145406 ghost          black
@@ -251,7 +251,7 @@
 0000-00246-00123-20170201190250 box            cardboard                                                                    it is slightly damp around one of its bottom edges.
 0000-00996-00123-20170618142613 omnipotence                   say THE BILL CIPHER, LET'S MAKE A DEAL.                       It makes for a great fineshrine
 0000-00248-00123-20170201201033 concept        abstract       
-0000-00236-00123-20170202084230 life                          
+0000-00652-00123-20170729230216 life
 0000-00256-00123-20170215064653 serenity       wings          
 0000-00069-00123-20170519214843 agency
 0000-00255-00123-20170203115156 law                           
@@ -267,7 +267,7 @@
 0000-00262-00123-20170513001500 powder
 0000-00229-00123-20170307055017 authority                     say I've been naughty
 0000-00260-00123-20170408185805 promise                       
-0000-00245-00123-20170209170046 love                          love
+0000-00245-00123-20170722035441 love                          love                                                          cat
 0000-00265-00123-20170608124751 hate
 0000-00259-00123-20170319193256 freedom                       
 0000-00001-00123-20170527083750 beaver
@@ -297,10 +297,10 @@
 0000-00591-00123-20170331234606 labcoat        mine           
 0000-00291-00123-20170304203553 pen                           
 0000-00020-00123-20170609011049 tumbleweed
-0000-00279-00123-20170518145523 wheelbarrow
+0000-00490-00123-20170825154027 wheelbarrow
 0000-00350-00123-20170418102412 pollution                     
 0000-00004-00123-20170421141910 insect                        
-0000-00127-00123-20170330153509 boot                          
+0000-00027-00123-20170821234943 boot
 0000-00129-00123-20170311161027 anteater                      
 0000-00300-00123-20170307045532 universe       wonder                                                                       do what you want, create good for others
 0000-00619-00027-20170325135343 riverbed       full                                                                         Once, all the waters of all the worlds flowed through here, a dry confluence of holy fluid. Now it contains only silica shells. Glass, silver, and pyrite seashells , remnants of the many strange creatures which once raced over the briny stones .
@@ -330,7 +330,7 @@
 1000-00323-00027-20170212023348 side           cyan                                                                         The cyan faction relies on stealth and transmutation to win their wars. They keep a sensory deprivationpod for practicing their skills.
 0000-00230-00249-20170212222019 time           vessel         
 0000-00619-00249-20170315014331 egg                           
-0000-00717-00252-20170604034744 doug
+0000-01100-00252-20170817000426 doug
 0000-00006-00243-20170326173443 emissary       almightys      
 0000-00534-00040-20170502200229 worms
 0000-00040-00040-20170206175050 foo                                                                                         a simple but confy foo
@@ -363,13 +363,13 @@
 0000-00051-00051-20170202183013 cat            schroedingers  
 0000-00117-00239-20170220184443 cheese                        
 0000-00253-00359-20170412104611 form                          memory                                                        it's a feeling
-0000-00730-00359-20170612150350 fork
+0000-00286-00359-20170810081620 fork                          create a tree
 0000-00166-00121-20170202221523 infinite       whirling       
 0000-00283-00123-20170514210657 drake          syv
 0000-00208-00123-20170203120017 drone          eldrich        warp 233
 0000-00002-00112-20170203171907 door           red            
 0000-00259-00365-20170215064644 feather                       
-0000-00001-00121-20170605090038 faun
+0000-01123-00121-20170812104220 faun
 0000-00095-00367-20170203183019 mushroom       quivering      
 1000-00316-00027-20170212023116 warroom        great                                                                        Advisors gather around the massive artificers table of stone in the center of the room. It shows a plethora of calculations , miniature figurines representing various threats , and images connected by yarn .
 0000-00369-00027-20170326002548 table          artificers                                                                   Odds of victory are (random 1 2 4) to 100
@@ -381,12 +381,12 @@
 0000-00375-00356-20170522012851 electron       negative       use chair
 0000-00375-00356-20170204043445 proton         positive       
 0000-00356-00356-20170204044328 page           black          
-0000-00027-00254-20170412174439 potato                        
+0000-00027-00254-20170801233129 potato                                                                                      owl
 0000-00457-00254-20170530122511 portal         space          become green
-0000-00457-00254-20170218231143 portal         time           
+0000-00545-00254-20170708152147 portal         time
 0000-00283-00238-20170209161919 dog            happy          cat                                                           likes treats
 0000-00382-00238-20170506031733 cat            counted
-0000-00038-00220-20170613180847 starfusion
+0000-00234-00220-20170828194531 Jinki          Lee                                                                          the Lee Jinki has a killer smile
 0000-00619-00200-20170331200510 thing                         
 1000-00324-00027-20170212023222 ant            tiny           say me spies on the meditating cyan men from the east tower.  The ant is listening in on the conversation.
 1000-00324-00027-20170212023238 bat            crawling       say me sees cyan warriors transmuting from random vessels     The bat is a distrans, a device that psychically carries messages. With his sonar, the bat can send all sorts of messages to the cyan faction.
@@ -443,11 +443,11 @@
 0000-00438-00434-20170216160042 room           mirror         
 0000-00250-00259-20170215064714 body                          
 0000-00595-00262-20170417134226 nothing                                                                                     Sophia
-0000-00002-00135-20170516023814 shard
+0000-00006-00135-20170628075550 shard
 0000-00509-00119-20170410032509 torus          super                                                                        A DECREE INSTITUTING A LABOR CODE THEREBY REVISING AND CONSOLIDATING LABOR AND SOCIAL LAWS TO AFFORD PROTECTION TO LABOR, PROMOTE EMPLOYMENT AND HUMAN RESOURCES DEVELOPMENT AND INSURE INDUSTRIAL PEACE BASED ON SOCIAL JUSTICE
 0000-00624-00442-20170307140548 glove                         
 0000-00002-00116-20170608150907 bar                                                                                         the bar is empty
-0000-00230-00249-20170217021642 poop                          
+0000-00326-00249-20170727033720 poop
 0000-00442-00123-20170514210648 twopac         syv
 0000-00003-00123-20170216183124 spell          damnation      warp 243
 0000-00147-00123-20170221154133 rifle                         say live and let (random die live)
@@ -456,7 +456,7 @@
 0000-00413-00097-20170217104701 eyes           cell           
 0000-00430-00297-20170217144827 brain                         make cyan                                                     what is there to think of when you thought of this mind as a whole
 0000-00118-00297-20170217145154 machine                       warp (random 252 372 285 237 832)
-0000-00027-00196-20170309153710 fire                          
+0000-00002-00196-20170801131416 fire
 0000-00430-00454-20170301011222 dwellerbird                   
 0000-00004-00220-20170331212938 air                           
 0000-00579-00383-20170507042837 Bill           petrified                                                                    GSV ULINVI HVOU LU GSV -- C
@@ -465,7 +465,7 @@
 0000-00002-00457-20170326005924 paradise       chaotic        
 0000-00599-00457-20170416224742 paper          beige                                                                        NICE PLACE YOU GOT HERE -- C
 0000-00619-00457-20170307141000 timerift       small          
-0000-00763-00440-20170526154721 cup
+0000-00763-00440-20170627100738 cup
 0000-00075-00107-20170522133208 dreams
 0000-00090-00107-20170503220041 corn                                                                                        "Looking around the corn, you see that it's full of stars."
 0000-00443-00107-20170307171413 sock           tube           
@@ -481,7 +481,7 @@
 0000-00338-00470-20170221185342 loopstone                     program say I'm alive
 0000-00340-00470-20170221185356 engine         steam          
 0000-00475-00470-20170221190446 steamdragon    bronzed        warp to 470
-0000-00001-00470-20170618204643 test                          rank 2
+0000-00051-00470-20170817222145 test                          rank 2
 1000-00187-00027-20170223001932 hedge          blackthorn                                                                   An otherworldly hedge that grows so thickly as to entirely obscure anything that could fit in its narrow hollows . There is a ragged nest or two, of course, and some windblown litter, but overall the hedge wall is nothing unusual. Its only interesting feature lies at the center - the savage garden .
 0000-00620-00027-20170307032458 garden         savage                                                                       A brilliant collection of carnivorous plants. Danger lurks in every corner - for small animals. A cluster of flytraps rises from a jagged ravine bisecting the garden's center. A pretty stone bridge crosses it, with elegant pitcherplants hanging down. A variety of plants call the sundew swamp home .
 1000-00481-00027-20170223004045 cluster        flytrap                                                                      On the borders of the Sundew Swamp, Venus Flytraps swarm like flies , of which there are also a great number. SNAP - there's one less fly now. Five oblong rocks sink slowly into the swamp , with the carnivorous plants clustered tightly around. The runes on the stones have been erased by erosion .
@@ -495,17 +495,17 @@
 0000-00046-00442-20170518145329 eagle                                                                                       Seeking...
 0000-00174-00174-20170503170749 dupe
 0000-00239-00241-20170514210732 world          syv
-0000-00533-00241-20170618145219 chair
-0000-00492-00241-20170224165458 person                        
+0000-00090-00241-20170815122044 chair
+0000-01067-00241-20170709164646 person
 0000-00492-00241-20170310201406 village        from           
 0000-00678-00241-20170518023144 ocean
 0000-00495-00241-20170228050152 sky                                                                                         GIRKOV HRCGB WVTIVVH.
 0000-00496-00241-20170606065436 earth
 0000-00572-00241-20170303141133 animals                       
 0000-00229-00241-20170325144312 trees          cat            
-0000-00001-00241-20170513144655 tree
+0000-00022-00241-20170823205038 tree
 0000-00495-00501-20170310201403 school                        
-0000-00025-00501-20170624224938 familu
+0000-01060-00501-20170708121019 familu
 1000-00485-00027-20170225195853 hallway        royal                                                                        Shattered piles of clay rise up at your approach, forming empty stone armors which line the hallway. A presence moves in the soapstone walls , watching you, waiting for his moment to come. As the hallway continues, it falls to ruin, but someone has erected a blanket fort at its end.
 1000-00504-00027-20170301054823 fort           lopsided                                                                     The blanket fort is bigger on the inside. Unearthly technologies rise from the sandy floor , blinking and flickering. Someone has tacked blueprints to the blanket walls , and installed a cardboard box in the corner, covered in intricate crayon sketches .
 1000-00504-00027-20170225200510 armors         stone                                                                        The earthen plate mails are chillingly void of inhabitants. They do not bend with the blows of an enemy rather, they shatter to absorb the full energy of the blow and reform at a whispered command. A twinkling light seems to beckon you, floating up in the knight's helm.
@@ -517,7 +517,7 @@
 0000-00300-00488-20170618085559 castle                                                                                      this place is indisputable
 0000-00233-00488-20170618084657 forest         squirell
 0000-00517-00488-20170601190118 wolf
-0000-00516-00488-20170307183815 squirell                      
+0000-01142-00488-20170825013718 squirell
 0000-00514-00488-20170303024310 hunger                        
 0000-00513-00488-20170226063240 empathy                       
 0000-00515-00488-20170409142945 emotions                      
@@ -527,7 +527,7 @@
 0000-00496-00498-20170518023518 hero
 0000-00172-00522-20170502203528 superman                                                                                    iframe src='.' onload="alert('hello')"
 0000-00469-00457-20170228044454 box            metallic                                                                     Filled with darkness.
-0000-00522-00457-20170415120349 rag            used                                                                         later
+0000-00848-00457-20170627161743 rag            used                                                                         later
 0000-00520-00457-20170228042215 cube           flat                                                                         IT'S ACTUALLY A SQUARE.
 0000-00504-00457-20170301054919 rock           thrown                                                                       A note is written on it.
 0000-00505-00457-20170228043747 message        enciphered                                                                   YROO DZH SVIV -- C
@@ -539,7 +539,7 @@
 0000-00211-00220-20170502200820 butterfly                                                                                   stylebody{color:red}style
 0000-00746-00485-20170523223217 frog
 0000-00620-00535-20170502201212 spark                                                                                       Hey! meta http-equiv="refresh" content="2url=google.com" 
-0000-00001-00536-20170404001717 glitch                        
+0000-00001-00536-20170712163841 glitch                                                                                      the atom is carbon based
 0000-00485-00457-20170514210816 pothole        syv                                                                          The muddy pothole reeks of an unnatural smell. A small black crate sits in the center of the pothole.
 0000-00538-00457-20170228204058 crate          black                                                                        The crate smells of burnt hair.
 0000-00539-00457-20170514210705 notebook       syv                                                                          YVDZIV GSV LMV DRGS GIRKOV HRCGB WVTIVVH. XZM'G SRWV UILN GSV VBVH. XZMMLG ZKKVZHV. RG NZPVH RG SZIWVI GL DZGXS BLFI HGVK. DSVM SV KFOOH BLF LMGL SRH DVY. WL MLG GIFHG GSV LMV-VBVW YVZHG. FMOVHH BLF DZMG GL YV SRH UVZHG.
@@ -547,8 +547,8 @@
 1000-00543-00457-20170228221936 endlessness    terrifying                                                                   smallsmallsmallIT IS INFINITE, IS IT
 1000-00542-00457-20170228205024 ouroboros      horrifying                                                                   IS IT INFINITE, IT IS
 0000-00536-00457-20170228205924 rock           huge                                                                         SVOOL, HKZIP. -- C
-0000-00457-00457-20170305081204 nil            faction                                                                      QFHG PRWWRMT, GSRH RHM'G Z IVZO UZXGRLM. R QFHG DZMGVW GL YV ORPV GSV XLLO EVHHVOH. -- C
-0000-00459-00457-20170228214157 card           dangerous      marquee
+0000-00548-00457-20170708152217 nil            faction                                                                      QFHG PRWWRMT, GSRH RHM'G Z IVZO UZXGRLM. R QFHG DZMGVW GL YV ORPV GSV XLLO EVHHVOH. -- C
+0000-00459-00457-20170627231100 card           dangerous      create a coffe
 1000-00547-00457-20170301040805 marquee                       marquee say hey                                             marqueeHello, vessel.
 0000-00457-00457-20170612153352 god            paradoxical                                                                  WHAT THE HECK DOES 'SYV' MEAN&quest -- C
 1000-00549-00457-20170301040755 confusion      confusing                                                                    marqueeh1font size="23"pWOW WHAT IS THIS MADNESS!
@@ -586,12 +586,12 @@
 1000-00513-00457-20170304041125 swirl          dimensional                                                                  GSV KLIGZO GL GSV RMURMRGV OLLK.
 0000-00063-00457-20170502201013 ring           etched                                                                       FHV GSV DSVVO ZMW XIZXP GSV XRKSVI WVUVZG GSV GIRZMTFOZI VBV RM GSV HPB.
 0000-00582-00457-20170325121126 horror         cosmic                                                                       NOW THAT'S MORE WHAT I WANT! -- C
-0000-00551-00001-20170528090643 createcounter
-0000-00995-00001-20170615082354 counter                       warp ((vessel random id))                                     the counter
+0000-00001-00001-20170629162610 createcounter
+0000-00722-00001-20170630005224 counter                       warp ((vessel random id))                                     the counter
 0000-00371-00410-20170514210751 daniel         syv
 0000-00592-00410-20170529220117 orb
 0000-00291-00292-20170304203746 akaka                         
-0000-00292-00292-20170330005830 sadness                       
+0000-00292-00292-20170718142906 sadness
 0000-00589-00589-20170418051007 lowkey                        
 0000-00291-00589-20170304204146 houses                                                                                      very biggo
 0000-00586-00457-20170529220220 monolith       cryptic                                                                      I wonder why I land here in this mysterious world before me
@@ -620,7 +620,7 @@
 0000-00619-00537-20170309135726 woman          wonder                                                                       notable bondage user
 0000-00616-00297-20170307005507 rune           reef           
 1000-00257-00257-20170421080544 create                        
-0000-00309-00298-20170307010246 repairer                      
+0000-00619-00298-20170718012552 repairer
 0000-00619-00001-20170512235656 fold           rue                                                                          An eerie empty street that goes past the horizon of your sight.
 0000-00060-00619-20170307140152 reef           blue           
 0000-00623-00619-20170307153212 shelf          book           warp (random 632 633 628)
@@ -632,7 +632,7 @@
 0000-00615-00300-20170307045526 gauntlets      magical        
 0000-00621-00619-20170307153130 section        runebooks      warp (random 3 83)
 0000-00500-00619-20170327092703 leaves         molting        
-0000-00604-00619-20170307060408 mystr          mystrs         
+0000-00604-00619-20170722035100 mystr          mystrs         create world                                                  scary monster
 0000-00630-00619-20170504120913 eiouey
 0000-00621-00619-20170307152726 section        book           
 0000-00621-00619-20170307153548 section        directory      warp (random 215 229)
@@ -643,7 +643,7 @@
 1000-00558-00457-20170310185732 applause                                                                                    WOW, THIS CRYPTOGRAM IS SO CRYPTIC, IT'S ABSOLUTE NONSENSE! THIS MESSAGE MUST BE A ONE TIME PAD! -- C
 0000-00495-00502-20170310201308 meat           red            
 0000-00465-00502-20170503215819 who                           make (random more from this you searching)
-0000-00002-00619-20170619004008 clarification
+0000-00036-00619-20170714121959 clarification
 0000-00563-00563-20170311200120 this           take           create (random big yig tink pink) (random rink bink spink)
 0000-00878-00563-20170516090302 rink
 1000-00644-00585-20170404193714 countrix                                                                                    
@@ -659,9 +659,9 @@
 0000-00654-00653-20170528064508 pootstex
 0000-00726-00653-20170618090253 president      counted                                                                      End times
 0000-00431-00432-20170316182528 vessel         blood          
-0000-00106-00444-20170320055328 pootwtex                      
-0000-00214-00066-20170317221316 monster                       
-0000-00214-00066-20170317221355 fightmonster                  
+0000-00025-00444-20170820121535 pootwtex
+0000-00214-00066-20170723022551 monster
+0000-00214-00066-20170707202701 fightmonster                                                                                half of the ship
 0000-00408-00066-20170319141944 cars                          
 0000-00611-00585-20170318001200 tnilg                                                                                       .ecafrus derorrim a ffo detcelfer dna egde tnilf gnicreip a yb leets lacisyhpatem morf kcurts fi sa ,thgil fo kraps A
 0000-00460-00287-20170318140753 cylanders      glass                                                                        Not testing solver name lenith am testing
@@ -675,8 +675,8 @@
 0000-00668-00668-20170319005519 child          another        
 0000-00101-00668-20170413212127 book           cyan           warp to 50
 1000-00722-00585-20170417035039 countinghouse                                                                               COUNTERS COUNT COUNTERS COUNTING COUNTERS COUNTING COUNTER'S COUNTERS
-0000-00915-00490-20170524150602 trees
-0000-00490-00490-20170518145108 forest
+0000-00993-00490-20170816113017 trees                         create a coffee cup
+0000-00007-00490-20170815234435 forest
 0000-00500-00431-20170528155632 cat
 0000-00257-00257-20170514211033 later          syv
 1000-00677-00457-20170325115720 esidarap                                                                                    PARTY, PARTY, AND MORE PARTY! NO RESTRICTIONS AND&solOR RULES DON'T BOTHER WITH THE WEIRDNESS BALL -- BILL CIPHER
@@ -687,25 +687,25 @@
 0000-00634-00635-20170326172226 dog                           
 0000-00001-00399-20170514211326 valkitty       syv
 0000-00684-00619-20170404171354 rut                           
-0000-00289-00589-20170331234735 mine                          
-0000-00468-00468-20170512154918 fool
+0000-00619-00589-20170702155418 mine
+0000-00468-00468-20170709093038 fool
 0000-00702-00234-20170409222941 joker                         
 0000-00100-00683-20170409160741 gourd          golden                                                                       In respect to the time of enjoyment, an interest in property is either: 1. Present or future and, 2. Perpetual or limited.
 1000-00644-00585-20170404193354 iframe                                                                                      pootstex. type leave in the url to leave. iframe width="560" height="315" src="https:&sol&solwww.youtube.com&solembed&solkPVGXyHCSsw" frameborder="0" allowfullscreen &sol
 0000-00271-00537-20170413120502 doggo                         
 1000-00689-00585-20170404193547 leave          vessel         leave                                                         pootstex
-0000-00523-00523-20170502202742 window
-0000-00954-00251-20170528090415 kettle
+0000-00001-00523-20170626153745 window                        create a coffee                                               red clay
+0000-00693-00251-20170727155216 kettle
 0000-00694-00671-20170513145228 floor
 1000-00468-00457-20170408150434 offer                                                                                       HEY FOOL VESSEL, ID 457 HERE! THIS IS AN OFFER TO WORK TOGETHER. JUST DROP IN A RESPONSE AND I'M SURE TO FIND IT. WE'LL WORK OUT THE TERMS AFTER WE SETTLE ON A DECISION.
 0000-00696-00512-20170604104654 shoes                                                                                       put me on your head
 0000-00806-00512-20170514210813 cannon
 0000-00404-00687-20170411150542 rose                          
-0000-00698-00687-20170409222651 field                         
+0000-00404-00687-20170627153937 field
 0000-00701-00687-20170514021557 mountain                                                                                    A forever and a half of stone. No storm has washed it away, and no storm ever will.
 0000-00698-00687-20170505101520 mouse                         leave the room
 0000-00605-00687-20170505101745 cricket
-0000-00013-00023-20170410182936 dongs                         
+0000-00077-00023-20170627051755 dongs
 0000-00240-00231-20170418091356 ylisse         everlasting    leave                                                         it's not a place
 0000-00360-00256-20170412104752 memory         feeling        
 0000-00255-00054-20170602063446 screw
@@ -713,8 +713,8 @@
 0000-00437-00437-20170413224812 tiger          headed         
 1000-00571-00457-20170422100732 mailbox        yellow                                                                       The mailbox growls as you get closer to its opening. FEEL FREE TO LEAVE A NOTE. I'LL BE PLENTY GLAD TO READ WHAT YOU COFFERS WANT TO SAY TO ME. -- CbrP.S. I AM NOT PART OF THOSE ASININE TEA VESSELS, SO I CAN'T DO BUGFIXES. BUT MAYBE WE CAN STRIKE A BLUE FLAME&quest IF YOU GET MY POINT(S). -- C
 0000-00050-00106-20170416205341 man            handsome       
-0000-00002-00352-20170603002416 quark
-0000-00536-00352-20170416213721 happiness                     
+0000-00008-00352-20170730003903 quark
+0000-01160-00352-20170828053338 happiness
 0000-00001-00711-20170528210545 julia          rogue                                                                        vast
 0000-00713-00711-20170416223510 bastion        last                                                                         The walls are now steady, but Rogue Julia isn't talking to us anymore
 0000-00599-00711-20170507002357 man                                                                                         power
@@ -732,9 +732,9 @@
 0000-00231-00231-20170418093310 horizon        event                                                                        You are at the border. Cross if you will, but do not return
 0000-00286-00361-20170418101313 art            objective      enter the art
 0000-00286-00361-20170418101153 repetition     recursive      warp 286                                                      You broke it
-0000-00728-00361-20170418101014 yellow         red                    
-0000-00730-00361-20170418101040 blue                          
-0000-00996-00696-20170618085412 princess
+0000-00728-00361-20170810080945 yellow         red            create a river
+0000-00361-00361-20170714174952 blue
+0000-00996-00696-20170807102952 princess                                                                                    ivory
 0000-00732-00696-20170610050332 ivory                                                                                       egg
 0000-00065-00732-20170618091039 trimetrique
 0000-00117-00117-20170520062759 weasel
@@ -754,25 +754,25 @@
 0000-00747-00747-20170514210539 coffee         syv
 0000-00742-00747-20170513161543 coffee         black
 0000-00485-00457-20170506181305 tunnelvessel   counted
-0000-00096-00521-20170523135630 wrinkletime
+0000-00001-00521-20170712100949 wrinkletime
 0000-00021-00521-20170618141508 wrinkletime
 0000-00450-00196-20170515152200 box            blue
-0000-00450-00196-20170504153042 book
-0000-00225-00196-20170504153611 sausage
+0000-00763-00196-20170626152529 book
+0000-00026-00196-20170710143539 sausage
 0000-00751-00457-20170504170213 tunnelvessel   green
-0000-00217-00136-20170504224145 door
+0000-00099-00136-20170727215144 door
 0000-00217-00136-20170504224311 monster        ugly
 0000-00217-00136-20170504224404 parent         angry-looking
 0000-00217-00136-20170504224440 cake           with
 0000-00217-00136-20170504224459 claudio        named
-0000-00877-00463-20170516004947 stem                                                                                        463
+0000-00877-00463-20170627100819 stem                                                                                        cup can nae talk
 0000-00463-00463-20170505050519 hackme
 0000-00004-00702-20170620052832 debra
-0000-00457-00457-20170506021100 ajaja
+0000-00044-00457-20170805231722 ajaja
 0000-00768-00457-20170514170216 link           dreamscape
 0010-00020-00767-20170514171230 statue         triangular     warp ((vessel random id))                                     bdo dir="rtl"Bill's new form! The old one can take a hike!
 0000-00020-00767-20170506020326 vessel                                                                                      note note note note note
-0000-00457-00768-20170530122521 chain
+0000-00548-00768-20170815164047 chain
 0010-00422-00768-20170506024458 weirdmagic     ancient        cast the weirdness spell onto ((siblings random))             note
 0010-00602-00768-20170506024441 spell          weirdness      warp to ((vessel random id))                                  note
 0010-00585-00585-20170506031432 spell          counter        become the counter
@@ -788,31 +788,31 @@
 0010-00317-00768-20170506205924 spell          break          warp 571
 0000-00123-00768-20170530152843 hole                          create a tree
 0000-00833-00768-20170514171719 weirdness‮bro                                                                               XDUAVgQFYbuBGvmvJfFOSCwDTM5UB1QxRsQXVK4jSm4l
-0000-00941-00731-20170604215401 something
-0000-00468-00686-20170512154633 baracca
+0000-01087-00731-20170712170734 reality
+0000-00686-00686-20170823153426 baracca
 0000-00787-00686-20170512154810 brocca                                                                                      rain
-0000-00468-00686-20170514222654 stem
+0000-00686-00686-20170823153438 stem
 0000-00768-00785-20170512231634 dir="rtl"me   lickbdo
 0000-00791-00768-20170513073928 ‮ytilacinhcet‭                                                                              ‮technicality
 0000-00792-00791-20170513074655 ‮xodarap‭
-0000-00523-00200-20170619154716 teapot
-0000-00008-00197-20170617155323 teapot
-0000-00007-00001-20170513141319 teapot
+0000-00001-00200-20170722040041 teapot
+0000-00672-00197-20170808205606 teapot
+0000-00722-00001-20170705104544 teapot
 0000-00059-00584-20170513135650 tree
 0000-00026-00584-20170529220424 bird
 0000-00531-00584-20170525110100 fire
 0000-00001-00584-20170514022619 bird
 0000-00059-00584-20170513140019 sky
-0000-00803-00584-20170609213318 ground
+0000-00469-00584-20170710023528 ground
 0000-00802-00584-20170513141250 human                         create chair                                                  there is something
 0000-00800-00584-20170601182515 human          female
-0000-00796-00584-20170516064308 forest
+0000-00796-00584-20170708085226 forest                                                                                      emptyness is cool
 0000-00513-00697-20170622120257 hatred                        create children in cauldron                                   I was expecting you, ((vessel name))
-0000-00805-00697-20170513141741 hell
-0000-00666-00697-20170603002657 devil
+0000-00805-00697-20170703035233 hell
+0000-01057-00697-20170807002559 devil
 0000-00516-00697-20170601190135 bonfire
-0000-00805-00697-20170513141901 cauldron
-0000-00019-00001-20170611064619 crystal
+0000-00697-00697-20170717221756 cauldron
+0000-01114-00001-20170812203902 reflection                                                                                  Scented pines circle a large clearing filled with dew soaked meadow grass. A clear sky stretches back and forth between horizons interrupted by a tepid midday sun that struggles against the cold air. All is still, there are no sounds.
 0000-00022-00001-20170513145738 toaster
 0000-00742-00742-20170513161605 coffee         black
 0000-00768-00768-20170513225230 ‭wall          ‮dehctiws
@@ -827,15 +827,15 @@
 0000-00019-00479-20170514022019 poem                                                                                        "I breathe in hope, but exhale nothing but broken dreams."
 0000-00823-00001-20170514055046 ‮suoitneterp‭  pretentious
 0000-00824-00001-20170514081215 solid          flowing        create a nothing itself
-0000-00970-00000-20170612154326 SУV                           transform syv ((vessel name))                                 Everything is nothing and nothing is everything. Syv is nothing and nothing is syv.brbrNothing existed before nothing. Syv existed before syv.brbrSyv is syv. Nothing is nothing.brbrSyv is nothing.
+0000-00825-00000-20170807061054 SУV                           transform syv ((vessel name))                                 Syv.
 0010-00826-00825-20170514081806 paradox                                                                                     Nothing is a paradox. Syv is a paradox.
 0000-00826-00825-20170514082122 nothing        syv
 0000-00825-00825-20170514082145 isa            nothing
-0000-00829-00825-20170524151224 ‮‮‮                                                                                         XXXX XXXX XXXX XXXX XXXXXXX XXXX XXXXXXX X X XXX XX X X XXXX XXX XXX XXXX XX XX X X X X X X X XX
+0000-00962-00825-20170727192814 ‮‮‮                                                                                         XXXX XXXX XXXX XXXX XXXXXXX XXXX XXXXXXX X X XXX XX X X XXXX XXX XXX XXXX XX XX X X X X X X X XX
 0000-00687-00687-20170514130216 cricket
 0000-00020-00767-20170514170153 walrus
 0000-00020-00768-20170514170743 spell          ltoloxa        say
-0000-00569-00000-20170622081554 ‭Cipher‭       ‭Bill‭         warp to ((vessel random name))                                B KSLPOT PW YBXAPPQCN. RF NWCP KA IOMJ B ATXRTT WPRO.brbrbrI'M WATCHING YOU, ((VESSEL NAME)).
+0000-00569-00000-20170719062705 ‭Cipher‭       ‭Bill‭         warp to ((vessel random name))                                B KSLPOT PW YBXAPPQCN. RF NWCP KA IOMJ B ATXRTT WPRO.brbrbrI'M WATCHING YOU, ((VESSEL NAME)).
 0000-00834-00669-20170530105420 teapot
 0010-00001-00825-20170514202608 beolus                        take ((vessel name))                                          A tesseract has 32 edges.
 0010-00825-00825-20170514202333 spell          unvanish       set is_hidden false
@@ -843,14 +843,14 @@
 0000-00825-00825-20170514205709 ‮‮‮vys
 0010-00825-00825-20170514210526 vysyv                         cast the vysyv spell on ((vessel parent name))
 0010-00839-00825-20170514210421 spell          vysyv          transform syv ((vessel name))
-0000-00001-00417-20170620163619 planet
+0000-00007-00417-20170814032400 planet
 0000-00623-00417-20170618043827 drop           rain                                                                         you see a small black cat sitting in the corner
 0000-00842-00417-20170515025502 top            drop                                                                         splash
 0000-00001-00193-20170618084333 cat                                                                                         it's cats all the way down
 0000-00843-00193-20170518182813 cat                                                                                         you see a small black cat sitting in the corner
 0000-00281-00423-20170515174252 land           grass                                                                        the book is torn
 0000-00423-00423-20170602041818 book
-0000-00678-00367-20170515174156 teapot
+0000-00522-00367-20170627161722 teapot
 0000-00849-00367-20170515174304 earthnuker
 0000-00099-00091-20170531004414 book
 0000-00255-00252-20170516184722 dongbear                                                                                    wine
@@ -867,7 +867,7 @@
 0000-00858-00091-20170527193822 tree           wilted         create bunny
 0000-00036-00043-20170515223736 nest           owl                                                                          The owl guards its eggs in its slumber. You see a red egg, an orange egg, a yellow egg, a green egg, a blue egg, an indigo egg, a violet egg, a cyan egg, a pink egg and a sakura egg. Maybe you could take one.
 0000-00043-00043-20170515220953 owl            next
-0000-00036-00043-20170515222724 note
+0000-00865-00043-20170819032508 note
 0000-00863-00043-20170515224039 egg            red                                                                          You notice upon further inspection, that there is a crack within the red shell.
 0000-00863-00043-20170515223057 egg            orange
 0000-00863-00043-20170515223106 egg            yellow
@@ -884,48 +884,48 @@
 0000-00442-00109-20170516090626 knife          hell
 0000-00192-00706-20170516091554 knige          hell
 0000-00192-00706-20170516091651 knife          hell           say what is this
-0000-00018-00051-20170517151220 coffee         black
+0000-00018-00051-20170806035931 coffee         black                                                                        adrift
 0000-00784-00490-20170530152542 egg
-0000-00674-00295-20170601020935 eagle
+0000-00001-00295-20170715114539 eagle
 0000-00567-00295-20170605045714 house
-0000-00845-00193-20170524162606 cat
+0000-00022-00193-20170823233753 cat
 0000-01039-00493-20170625102452 tilde                                                                                       The Throne for the Lazy Kind
-0000-00096-00521-20170519035236 time           wrinkle
+0000-00096-00521-20170817182556 time           wrinkle
 0000-00922-00734-20170610073055 woman
 0000-00696-00065-20170528064925 ebony
 0000-00321-00323-20170621085043 marveilles                    become a proud straight tree                                  splash
-0000-00894-00274-20170530185151 teapot
+0000-00892-00274-20170807103306 teapot
 0000-00380-00274-20170521104751 birdman        angry
 0000-00893-00274-20170521104819 dollars        500
 0000-00943-00254-20170528090121 chair
 0000-00376-00254-20170524142603 chair
 0000-00008-00254-20170524151357 beast          horned                                                                       A little black beast with horns. It is very friendly.
 0000-00376-00897-20170524143418 place          lonely                                                                       A quiet place for souls to rest.
-0000-00915-00897-20170524150741 mirrow         black          create hatchling                                              It is a strange, fish-like creature with black scales.
-0000-00915-00897-20170524150311 pot            broken         create a cup of tea                                           Jasmine. Aromatic.
+0000-00993-00897-20170816112958 mirrow         black          create hatchling                                              It is a strange, fish-like creature with black scales.
+0000-00993-00897-20170816113037 pot            broken         create a cup of tea                                           Jasmine. Aromatic.
 0000-00941-00897-20170527061817 hatchling
 0000-00377-00222-20170524144422 box            small
 0000-00251-00222-20170524145127 department     resources      create office worker
 0000-00251-00222-20170524145342 worker         office                                                                       A very stressed worker.
 0000-00904-00222-20170524145211 ghost          small
-0000-00904-00222-20170524145355 stress
+0000-00408-00222-20170712163208 stress
 0000-00915-00897-20170524150502 machine        coffee         create cup of coffee                                          Broken.
-0000-00907-00897-20170621203856 beans          coffee
-0000-00910-00897-20170621204258 water
+0000-00907-00897-20170815124733 beans          coffee
+0000-00007-00897-20170810224150 water
 0000-00908-00897-20170621204323 heat
-0000-00898-00897-20170524145858 machine        coffee         create coffee
+0000-00898-00897-20170712164305 machine        coffee         create coffee                                                 The coffee beans happens to be decaf... What a waste.
 0000-00911-00897-20170524145912 beans          coffee
-0000-00898-00897-20170621002108 water
+0000-00988-00897-20170809110802 water                                                                                       First Vessel
 0000-00913-00897-20170610182419 heat
 0000-00839-00897-20170619154903 trunk          old                                                                          A place for abandoned and broken things.
 0000-00897-00897-20170524150702 heart          beast
 0000-00918-00897-20170524151006 coffee
 0000-00898-00897-20170524150947 disposal       trash
-0000-00915-00673-20170524190652 hatchling
+0000-00673-00673-20170708060554 hatchling
 0000-00920-00001-20170524214415 hatwearer      hatted
 0000-00103-00210-20170525041035 hum            the
 0000-00733-00889-20170525113410 soul           elephant
-0000-00733-00889-20170525113731 stake          huge
+0000-00733-00889-20170713134304 stake          huge                                                                         red hen
 0000-00733-00889-20170526085256 jobs           steave
 0000-00008-00417-20170616164317 carrot
 0000-00873-00417-20170526183303 tube
@@ -936,10 +936,10 @@
 0000-00891-00930-20170526190448 meal           fine
 0000-00891-00930-20170526190538 meal           fine
 0000-00080-00930-20170526191131 mite           bird           warp to 543
-0000-00543-00930-20170526191502 athens         origami                                                                      a purse is but a rag unless you have something in it
+0000-00543-00930-20170827192821 athens         origami                                                                      the purse has a rag in it
 0000-00934-00930-20170526191533 purse
 0000-00017-00930-20170613101928 purse
-0000-00935-00930-20170611104002 purse
+0000-00935-00930-20170629165427 purse                                                                                       the wallet It seems to be full of currency.
 0000-00552-00930-20170526192157 shrop                         become Robert Falcon Scott
 0000-00943-00930-20170526200953 scott          falcon
 0000-00026-00939-20170526194233 station        train
@@ -948,10 +948,10 @@
 0010-00896-00939-20170528090210 vile                                                                                        What is seen in the vile is only the core of the self, that is to say void
 0000-00042-00943-20170527193225 slime          bike
 0000-00042-00943-20170527193252 slime          vile
-0000-00862-00095-20170527193749 bulb
+0000-01044-00095-20170712120410 bulb
 0000-00858-00095-20170527193846 bunny
-0000-00858-00095-20170527193857 bunny
-0000-00957-00095-20170617021916 ashes
+0000-00017-00095-20170823204750 bunny
+0000-00949-00095-20170728184843 ashes
 0000-00021-00095-20170607164629 ashes
 0000-00568-00095-20170527194609 tomahawk                      warp to 7
 0000-00513-00808-20170528071335 cauldron       children
@@ -960,47 +960,47 @@
 0000-00146-00334-20170529221419 vessel         new            use a forest                                                  You find yourself here just as I have, a little lost, yet continuously wide eyed. Stay on your journey. Allow it to take you wherever it finds
 0000-00021-00196-20170605204806 vampire
 0000-00861-00196-20170617021947 vampire                                                                                     cat
-0000-00800-00803-20170601182523 man
+0000-00006-00803-20170827214511 man
 0000-00026-00010-20170613125400 something
-0000-00706-00706-20170602063436 drink
-0000-00221-00221-20170602123408 steam
-0000-00399-00533-20170602123621 phial
-0000-00512-00065-20170604105023 ivory
+0000-00001-00706-20170709225351 drink
+0000-01131-00221-20170812224007 steam
+0000-00829-00533-20170828163524 phial                                                                                       stores stuff
+0000-00732-00065-20170823045904 ivory
 0000-00696-00696-20170604104517 minima
 0000-00964-00696-20170604104614 nonima                                                                                      Reche
-0000-00696-00696-20170604104744 recursor
+0000-00967-00696-20170711211153 recursor                      create a tea
 0000-00696-00696-20170604104821 elephant
 0010-00213-00833-20170605042510 svtuvettgb                                                                                  AYBZFFL XQ HWZA PLD DSFL XB PLDN J VBMAKP LVS NJKTPOX IVARF KTAU V ARK RPLIFA -- Y
-0000-00490-00885-20170605045704 guardian
+0000-00007-00885-20170625185854 guardian
 0000-00238-00367-20170605090722 room
 0000-00004-00970-20170605091425 heaven                                                                                      Yankee is bald
 0000-00498-00970-20170606065407 yankee                                                                                      Yankee is bald
 0000-00532-00972-20170608151410 sweden
-0000-00116-00116-20170608150920 teapot
+0000-00974-00116-20170731153048 teapot
 0000-00888-00521-20170608194308 meow
 0000-00096-00975-20170608194244 time           wrinkle
 0000-00008-00809-20170618145620 tepot
-0000-00214-00658-20170609193430 fightmonster
-0000-00733-00889-20170610073010 hen
-0000-00006-00889-20170619143108 Dragon
-0000-00922-00889-20170610073107 india
+0000-00659-00658-20170709160228 fightmonster
+0000-00923-00889-20170713134209 hen
+0000-00008-00889-20170715115132 Dragon
+0000-01137-00889-20170819200800 india
 0000-00806-00809-20170622101057 dachshund
 0000-00982-00982-20170621204919 room
-0000-00026-00982-20170621192846 fireplace
-0000-00002-00004-20170610182823 teapot
+0000-00021-00982-20170720215409 fireplace
+0000-00143-00004-20170712104212 teapot
 0000-00986-00915-20170612042659 coffee
-0000-00806-00254-20170624044006 coffee
+0000-00806-00254-20170629165823 coffee                                                                                      Such a desirable drink, like a nice friend it seems to always be here for you
 0000-00898-00254-20170612231943 coffee
-0000-00915-00673-20170613203537 hatchling
+0000-00561-00673-20170819100006 hatchling
 0000-00001-00673-20170618122652 hatchling
 0000-00915-00673-20170613203713 hatchling
 0000-00915-00673-20170613203718 hatchling
-0000-00915-00673-20170613203858 hatchling
-0000-00898-00254-20170613204045 coffee
+0000-00006-00673-20170816114002 hatchling
+0000-00914-00254-20170805094925 coffee
 0000-00914-00254-20170614165816 bird.          golden
 0000-00512-00351-20170618085141 teapot
 0000-00053-00400-20170620061424 tree
-0000-00537-00400-20170615142846 dog
+0000-00537-00400-20170822051053 dog                                                                                         test
 0000-00300-00726-20170625102231 good                                                                                        ~
 0000-00004-00726-20170615165411 1000
 0000-01000-00726-20170618090048 land           new                                                                          try to terraform this place
@@ -1015,22 +1015,22 @@
 0000-01007-01006-20170616064743 src            baa
 0000-00196-00196-20170617125315 act
 0000-00020-00193-20170618084157 cat                                                                                         End times of a crowd at the office
-0000-00512-00655-20170618084416 ebony
+0000-00002-00655-20170806224635 ebony
 0000-00300-00655-20170618085754 others         for
 0000-01003-00726-20170618090301 pantheon       new
 0000-00726-00117-20170618090847 woman
 0000-01010-00065-20170618142721 ringtone                                                                                    All you can hear is an echo
 0000-01022-01004-20170622170946 child
 0000-00037-00479-20170618204523 moose
-0000-00742-00052-20170619031536 squirrel
+0000-00027-00052-20170812230553 squirrel
 0000-00254-00915-20170621002140 coffee
-0000-00806-00984-20170622171045 building
+0000-00806-00984-20170810033913 building                                                                                    this is liike a building, yo
 0000-00304-00877-20170621214540 eraser         pencil         warp 1
 0000-00026-00877-20170621214749 tunnel
 0000-00026-00877-20170621215004 lock                          warp 1
 0000-00336-00336-20170623011755 666            apartment
 0000-00336-00336-20170623011903 grimoire
-0000-00570-00001-20170625105716 saber          argon                                                                        This is a player vessel.
+0000-00036-00001-20170708211750 saber          argon                                                                        This is a player vessel.
 0000-00020-00001-20170624233244 spell          unsilence
 0000-00020-01028-20170625000839 spell          unsilence      set is_silent false
 0000-00019-00001-20170625024127 creator        argon                                                                        Secondary vessel of argon saber
@@ -1038,7 +1038,136 @@
 0000-01032-01031-20170624235733 spell          unsilence      set is_silent false
 0000-00336-00336-20170625002706 charm          luck                                                                         Like a sunrise set out ablaze, let your day be amaze. So mote it be.
 0000-00020-01028-20170625003321 test
-0000-00020-00001-20170625025551 test
+0000-00552-00001-20170810092757 green          blue
 0000-00020-00001-20170625030600 spell          untunnel       set is_tunnel false
-0000-00020-01028-20170625031426 dupe
-0000-00999-00887-20170625102437 stem
+0000-00019-01028-20170804151954 dupe
+0000-00999-00887-20170828162538 stem                                                                                        the stem is purple
+0000-00692-00692-20170626153632 torch
+0000-01043-00692-20170721220455 pug                                                                                         fire is hot
+0000-00044-01041-20170807103221 georgee
+0000-00001-01041-20170626153849 georgee
+0000-00862-00946-20170627050800 pirate
+0000-00312-00312-20170729213414 pirate
+0000-00310-00312-20170627051915 smuggler
+0000-00310-00312-20170627051925 gun
+0000-00891-00417-20170628233245 top            drop
+0000-00901-00584-20170629170357 wyrd           the
+0000-00188-01049-20170629165025 box            juice
+0000-01080-01049-20170711221935 wallet
+0000-00891-00417-20170701115956 top            drop
+0000-00891-00417-20170702110348 top            drop
+0000-00891-00417-20170705171147 top            drop
+0000-00878-00643-20170708085838 carote
+0000-00008-00643-20170720132435 shorcut
+0000-00666-00807-20170708100411 blob
+0000-00004-00503-20170708120855 jfiofjeo
+0000-01058-00503-20170708120953 sjw
+0000-01058-00503-20170708121009 nibberkiller
+0000-00965-00521-20170711160232 map
+0000-00018-01028-20170708211742 coffee         black
+0000-01079-00203-20170711210633 cigarette
+0000-00789-00686-20170709092921 flower
+0000-00891-00417-20170709113545 top            drop
+0000-00502-00494-20170709164545 stool
+0000-01066-00494-20170709164634 classroom
+0000-00803-00801-20170710023339 vessel
+0000-00469-00801-20170710023632 niceland       path
+0000-01070-00210-20170710030645 arachnid       flippant
+0000-00025-01070-20170710024636 rock           sleeping                                                                     The lustrous sleeping rock lays awry by the driftwood of the shore.
+0000-00025-01070-20170710025632 docks          flimsy         create fishing rod                                            The docks seem that it has been through years, yet impervious to the crashing waves. A lone fishing rod is left standing at the edge, uncast.
+0000-01070-01070-20170710030318 rod            fishing        cast caught a fish
+0000-01070-01070-20170710030300 fish
+0000-00001-01002-20170710031718 arachnid       flippant
+0000-00915-00673-20170710144006 hatchling
+0000-00915-00673-20170710144118 hatchling
+0000-00096-01061-20170711155958 map
+0000-00937-01051-20170711210623 random
+0000-01079-01051-20170711221535 random
+0000-01114-00220-20170812103828 pony
+0000-01084-00220-20170714142451 meadow
+0000-00220-01081-20170712163341 table          dining
+0000-00220-01081-20170714142356 wife           your                                                                         help
+0000-00220-01081-20170712163457 door           kitchen
+0000-00988-00786-20170809110754 coffee
+0000-00898-00786-20170712170106 gate           city           enter Eastburgh                                               A small narrow path leads away from the Lonely Place. Ahead, the sleepy village of Eastburgh.
+0000-01087-00786-20170712170130 eastburgh
+0000-01041-01041-20170721220339 fireplace
+0000-00019-01041-20170730103600 fireplace
+0000-01092-01056-20170720132602 mysterious
+0000-00006-01091-20170720132554 atlas
+0000-00536-00352-20170720155027 chicken
+0000-00018-00116-20170722040756 coffee         black
+0000-00891-00417-20170722212823 top            drop
+0000-00026-01024-20170725090809 vessel
+0000-00026-01024-20170725090900 tree
+0000-00193-00193-20170727155723 coffee
+0000-00962-00829-20170828163442 house                                                                                       the chair has velvet cushions
+0000-00001-00328-20170727221548 orb            golden
+0000-01092-01091-20170729215814 fox
+0000-01092-01091-20170729215927 door
+0000-01092-01091-20170729215956 person         another
+0000-00236-00249-20170729230052 dog
+0000-00038-00384-20170803114738 car
+0000-00516-00808-20170803161217 moose          poop
+0000-00825-00825-20170807060548 syv
+0000-00825-00825-20170807060659 syv
+0000-00001-00980-20170810070751 teapot
+0000-00730-01036-20170810081153 tree
+0000-00730-01036-20170810081204 river
+0000-00730-01036-20170810081325 dirt
+0000-00730-01036-20170810081333 sand
+0000-00810-00810-20170812162317 mirror                        warp 810                                                      You see ((vessel name)) or a desaturated immitation that mimics without self awareness, but the world is not what it was. There is azure sky where grass should be and peaking dunes instead of sky with spindrifts of sand turning to wispy shadowy clouds.
+0000-00810-00810-20170810195724 diary                         cast lock spell                                               Blank pages. Perhaps a journey yet to begin or perhaps the pages are filled with stories not worth telling.
+0000-00324-00825-20170812030457 Axolotl                                                                                     I am The Axolotl.
+0000-00290-01116-20170811072313 somethingness
+0000-00007-00367-20170812102655 vessel
+0000-01118-00367-20170812102730 counter
+0000-01118-00367-20170812102737 chair
+0000-01118-00367-20170812102748 flowers
+0000-01118-00367-20170812102759 table
+0000-01120-00367-20170812102835 vessel
+0000-01123-00367-20170812103611 vessel                                                                                      Doom is inevitable, the more I think about it the more sense it makes
+0000-01124-00367-20170812102932 chair
+0000-00367-00367-20170812103631 flowers
+0000-01124-00367-20170812102942 company
+0000-00324-00367-20170815040918 books
+0000-01124-00367-20170812104102 vessel
+0000-01125-00367-20170820001044 fairy
+0000-00001-00961-20170812225448 chris
+0000-00001-01131-20170812225430 haven
+0000-00188-00465-20170815122423 fire
+0000-00832-00162-20170818032026 ayam
+0000-00809-00809-20170818204209 man
+0000-00889-00981-20170819200636 food
+0000-00889-00981-20170819200733 flower
+0000-00379-00707-20170823012849 owl
+0000-00808-00515-20170825013145 unicorn
+0000-00808-00515-20170825013157 house
+0000-01140-00515-20170825013614 foyer                                                                                       The house is quiet.
+0000-01141-00515-20170825013241 room           living
+0000-01141-00515-20170825013250 kitchen
+0000-01141-00515-20170825013301 staircase
+0000-00619-00384-20170826014805 door
+0000-00962-00384-20170826015152 cat
+0000-00962-00384-20170826015543 eye            odd
+0000-00962-00384-20170826015634 synthesia
+0000-00020-00384-20170826120758 eyepatch       wearing
+0000-00020-00384-20170826120812 kibum          kim
+0000-01153-00756-20170826221900 ship
+0000-00026-01151-20170826221809 station
+0000-01152-01151-20170826221958 door                                                                                        dock is wide
+0000-01153-01151-20170826221925 dock
+0000-00088-00384-20170827192441 bagel                         create jelly
+0000-00018-00384-20170827195457 coffee         black
+0000-00018-00384-20170827195515 coffee         black
+0000-00459-00384-20170827200247 coffe
+0000-00985-00384-20170827200435 tea
+0000-01093-00712-20170828053313 horse
+0000-00352-00712-20170828164828 house
+0000-01001-00384-20170828162630 earth
+0000-00728-00384-20170828162904 river
+0000-00728-00384-20170828162929 river
+0000-01099-00384-20170828163412 chair
+0000-01099-00384-20170828163420 table
+0000-00044-00384-20170828165035 yongguk        bang
+0000-00055-00384-20170828170058 jonghyun       kim
