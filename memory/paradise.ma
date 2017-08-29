@@ -47,7 +47,7 @@
 0000-00043-00016-20170131183755 answer         final          
 0000-00876-00001-20170515224100 box            interesting
 1000-00044-00027-20170210194559 workshop       void                                                                         Made from broken pieces of ancient Mudslide Mountain technology . An insulating box can serve as a place for scope experiments. I keep my possessions in this locker . I throw things in the trash barrel when done with them. I have a mailbox you can use.
-0000-00044-00027-20170130221347 box            insulating     
+0000-00001-00027-20170830122445 box            insulating
 0000-00279-00027-20170519235830 lego                                                                                        Eagle
 1000-00310-00027-20170212022737 birdcage       globeshaped                                                                  A fluffy grey parrot sits on a wooden perch. He says "You know Suo. You know Suo. You know..."
 0000-00003-00027-20170131170543 widget                        warp 76

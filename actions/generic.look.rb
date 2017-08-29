@@ -147,7 +147,7 @@ class ActionLook
 
     if @host.parent.is_silent then return "" end
 
-    messages = $forum.to_a("comment")
+    messages = $nataniev.vessel.corpse.forum.to_a("comment")
 
     selection = @host.parent.name.like("lobby") ? messages[messages.length-7,7] : messages[messages.length-3,3]
 

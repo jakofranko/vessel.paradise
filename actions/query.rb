@@ -22,7 +22,7 @@ class ActionQuery
     load_folder("#{@host.path}/vessels/*")
     load_folder("#{@host.path}/actions/*")
 
-    $forum = Memory_Array.new("forum",@host.path)
+    $nataniev.vessel.corpse.forum = Memory_Array.new("forum",@host.path)
 
     a = []
     Memory_Array.new("forum",@host.path).to_a.reverse[0,10].each do |message|

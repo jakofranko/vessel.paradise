@@ -1,7 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Ghost
+class Teapot
 
   include Vessel
   # include VesselToolkit
@@ -137,7 +137,7 @@ class Ghost
 
   def save
 
-    $paradise.overwrite_line(@id+4,encode)
+    $nataniev.vessel.corpse.paradise.overwrite_line(@id+4,encode)
 
     return true
 
@@ -153,7 +153,7 @@ class Ghost
 
   def parent
 
-    @parent = @parent ? @parent : $parade[@unde]
+    @parent = @parent ? @parent : $nataniev.vessel.corpse.parade[@unde]
 
     return @parent ? (@parent.id = @unde ; @parent) : VesselVoid.new
 
@@ -201,7 +201,7 @@ class Ghost
 
   def creator
 
-    @creator = @creator ? @creator : $parade[owner]
+    @creator = @creator ? @creator : $nataniev.vessel.corpse.parade[owner]
 
     return @creator ? @creator : VesselVoid.new
     
@@ -212,7 +212,7 @@ class Ghost
     if @tunnels then return @tunnels end
 
     @tunnels = []
-    $parade.each do |vessel|
+    $nataniev.vessel.corpse.parade.each do |vessel|
       if !vessel.is_tunnel then next end
       @tunnels.push(vessel)
     end
@@ -225,7 +225,7 @@ class Ghost
     if @siblings then return @siblings end
 
     @siblings = []
-    $parade.each do |vessel|
+    $nataniev.vessel.corpse.parade.each do |vessel|
       if vessel.unde != @unde then next end
       if vessel.id == parent.id then next end
       if vessel.id == @id then next end
@@ -241,7 +241,7 @@ class Ghost
     if @children then return @children end
 
     @children = []
-    $parade.each do |vessel|
+    $nataniev.vessel.corpse.parade.each do |vessel|
       if vessel.unde != @id then next end
       if vessel.id == @id then next end
       if is_silent && vessel.owner != owner && vessel.owner != @id then next end
@@ -255,18 +255,18 @@ class Ghost
 
     parts = params.remove_articles.split(" ")
 
-    if parts.last.to_i > 0 && $parade[parts.last.to_i] then return $parade[parts.last.to_i] end
+    if parts.last.to_i > 0 && $nataniev.vessel.corpse.parade[parts.last.to_i] then return $nataniev.vessel.corpse.parade[parts.last.to_i] end
 
     name = parts[-1,1]
     attr = parts.length > 1 ? parts[-2,1] : nil
 
     # Precise
-    $parade.each do |vessel|
+    $nataniev.vessel.corpse.parade.each do |vessel|
       if vessel.name.like(name) && (attr && vessel.attr.like(attr)) then return vessel end
     end
 
     # Flexible
-    $parade.shuffle.each do |vessel|
+    $nataniev.vessel.corpse.parade.shuffle.each do |vessel|
       if vessel.name.like(name) then return vessel end
     end
 
@@ -319,7 +319,7 @@ class Ghost
   def find_random
 
     candidates = []
-    $parade.each do |vessel|
+    $nataniev.vessel.corpse.parade.each do |vessel|
       if vessel.is_hidden then next end
       candidates.push(vessel)
     end
@@ -437,7 +437,7 @@ class Ghost
 
   def is_unique
 
-    $parade.each do |vessel|
+    $nataniev.vessel.corpse.parade.each do |vessel|
       if vessel.id == @id then next end
       if vessel.name.like(@name) && vessel.attr.like(@attr) then return false end
     end

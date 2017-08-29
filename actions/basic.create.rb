@@ -31,7 +31,7 @@ class ActionCreate
     if !validity_check              then return @host.answer(self,:error,"#{validity_errors.first}") end
     if !new_vessel.is_unique        then return @host.answer(self,:error,"Another #{new_vessel} vessel already exists.") end
 
-    $paradise.append(new_vessel.encode)
+    $nataniev.vessel.corpse.paradise.append(new_vessel.encode)
 
     return @host.answer(self,:modal,"#{topic} created the #{new_vessel}.")
 

@@ -52,9 +52,9 @@ class Comment
 
   def vessel_name
 
-    if !$parade[from] then return "ghost" end
+    if !$nataniev.vessel.corpse.parade[from] then return "ghost" end
 
-    vessel = $parade[from]
+    vessel = $nataniev.vessel.corpse.parade[from]
     return "the #{vessel}"
 
   end
@@ -75,7 +75,7 @@ class Comment
     if is_question then return "<li>#{vessel_name.capitalize} asked \"<message>#{message.capitalize}?</message>\".</li>" end
     if is_shout then return "<li>#{vessel_name.capitalize} shouts \"<message>#{message.capitalize}</message>\".</li>" end
     if is_emote then return "<li>#{vessel_name.capitalize} <message>#{message[3,message.length-3]}</message>.</li>" end
-    if is_warp then return "<li>#{vessel_name.capitalize} signals from the <action data-action='warp to #{message.to_i}'>#{$parade[message.to_i]}</action>.</li>" end
+    if is_warp then return "<li>#{vessel_name.capitalize} signals from the <action data-action='warp to #{message.to_i}'>#{$nataniev.vessel.corpse.parade[message.to_i]}</action>.</li>" end
 
     return "<li>— \"<message>#{message.capitalize}</message>\", says #{vessel_name}.</li>"
 
@@ -130,7 +130,7 @@ class Comment
 
   def is_repeated
 
-    $forum.to_a(:comment).reverse[0,1].each do |comment|
+    $nataniev.vessel.corpse.forum.to_a(:comment).reverse[0,1].each do |comment|
       if comment.message == message then return true end
     end
     return false
