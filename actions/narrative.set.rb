@@ -14,7 +14,7 @@ class ActionSet
     @name = "Set"
     @verb = "Setting"
     @docs = "Directly write attributes for a owned vessel, the set command is meant to be used with programs and casted as spells."
-    @examples = ["set is_locked true\n<comment>You have locked the yard.</comment>"]
+    @examples = ["<b>set</b> is_locked true <comment>You have locked the yard.</comment>"]
 
   end
 

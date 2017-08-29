@@ -21,9 +21,9 @@ class WildcardTime
     d = Desamber.new
 
     if @value.like("date")  then return d.to_s end
-    if @value.like("year")  then return d.year.to_s end
-    if @value.like("month") then return d.monthName.to_s end
-    if @value.like("day")   then return d.equalDay.to_s end
+    if @value.like("year")  then return d.y.to_s end
+    if @value.like("month") then return d.m.to_s end
+    if @value.like("day")   then return d.d.to_s end
     if @value.like("clock") then return d.clock.to_s end
     if @value.like("above") then return d.above.to_s end
     if @value.like("below") then return d.below.to_s end

@@ -14,7 +14,7 @@ class ActionCreate
     @name = "Create"
     @verb = "Creating"
     @docs = "Create a new vessel at your current location. Vessel names and attributes must include less than 14 characters and be unique. "
-    @examples = ["create a black cat\n<comment>You see a black cat.</comment>"]
+    @examples = ["<b>create</b> a black cat <comment>You see a black cat.</comment>"]
 
   end
 
@@ -33,7 +33,7 @@ class ActionCreate
 
     $paradise.append(new_vessel.encode)
 
-    return @host.answer(self,:modal,"#{topic} created #{new_vessel}.")
+    return @host.answer(self,:modal,"#{topic} created the #{new_vessel}.")
 
   end
 

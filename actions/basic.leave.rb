@@ -14,7 +14,7 @@ class ActionLeave
     @name = "Leave"
     @verb = "Leaving"
     @docs = "Exit the parent vessel."
-    @examples = ["leave\n<comment>You are a black cat in the yard.</comment>"]
+    @examples = ["<b>leave</b> <comment>You are a black cat in the yard.</comment>"]
 
   end
 
@@ -28,7 +28,7 @@ class ActionLeave
 
     @host.set_unde(target.id)
     
-    return @host.answer(self,:modal,"#{topic} have left #{prev}, and entered <i>#{target}</i>.")
+    return @host.answer(self,:modal,"#{topic} have left the #{prev}, and entered the <i>#{target}</i>.")
     
   end
 

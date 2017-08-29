@@ -14,7 +14,7 @@ class ActionBecome
     @name = "Become"
     @verb = "Becoming"
     @docs = "Become a visible vessel, the target vessel must be present and visible in the current parent vessel. Adding a bookmark with your browser will preserve your vessel id for your return."
-    @examples = ["become the black cat\n<comment>You are a black cat.</comment>"]
+    @examples = ["<b>become</b> the black cat <comment>You are a black cat.</comment>"]
 
   end
 

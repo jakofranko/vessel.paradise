@@ -34,11 +34,11 @@ class ActionLook
 
     html = ""
     if @host.is_paradox
-      html = "The #{@host} Paradox"
+      html = "You are a paradox of the #{@host}."
     elsif @host.parent.is_paradox
-      html = "The #{@host.parent}"
+      html = "You are the #{@host}, in #{@host.parent.owner == @host.id ? 'your' : 'the'} #{@host.parent} Paradox."
     else
-      html = "#{@host} in the #{@host.parent}"
+      html = "You are the #{@host}, in #{@host.parent.owner == @host.id ? 'your' : 'the'} #{@host.parent}."
     end
     return "<h1 id='portal'>#{html}</h1>"    
 
@@ -85,7 +85,7 @@ class ActionLook
     elsif filtered_siblings.length > 3
       html += "You see the #{filtered_siblings[0].to_html}, the #{filtered_siblings[1].to_html} and #{filtered_siblings.length-2} other vessels. "
     elsif !@host.parent.is_silent && !@host.parent.has_note
-      html += "There is nothing here, why don't you create something."
+      html += "<i style='color:#999'>There is nothing here, why don't you <action data-action='create '>create</action> something.</i>"
     end
 
     return "<p>#{html}</p>"

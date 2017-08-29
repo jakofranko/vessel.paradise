@@ -14,7 +14,7 @@ class ActionCast
     @name = "Cast"
     @docs = "Use a vessel program's from anywhere. By default, the spell will be cast onto the current active vessel, casting can also target a visible vessel."
     @verb = "Casting"
-    @examples = ["cast the vanish spell\n<comment>The black cat is now hidden.</comment>","cast the vanish spell <b>on</b> the purple bat\n<comment>The purple bat is now hidden.</comment>"]
+    @examples = ["<b>cast</b> the vanish spell <comment>You are invisible.</comment>","<b>cast</b> the vanish spell <b>on</b> the purple bat"]
 
   end
 

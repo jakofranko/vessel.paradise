@@ -80,11 +80,16 @@ class CorpseHttp
     add_meta("apple-touch-fullscreen","yes")
     add_meta("apple-mobile-web-app-status-bar-style","black-translucent")
     
-    add_link("style.reset.css")
+    add_link("reset.css",:lobby)
+    add_link("font.input_mono.css",:lobby)
+    add_link("font.lora.css",:lobby)
+    add_link("font.din.css",:lobby)
+    
+    add_script("core/jquery.js",:lobby)
+    
     add_link("style.fonts.css")
     add_link("style.main.css")
 
-    add_script("jquery.core.js")
     add_script("jquery.main.js")
 
   end
@@ -107,8 +112,6 @@ class CorpseHttp
       #{@player.act(action,params)}
     </view>
     <div class='terminal'>
-      <action data-action='say ' class='say'><img src='public.paradise/media/vectors/say.svg'/></action>
-      <action data-action='help ' class='help'><img src='public.paradise/media/vectors/help.svg'/></action>
       <input placeholder='What would you like to do?'/>
     </div>"
 

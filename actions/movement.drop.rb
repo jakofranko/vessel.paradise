@@ -14,7 +14,7 @@ class ActionDrop
     @name = "Drop"
     @verb = "Droping"
     @docs = "Move a child vessel into the parent vessel."
-    @examples = ["drop the scissor\n<comment>You see the scissor.</comment>"]
+    @examples = ["<b>drop</b> the scissor <comment>You see the scissor.</comment>"]
 
   end
 
@@ -27,7 +27,7 @@ class ActionDrop
 
     target.set_unde(@host.unde)
 
-    return @host.answer(self,:modal,"#{topic} dropped #{target}.")
+    return @host.answer(self,:modal,"#{topic} dropped the #{target}.")
     
   end
 

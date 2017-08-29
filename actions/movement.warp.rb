@@ -14,7 +14,7 @@ class ActionWarp
     @name = "Warp"
     @verb = "Warping"
     @docs = "Enter a distant vessel by either its name, or its warp id. The vessel must be visible."
-    @examples = ["warp to the library\n<comment>The black cat is in the library.</comment>","warp to 1\n<comment>The black cat is in the library.</comment>"]
+    @examples = ["<b>warp</b> to the library <comment>You entered the library.</comment>","<b>warp</b> to 1 <comment>You entered the library.</comment>"]
 
   end
 
@@ -30,7 +30,7 @@ class ActionWarp
     
     @host.set_unde(target.id)
 
-    return @host.answer(self,:modal,"#{topic} left #{prev} and warped to #{target}.")
+    return @host.answer(self,:modal,"#{topic} left #{prev} and warped to the #{target}.")
 
   end
 

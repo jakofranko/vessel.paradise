@@ -14,7 +14,7 @@ class ActionTransform
     @name = "Transform"
     @verb = "Transforming"
     @docs = "Change your current vessel name and attribute."
-    @examples = ["transform into a red bat\n<comment>You are a red bat.</comment>"]
+    @examples = ["<b>transform</b> into a red bat <comment>You are a red bat.</comment>"]
 
   end
 
@@ -35,7 +35,7 @@ class ActionTransform
 
     @host.save
 
-    return @host.answer(self,:modal,"#{topic} transformed into #{@host}.")
+    return @host.answer(self,:modal,"#{topic} transformed into the #{@host}.")
     
   end
 

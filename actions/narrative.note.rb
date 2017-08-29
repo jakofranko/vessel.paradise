@@ -14,7 +14,7 @@ class ActionNote
     @name = "Note"
     @verb = "Describing"
     @docs = "Add a description to the current parent vessel."
-    @examples = ["note the cat is dark.\n<comment>The cat is dark.</comment>"]
+    @examples = ["<b>note</b> the cat is dark. <comment>The cat is dark.</comment>"]
 
   end
 
@@ -29,7 +29,7 @@ class ActionNote
     
     target.set_note(params)
 
-    return @host.answer(self,:modal,"#{topic} updated #{target}'s note.")
+    return @host.answer(self,:modal,"#{topic} updated the #{target}'s note.")
 
   end
   

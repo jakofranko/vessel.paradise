@@ -14,7 +14,7 @@ class ActionSignal
     @name = "Signal"
     @verb = "Signaling"
     @docs = "Broadcast your current visible parent vessel."
-    @examples = ["signal\n<comment>The black cat signals the yard.</comment>"]
+    @examples = ["<b>signal</b> <comment>The black cat signals the yard.</comment>"]
 
   end
 

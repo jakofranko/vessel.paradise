@@ -14,7 +14,7 @@ class ActionEmote
     @name = "Emote"
     @verb = "Emoting"
     @docs = "Add an emote message into the global dialog."
-    @examples = ["waves\n<comment>A black cat waves.</comment>"]
+    @examples = ["<b>emote</b> waves <comment>A black cat waves.</comment>"]
 
   end
 

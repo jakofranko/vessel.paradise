@@ -28,7 +28,7 @@
 1010-00005-00000-00000000000000 workings       inner                                                                        From the Order of The Letterists,. The deepest perceptible fabric has revealed to us, its building blocks to be letters, a set of characters with which we can build anything. Assembling into words untruthful, extraparadistical and foreign shapes never beheld in our world.. Our consciousness, residing unobservably between our eternaly unmoving static pages. Could it be that we find ourselves in a mere interactive fiction?. The note appears to be lost in thoughts. 
 1000-00003-00000-00000000000000 piano          red            emote is playing on the red piano.                            It is obviously dusty and obviously red.
 1010-00001-00000-00000000000000 shores         endless                                                                      In this deserted emptiness of the pale shores, sleeps the haven train station, an old way of traversing the different regions of Paradise.. Until next time.
-1010-00022-00000-00000000000000 kiosk          information                                                                  How odd, a trainstation?. You have found one of the many stations. The station exists across all vessels at once.. To create a new station, once need only create a vessel with a mention of it and a tunnel onto this place will then exist. 
+1010-00022-00000-00000000000000 kiosk          information                                                                  How odd, a trainstation?. You have found one of the many stations. The station exists across all vessels at once.. To create a new station, one need only create a locked vessel, with a note including the words "train station" for a tunnel onto this place to exist. 
 1010-00004-00000-00000000000000 teapot         brewing                                                                      Not ready yet, come back later.
 1010-00000-00000-00000000000000 
 1010-00000-00000-00000000000000 
@@ -243,7 +243,7 @@
 0000-00382-00123-20170204154840 heaven         heavenly       cat
 0000-00270-00123-20170418184023 hell                          
 0000-00614-00123-20170418092151 purgatory      endless        
-0000-00546-00123-20170525211841 overworld
+0000-00855-00123-20170829143436 overworld
 0000-00230-00123-20170131232849 chamber        infinite       
 0000-00243-00123-20170202121034 darkness       outer          
 0000-00273-00123-20170407010242 dimension      second         
@@ -1141,7 +1141,7 @@
 0000-00889-00981-20170819200636 food
 0000-00889-00981-20170819200733 flower
 0000-00379-00707-20170823012849 owl
-0000-00808-00515-20170825013145 unicorn
+0000-00145-00515-20170829130942 unicorn
 0000-00808-00515-20170825013157 house
 0000-01140-00515-20170825013614 foyer                                                                                       The house is quiet.
 0000-01141-00515-20170825013241 room           living
@@ -1171,3 +1171,7 @@
 0000-01099-00384-20170828163420 table
 0000-00044-00384-20170828165035 yongguk        bang
 0000-00055-00384-20170828170058 jonghyun       kim
+0000-00035-01139-20170829130133 machine
+0000-00459-00241-20170829132816 coffe
+0000-00006-00241-20170829134802 house
+0000-00006-00241-20170829134807 house

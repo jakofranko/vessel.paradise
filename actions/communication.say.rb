@@ -14,7 +14,7 @@ class ActionSay
     @name = "Say"
     @verb = "Saying"
     @docs = "Add a message into the global dialog."
-    @examples = ["say hello\n<comment>A black cat said hello.</comment>"]
+    @examples = ["<b>say</b> hello <comment>A black cat said hello.</comment>"]
 
   end
 

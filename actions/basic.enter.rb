@@ -14,7 +14,7 @@ class ActionEnter
     @name = "Enter"
     @docs = "Enter a visible vessel."
     @verb = "Entering"
-    @examples = ["enter the library\n<comment>You are in the library.</comment>"]
+    @examples = ["<b>enter</b> the library <comment>You are in the library.</comment>"]
 
   end
 
@@ -29,7 +29,7 @@ class ActionEnter
 
     @host.set_unde(target.id)
 
-    return @host.answer(self,:modal,"#{topic} have entered the #{target}. ", "Press <b>enter</b> to continue or type <action data-action='leave'>leave</action> to return to #{prev}.")
+    return @host.answer(self,:modal,"#{topic} have entered the #{target}. ", "Press <b>enter</b> to continue or type <action data-action='leave'>leave</action> to return to the #{prev}.")
 
   end
 

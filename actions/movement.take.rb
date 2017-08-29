@@ -14,7 +14,7 @@ class ActionTake
     @name = "Take"
     @verb = "Taking"
     @docs = "Move a visible vessel into a child vessel."
-    @examples = ["take the scissor\n<comment>You carry the scissor.</comment>"]
+    @examples = ["<b>take</b> the scissor <comment>You carry the scissor.</comment>"]
 
   end
 
@@ -27,7 +27,7 @@ class ActionTake
 
     target.set_unde(@host.id)
 
-    return @host.answer(self,:modal,"#{topic} took #{target}.")
+    return @host.answer(self,:modal,"#{topic} took the #{target}.")
     
   end
 
