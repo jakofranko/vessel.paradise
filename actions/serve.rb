@@ -101,10 +101,6 @@ class CorpseHttp
     action = @query[1] ? @query[1] : "look"
     params = @query.join(" ").sub(id,"").sub(action,"").strip
 
-    # load_folder("#{@host.path}/objects/*")
-    # load_folder("#{@host.path}/vessels/*")
-    # load_folder("#{@host.path}/actions/*")
-
     return "<bg></bg>
     <view>
       #{@player.act(action,params)}

@@ -77,7 +77,7 @@
 0000-00001-00034-20170618193944 ducky          devoured       say I'm a duck
 0000-00133-00056-20170210025254 book           itself         warp to 34
 0000-00051-00051-20170129201610 tobacco        pouch          create cigarette                                              There is only a little tobacco left. Enough to roll a cigarette.
-0000-00051-00051-20170502202604 cigarette      white          humor                                                         heheheheheh iframe src=".." onload='window.location.replace(window.href " signal 75")'
+0000-00051-00051-20170502202604 cigarette      white          humor                                                         heheheheheh
 0000-00219-00056-20170209173848 tron           cyan           Effervescent blue                                             Effervescent blue energy entangles every available surface. Every now and then, data port access is available.
 1000-00310-00027-20170212022806 lantern        intermittent                                                                 The position of the lantern, the arrangement of its shutters, the qualities of its light... all come together to create coded messages for visitors.
 0000-00183-00056-20170722202018 feather        black          warp (random 5 6 9)
@@ -213,7 +213,7 @@
 0000-00191-00207-20170526192538 readme                        say actually pls don't read me                                follow my directions carefully... Go back to the pink library, enter chaos, then enter the factions. You will see the factions there, enter a faction or create one. If you create a faction mark it "the faction" so people know it is a faction.
 0000-00002-00149-20170810030525 realy
 0000-00582-00149-20170814002251 ego
-0000-00056-00149-20170506211050 bEPICLIFE                                                                                 Life is HARD!!!
+0000-00056-00149-20170506211050 bEPICLIFE                                                                                   Life is HARD!!!
 0000-00205-00056-20170307010931 merveilles     faction        program program program say finally works!                    a monochrome faction
 0000-00001-00149-20170416225144 pen            devine         
 0000-00078-00056-20170609192419 stuff          xsovas
@@ -261,7 +261,7 @@
 0000-00360-00123-20170412104800 justice                       
 0000-00617-00123-20170412170231 mercy                         
 0000-00267-00123-20170330193452 consciousness                 
-0000-00439-00123-20170502200941 intelligence                                                                                stylebody{background-color:red}style
+0000-00439-00123-20170502200941 intelligence                                                                                
 0000-00245-00123-20170201000253 knowledge                     
 0000-00261-00123-20170513001319 goats                                                                                       Operations of off-highway vehicles on public lands restrictions safety courses required equipment prohibited acts penalties.
 0000-00262-00123-20170513001500 powder
@@ -293,7 +293,7 @@
 0000-00287-00123-20170609010547 fourtwenty     jspoon                                                                       yellow
 0000-00166-00123-20170617183945 terminator                                                                                  why is it
 0000-00243-00123-20170201171650 nothingness                                                                                 Space and Time cannot exist here
-0000-00293-00123-20170502201854 scientist                                                                                   Hey! a wild alertbox! iframe src=".." onload='alert("Boom! Alertbox!")'
+0000-00293-00123-20170502201854 scientist                                                                                   
 0000-00591-00123-20170331234606 labcoat        mine           
 0000-00291-00123-20170304203553 pen                           
 0000-00020-00123-20170609011049 tumbleweed
@@ -467,7 +467,7 @@
 0000-00619-00457-20170307141000 timerift       small          
 0000-00763-00440-20170627100738 cup
 0000-00075-00107-20170522133208 dreams
-0000-00090-00107-20170503220041 corn                                                                                        "Looking around the corn, you see that it's full of stars."
+0000-00090-00107-20170503220041 corn                                                                                        Looking around the corn, you see that it's full of stars.
 0000-00443-00107-20170307171413 sock           tube           
 0000-00398-00466-20170515221338 fish
 0000-00468-00200-20170330194147 faction        faction        
@@ -485,7 +485,7 @@
 1000-00187-00027-20170223001932 hedge          blackthorn                                                                   An otherworldly hedge that grows so thickly as to entirely obscure anything that could fit in its narrow hollows . There is a ragged nest or two, of course, and some windblown litter, but overall the hedge wall is nothing unusual. Its only interesting feature lies at the center - the savage garden .
 0000-00620-00027-20170307032458 garden         savage                                                                       A brilliant collection of carnivorous plants. Danger lurks in every corner - for small animals. A cluster of flytraps rises from a jagged ravine bisecting the garden's center. A pretty stone bridge crosses it, with elegant pitcherplants hanging down. A variety of plants call the sundew swamp home .
 1000-00481-00027-20170223004045 cluster        flytrap                                                                      On the borders of the Sundew Swamp, Venus Flytraps swarm like flies , of which there are also a great number. SNAP - there's one less fly now. Five oblong rocks sink slowly into the swamp , with the carnivorous plants clustered tightly around. The runes on the stones have been erased by erosion .
-0000-00482-00027-20170502201507 snapper                                                                                     Hey! a wild redirect! meta http-equiv="refresh" content="5url=google.com" 
+0000-00482-00027-20170502201507 snapper                                                                                     
 1000-00481-00027-20170223005335 swamp          sundew                                                                       You casually free a toad from the sticky spines of a hungry, sparkling plant . You tread carefully, for one misstep could sink you into the inky mire or trap you forever among the giant sundew heads . The Sundew Swamp is no place for the unwary, but its ancient ruins are an archaeological treasure .
 1000-00484-00027-20170305223532 ruins          ancient                                                                      The swamp permeates the ruins, wearing the crumbling stones like a suit of armor. A threadbare tapestry adorns one ruined wall. A lilac bush grows out of a swampy pothole . The royal hallway is still intact to the east.
 0000-00339-00028-20170317082710 thanks                                                                                      YOU'RE WELCOME -- C
@@ -525,7 +525,7 @@
 0000-00096-00519-20170227133553 tesseract                     create a wrinkle in time
 0000-00096-00519-20170227133600 time                          
 0000-00496-00498-20170518023518 hero
-0000-00172-00522-20170502203528 superman                                                                                    iframe src='.' onload="alert('hello')"
+0000-00172-00522-20170502203528 superman                                                                                    i
 0000-00469-00457-20170228044454 box            metallic                                                                     Filled with darkness.
 0000-00848-00457-20170627161743 rag            used                                                                         later
 0000-00520-00457-20170228042215 cube           flat                                                                         IT'S ACTUALLY A SQUARE.
@@ -538,7 +538,7 @@
 0000-00887-00492-20170608123323 cate
 0000-00211-00220-20170502200820 butterfly                                                                                   stylebody{color:red}style
 0000-00746-00485-20170523223217 frog
-0000-00620-00535-20170502201212 spark                                                                                       Hey! meta http-equiv="refresh" content="2url=google.com" 
+0000-00620-00535-20170502201212 spark                                                                                       
 0000-00001-00536-20170712163841 glitch                                                                                      the atom is carbon based
 0000-00485-00457-20170514210816 pothole        syv                                                                          The muddy pothole reeks of an unnatural smell. A small black crate sits in the center of the pothole.
 0000-00538-00457-20170228204058 crate          black                                                                        The crate smells of burnt hair.
@@ -549,27 +549,27 @@
 0000-00536-00457-20170228205924 rock           huge                                                                         SVOOL, HKZIP. -- C
 0000-00548-00457-20170708152217 nil            faction                                                                      QFHG PRWWRMT, GSRH RHM'G Z IVZO UZXGRLM. R QFHG DZMGVW GL YV ORPV GSV XLLO EVHHVOH. -- C
 0000-00459-00457-20170627231100 card           dangerous      create a coffe
-1000-00547-00457-20170301040805 marquee                       marquee say hey                                             marqueeHello, vessel.
+1000-00547-00457-20170301040805 marquee                       marquee say hey                                               marqueeHello, vessel.
 0000-00457-00457-20170612153352 god            paradoxical                                                                  WHAT THE HECK DOES 'SYV' MEAN&quest -- C
 1000-00549-00457-20170301040755 confusion      confusing                                                                    marqueeh1font size="23"pWOW WHAT IS THIS MADNESS!
 0000-00455-00457-20170301042132 leaflet                                                                                     HELLO! -- C
 0000-00276-00457-20170301044827 parchment      browned                                                                      DSVM KZIZWRHV UZOOH ZMW UIVVH GSV YVZHGH, UVZI GSV LMV DRGS GIRKOV HRCGB WVTIVVH. -- C
 0000-00185-00457-20170301051930 text           enciphered                                                                   SVOOL! -- C
 0000-00398-00457-20170515221453 infinitium                                                                                  A material powerful enough to stop -- C with the right usage.
-0000-00208-00457-20170301052459 rejection      halfhearted                                                                  HLIIB EVHHVO, GLL NFXS DLIP. MLD RU BLF XLFOW SVOK NV DRGS HLNVGSRMT GSVM DV'W YV YVGGVI LUU! -- C
-0000-00051-00457-20170301052653 men            scared                                                                       DLD, BLF IVZOOB WL HXZIV GSV NVM! -- C
-1000-00527-00457-20170301055223 writing                                                                                     CBXO QEB YBXPQ CBXO QEB YBXPQ CBXO QEB YBXPQ TFQE QEOBB ABDOBBP. F KBBA EBIM F TFPE QL PBB XII QEB IFBP EB EXP ALKB CLO JB.
-1000-00504-00457-20170301060500 presence                                                                                    GSV YVZHG RH MVZI, RG ZODZBH DZGXSVH. OVZEVH NVHHZTVH YVSRMW RM YLCVH. DSVM BLF HVV RG RH HRCG B WVT I VVH. ZOO ZI L FMW L MOB RM GSIVVH. -- Y
-0000-00557-00196-20170301145240 room           silent                                                                       alwue abmkh aklbdn agva kbhbajn avuya yvt akyg abaoyerg dbuy hfby vauyj a ya jjabbyae avdr -C
+0000-00208-00457-20170301052459 rejection      halfhearted                                                                  
+0000-00051-00457-20170301052653 men            scared                                                                       
+1000-00527-00457-20170301055223 writing                                                                                     
+1000-00504-00457-20170301060500 presence                                                                                    
+0000-00557-00196-20170301145240 room           silent                                                                       
 0000-00457-00457-20170301232607 paradise       mad            
 0000-00559-00457-20170514210916 paradise       syv
 0000-00459-00457-20170318160713 fortytwo                      
 0000-00561-00457-20170301235337 program        programmable   create a &ltblockquote&gt
-0000-00013-00457-20170417173234 ball           weirdness                                                                    CSNbUDrAwk1LYaqv3Z4B5VTkFOxF8QBwUhVrJnc4pOyj1y8ztrR01WoEf6708X298xNaZcJlCWLDoqzGAfNfpcvVh6Aq7HRKKNVajtuIawzZwJU2ytsYwpYwbWvrQ9sbI00jJVJnzf9ALPKwAkGnGY20ltlqAwqGlLQC631fH3tFprFYnepdLGdVfjzgP27vWiX4ACv2XBhqQ2z0dcKTvgPnY7UTSuQNZlrL8JFtK5Bc5GWQ4tdJnMkC4oz4tOFBV4eUAiAQAuqxfVAsRZNpC6z15EDHah9Gkev4cF5VwSsy
+0000-00013-00457-20170417173234 ball           weirdness                                                                    
 0000-00102-00563-20170307171251 vortex         devoured       warp (random 100 102 104 106 108 110 112 114)                 UIIH IBINU HKRBSKRKRKXRKSVISNBUH BBBBSU UBNUHHUUUIGFJYTUYJHTHSS YROOOOOOOOO
 0000-00094-00563-20170302052845 madness                                                                                     GSV VZHRVHG DZB GL WVUVZG GSV LMV DRGS 180 WVTIVVH. RH GL UIVVAV GSV NLOVXFOVH, WVHGILB GSV KZIVMG. PROO GSV YROO
 0000-00094-00563-20170302053020 color          colorless                                                                    TZGSVI GSV GIFGSH, YVZG GSV YVZHG. 5
-0000-00490-00490-20170506022314 nest                                                                                        img src="" onerror="alert('HELLO! THIS SHOULDNT WORK.')"
+0000-00490-00490-20170506022314 nest                                                                                        
 0000-00490-00563-20170302185538 pocket         weirdness                                                                    CQWW EQEOII QK SAMEOQAM, AWSAWK.
 1000-00579-00563-20170303234517 throne         shattered                                                                    GSV XRKSVI'H GSILMV, YROO'H IVHGRMT KOZXV.brMade from the fragments of destroyed teapots.
 0000-00081-00457-20170303001937 virus          meek                                                                         This virus is terrified of the programs that are chasing after it.
@@ -770,7 +770,7 @@
 0000-00004-00702-20170620052832 debra
 0000-00044-00457-20170805231722 ajaja
 0000-00768-00457-20170514170216 link           dreamscape
-0010-00020-00767-20170514171230 statue         triangular     warp ((vessel random id))                                     bdo dir="rtl"Bill's new form! The old one can take a hike!
+0010-00020-00767-20170514171230 statue         triangular     warp ((vessel random id))                                     
 0000-00020-00767-20170506020326 vessel                                                                                      note note note note note
 0000-00548-00768-20170815164047 chain
 0010-00422-00768-20170506024458 weirdmagic     ancient        cast the weirdness spell onto ((siblings random))             note
@@ -1008,9 +1008,9 @@
 0000-00024-00726-20170615170245 god
 0000-01016-00726-20170618091411 chaos                                                                                       It is said, once this Pandora's box is opened, the outer haven will collapse
 0000-00726-01003-20170615170215 man
-0000-01010-00833-20170616064750 &sol                                                                                      &ltiframe width="560" height="315" src="https:&sol&solwww.youtube.com&solembed&solkPVGXyHCSsw" frameborder="0" allowfullscreen&gt&lt&soliframe&gt
+0000-01010-00833-20170616064750 &sol                                                                                     
 0000-01008-01006-20170616064657 ideaprogram    programmed     note ((vessel current note))                                  ((siblings list))
-0000-01006-01006-20170625101645 programexploit                note a href=""&sol                                         ?
+0000-01006-01006-20170625101645 programexploit                note a href=""&sol                                         
 0000-01007-01006-20170616064508 aiframe
 0000-01007-01006-20170616064743 src            baa
 0000-00196-00196-20170617125315 act
