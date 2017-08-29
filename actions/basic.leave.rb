@@ -23,12 +23,12 @@ class ActionLeave
     target = @host.parent.parent
     prev = @host.parent
 
-    if @host.parent.is_paradox      then return @host.answer(self,:error,"#{topic} have reached the stem of the universe. The #{@host.parent.name} is a paradox and may not be exited. ") end
+    if @host.parent.is_paradox      then return @host.answer(self,:error,"#{topic} reached the stem of the universe. The #{@host.parent.name} is a paradox and may not be exited. ") end
     if @host.is_locked == true      then return @host.answer(self,:error,"#{@host} is locked.") end
 
     @host.set_unde(target.id)
     
-    return @host.answer(self,:modal,"#{topic} have left the #{prev}, and entered the <i>#{target}</i>.")
+    return @host.answer(self,:modal,"#{topic} left the #{prev}, and entered the <i>#{target}</i>.")
     
   end
 

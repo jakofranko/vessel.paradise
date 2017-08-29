@@ -24,11 +24,11 @@ class ActionProgram
     program = Program.new(@host,params)
     
     if target.is_locked == true     then return @host.answer(self,:error,"The #{target} is locked.") end
-    if !program.is_valid            then return @host.answer(self,:error,"The program is not valid.","You can learn more valid programs in the <action data-action='help with programming'>programming guide</action>.") end
+    if !program.is_valid            then return @host.answer(self,:error,"The program is not valid.","You can learn about valid programs in the <action data-action='help'>programming guide</action>.") end
 
     target.set_program(params)
 
-    return @host.answer(self,:modal,"#{topic} updated #{target}'s program.")
+    return @host.answer(self,:modal,"#{topic} updated the #{target}'s program.")
 
   end
 

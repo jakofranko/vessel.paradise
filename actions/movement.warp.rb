@@ -30,7 +30,7 @@ class ActionWarp
     
     @host.set_unde(target.id)
 
-    return @host.answer(self,:modal,"#{topic} left #{prev} and warped to the #{target}.")
+    return @host.answer(self,:modal,"#{topic} left the #{prev} and warped to the #{target}.")
 
   end
 

@@ -163,13 +163,15 @@ class ActionLook
 
     html = ""
 
+    guides = @host.parent.guides
+
     id = 1
-    @host.parent.guides.each do |guide|
+    guides.each do |guide|
       html += "<li><b>#{id}.</b> #{guide} </li>"
       id += 1
     end
 
-    return "<ul id='guide'>#{html}</ul>"
+    return guides.length > 0 ? "<ul id='guide'>#{html}</ul>" : ""
 
   end
 

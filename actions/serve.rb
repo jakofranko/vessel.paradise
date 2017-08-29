@@ -83,8 +83,6 @@ class CorpseHttp
     add_link("reset.css",:lobby)
     add_link("font.input_mono.css",:lobby)
     add_link("font.lora.css",:lobby)
-    add_link("font.din.css",:lobby)
-    
     add_script("core/jquery.js",:lobby)
     
     add_link("style.fonts.css")
@@ -103,9 +101,9 @@ class CorpseHttp
     action = @query[1] ? @query[1] : "look"
     params = @query.join(" ").sub(id,"").sub(action,"").strip
 
-    load_folder("#{@host.path}/objects/*")
-    load_folder("#{@host.path}/vessels/*")
-    load_folder("#{@host.path}/actions/*")
+    # load_folder("#{@host.path}/objects/*")
+    # load_folder("#{@host.path}/vessels/*")
+    # load_folder("#{@host.path}/actions/*")
 
     return "<bg></bg>
     <view>
