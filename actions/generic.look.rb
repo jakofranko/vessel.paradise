@@ -46,7 +46,7 @@ class ActionLook
 
   def page
 
-    return "<h2 id='page'>#{@host.parent.is_hidden ? '≡' : @host.parent.id}</h2>"
+    return "<h2 id='page'>#{@host.parent.is_hidden ? '≡' : '<action data-action=\'inspect\'>'+@host.parent.id.to_s+'</action>'}</h2>"
 
   end
 

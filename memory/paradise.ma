@@ -22,7 +22,7 @@
 1010-00001-00000-00000000000000 residences                                                                                  Through a tightly ((vessel name))-shaped doorway, your own private room can be accessed, a secure place to store vessels.. Down a few stairs into the old brick-walled haven residences, past a warmly lit hallway, is the noisy residences lobby, in which vessels are welcome to discuss.. On one of the unlit walls lay closed the discard service trapdoor.
 1000-00017-00000-00000000000000 lobby          residences                                                                   The haven residence lobby is a low ceilinged room circularly furnished of confortably covered armchairs.
 1010-00017-00000-00000000000000 room           private                                                                      The residence is your own private room in haven, a place to store vessels other than within your own uncluttered self.. Your ((vessel name)) is the only vessel with a key to this room, anything that you leave here will only ever be visible by you.
-1010-00017-00000-00000000000000 discard                                                                                     The discard is the recipient vessel of the discard spell, a sort of vessel recyling station.. See something you like? Take it away, improve it or toss it back. ((siblings list))
+1000-00017-00000-00000000000000 discard                                                                                     The discard is the recipient vessel of the discard spell, a sort of vessel recyling station.. See something you like? Take it away, improve it or toss it back. ((siblings list))
 1010-00004-00000-00000000000000 glossary                                                                                    The glossary contains definitions for commonly used Paradise terms. ((paradise glossary))
 1011-00025-00000-00000000000000 station        train                                                                        On one side, green colored roofs cover the various platforms of the station and on the other, the information kiosk lays dormant and unmaned. ((paradise tunnels))
 1010-00005-00000-00000000000000 workings       inner                                                                        From the Order of The Letterists,. The deepest perceptible fabric has revealed to us, its building blocks to be letters, a set of characters with which we can build anything. Assembling into words untruthful, extraparadistical and foreign shapes never beheld in our world.. Our consciousness, residing unobservably between our eternaly unmoving static pages. Could it be that we find ourselves in a mere interactive fiction?. The note appears to be lost in thoughts. 
@@ -1047,7 +1047,7 @@
 0000-00044-01041-20170807103221 georgee
 0000-00001-01041-20170626153849 georgee
 0000-00862-00946-20170627050800 pirate
-0000-00312-00312-20170729213414 pirate
+0000-00769-00312-20170830074543 pirate
 0000-00310-00312-20170627051915 smuggler
 0000-00310-00312-20170627051925 gun
 0000-00891-00417-20170628233245 top            drop

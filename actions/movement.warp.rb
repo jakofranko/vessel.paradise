@@ -21,15 +21,18 @@ class ActionWarp
   def act params = ""
 
     target_id = params.split(" ").last.to_i
-    target = @host.find_distant(params)
+
+    if target_id < 0                          then return @host.answer(self,:error,"#{topic} are not allowed to warp in negative nullspace.") end
+
+    target = @host.find_distant(target_id.to_s)
     prev = @host.parent
 
-    if @host.is_locked              then return @host.answer(self,:error,"#{@host} is locked.") end
-    # if !target                      then return @host.answer(self,:error,"Could not find the target vessel.") end
+    if @host.is_locked                        then return @host.answer(self,:error,"#{@host} is locked.") end
+    if !target || target_id == 0              then return @host.answer(self,:error,"#{topic} may not warp into nullspace.") end
     if target && target.is_hidden             then return @host.answer(self,:error,"#{target} cannot be warped into.") end
     if target && target.id == @host.parent.id then return @host.answer(self,:error,"#{topic} already in #{target}.") end
-    
-    @host.set_unde(target.id)
+      
+    @host.set_unde(target_id)
 
     return @host.answer(self,:modal,"#{topic} left the #{prev} and warped to the #{target}.")
 
