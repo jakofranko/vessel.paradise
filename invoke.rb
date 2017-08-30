@@ -33,7 +33,7 @@ def corpse.forum ; return @forum; end
 def corpse.select_random_vessel
 
   candidates = []
-  parade.each do |vessel|
+  @parade.each do |vessel|
     if vessel.rating > 0 then next end
     candidates.push(vessel)
   end

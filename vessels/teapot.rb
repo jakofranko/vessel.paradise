@@ -239,7 +239,8 @@ class Teapot
   def children
 
     if @children then return @children end
-
+    if !$nataniev.vessels[:paradise].corpse.parade then return [] end
+      
     @children = []
     $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
       if vessel.unde != @id then next end
