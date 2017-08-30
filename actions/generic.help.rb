@@ -28,7 +28,7 @@ class ActionHelp
 
   def help_default
 
-    html = "<h4>You are calling the vessel help line.</h4><p>Hello #{@host}, thank you for contacting the <vessel data-action='warp to 1'>Vessel Help Line</vessel>.</p> <p>Paradise is a multiplayer playground exploring the limits of thingspace and conceptspace. You can learn more about the project on the <a href='http://wiki.xxiivv.com/Paradise' target='_blank'>wiki</a>. </p><p>The size of Paradise is currently of #{$nataniev.vessel.corpse.parade.length} vessels.</p>"
+    html = "<h4>You are calling the vessel help line.</h4><p>Hello #{@host}, thank you for contacting the <vessel data-action='warp to 1'>Vessel Help Line</vessel>.</p> <p>Paradise is a multiplayer playground exploring the limits of thingspace and conceptspace. You can learn more about the project on the <a href='http://wiki.xxiivv.com/Paradise' target='_blank'>wiki</a>. </p><p>The size of Paradise is currently of #{$nataniev.vessels[:paradise].corpse.parade.length} vessels.</p>"
 
     html += topics
 
@@ -69,7 +69,7 @@ class ActionHelp
 
     html += "<p>The spellbook lists all known spells across paradise, to be used with the cast command.</p>"
     html += "<code>"
-    $nataniev.vessel.corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
       if !vessel.has_program then next end
       if !vessel.is_locked then next end
       if !vessel.has_attr then next end

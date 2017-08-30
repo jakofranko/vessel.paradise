@@ -3,11 +3,11 @@
 
 $nataniev.require("corpse","http")
 
-$nataniev.vessel.path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
+$nataniev.vessels[:paradise].path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
 
-$nataniev.vessel.install(:custom,:serve)
+$nataniev.vessels[:paradise].install(:custom,:serve)
 
-corpse = CorpseHttp.new($nataniev.vessel)
+corpse = CorpseHttp.new($nataniev.vessels[:paradise])
 
 corpse.add_meta("description","Multiplayer Interactive Fiction Multiverse")
 corpse.add_meta("keywords","paradise maeve")
@@ -23,18 +23,29 @@ corpse.add_link("style.fonts.css")
 corpse.add_link("style.main.css")
 corpse.add_script("jquery.main.js")
 
-$nataniev.vessel.corpse = corpse
+$nataniev.vessels[:paradise].corpse = corpse
 
 def corpse.paradise ; return @paradise; end
 def corpse.parade; return @parade; end
 def corpse.player; return @player; end
 def corpse.forum ; return @forum; end
 
+def corpse.select_random_vessel
+
+  candidates = []
+  parade.each do |vessel|
+    if vessel.rating > 0 then next end
+    candidates.push(vessel)
+  end
+  return "<meta http-equiv='refresh' content='0; url=/#{candidates.length > 0 ? candidates[rand(candidates.length)].id : rand($parade.length)}'/>"
+
+end
+
 def corpse.query q = nil
 
-  load_folder("#{$nataniev.vessel.path}/objects/*")
-  load_folder("#{$nataniev.vessel.path}/vessels/*")
-  load_folder("#{$nataniev.vessel.path}/actions/*")
+  load_folder("#{$nataniev.vessels[:paradise].path}/objects/*")
+  load_folder("#{$nataniev.vessels[:paradise].path}/vessels/*")
+  load_folder("#{$nataniev.vessels[:paradise].path}/actions/*")
 
   @forum           = Memory_Array.new("forum",@host.path)
   @paradise        = Memory_Array.new("paradise",@host.path)
@@ -51,11 +62,11 @@ def corpse.query q = nil
   action = parts[1] ? parts[1] : "look"
   params = parts.join(" ").sub(player_id.to_s,"").sub(action,"").strip
 
-  if player_id < 1 then return select_random_vessel end
+  if player_id < 1 then return @body = select_random_vessel end
 
   @player = @parade[player_id]
   @title   = "Paradise ∴ #{@player}"
 
-  self.body = "<bg></bg><view>#{@player.act(action,params)}</view><div class='terminal'><input placeholder='What would you like to do?'/></div>"
+  @body = "<bg></bg><view>#{@player.act(action,params)}</view><div class='terminal'><input placeholder='What would you like to do?'/></div>"
 
 end
