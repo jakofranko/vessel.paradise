@@ -88,9 +88,8 @@ class WildcardParadise
     g = {}
 
     g[:general] = {}
-    g[:general]["a ghost"] = "is a vessel controller, a player."
-    g[:general]["a vessel"] = "is a ghost carrier. A pocket of conceptspace that has an attribute and a name, that can travel through Paradise."
-    g[:general]["a paradox"] = "is impossible space, often folded onto itself, creating stems to universes. "
+    g[:general]["a vessel"] = "is a pocket of conceptspace with an attribute and a name, able to traverse Paradise."
+    g[:general]["a paradox"] = "is impossible space folded onto itself, and stems to universes. "
     g[:general]["a tunnel"] = "is a vessel or action type accessible across all space. Cast and Warp are tuneling actions, allowing ghosts to traverse vast distances instantly. A tuneling vessel will be accessible through notes across distances."
     g[:general]["a signal"] = "is the broadcasting of a warp id."
 
