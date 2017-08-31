@@ -83,7 +83,7 @@ class ActionLook
     elsif filtered_siblings.length == 3
       html += "You see the #{filtered_siblings[0].to_html}, the #{filtered_siblings[1].to_html} and the #{filtered_siblings[2].to_html}. "
     elsif filtered_siblings.length > 3
-      html += "You see the #{filtered_siblings[0].to_html}, the #{filtered_siblings[1].to_html} and #{filtered_siblings.length-2} other vessels. "
+      html += "You see the #{filtered_siblings[0].to_html}, the #{filtered_siblings[1].to_html} and <action data-action='inspect'>#{filtered_siblings.length-2} other vessels</action>. "
     elsif !@host.parent.is_silent && !@host.parent.has_note
       html += "<i style='color:#999'>There is nothing here, why don't you <action data-action='create '>create</action> something.</i>"
     end
