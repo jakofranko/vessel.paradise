@@ -4,40 +4,29 @@
 $nataniev.require("corpse","http")
 
 $nataniev.vessels[:paradise].path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
+$nataniev.vessels[:paradise].install(:custom,:serve,CorpseHttp.new)
 
-$nataniev.vessels[:paradise].install(:custom,:serve)
+corpse = $nataniev.vessels[:paradise].corpse
 
-corpse = CorpseHttp.new($nataniev.vessels[:paradise])
+def corpse.build
 
-corpse.add_meta("description","Multiplayer Interactive Fiction Multiverse")
-corpse.add_meta("keywords","paradise maeve")
-corpse.add_meta("viewport","width=device-width, initial-scale=1, maximum-scale=1")
-corpse.add_meta("apple-mobile-web-app-capable","yes")
-corpse.add_meta("apple-touch-fullscreen","yes")
-corpse.add_meta("apple-mobile-web-app-status-bar-style","black-translucent")
-corpse.add_link("reset.css",:lobby)
-corpse.add_link("font.input_mono.css",:lobby)
-corpse.add_link("font.lora.css",:lobby)
-corpse.add_script("core/jquery.js",:lobby)
-corpse.add_link("style.fonts.css")
-corpse.add_link("style.main.css")
-corpse.add_script("jquery.main.js")
+  @host = $nataniev.vessels[:paradise]
 
-$nataniev.vessels[:paradise].corpse = corpse
+  add_meta("description","Multiplayer Interactive Fiction Multiverse")
+  add_meta("keywords","paradise maeve")
+  add_meta("viewport","width=device-width, initial-scale=1, maximum-scale=1")
+  add_meta("apple-mobile-web-app-capable","yes")
+  add_meta("apple-touch-fullscreen","yes")
+  add_meta("apple-mobile-web-app-status-bar-style","black-translucent")
 
-def corpse.paradise ; return @paradise; end
-def corpse.parade; return @parade; end
-def corpse.player; return @player; end
-def corpse.forum ; return @forum; end
+  add_link("reset.css",:lobby)
+  add_link("font.input_mono.css",:lobby)
+  add_link("font.lora.css",:lobby)
+  add_link("style.fonts.css")
+  add_link("style.main.css")
 
-def corpse.select_random_vessel
-
-  candidates = []
-  @parade.each do |vessel|
-    if vessel.rating > 0 then next end
-    candidates.push(vessel)
-  end
-  return "<meta http-equiv='refresh' content='0; url=/#{candidates.length > 0 ? candidates[rand(candidates.length)].id : rand($parade.length)}'/>"
+  add_script("core/jquery.js",:lobby)
+  add_script("jquery.main.js")
 
 end
 
@@ -59,14 +48,35 @@ def corpse.query q = nil
 
   parts = q.gsub("+"," ").strip.split(" ")
   player_id = parts.first.to_i
-  action = parts[1] ? parts[1] : "look"
-  params = parts.join(" ").sub(player_id.to_s,"").sub(action,"").strip
+
+  @action = parts[1] ? parts[1] : "look"
+  @params = parts.join(" ").sub(player_id.to_s,"").sub(@action,"").strip
 
   if player_id < 1 then return @body = select_random_vessel end
 
   @player = @parade[player_id]
   @title   = "Paradise ∴ #{@player}"
 
-  @body = "<bg></bg><view>#{@player.act(action,params)}</view><div class='terminal'><input placeholder='What would you like to do?'/></div>"
+end
+
+def corpse.body
+
+  return "<bg></bg><view>#{@player.act(@action,@params)}</view><div class='terminal'><input placeholder='What would you like to do?'/></div>"
 
 end
+
+def corpse.select_random_vessel
+
+  candidates = []
+  @parade.each do |vessel|
+    if vessel.rating > 0 then next end
+    candidates.push(vessel)
+  end
+  return "<meta http-equiv='refresh' content='0; url=/#{candidates.length > 0 ? candidates[rand(candidates.length)].id : rand($parade.length)}'/>"
+
+end
+
+def corpse.paradise ; return @paradise; end
+def corpse.parade; return @parade; end
+def corpse.player; return @player; end
+def corpse.forum ; return @forum; end
