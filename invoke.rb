@@ -57,12 +57,8 @@ def corpse.query q = nil
   @player = @parade[player_id]
   @title   = "Paradise ∴ #{@player}"
 
-end
-
-def corpse.body
-
-  return "<bg></bg><view>#{@player.act(@action,@params)}</view><div class='terminal'><input placeholder='What would you like to do?'/></div>"
-
+  @body = "<bg></bg><view>#{@player.act(@action,@params)}</view><div class='terminal'><input placeholder='What would you like to do?'/></div>"
+  
 end
 
 def corpse.select_random_vessel
