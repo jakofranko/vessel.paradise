@@ -24,7 +24,7 @@ class ActionCreate
     name = parts.last
     attr = parts.length > 1 ? parts[parts.length-2] : ""
 
-    new_vessel = Ghost.new({"NAME" => name.downcase,"ATTR" => attr.downcase,"CODE" => "0000-#{@host.unde.to_s.prepend('0',5)}-#{@host.id.to_s.prepend('0',5)}-#{Timestamp.new}"})
+    new_vessel = Teapot.new({"NAME" => name.downcase,"ATTR" => attr.downcase,"CODE" => "0000-#{@host.unde.to_s.prepend('0',5)}-#{@host.id.to_s.prepend('0',5)}-#{Timestamp.new}"})
 
     validity_check, validity_errors = new_vessel.is_valid
 
