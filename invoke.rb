@@ -32,9 +32,9 @@ end
 
 def corpse.query q = nil
 
-  load_folder("#{$nataniev.vessels[:paradise].path}/objects/*")
-  load_folder("#{$nataniev.vessels[:paradise].path}/vessels/*")
-  load_folder("#{$nataniev.vessels[:paradise].path}/actions/*")
+  load_folder("#{@host.path}/objects/*")
+  load_folder("#{@host.path}/vessels/*")
+  load_folder("#{@host.path}/actions/*")
 
   @forum           = Memory_Array.new("forum",@host.path)
   @paradise        = Memory_Array.new("paradise",@host.path)
