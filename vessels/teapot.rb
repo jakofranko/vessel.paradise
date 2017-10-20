@@ -47,7 +47,7 @@ class Teapot
 
     @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
     @docs = "Default Paradise vessel."
-    
+
     install(:generic,:look)
     install(:generic,:help)
     install(:generic,:inspect)
@@ -108,9 +108,9 @@ class Teapot
 
   end
 
-  def to_s 
+  def to_s
 
-    return "#{attr ? attr+' ' : ''}#{name}"    
+    return "#{attr ? attr+' ' : ''}#{name}"
 
   end
 
@@ -204,7 +204,7 @@ class Teapot
     @creator = @creator ? @creator : $nataniev.vessels[:paradise].corpse.parade[owner]
 
     return @creator ? @creator : VesselVoid.new
-    
+
   end
 
   def tunnels
@@ -240,7 +240,7 @@ class Teapot
 
     if @children then return @children end
     if !$nataniev.vessels[:paradise].corpse.parade then return [] end
-      
+
     @children = []
     $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
       if vessel.unde != @id then next end
@@ -408,19 +408,19 @@ class Teapot
   def has_note
 
     return @note.to_s.strip != "" ? true : false
-    
+
   end
 
   def has_attr
 
     return @attr.to_s != "" ? true : false
-    
+
   end
 
   def has_program
 
     return program.is_valid
-    
+
   end
 
   def has_children
@@ -510,7 +510,7 @@ class Teapot
     end
 
     return ((sum/values.length.to_f) * 100).to_i
-    
+
   end
 
 end
