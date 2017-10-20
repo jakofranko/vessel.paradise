@@ -4,13 +4,13 @@
 class VesselVoid
 
   include Vessel
-  include VesselToolkit
+  # include VesselToolkit
 
   attr_accessor :unde
   attr_accessor :note
   attr_accessor :parent
   attr_accessor :owner
-  
+
   attr_accessor :is_locked
   attr_accessor :is_hidden
   attr_accessor :is_silent
