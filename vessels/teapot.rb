@@ -161,7 +161,7 @@ class Teapot
     it = 0
     while it < 10 && ($nataniev.vessels[:paradise].corpse.nil? || $nataniev.vessels[:paradise].corpse.parade.nil?)
       puts "Searching for parents..."
-      slep 0.5
+      sleep 0.5
       it += 1
     end
 
