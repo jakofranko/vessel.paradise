@@ -52,6 +52,8 @@ class Comment
 
   def vessel_name
 
+    await_parade("comment")
+
     if !$nataniev.vessels[:paradise].corpse.parade[from] then return "ghost" end
 
     vessel = $nataniev.vessels[:paradise].corpse.parade[from]
@@ -136,5 +138,25 @@ class Comment
     return false
 
   end
-  
+
+  def await_parade
+
+    it = 0
+    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse) == nil || $nataniev.vessels[:paradise].corpse.nil?)
+      puts "Searching for corpse..."
+      sleep 0.5
+      it += 1
+    end
+
+    it = 0
+    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse.parade) == nil || $nataniev.vessels[:paradise].corpse.parade.nil?)
+      puts "Searching for parade..."
+      sleep 0.5
+      it += 1
+    end
+
+    return
+
+  end
+
 end
