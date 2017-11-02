@@ -52,7 +52,7 @@ class Comment
 
   def vessel_name
 
-    await_parade("comment")
+    await_parade
 
     if !$nataniev.vessels[:paradise].corpse.parade[from] then return "ghost" end
 

@@ -153,7 +153,7 @@ class Teapot
 
   def parent
 
-    await_parade("parent")
+    await_parade
 
     @parent = @parent ? @parent : $nataniev.vessels[:paradise].corpse.parade[@unde]
 
@@ -226,7 +226,7 @@ class Teapot
 
     if @siblings then return @siblings end
 
-    await_parade("siblings")
+    await_parade
 
     @siblings = []
     $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
