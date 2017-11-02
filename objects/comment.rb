@@ -2,19 +2,19 @@
 # encoding: utf-8
 
 class Comment
-  
+
   attr_accessor :id
-  
+
   def initialize content = {}
-    
+
     @content = content
-    
+
   end
-  
+
   def timestamp
-    
+
     return Timestamp.new(@content['TIMESTAMP'])
-    
+
   end
 
   def inject host,message
@@ -51,6 +51,8 @@ class Comment
   end
 
   def vessel_name
+
+    await_parade
 
     if !$nataniev.vessels[:paradise].corpse.parade[from] then return "ghost" end
 
@@ -136,5 +138,25 @@ class Comment
     return false
 
   end
-  
+
+  def await_parade
+
+    it = 0
+    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse) == nil || $nataniev.vessels[:paradise].corpse.nil?)
+      puts "Searching for corpse..."
+      sleep 0.5
+      it += 1
+    end
+
+    it = 0
+    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse.parade) == nil || $nataniev.vessels[:paradise].corpse.parade.nil?)
+      puts "Searching for parade..."
+      sleep 0.5
+      it += 1
+    end
+
+    return
+
+  end
+
 end
