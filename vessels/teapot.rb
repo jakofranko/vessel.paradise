@@ -153,17 +153,7 @@ class Teapot
 
   def parent
 
-    # Sometimes corpse and parade are nil (wut?)
-    # My working theory is that as other http requests hit invoke.rb, the
-    # corpse and parade variables are getting reassigned and when this tries
-    # to access them while they are being reassigned, nil is returned.
-    # Waiting a bit if they are nil seems to fix the bug...
-    it = 0
-    while it < 10 && ($nataniev.vessels[:paradise].corpse.nil? || $nataniev.vessels[:paradise].corpse.parade.nil?)
-      puts "Searching for parents..."
-      sleep 0.5
-      it += 1
-    end
+    await_parade("parent")
 
     @parent = @parent ? @parent : $nataniev.vessels[:paradise].corpse.parade[@unde]
 
@@ -235,6 +225,8 @@ class Teapot
   def siblings
 
     if @siblings then return @siblings end
+
+    await_parade("siblings")
 
     @siblings = []
     $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
@@ -522,6 +514,31 @@ class Teapot
     end
 
     return ((sum/values.length.to_f) * 100).to_i
+
+  end
+
+  def await_parade
+
+    # Sometimes corpse and parade are nil (wut?)
+    # My working theory is that as other http requests hit invoke.rb, the
+    # corpse and parade variables are getting reassigned and when this tries
+    # to access them while they are being reassigned, nil is returned.
+    # Waiting a bit if they are nil seems to fix the bug...
+    it = 0
+    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse) == nil || $nataniev.vessels[:paradise].corpse.nil?)
+      puts "Searching for corpse..."
+      sleep 0.5
+      it += 1
+    end
+
+    it = 0
+    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse.parade) == nil || $nataniev.vessels[:paradise].corpse.parade.nil?)
+      puts "Searching for parade..."
+      sleep 0.5
+      it += 1
+    end
+
+    return
 
   end
 
