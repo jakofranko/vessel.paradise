@@ -2,19 +2,19 @@
 # encoding: utf-8
 
 class Comment
-  
+
   attr_accessor :id
-  
+
   def initialize content = {}
-    
+
     @content = content
-    
+
   end
-  
+
   def timestamp
-    
+
     return Timestamp.new(@content['TIMESTAMP'])
-    
+
   end
 
   def inject host,message
