@@ -35,7 +35,7 @@ class WildcardSiblings
 
     @host.siblings.each do |vessel|
       owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
-      html += "<li><action data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action>#{owner}</li>"
+      html += "<li><action-link  data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
     end
 
     return "<ul class='basic'>#{html}</ul>"

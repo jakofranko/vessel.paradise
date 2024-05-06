@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionHelp
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -28,7 +28,7 @@ class ActionHelp
 
   def help_default
 
-    html = "<h4>You are calling the vessel help line.</h4><p>Hello #{@host}, thank you for contacting the <vessel data-action='warp to 1'>Vessel Help Line</vessel>.</p> <p>Paradise is a multiplayer playground exploring the limits of thingspace and conceptspace. You can learn more about the project on the <a href='http://wiki.xxiivv.com/Paradise' target='_blank'>wiki</a>. </p><p>The size of Paradise is currently of #{$nataniev.vessels[:paradise].corpse.parade.length} vessels.</p>"
+    html = "<h4>You are calling the vessel help line.</h4><p>Hello #{@host}, thank you for contacting the <vessel-link data-action='warp to 1'>Vessel Help Line</vessel-link>.</p> <p>Paradise is a multiplayer playground exploring the limits of thingspace and conceptspace. You can learn more about the project on the <a href='http://wiki.xxiivv.com/Paradise' target='_blank'>wiki</a>. </p><p>The size of Paradise is currently of #{$nataniev.vessels[:paradise].corpse.parade.length} vessels.</p>"
 
     html += topics
 
@@ -43,7 +43,7 @@ class ActionHelp
     # Actions
     html += "<code>"
     @host.actions.each do |cat,actions|
-      if cat == :generic then next end      
+      if cat == :generic then next end
       actions.each do |action|
         action = action.new
         action.examples.each do |example|
@@ -76,7 +76,7 @@ class ActionHelp
       if !vessel.name.like("spell") then next end
 
       owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
-      html += "<action data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize}</action>#{owner} <comment>#{vessel.program}</comment>\n"
+      html += "<action-link  data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize}</action-link>#{owner} <comment>#{vessel.program}</comment>\n"
     end
     html += "</code>"
 

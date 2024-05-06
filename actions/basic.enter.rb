@@ -29,7 +29,7 @@ class ActionEnter
 
     @host.set_unde(target.id)
 
-    return @host.answer(self,:modal,"#{topic} entered the #{target}. ", "Press <b>enter</b> to continue or type <action data-action='leave'>leave</action> to return to the #{prev}.")
+    return @host.answer(self,:modal,"#{topic} entered the #{target}. ", "Press <b>enter</b> to continue or type <action-link  data-action='leave'>leave</action-link> to return to the #{prev}.")
 
   end
 

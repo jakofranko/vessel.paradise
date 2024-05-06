@@ -104,7 +104,7 @@ class Teapot
     action      = action_override ? action_override : action
     action_tags = "data-name='#{@name}' data-attr='#{@attr}' data-action='#{action}'"
 
-    return "<vessel class='#{@attr} #{class_override ? class_override : classes}' #{action_tags}>#{attr}<name>#{name}</name></vessel>"
+    return "<vessel-link class='#{@attr} #{class_override ? class_override : classes}' #{action_tags}>#{attr}<name>#{name}</name></vessel-link>"
 
   end
 
@@ -493,8 +493,8 @@ class Teapot
 
     # Improvements
     if !is_locked && !has_program && !has_note
-      hints.push("Improve this vessel with a <action data-action='note '>description</action>.")
-      hints.push("Automate this vessel with a <action data-action='program '>program</action>.")
+      hints.push("Improve this vessel with a <action-link  data-action='note '>description</action-link>.")
+      hints.push("Automate this vessel with a <action-link  data-action='note '>description</action-link>.")
     end
 
     if owner == $player_id then hints.push("You own this #{name}.") end

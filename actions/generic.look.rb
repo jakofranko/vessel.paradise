@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionLook
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -40,13 +40,13 @@ class ActionLook
     else
       html = "You are the #{@host}, in #{@host.parent.owner == @host.id ? 'your' : 'the'} #{@host.parent}."
     end
-    return "<h1 id='portal'>#{html}</h1>"    
+    return "<h1 id='portal'>#{html}</h1>"
 
   end
 
   def page
 
-    return "<h2 id='page'>#{@host.parent.is_hidden ? '≡' : '<action data-action=\'inspect\'>'+@host.parent.id.to_s+'</action>'}</h2>"
+    return "<h2 id='page'>#{@host.parent.is_hidden ? '≡' : '<action-link  data-action=\'inspect\'>'+@host.parent.id.to_s+'</action-link>'}</h2>"
 
   end
 
@@ -83,9 +83,9 @@ class ActionLook
     elsif filtered_siblings.length == 3
       html += "You see the #{filtered_siblings[0].to_html}, the #{filtered_siblings[1].to_html} and the #{filtered_siblings[2].to_html}. "
     elsif filtered_siblings.length > 3
-      html += "You see the #{filtered_siblings[0].to_html}, the #{filtered_siblings[1].to_html} and <action data-action='inspect'>#{filtered_siblings.length-2} other vessels</action>. "
+      html += "You see the #{filtered_siblings[0].to_html}, the #{filtered_siblings[1].to_html} and <action-link  data-action=\'inspect\'>'+@host.parent.id.to_s+'</action-link>. "
     elsif !@host.parent.is_silent && !@host.parent.has_note
-      html += "<i style='color:#999'>There is nothing here, why don't you <action data-action='create '>create</action> something.</i>"
+      html += "<i style='color:#999'>There is nothing here, why don't you <action-link  data-action=\'inspect\'>'+@host.parent.id.to_s+'</action-link> something.</i>"
     end
 
     return "<p>#{html}</p>"
@@ -96,7 +96,7 @@ class ActionLook
   def action
 
     @host.siblings.each do |vessel|
-      if vessel.has_program then return "<p id='action'><vessel data-action='use the #{vessel}'>Use the #{vessel}.</vessel></p>" end
+      if vessel.has_program then return "<p id='action'><vessel-link data-action='use the #{vessel}'>Use the #{vessel}.</vessel-link></p>" end
     end
     return ""
 

@@ -39,7 +39,7 @@ class ActionInspect
       html += "<h3>Siblings</h3>"
       html += "<ul class='basic' style='margin-bottom:30px'>"
       @host.siblings.each do |vessel|
-        html += "<li><action data-action='enter the #{vessel}'>#{vessel}</action></li>"
+        html += "<li><action-link  data-action='enter the #{vessel}'>#{vessel}</action-link></li>"
       end
       html += "</ul>"
     end

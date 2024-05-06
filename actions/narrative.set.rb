@@ -26,8 +26,8 @@ class ActionSet
     flag  = parts.first
     value = parts.last.to_sym
 
-    if parts.length != 2            then return @host.answer(self,:error,"#{params} is not a valid setting","You can learn about the setting command by typing <action data-action='help with narrative'>help with narrative</action>.") end
-    if !flags.include?(flag)        then return @host.answer(self,:error,"#{flag} is not a valid flag. ","You can learn about the setting command by typing <action data-action='help with narrative'>help with narrative</action>.") end
+    if parts.length != 2            then return @host.answer(self,:error,"#{params} is not a valid setting","You can learn about the setting command by typing <action-link  data-action='help with narrative'>help with narrative</action-link>.") end
+    if !flags.include?(flag)        then return @host.answer(self,:error,"#{flag} is not a valid flag. ","You can learn about the setting command by typing <action-link  data-action='help with narrative'>help with narrative</action-link>.") end
     if @host.owner != $player_id    then return @host.answer(self,:error,"#{topic} do not own #{@host}.") end
 
     if flag.like("is_locked") then return set_locked(value) end

@@ -9,14 +9,14 @@ class VesselParadise
 
     super
 
-    @path     = File.expand_path(File.join(File.dirname(__FILE__), "/"))
+    @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
 
     load_folder("#{@path}/objects/*")
     load_folder("#{@path}/vessels/*")
     load_folder("#{@path}/actions/*")
 
-    @name     = "Paradise"
-    @docs     = "A multiplayer interactive fiction multiverse"
+    @name = "Paradise"
+    @docs = "A multiplayer interactive fiction multiverse"
 
     @@forum    = Memory_Array.new("forum", @path)
     @@paradise = Memory_Array.new("paradise", @path)
@@ -26,16 +26,11 @@ class VesselParadise
     install(:generic, :serve, CorpseHttp.new(self))
     install(:generic, :help)
 
-    puts @corpse
-
     build_corpse
 
   end
 
   def build_corpse
-
-    puts "building corpse"
-    puts @corpse
 
     def @corpse.build
 
@@ -52,8 +47,8 @@ class VesselParadise
       add_link("style.fonts.css")
       add_link("style.main.css")
 
-      add_script("core/jquery.js", :lobby)
-      add_script("jquery.main.js")
+      add_script("core/htmx.js", :lobby)
+      add_footer_script("main.js")
 
     end
 
@@ -75,9 +70,39 @@ class VesselParadise
       if player_id < 1 then return @body = select_random_vessel end
 
       @player = @@parade[player_id]
-      @title   = "Paradise ∴ #{@player}"
+      @title  = "Paradise ∴ #{@player}"
+      @body = %Q(
+      <bg></bg>
+      <view>#{@player.act(@action, @params)}</view>
 
-      @body = "<bg></bg><view>#{@player.act(@action, @params)}</view><div class='terminal'><input placeholder='What would you like to do?'/></div>"
+      <form hx-post='/'
+            hx-target='view'
+            hx-select='view'
+            hx-swap='outerHTML'
+            class='terminal'
+        >
+        <input
+          name='player_id'
+          id='player_id'
+          type='hidden'
+          value='#{player_id}'
+        />
+        <input
+          name='q'
+          id='q'
+          type='hidden'
+          value='#{player_id}'
+          hx-swap-oob='true'
+        />
+        <input
+          name='command'
+          id='command'
+          placeholder='What would you like to do?'
+          autofocus
+          hx-swap-oob='true'
+        />
+      </form>
+      )
 
     end
 
