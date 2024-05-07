@@ -72,12 +72,16 @@ class VesselParadise
       @title  = "Paradise ∴ #{@player}"
       @body = %Q(
       <bg></bg>
-      <view>#{@player.act(@action, @params)}</view>
+      <view>
+        #{@player.act(@action, @params)}
+        <p id='indicator' class='htmx-indicator'>Paradise is forming... <span class='spinner'></span></p>
+      </view>
 
       <form hx-post='/'
             hx-target='view'
             hx-select='view'
             hx-swap='outerHTML'
+            hx-indicator="#indicator"
             class='terminal'
         >
         <input
@@ -118,6 +122,7 @@ class VesselParadise
 
     def @corpse.paradise ; return @@paradise; end
     def @corpse.parade; return @@parade; end
+    def @corpse.parade=(new_parade); @@parade = new_parade; return @@parade; end
     def @corpse.player; return @player; end
     def @corpse.forum ; return @@forum; end
   end
