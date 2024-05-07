@@ -13,7 +13,6 @@ class VesselParadise
 
     load_folder("#{@path}/objects/*")
     load_folder("#{@path}/vessels/*")
-    load_folder("#{@path}/actions/*")
 
     @name = "Paradise"
     @docs = "A multiplayer interactive fiction multiverse"

@@ -48,9 +48,9 @@ class Teapot
     @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
     @docs = "Default Paradise vessel."
 
-    install(:generic,:look)
-    install(:generic,:help)
-    install(:generic,:inspect)
+    install(:information, :look)
+    install(:information, :actions)
+    install(:information, :inspect)
 
     install(:basic,:create)
     install(:basic,:become)
@@ -69,9 +69,9 @@ class Teapot
     install(:narrative,:transform)
     install(:narrative,:set)
 
-    install(:programming,:program)
-    install(:programming,:use)
-    install(:programming,:cast)
+    install(:automation, :program)
+    install(:automation, :use)
+    install(:automation, :cast)
 
   end
 

@@ -3,7 +3,7 @@
 
 require_relative "_toolkit.rb"
 
-class ActionHelp
+class ActionActions
 
   include Action
 
@@ -43,11 +43,13 @@ class ActionHelp
     # Actions
     html += "<code>"
     @host.actions.each do |cat,actions|
+      puts cat, actions
       if cat == :generic then next end
       actions.each do |action|
-        action = action.new
-        action.examples.each do |example|
-          html += "#{example}\n"
+        unless action.examples.nil? then
+          action.examples.each do |example|
+            html += "#{example}\n"
+          end
         end
       end
       html += "\n"
