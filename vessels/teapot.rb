@@ -492,9 +492,13 @@ class Teapot
     if validity_check == false then hints += validity_errors end
 
     # Improvements
-    if !is_locked && !has_program && !has_note
-      hints.push("Improve this vessel with a <action-link  data-action='note '>description</action-link>.")
-      hints.push("Automate this vessel with a <action-link  data-action='note '>description</action-link>.")
+    if !is_locked then
+      if !has_program then
+        hints.push("Automate this vessel with a <action-link data-action='program '>program</action-link>.")
+      end
+      if !has_note then
+        hints.push("Improve this vessel with a <action-link data-action='note '>description</action-link>.")
+      end
     end
 
     if owner == $player_id then hints.push("You own this #{name}.") end
