@@ -5,9 +5,10 @@ class Comment
 
   attr_accessor :id
 
-  def initialize content = {}
+  def initialize content = {}, memory_index
 
     @content = content
+    @memory_index = memory_index
 
   end
 

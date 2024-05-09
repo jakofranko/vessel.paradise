@@ -27,8 +27,8 @@ class ActionCreate
     new_vessel = Teapot.new({
       "NAME" => name.downcase,
       "ATTR" => attr.downcase,
-      "CODE" => "0000-#{@host.unde.to_s.prepend('0',5)}-#{@host.id.to_s.prepend('0',5)}-#{Timestamp.new}"
-    })
+      "CODE" => "0000-#{@host.unde.to_s.prepend('0',5)}-#{@host.memory_index.to_s.prepend('0',5)}-#{Timestamp.new}"
+    }, -1)
 
     validity_check, validity_errors = new_vessel.is_valid
 

@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionLeave
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -26,10 +26,10 @@ class ActionLeave
     if @host.parent.is_paradox      then return @host.answer(self,:error,"#{topic} reached the stem of the universe. The #{@host.parent.name} is a paradox and may not be exited. ") end
     if @host.is_locked == true      then return @host.answer(self,:error,"#{@host} is locked.") end
 
-    @host.set_unde(target.id)
-    
+    @host.set_unde(target.memory_index)
+
     return @host.answer(self,:modal,"#{topic} left the #{prev}, and entered the <i>#{target}</i>.")
-    
+
   end
 
 end

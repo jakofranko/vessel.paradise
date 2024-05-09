@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionEnter
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -22,14 +22,22 @@ class ActionEnter
 
     target = @host.find_visible(params)
     prev = @host.parent
-    
-    if !target                      then return @host.answer(self,:error,"#{topic} could not find the target vessel.") end
-    if target.id == @host.parent.id then return @host.answer(self,:error,"You already are in #{target}.") end
-    if @host.is_locked == true      then return @host.answer(self,:error,"#{@host} is locked.") end
 
-    @host.set_unde(target.id)
+    if !target then
+      return @host.answer(self, :error, "#{topic} could not find the target vessel.")
+    end
 
-    return @host.answer(self,:modal,"#{topic} entered the #{target}. ", "Press <b>enter</b> to continue or type <action-link  data-action='leave'>leave</action-link> to return to the #{prev}.")
+    if target.memory_index == @host.parent.memory_index then
+      return @host.answer(self, :error, "You already are in #{target}.")
+    end
+
+    if @host.is_locked == true then
+      return @host.answer(self, :error, "#{@host} is locked.")
+    end
+
+    @host.set_unde(target.memory_index)
+
+    return @host.answer(self, :modal, "#{topic} entered the #{target}. ", "Press <b>enter</b> to continue or type <action-link data-action='leave'>leave</action-link> to return to the #{prev}.")
 
   end
 

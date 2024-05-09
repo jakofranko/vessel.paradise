@@ -7,6 +7,7 @@ class Teapot
   # include VesselToolkit
 
   attr_accessor :id
+  attr_accessor :memory_index
   attr_accessor :perm
   attr_accessor :name
   attr_accessor :note
@@ -23,9 +24,9 @@ class Teapot
 
   attr_accessor :is_paradox
 
-  def initialize content
+  def initialize content, memory_index
 
-    super
+    super(memory_index)
 
     @content = content
 
@@ -36,6 +37,7 @@ class Teapot
     @unde  = @content["CODE"] ? @content["CODE"].split("-")[1].to_i : 1
     @owner = @content["CODE"] ? @content["CODE"].split("-")[2].to_i : 0
     @time  = @content["CODE"] ? @content["CODE"].split("-")[3] : Timestamp.new
+    @memory_index = memory_index # This should be refactored to just be 'id', and replace how id's are currently being set
 
     # Code
 
@@ -137,7 +139,7 @@ class Teapot
 
   def save
 
-    $nataniev.vessels[:paradise].corpse.paradise.overwrite_line(@id+4,encode)
+    $nataniev.vessels[:paradise].corpse.paradise.update(@memory_index, encode)
 
     return true
 

@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionBecome
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -22,10 +22,12 @@ class ActionBecome
 
     target = @host.find_visible(params)
 
-    if !target                      then return @host.answer(self,:error,"#{topic} cannot find the target vessel.") end
+    if !target then
+      return @host.answer(self, :error, "#{topic} cannot find the target vessel.")
+    end
 
     return "<p>You are becoming #{target}...</p>
-    <meta http-equiv='refresh' content='1; url=/#{target.id}' />"
+    <meta http-equiv='refresh' content='1; url=/#{target.memory_index}' />"
 
   end
 
