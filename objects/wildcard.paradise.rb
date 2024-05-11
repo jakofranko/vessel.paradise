@@ -76,7 +76,7 @@ class WildcardParadise
       if vessel.id == @host.parent.id then next end
 
       owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
-      html += "<li><action-link  data-action='warp to the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
+      html += "<li><action-link  data-action='warp to #{vessel.id}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
     end
 
     return "<ul class='basic'>#{html}</ul>"
@@ -95,7 +95,7 @@ class WildcardParadise
 
     # g["the parade"] = "is another name for all of Paradise's activity."
     # g["the haven"] = "is a tutorial region with various documentation vessels."
-    
+
     g[:void] = {}
     g[:void]["the void"] = "is generic unbuilt vessel space, any warp id that is yet unused."
     g[:void]["the ultravoid"] = "is the hyptothesized vessel space of negative warp id."
@@ -108,9 +108,9 @@ class WildcardParadise
     g[:fashion]["thingspace"] = "is a type of vessels with eucledian and real-world attributes. Often the default simplistic mindset of new players."
     g[:fashion]["conceptspace"] = "is a type of vessels with non-spacial attributes, or hard to visualize attributes. It has been suggested that the Parade is a research project exploring the limits of conceptspace."
     g[:fashion]["illegalspace"] = "is a type of vessels with non-paradise attributes, often the result of exploits. A vessel with a number for a name, for instance."
-    
-  
-    html = ""    
+
+
+    html = ""
     g.each do |cat,terms|
       html += "<h4>#{cat}</h4>"
       html += "<ul class='basic' style='margin-bottom:30px'>"
@@ -118,7 +118,7 @@ class WildcardParadise
         html += "<li><b>#{term.capitalize}</b>, #{definition}</li>"
       end
       html += "</ul>"
-      
+
     end
     return html
 

@@ -145,11 +145,15 @@ class Teapot
 
   end
 
+  def reset_siblings; @siblings = nil; end
+  def reset_children; @children = nil; end
+  def reset_parent; @parent = nil; end
+
   def reload
 
-    @siblings = nil
-    @children = nil
-    @parent = nil
+    reset_siblings
+    reset_children
+    reset_parent
 
   end
 

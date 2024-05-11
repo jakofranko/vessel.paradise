@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionDrop
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -27,8 +27,12 @@ class ActionDrop
 
     target.set_unde(@host.unde)
 
+    # Target is now a sibling of the host and not a child
+    @host.reset_siblings
+    @host.reset_children
+
     return @host.answer(self,:modal,"#{topic} dropped the #{target}.")
-    
+
   end
 
 end

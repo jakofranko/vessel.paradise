@@ -1,5 +1,6 @@
 #!/bin/env ruby
 # encoding: utf-8
+require 'benchmark'
 
 class VesselParadise
 
@@ -53,12 +54,18 @@ class VesselParadise
 
     def @corpse.query q = nil
 
-      # TODO: move IDs to the memory
-      id = 0
-      @@parade.each do |vessel|
-        vessel.id = id
-        id += 1
+      Benchmark.bm do |bench|
+        bench.report("Creating parade") { @@parade = @@paradise.to_a("teapot") }
+        bench.report("Creating IDs") {
+          # TODO: move IDs to the memory
+          id = 0
+          @@parade.each do |vessel|
+            vessel.id = id
+            id += 1
+          end
+        }
       end
+
 
       parts = q.gsub("+", " ").strip.split(" ")
       player_id = parts.first.to_i

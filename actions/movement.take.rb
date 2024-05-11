@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionTake
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -27,8 +27,12 @@ class ActionTake
 
     target.set_unde(@host.id)
 
+    # The target is no longer a sibling of the host but a child
+    @host.reset_siblings
+    @host.reset_children
+
     return @host.answer(self,:modal,"#{topic} took the #{target}.")
-    
+
   end
 
 end
