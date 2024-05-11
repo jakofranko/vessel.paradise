@@ -92,7 +92,9 @@ class Teapot
 
   def answer action, type, message, etc = nil
 
-    if type == :error then return "<h3>#{action.verb} Failed</h3><p>#{message}</p><p class='small'>#{etc ? etc : 'Press <b>enter</b> to continue.'}</p>" end
+    if type == :error then
+      return "<h3>#{action.verb} Failed</h3><p>#{message}</p><p class='small'>#{etc ? etc : 'Press <b>enter</b> to continue.'}</p>"
+    end
 
     return "<h3>#{action.verb}...</h3><p>#{message}</p><p class='small'>#{etc ? etc : 'Press <b>enter</b> to continue.'}</p>"
 

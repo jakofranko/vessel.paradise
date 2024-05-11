@@ -21,6 +21,7 @@ class VesselParadise
     @@forum    = Memory_Array.new("forum", @path)
     @@paradise = Memory_Array.new("paradise", @path)
     @@parade   = @@paradise.to_a("teapot")
+    @@player_id = nil
 
     $nataniev.require("corpse","http")
     install(:generic, :serve, CorpseHttp.new(self))
@@ -68,14 +69,14 @@ class VesselParadise
 
 
       parts = q.gsub("+", " ").strip.split(" ")
-      player_id = parts.first.to_i
+      @@player_id = parts.first.to_i
 
       @action = parts[1] ? parts[1] : "look"
-      @params = parts.join(" ").sub(player_id.to_s, "").sub(@action, "").strip
+      @params = parts.join(" ").sub(@@player_id.to_s, "").sub(@action, "").strip
 
-      if player_id < 1 then return @body = select_random_vessel end
+      if @@player_id < 1 then return @body = select_random_vessel end
 
-      @player = @@parade[player_id]
+      @player = @@parade[@@player_id]
       @title  = "Paradise ∴ #{@player}"
       @body = %Q(
       <bg></bg>
@@ -95,13 +96,13 @@ class VesselParadise
           name='player_id'
           id='player_id'
           type='hidden'
-          value='#{player_id}'
+          value='#{@@player_id}'
         />
         <input
           name='q'
           id='q'
           type='hidden'
-          value='#{player_id}'
+          value='#{@@player_id}'
           hx-swap-oob='true'
         />
         <input
@@ -132,5 +133,11 @@ class VesselParadise
     def @corpse.parade=(new_parade); @@parade = new_parade; return @@parade; end
     def @corpse.player; return @player; end
     def @corpse.forum ; return @@forum; end
+  end
+
+  def get_player_id
+
+    return @@player_id
+
   end
 end

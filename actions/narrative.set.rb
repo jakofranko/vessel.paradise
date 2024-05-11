@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionSet
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -18,6 +18,7 @@ class ActionSet
 
   end
 
+  # Set an attribute for the vessel via a spell
   def act params = ""
 
     parts = params.split(" ")
@@ -26,9 +27,11 @@ class ActionSet
     flag  = parts.first
     value = parts.last.to_sym
 
-    if parts.length != 2            then return @host.answer(self,:error,"#{params} is not a valid setting","You can learn about the setting command by typing <action-link  data-action='help with narrative'>help with narrative</action-link>.") end
-    if !flags.include?(flag)        then return @host.answer(self,:error,"#{flag} is not a valid flag. ","You can learn about the setting command by typing <action-link  data-action='help with narrative'>help with narrative</action-link>.") end
-    if @host.owner != $player_id    then return @host.answer(self,:error,"#{topic} do not own #{@host}.") end
+    player_id = $nataniev.vessels[:paradise].get_player_id
+
+    if parts.length != 2        then return @host.answer(self, :error, "You may only set one attribute at a time, and you entered #{params}", "You can learn about the setting command by <action-link data-action='actions'>viewing the available actions</action-link>.") end
+    if !flags.include?(flag)    then return @host.answer(self, :error, "#{flag} is not a valid flag. ", "You can learn about the setting command by typing <action-link data-action='actions'>viewing the available actions</action-link>.") end
+    if @host.owner != player_id then return @host.answer(self, :error, "#{topic} do not own #{@host} and thus may not alter its attributes.", "The 'set' command can only be used via a spell, and not directly. Try casting a spell on a vessel you own.") end
 
     if flag.like("is_locked") then return set_locked(value) end
     if flag.like("is_hidden") then return set_hidden(value) end
@@ -36,17 +39,15 @@ class ActionSet
     if flag.like("is_tunnel") then return set_tunnel(value) end
 
     return @host.answer(self,:error,"Unknown attribute #{flag}.")
-    
+
   end
 
   def set_locked val
 
-    if @host.owner != $player_id then return @host.answer(self,:error,"The #{@host.name} is not owned by #{topic.downcase}.") end
-
-    @host.set_silent(val == :true ? true : false)
+    @host.set_locked(val == :true ? true : false)
 
     return @host.answer(self,:modal,val == :true ? "#{topic} locked #{@host}." : "#{topic} unlocked #{@host}.")
-    
+
   end
 
   def set_hidden val
@@ -56,7 +57,7 @@ class ActionSet
     @host.set_silent(val == :true ? true : false)
 
     return @host.answer(self,:modal,val == :true ? "#{topic} concealed #{@host}." : "#{topic} revealed #{@host}.")
-    
+
   end
 
   def set_silent val
@@ -66,7 +67,7 @@ class ActionSet
     @host.set_silent(val == :true ? true : false)
 
     return @host.answer(self,:modal,val == :true ? "#{topic} silenced #{@host}." : "#{topic} unsilenced #{@host}.")
-    
+
   end
 
   def set_tunnel val
@@ -76,7 +77,7 @@ class ActionSet
     @host.set_silent(val == :true ? true : false)
 
     return @host.answer(self,:modal,val == :true ? "#{topic} tunneled #{@host}." : "#{topic} untunneled #{@host}.")
-    
+
   end
 
 end
