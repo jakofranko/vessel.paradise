@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionEmote
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -20,7 +20,7 @@ class ActionEmote
 
   def act params = ""
 
-    return @host.act("say","me #{params}")
+    return @host.act("say", "me #{params}")
 
   end
 

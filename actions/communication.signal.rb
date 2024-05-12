@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionSignal
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -20,10 +20,10 @@ class ActionSignal
 
   def act params = ""
 
-    if @host.parent.is_hidden then return @host.answer(self,:error,"The #{@host.parent} is hidden.") end
+    if @host.parent.is_hidden then return @host.answer(self, :error, "The #{@host.parent} is hidden.") end
 
-    return @host.act("say","#{@host.parent.id}")
-    
+    return @host.act("say", "#{@host.parent.id}")
+
   end
 
 end

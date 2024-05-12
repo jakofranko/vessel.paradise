@@ -5,7 +5,7 @@ class Comment
 
   attr_accessor :id
 
-  def initialize content = {}, memory_index
+  def initialize content = {}, memory_index = -1
 
     @content = content
     @memory_index = memory_index
@@ -18,7 +18,7 @@ class Comment
 
   end
 
-  def inject host,message
+  def inject host, message
 
     @content["TIMESTAMP"] = Timestamp.new
     @content["HOST"] = host.id
@@ -66,8 +66,8 @@ class Comment
 
     if is_question then return "You asked \"#{message}\"?" end
     if is_shout then return "You shouted \"#{message}\"" end
-    if is_emote then return "You #{message[3,message.length-3]}." end
-    if is_warp then return "You indicated <action-link  data-action='warp to #{message}'>≡#{message.to_i}</action-link>." end
+    if is_emote then return "You #{message[3, message.length - 3]}." end
+    if is_warp then return "You indicated <action-link data-action='warp to #{message}'>≡#{message.to_i}</action-link>." end
 
     return "You said \"#{message}\"."
 
@@ -77,8 +77,8 @@ class Comment
 
     if is_question then return "<li>#{vessel_name.capitalize} asked \"<message>#{message.capitalize}?</message>\".</li>" end
     if is_shout then return "<li>#{vessel_name.capitalize} shouts \"<message>#{message.capitalize}</message>\".</li>" end
-    if is_emote then return "<li>#{vessel_name.capitalize} <message>#{message[3,message.length-3]}</message>.</li>" end
-    if is_warp then return "<li>#{vessel_name.capitalize} signals from the <action-link  data-action='warp to #{message.to_i}'>#{$nataniev.vessels[:paradise].corpse.parade[message.to_i]}</action-link>.</li>" end
+    if is_emote then return "<li>#{vessel_name.capitalize} <message>#{message[3, message.length - 3]}</message>.</li>" end
+    if is_warp then return "<li>#{vessel_name.capitalize} signals from the <action-link data-action='warp to #{message.to_i}'>#{$nataniev.vessels[:paradise].corpse.parade[message.to_i]}</action-link>.</li>" end
 
     return "<li>— \"<message>#{message.capitalize}</message>\", says #{vessel_name}.</li>"
 

@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionSay
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -21,7 +21,7 @@ class ActionSay
   def act params = ""
 
     new_comment = Comment.new
-    new_comment.inject(@host,params)
+    new_comment.inject(@host, params)
 
     is_valid, error = new_comment.is_valid
 
@@ -31,8 +31,8 @@ class ActionSay
 
     $nataniev.vessels[:paradise].corpse.forum.append(new_comment.to_code)
 
-    return @host.answer(self,:modal,new_comment.feedback)
-    
+    return @host.answer(self, :modal, new_comment.feedback)
+
   end
 
 end
