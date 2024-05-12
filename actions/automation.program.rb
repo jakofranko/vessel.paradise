@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionProgram
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -22,13 +22,13 @@ class ActionProgram
 
     target = @host.parent
     program = Program.new(@host,params)
-    
+
     if target.is_locked == true     then return @host.answer(self,:error,"The #{target} is locked.") end
-    if !program.is_valid            then return @host.answer(self,:error,"The program is not valid.","You can learn about valid programs in the <action-link  data-action='help'>programming guide</action-link>.") end
+    if !program.is_valid            then return @host.answer(self,:error,"The program is not valid.","You can learn about valid programs in the <action-link data-action='actions'>programming guide</action-link>.") end
 
     target.set_program(params)
 
-    return @host.answer(self,:modal,"#{topic} updated the #{target}'s program.")
+    return @host.answer(self, :modal, "#{topic} updated the #{target}'s program.")
 
   end
 

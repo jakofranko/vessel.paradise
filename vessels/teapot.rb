@@ -268,7 +268,11 @@ class Teapot
 
     parts = params.remove_articles.split(" ")
 
-    if parts.last.to_i > 0 && $nataniev.vessels[:paradise].corpse.parade[parts.last.to_i] then return $nataniev.vessels[:paradise].corpse.parade[parts.last.to_i] end
+    vessel_id = parts.last.to_i
+    parade_vessel = $nataniev.vessels[:paradise].corpse.parade[vessel_id]
+
+    # A vessel_id of 0 means that there was no number found in the final part of the param array, and thus not a vessel_id
+    if vessel_id > 0 && parade_vessel then return parade_vessel end
 
     name = parts[-1,1]
     attr = parts.length > 1 ? parts[-2,1] : nil

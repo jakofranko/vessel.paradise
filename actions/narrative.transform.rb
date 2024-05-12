@@ -52,7 +52,7 @@ class ActionTransform
 
     @host.save
 
-    return @host.answer(self, :modal, "#{topic} transformed into the #{@host}.")
+    return @host.answer(self, :modal, "#{old_name} transformed into the #{@host}.")
 
   end
 

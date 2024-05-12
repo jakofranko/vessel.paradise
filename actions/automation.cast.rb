@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionCast
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -20,7 +20,7 @@ class ActionCast
 
   def act params = ""
 
-    return params.include?(" on ") ? cast_proxy(params.split(" on ").first,params.split(" on ").last) : cast_default(params)
+    return params.include?(" on ") ? cast_proxy(params.split(" on ").first, params.split(" on ").last) : cast_default(params)
 
   end
 
@@ -28,10 +28,10 @@ class ActionCast
 
     spell = @host.find_distant(spell_name)
 
-    if !spell                             then return @host.answer(self,:error,"This spell is unknown.") end
-    if !spell.program.is_valid            then return @host.answer(self,:error,"#{spell} is not a valid spell.") end
-    if spell.program.action.like("cast")  then return @host.answer(self,:error,"Cannot cast a casting program.") end
-     
+    if !spell                             then return @host.answer(self, :error, "This spell is unknown.") end
+    if !spell.program.is_valid            then return @host.answer(self, :error, "#{spell} is not a valid spell.") end
+    if spell.program.action.like("cast")  then return @host.answer(self, :error, "Cannot cast a casting program.") end
+
     return @host.act(spell.program.action,spell.program.params.wildcards(@host))
 
   end
@@ -41,10 +41,10 @@ class ActionCast
     spell = @host.find_distant(spell_name)
     target = @host.find_visible(target_name)
 
-    if !spell                             then return @host.answer(self,:error,"This spell is unknown.") end
-    if !spell.program.is_valid            then return @host.answer(self,:error,"#{spell} is not a valid spell.") end
-    if !target                            then return @host.answer(self,:error,"The target vessel is not valid.") end
-    if  spell.program.action.like("cast") then return @host.answer(self,:error,"Cannot cast a casting program.") end
+    if !spell                             then return @host.answer(self, :error, "This spell is unknown.") end
+    if !spell.program.is_valid            then return @host.answer(self, :error, "#{spell} is not a valid spell.") end
+    if !target                            then return @host.answer(self, :error, "The target vessel is not valid.") end
+    if spell.program.action.like("cast")  then return @host.answer(self, :error, "Cannot cast a casting program.") end
 
     return target.act(spell.program.action,spell.program.params.wildcards(target))
 

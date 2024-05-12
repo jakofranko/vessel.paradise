@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionUse
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -21,15 +21,15 @@ class ActionUse
   def act params = ""
 
     target = @host.find_visible(params)
-    
-    if !target                      then return @host.answer(self,:error,"#{topic} do not see the #{params}.") end
-    if !target.has_program          then return @host.answer(self,:error,"The #{target} does not have a program.") end
-    if !target.program.is_valid     then return @host.answer(self,:error,"The #{target}'s program is invalid.") end
 
-    answer = @host.act(target.program.action,target.program.params.wildcards(@host))
-    
+    if !target                      then return @host.answer(self, :error, "#{topic} do not see the #{params}.") end
+    if !target.has_program          then return @host.answer(self, :error, "The #{target} does not have a program.") end
+    if !target.program.is_valid     then return @host.answer(self, :error, "The #{target}'s program is invalid.") end
+
+    answer = @host.act(target.program.action, target.program.params.wildcards(@host))
+
     return answer
-    
+
   end
 
 end
