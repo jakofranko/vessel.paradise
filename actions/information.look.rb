@@ -46,7 +46,7 @@ class ActionLook
 
   def page
 
-    return "<h2 id='page'>#{@host.parent.is_hidden ? '≡' : '<action-link  data-action=\'inspect\'>'+@host.parent.id.to_s+'</action-link>'}</h2>"
+    return "<h2 id='page'>#{@host.parent.is_hidden ? '≡' : '<action-link data-action="inspect">' + @host.parent.id.to_s + '</action-link>'}</h2>"
 
   end
 
@@ -105,20 +105,23 @@ class ActionLook
 
   def parse_vessels_in_note html
 
-    html = html.gsub(","," , ")
-    html = html.gsub("."," . ")
+    html = html.gsub(",", " , ")
+    html = html.gsub(".", " . ")
 
     @host.siblings.each do |vessel|
-      html = html.sub(" #{vessel.has_attr ? vessel.attr+' ' : ''}#{vessel.name} "," #{vessel.to_html} ")
+      html = html.sub("#{vessel.has_attr ? vessel.attr + ' ' : ''}#{vessel.name}", "#{vessel.to_html}")
     end
+
+    # TODO: this might be broken
+    puts @host.tunnels
     @host.tunnels.each do |vessel|
       action_override = "warp to #{vessel.id}"
       class_override  = "tunnel"
-      html = html.sub(" #{vessel.attr} #{vessel.name} "," #{vessel.to_html(action_override,class_override)} ")
+      html = html.sub(" #{vessel.attr} #{vessel.name} "," #{vessel.to_html(action_override, class_override)} ")
     end
 
-    html = html.gsub(" , ",", ")
-    html = html.gsub(" . ",". ")
+    html = html.gsub(" , ", ", ")
+    html = html.gsub(" . ", ". ")
 
     return html
 
@@ -126,14 +129,14 @@ class ActionLook
 
   def parse_wildcards text
 
-    text.scan(/(?:\(\()([\w\W]*?)(?=\)\))/).each do |str,details|
+    text.scan(/(?:\(\()([\w\W]*?)(?=\)\))/).each do |str, details|
       key = str.split(" ").first
-      value = str.sub("#{key} ","").strip
+      value = str.sub("#{key} ", "").strip
       if Kernel.const_defined?("Wildcard#{key.capitalize}")
-        wc = Object.const_get("Wildcard#{key.capitalize}").new(@host,value)
-        text = text.gsub("((#{str}))",wc.to_s)
+        wc = Object.const_get("Wildcard#{key.capitalize}").new(@host, value)
+        text = text.gsub("((#{str}))", wc.to_s)
       else
-        text = text.gsub(str,"Error:#{key}.")
+        text = text.gsub(str, "Error: #{key}.")
       end
     end
 
@@ -149,7 +152,7 @@ class ActionLook
 
     messages = $nataniev.vessels[:paradise].corpse.forum.to_a("comment")
 
-    selection = @host.parent.name.like("lobby") ? messages[messages.length-7,7] : messages[messages.length-3,3]
+    selection = @host.parent.name.like("lobby") ? messages[messages.length - 7, 7] : messages[messages.length - 3, 3]
 
     selection.each do |message|
       html += message.to_s

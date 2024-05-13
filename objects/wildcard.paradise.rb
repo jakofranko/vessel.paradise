@@ -57,7 +57,7 @@ class WildcardParadise
       if !vessel.name.like("spell") then next end
 
       owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
-      html += "<li><action-link  data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
+      html += "<li><action-link data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
     end
 
     return "<ul class='basic'>#{html}</ul>"
@@ -76,7 +76,7 @@ class WildcardParadise
       if vessel.id == @host.parent.id then next end
 
       owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
-      html += "<li><action-link  data-action='warp to #{vessel.id}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
+      html += "<li><action-link data-action='warp to #{vessel.id}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
     end
 
     return "<ul class='basic'>#{html}</ul>"

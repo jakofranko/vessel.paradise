@@ -32,7 +32,7 @@ class ActionCast
     if !spell.program.is_valid            then return @host.answer(self, :error, "#{spell} is not a valid spell.") end
     if spell.program.action.like("cast")  then return @host.answer(self, :error, "Cannot cast a casting program.") end
 
-    return @host.act(spell.program.action,spell.program.params.wildcards(@host))
+    return @host.act(spell.program.action, spell.program.params.wildcards(@host))
 
   end
 
@@ -46,7 +46,7 @@ class ActionCast
     if !target                            then return @host.answer(self, :error, "The target vessel is not valid.") end
     if spell.program.action.like("cast")  then return @host.answer(self, :error, "Cannot cast a casting program.") end
 
-    return target.act(spell.program.action,spell.program.params.wildcards(target))
+    return target.act(spell.program.action, spell.program.params.wildcards(target))
 
   end
 

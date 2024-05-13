@@ -102,19 +102,19 @@ class Teapot
 
   def to_html action_override = nil, class_override = nil
 
-    attr        = @attr ? "#{@attr} " : ""
+    attr        = has_attr ? "#{@attr} " : ""
     name        = "#{@name}"
     action      = has_program ? "use the #{attr}#{name}" : "enter the #{attr}#{name}"
     action      = action_override ? action_override : action
     action_tags = "data-name='#{@name}' data-attr='#{@attr}' data-action='#{action}'"
 
-    return "<vessel-link class='#{@attr} #{class_override ? class_override : classes}' #{action_tags}>#{attr}<name>#{name}</name></vessel-link>"
+    return "<vessel-link class='#{attr}#{class_override ? class_override : classes}' #{action_tags}>#{attr}<name>#{name}</name></vessel-link>"
 
   end
 
   def to_s
 
-    return "#{attr ? attr+' ' : ''}#{name}"
+    return "#{has_attr ? @attr + ' ' : ''}#{@name}"
 
   end
 

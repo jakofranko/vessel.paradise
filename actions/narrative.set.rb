@@ -38,7 +38,7 @@ class ActionSet
     if flag.like("is_silent") then return set_silent(value) end
     if flag.like("is_tunnel") then return set_tunnel(value) end
 
-    return @host.answer(self,:error,"Unknown attribute #{flag}.")
+    return @host.answer(self, :error, "Unknown attribute #{flag}.")
 
   end
 
@@ -46,37 +46,37 @@ class ActionSet
 
     @host.set_locked(val == :true ? true : false)
 
-    return @host.answer(self,:modal,val == :true ? "#{topic} locked #{@host}." : "#{topic} unlocked #{@host}.")
+    return @host.answer(self, :modal, val == :true ? "#{topic} locked #{@host}." : "#{topic} unlocked #{@host}.")
 
   end
 
   def set_hidden val
 
-    if @host.is_locked then return @host.answer(self,:error,"The #{@host.name} is locked.") end
+    if @host.is_locked then return @host.answer(self, :error, "The #{@host.name} is locked.") end
 
-    @host.set_silent(val == :true ? true : false)
+    @host.set_hidden(val == :true ? true : false)
 
-    return @host.answer(self,:modal,val == :true ? "#{topic} concealed #{@host}." : "#{topic} revealed #{@host}.")
+    return @host.answer(self, :modal, val == :true ? "#{topic} concealed #{@host}." : "#{topic} revealed #{@host}.")
 
   end
 
   def set_silent val
 
-    if @host.is_locked then return @host.answer(self,:error,"The #{@host.name} is locked.") end
+    if @host.is_locked then return @host.answer(self, :error, "The #{@host.name} is locked.") end
 
     @host.set_silent(val == :true ? true : false)
 
-    return @host.answer(self,:modal,val == :true ? "#{topic} silenced #{@host}." : "#{topic} unsilenced #{@host}.")
+    return @host.answer(self, :modal, val == :true ? "#{topic} silenced #{@host}." : "#{topic} unsilenced #{@host}.")
 
   end
 
   def set_tunnel val
 
-    if @host.is_locked then return @host.answer(self,:error,"The #{@host.name} is locked.") end
+    if @host.is_locked then return @host.answer(self, :error, "The #{@host.name} is locked.") end
 
-    @host.set_silent(val == :true ? true : false)
+    @host.set_tunnel(val == :true ? true : false)
 
-    return @host.answer(self,:modal,val == :true ? "#{topic} tunneled #{@host}." : "#{topic} untunneled #{@host}.")
+    return @host.answer(self, :modal, val == :true ? "#{topic} tunneled #{@host}." : "#{topic} untunneled #{@host}.")
 
   end
 
