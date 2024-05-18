@@ -57,14 +57,6 @@ class VesselParadise
 
       Benchmark.bm do |bench|
         bench.report("Creating parade") { @@parade = @@paradise.to_a("teapot") }
-        bench.report("Creating IDs") {
-          # TODO: move IDs to the memory
-          id = 0
-          @@parade.each do |vessel|
-            vessel.id = id
-            id += 1
-          end
-        }
       end
 
 
@@ -124,7 +116,7 @@ class VesselParadise
         if vessel.rating > 0 then next end
         candidates.push(vessel)
       end
-      return "<meta http-equiv='refresh' content='0; url=/#{candidates.length > 0 ? candidates[rand(candidates.length)].id : rand($parade.length)}'/>"
+      return "<meta http-equiv='refresh' content='0; url=/#{candidates.length > 0 ? candidates[rand(candidates.length)].memory_index : rand($parade.length)}'/>"
 
     end
 
