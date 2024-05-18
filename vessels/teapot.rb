@@ -240,7 +240,7 @@ class Teapot
     $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
       if vessel.unde != @unde then next end
       if vessel.memory_index == parent.memory_index then next end
-      if vessel.memory_index == @id then next end
+      if vessel.memory_index == @memory_index then next end
       if parent.is_silent && vessel.owner != parent.owner && vessel.owner != memory_index then next end
       @siblings.push(vessel)
     end
@@ -255,9 +255,9 @@ class Teapot
 
     @children = []
     $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
-      if vessel.unde != @id then next end
-      if vessel.memory_index == @id then next end
-      if is_silent && vessel.owner != owner && vessel.owner != @id then next end
+      if vessel.unde != @memory_index then next end
+      if vessel.memory_index == @memory_index then next end
+      if is_silent && vessel.owner != owner && vessel.owner != @memory_index then next end
       @children.push(vessel)
     end
     return @children
@@ -455,7 +455,7 @@ class Teapot
   def is_unique
 
     $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
-      if vessel.memory_index == @id then next end
+      if vessel.memory_index == @memory_index then next end
       if vessel.name.like(@name) && vessel.attr.like(@attr) then return false end
     end
     return true
