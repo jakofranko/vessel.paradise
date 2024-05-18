@@ -43,7 +43,6 @@ class ActionActions
     # Actions
     html += "<code>"
     @host.actions.each do |cat,actions|
-      puts cat, actions
       if cat == :generic then next end
       actions.each do |action|
         unless action.examples.nil? then

@@ -33,6 +33,7 @@ class ActionLook
   def portal
 
     html = ""
+
     if @host.is_paradox
       html = "You are a paradox of the #{@host}."
     elsif @host.parent.is_paradox
@@ -40,6 +41,7 @@ class ActionLook
     else
       html = "You are the #{@host}, in #{@host.parent.owner == @host.id ? 'your' : 'the'} #{@host.parent}."
     end
+
     return "<h1 id='portal'>#{html}</h1>"
 
   end
@@ -98,6 +100,7 @@ class ActionLook
     @host.siblings.each do |vessel|
       if vessel.has_program then return "<p id='action'><vessel-link data-action='use the #{vessel}'>Use the #{vessel}.</vessel-link></p>" end
     end
+
     return ""
 
   end
@@ -108,16 +111,19 @@ class ActionLook
     html = html.gsub(",", " , ")
     html = html.gsub(".", " . ")
 
-    @host.siblings.each do |vessel|
-      html = html.sub("#{vessel.has_attr ? vessel.attr + ' ' : ''}#{vessel.name}", "#{vessel.to_html}")
-    end
+    parsed_vessels = []
 
-    # TODO: this might be broken
-    puts @host.tunnels
     @host.tunnels.each do |vessel|
       action_override = "warp to #{vessel.id}"
       class_override  = "tunnel"
-      html = html.sub(" #{vessel.attr} #{vessel.name} "," #{vessel.to_html(action_override, class_override)} ")
+      html = html.sub("#{vessel.attr} #{vessel.name}", "#{vessel.to_html(action_override, class_override)}")
+      parsed_vessels.append(vessel.to_s)
+    end
+
+    @host.siblings.each do |vessel|
+      if parsed_vessels.include?(vessel.to_s) then next end
+      html = html.sub("#{vessel.has_attr ? vessel.attr + ' ' : ''}#{vessel.name}", "#{vessel.to_html}")
+      parsed_vessels.append(vessel.to_s)
     end
 
     html = html.gsub(" , ", ", ")
