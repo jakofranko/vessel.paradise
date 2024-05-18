@@ -35,11 +35,11 @@ class WildcardParadise
       if !vessel.is_paradox then next end
       if !vessel.is_locked then next end
       if vessel.is_hidden then next end
-      if vessel.id < 1 then next end
+      if vessel.memory_index < 1 then next end
       if vessel.rating < 50 then next end
 
       owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
-      html += "<li><action-link  data-action='warp to #{vessel.id}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
+      html += "<li><action-link data-action='warp to #{vessel.memory_index}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
     end
 
     return "<ul class='basic'>#{html}</ul>"
@@ -73,10 +73,10 @@ class WildcardParadise
       if !vessel.has_note then next end
       if !vessel.is_locked then next end
       if !vessel.note.include?("train station") then next end
-      if vessel.id == @host.parent.id then next end
+      if vessel.memory_index == @host.parent.memory_index then next end
 
       owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
-      html += "<li><action-link data-action='warp to #{vessel.id}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
+      html += "<li><action-link data-action='warp to #{vessel.memory_index}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
     end
 
     return "<ul class='basic'>#{html}</ul>"

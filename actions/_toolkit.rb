@@ -8,10 +8,10 @@ module Action
   attr_accessor :params
   attr_accessor :target
   attr_accessor :examples
-  
+
   def topic
 
-    return $player_id == @host.id ? "You" : "The #{@host.name}"
+    return $player_id == @host.memory_index ? "You" : "The #{@host.name}"
 
   end
 

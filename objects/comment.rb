@@ -21,7 +21,7 @@ class Comment
   def inject host, message
 
     @content["TIMESTAMP"] = Timestamp.new
-    @content["HOST"] = host.id
+    @content["HOST"] = host.memory_index
     @content["FROM"] = host.unde
     @content["MESSAGE"] = message
 

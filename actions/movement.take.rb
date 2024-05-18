@@ -25,7 +25,7 @@ class ActionTake
     if !target                      then return @host.answer(self,:error,"Cannot find the target vessel.") end
     if target.is_locked             then return @host.answer(self,:error,"#{target} is locked.") end
 
-    target.set_unde(@host.id)
+    target.set_unde(@host.memory_index)
 
     # The target is no longer a sibling of the host but a child
     @host.reset_siblings

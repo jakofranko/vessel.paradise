@@ -37,9 +37,9 @@ class ActionLook
     if @host.is_paradox
       html = "You are a paradox of the #{@host}."
     elsif @host.parent.is_paradox
-      html = "You are the #{@host}, in #{@host.parent.owner == @host.id ? 'your' : 'the'} #{@host.parent} Paradox."
+      html = "You are the #{@host}, in #{@host.parent.owner == @host.memory_index ? 'your' : 'the'} #{@host.parent} Paradox."
     else
-      html = "You are the #{@host}, in #{@host.parent.owner == @host.id ? 'your' : 'the'} #{@host.parent}."
+      html = "You are the #{@host}, in #{@host.parent.owner == @host.memory_index ? 'your' : 'the'} #{@host.parent}."
     end
 
     return "<h1 id='portal'>#{html}</h1>"
@@ -48,7 +48,7 @@ class ActionLook
 
   def page
 
-    return "<h2 id='page'>#{@host.parent.is_hidden ? '≡' : '<action-link data-action="inspect">' + @host.parent.id.to_s + '</action-link>'}</h2>"
+    return "<h2 id='page'>#{@host.parent.is_hidden ? '≡' : '<action-link data-action="inspect">' + @host.parent.memory_index.to_s + '</action-link>'}</h2>"
 
   end
 
@@ -114,7 +114,7 @@ class ActionLook
     parsed_vessels = []
 
     @host.tunnels.each do |vessel|
-      action_override = "warp to #{vessel.id}"
+      action_override = "warp to #{vessel.memory_index}"
       class_override  = "tunnel"
       html = html.sub("#{vessel.attr} #{vessel.name}", "#{vessel.to_html(action_override, class_override)}")
       parsed_vessels.append(vessel.to_s)

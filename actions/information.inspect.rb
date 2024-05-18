@@ -6,7 +6,7 @@ require_relative "_toolkit.rb"
 class ActionInspect
 
   include Action
-  
+
   def initialize q = nil
 
     super
@@ -25,7 +25,7 @@ class ActionInspect
     if !target then target = @host.parent end
 
     html = "<h3>the #{target}</h3>"
-    html += "<p><b>The #{target}</b>, owned by the <i>#{target.creator}</i>, has the warp id #{target.id}, and a vessel rating of #{target.rating}. The #{target.name} is currently #{target.depth} levels deep within the #{target.stem} paradox.</p>"
+    html += "<p><b>The #{target}</b>, owned by the <i>#{target.creator}</i>, has the warp id #{target.memory_index}, and a vessel rating of #{target.rating}. The #{target.name} is currently #{target.depth} levels deep within the #{target.stem} paradox.</p>"
 
     if target.has_note
       html += "<p><b>Note: </b><i>#{target.note}</i></p>"
@@ -47,7 +47,7 @@ class ActionInspect
     html += "</table>"
 
     return html
-    
+
   end
 
 end

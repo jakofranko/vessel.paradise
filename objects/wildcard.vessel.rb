@@ -26,10 +26,10 @@ class WildcardVessel
 
     target_detail = @value.split(" ").last
 
-    if target_detail.like("id") && !target.is_hidden then return target.id.to_s end
+    if target_detail.like("id") && !target.is_hidden then return target.memory_index.to_s end
     if target_detail.like("stem") then return target.stem end
     if target_detail.like("name") then return target.name end
-    
+
     return "?"
 
   end

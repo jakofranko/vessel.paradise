@@ -22,7 +22,7 @@ class ActionSignal
 
     if @host.parent.is_hidden then return @host.answer(self, :error, "The #{@host.parent} is hidden.") end
 
-    return @host.act("say", "#{@host.parent.id}")
+    return @host.act("say", "#{@host.parent.memory_index}")
 
   end
 
