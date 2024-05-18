@@ -4,9 +4,7 @@
 class Teapot
 
   include Vessel
-  # include VesselToolkit
 
-  attr_accessor :id
   attr_accessor :memory_index
   attr_accessor :perm
   attr_accessor :name
@@ -28,23 +26,25 @@ class Teapot
 
     super(memory_index)
 
+    @memory_index = memory_index
+
     @content = content
 
     @name = @content["NAME"] ? @content["NAME"] : "nullspace"
     @attr = @content["ATTR"] ? @content["ATTR"] : ""
     @note = @content["NOTE"] ? @content["NOTE"] : ""
-    @perm  = @content["CODE"] ? @content["CODE"].split("-")[0] : "1111"
-    @unde  = @content["CODE"] ? @content["CODE"].split("-")[1].to_i : 1
-    @owner = @content["CODE"] ? @content["CODE"].split("-")[2].to_i : 0
-    @time  = @content["CODE"] ? @content["CODE"].split("-")[3] : Timestamp.new
-    @memory_index = memory_index # This should be refactored to just be 'id', and replace how id's are currently being set
 
-    # Code
+    code  = @content["CODE"].nil? ? nil : @content["CODE"].split("-")
+    @perm = code ? code[0]      : "1111"
+    @unde = code ? code[1].to_i : 1
+    @owner= code ? code[2].to_i : 0
+    @time = code ? code[3]      : Timestamp.new
 
-    @is_locked  = @perm[0,1].to_i == 1 ? true : false
-    @is_hidden  = @perm[1,1].to_i == 1 ? true : false
-    @is_silent  = @perm[2,1].to_i == 1 ? true : false
-    @is_tunnel  = @perm[3,1].to_i == 1 ? true : false
+
+    @is_locked  = @perm[0, 1].to_i == 1 ? true : false
+    @is_hidden  = @perm[1, 1].to_i == 1 ? true : false
+    @is_silent  = @perm[2, 1].to_i == 1 ? true : false
+    @is_tunnel  = @perm[3, 1].to_i == 1 ? true : false
     @is_paradox = memory_index == @unde ? true : false
 
     @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
