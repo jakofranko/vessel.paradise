@@ -45,7 +45,7 @@ class Teapot
     @is_hidden  = @perm[1,1].to_i == 1 ? true : false
     @is_silent  = @perm[2,1].to_i == 1 ? true : false
     @is_tunnel  = @perm[3,1].to_i == 1 ? true : false
-    @is_paradox = id == @unde ? true : false
+    @is_paradox = memory_index == @unde ? true : false
 
     @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
     @docs = "Default Paradise vessel."
@@ -241,7 +241,7 @@ class Teapot
       if vessel.unde != @unde then next end
       if vessel.id == parent.id then next end
       if vessel.id == @id then next end
-      if parent.is_silent && vessel.owner != parent.owner && vessel.owner != id then next end
+      if parent.is_silent && vessel.owner != parent.owner && vessel.owner != memory_index then next end
       @siblings.push(vessel)
     end
     return @siblings
@@ -447,7 +447,7 @@ class Teapot
 
   def is_paradox
 
-    if id == unde then return true end
+    if memory_index == unde then return true end
     return false
 
   end
