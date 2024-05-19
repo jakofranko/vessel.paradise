@@ -20,6 +20,7 @@ class WildcardVessel
 
     target_name = @value.split(" ").first
     target = @host
+
     if target_name.like("parent") then target = @host.parent end
     if target_name.like("stem") then target = @host.stem end
     if target_name.like("random") then target = @host.find_random end

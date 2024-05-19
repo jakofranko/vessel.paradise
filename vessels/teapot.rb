@@ -174,8 +174,7 @@ class Teapot
     if @stem then return @stem end
 
     @depth = 0
-
-    @stem = parent
+    @stem = self
 
     while @depth < 50
       @stem = stem.parent
@@ -183,7 +182,9 @@ class Teapot
       @depth += 1
     end
 
-    return @self
+    puts "Too deep to find stem..."
+
+    return @stem
 
   end
 
