@@ -113,7 +113,7 @@ class ActionLook
 
     parsed_vessels = []
 
-    @host.tunnels.each do |vessel|
+    $nataniev.vessels[:paradise].tunnels.each do |vessel|
       action_override = "warp to #{vessel.memory_index}"
       class_override  = "tunnel"
       html = html.sub("#{vessel.attr} #{vessel.name}", "#{vessel.to_html(action_override, class_override)}")

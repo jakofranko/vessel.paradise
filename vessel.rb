@@ -22,6 +22,7 @@ class VesselParadise
     @@paradise = Memory_Array.new("paradise", @path)
     @@parade   = @@paradise.to_a("teapot")
     @@player_id = nil
+    @tunnels = nil
 
     $nataniev.require("corpse","http")
     install(:generic, :serve, CorpseHttp.new(self))
@@ -125,6 +126,20 @@ class VesselParadise
     def @corpse.parade=(new_parade); @@parade = new_parade; return @@parade; end
     def @corpse.player; return @player; end
     def @corpse.forum ; return @@forum; end
+  end
+
+  def tunnels
+
+    if @tunnels then return @tunnels end
+
+    @tunnels = []
+    @@parade.each do |vessel|
+      if !vessel.is_tunnel then next end
+      @tunnels.push(vessel)
+    end
+    
+    return @tunnels
+
   end
 
   def get_player_id

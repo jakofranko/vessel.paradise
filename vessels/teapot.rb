@@ -218,19 +218,6 @@ class Teapot
 
   end
 
-  def tunnels
-
-    if @tunnels then return @tunnels end
-
-    @tunnels = []
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
-      if !vessel.is_tunnel then next end
-      @tunnels.push(vessel)
-    end
-    return @tunnels
-
-  end
-
   def siblings
 
     if @siblings then return @siblings end

@@ -22,6 +22,7 @@ class WildcardParadise
     if @value.like("spells") then return spells end
     if @value.like("glossary") then return glossary end
     if @value.like("tunnels") then return tunnels end
+    if @value.like("train_stations") then return train_stations end
 
     return "?"
 
@@ -65,6 +66,24 @@ class WildcardParadise
   end
 
   def tunnels
+
+    html = ""
+
+    $nataniev.vessels[:paradise].tunnels.each do |vessel|
+      if !vessel.is_tunnel then next end
+      if vessel.is_hidden then next end
+      if vessel.memory_index == @host.parent.memory_index then next end
+      if vessel.rating < 50 then next end
+
+      owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
+      html += "<li><action-link data-action='warp to #{vessel.memory_index}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
+    end
+
+    return "<ul class='basic'>#{html}</ul>"
+
+  end
+
+  def train_stations
 
     html = ""
 
