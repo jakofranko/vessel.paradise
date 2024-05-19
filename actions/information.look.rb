@@ -56,12 +56,12 @@ class ActionLook
 
     if !@host.parent.has_note then return "" end
 
+    html = parse_vessels_in_note(@host.parent.note)
     html = @host.parent.note.wildcards(@host)
     html = html.gsub(".. ",". <br /><br />")
     html = html.gsub(":. ",": <br /><br />")
     html = html.gsub("?. ","? <br /><br />")
     html = html.gsub(",. ",", <br /><br />")
-    html = parse_vessels_in_note(html)
 
     return "<p id='note'>#{html}</p>"
 
