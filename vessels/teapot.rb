@@ -511,13 +511,23 @@ class Teapot
 
     sum = 0
 
-    values = [has_note,has_attr,has_program,has_children,is_paradox,is_locked,is_hidden,is_silent,is_tunnel]
+    values = [
+      has_note,
+      has_attr,
+      has_program,
+      has_children,
+      is_paradox,
+      is_locked,
+      is_hidden,
+      is_silent,
+      is_tunnel
+    ]
 
     values.each do |val|
       sum += val ? 1 : 0
     end
 
-    return ((sum/values.length.to_f) * 100).to_i
+    return ((sum / values.length.to_f) * 100).to_i
 
   end
 
