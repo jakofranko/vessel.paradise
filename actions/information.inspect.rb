@@ -34,6 +34,7 @@ class ActionInspect
       html += "<code>#{target.program}</code>"
     end
 
+    # This TODO was left by Devine...don't know what he wanted to do...
     # TODO
     if @host.siblings.length > 0
       html += "<h3>Siblings</h3>"

@@ -34,11 +34,11 @@ class ActionLook
     html = ""
 
     if @host.is_paradox
-      html = "You are a paradox of the #{@host}."
+      html = "You are a paradox of the <span id='attr' class='#{@host.attr}'>#{@host}</span>."
     elsif @host.parent.is_paradox
-      html = "You are the #{@host}, in #{@host.parent.owner == @host.memory_index ? 'your' : 'the'} #{@host.parent} Paradox."
+      html = "You are the <span id='attr' class='#{@host.attr}'>#{@host}</span>, in #{@host.parent.owner == @host.memory_index ? 'your' : 'the'} #{@host.parent} Paradox."
     else
-      html = "You are the #{@host}, in #{@host.parent.owner == @host.memory_index ? 'your' : 'the'} #{@host.parent}."
+      html = "You are the <span id='attr' class='#{@host.attr}'>#{@host}</span>, in #{@host.parent.owner == @host.memory_index ? 'your' : 'the'} #{@host.parent}."
     end
 
     return "<h1 id='portal'>#{html}</h1>"
