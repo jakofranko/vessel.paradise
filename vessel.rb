@@ -56,56 +56,60 @@ class VesselParadise
 
     def @corpse.query q = nil
 
-      Benchmark.bm do |bench|
-        bench.report("Creating parade") { @@parade = @@paradise.to_a("teapot") }
-      end
 
+      @@parade = @@paradise.to_a("teapot")
 
       parts = q.gsub("+", " ").strip.split(" ")
-      @@player_id = parts.first.to_i
-
+      vessel_id = parts.first.to_i
+      @@player_id = vessel_id < 1 ? select_random_vessel : vessel_id
       @action = parts[1] ? parts[1] : "look"
       @params = parts.join(" ").sub(@@player_id.to_s, "").sub(@action, "").strip
-
-      if @@player_id < 1 then return @body = select_random_vessel end
-
       @player = @@parade[@@player_id]
       @title  = "Paradise ∴ #{@player}"
+      silent = @player.parent.is_silent
+      silence = silent ? 'class="silent" ' : ''
+
       @body = %Q(
       <bg></bg>
-      <view>
-        #{@player.act(@action, @params)}
-        <p id='indicator' class='htmx-indicator'>Paradise is forming... <span class='spinner'></span></p>
-      </view>
+      <ui id="ui">
+        <inventory #{silence}id="inventory">#{self.create_inventory(@player.children)}</inventory>
+        <view #{silence}>
+          #{@player.act(@action, @params)}
+        </view>
+        <chat #{silence}id="chat">#{self.chat}</chat>
 
-      <form hx-post='/'
-            hx-target='view'
-            hx-select='view'
-            hx-swap='outerHTML'
-            hx-indicator="#indicator"
-            class='terminal'
-        >
-        <input
-          name='player_id'
-          id='player_id'
-          type='hidden'
-          value='#{@@player_id}'
-        />
-        <input
-          name='q'
-          id='q'
-          type='hidden'
-          value='#{@@player_id}'
-          hx-swap-oob='true'
-        />
-        <input
-          name='command'
-          id='command'
-          placeholder='What would you like to do?'
-          autofocus
-          hx-swap-oob='true'
-        />
-      </form>
+        <form hx-post='/'
+              hx-target='view'
+              hx-select='view'
+              hx-swap='outerHTML'
+              hx-swap-oob='true'
+              hx-select-oob='#command, #inventory, #chat'
+              hx-indicator="#indicator"
+              class='terminal'
+          >
+          <input
+            name='player_id'
+            id='player_id'
+            type='hidden'
+            value='#{@@player_id}'
+          />
+          <input
+            name='q'
+            id='q'
+            type='hidden'
+            value='#{@@player_id}'
+            hx-swap-oob='true'
+          />
+          <input
+            name='command'
+            id='command'
+            #{silence}
+            placeholder='What would you like to do?'
+            autofocus
+          />
+          <span id='indicator' class='htmx-indicator'>Paradise is forming... <span class='spinner'></span></span>
+        </form>
+      </ui>
       )
 
     end
@@ -121,11 +125,46 @@ class VesselParadise
 
     end
 
-    def @corpse.paradise ; return @@paradise; end
+    def @corpse.paradise; return @@paradise; end
     def @corpse.parade; return @@parade; end
     def @corpse.parade=(new_parade); @@parade = new_parade; return @@parade; end
     def @corpse.player; return @player; end
-    def @corpse.forum ; return @@forum; end
+    def @corpse.forum; return @@forum; end
+    def @corpse.create_list arr, id = nil
+
+      html = "<ul #{id.nil? == false ? 'id="' + id + '" ' : ''}class='basic'>"
+      arr.each do |item|
+        html += "<li>#{item.to_s}</li>"
+      end
+      html += "</ul>"
+
+      return html
+    end
+    def @corpse.create_inventory vessels
+
+      arr = vessels.map {|vessel| vessel.to_html("drop #{vessel.name}")}
+      html = "<h4>Carrying</h4>"
+      html += create_list arr, 'carrying'
+      return html
+
+    end
+    def @corpse.chat
+
+        html = "<h4>Forum</h4>"
+
+        if self.player.parent.is_silent then return "" end
+
+        messages = @@forum.to_a("comment")
+
+        selection = self.player.parent.name.like("lobby") ? messages[messages.length - 7, 7] : messages[messages.length - 3, 3]
+
+        arr = selection.map{|message| message.to_s}
+
+        html += create_list arr, 'forum'
+
+        return "<ul id='forum'>#{html}</ul>"
+
+    end
   end
 
   def tunnels
@@ -137,7 +176,7 @@ class VesselParadise
       if !vessel.is_tunnel then next end
       @tunnels.push(vessel)
     end
-    
+
     return @tunnels
 
   end

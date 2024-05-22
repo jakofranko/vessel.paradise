@@ -25,7 +25,6 @@ class ActionLook
     #{note}
     #{default}
     #{action}
-    #{chat}
     #{guide}"
 
   end
@@ -57,7 +56,7 @@ class ActionLook
     if !@host.parent.has_note then return "" end
 
     html = parse_vessels_in_note(@host.parent.note)
-    html = @host.parent.note.wildcards(@host)
+    html = parse_wildcards(html)
     html = html.gsub(".. ",". <br /><br />")
     html = html.gsub(":. ",": <br /><br />")
     html = html.gsub("?. ","? <br /><br />")
@@ -69,12 +68,7 @@ class ActionLook
 
   def default
 
-    filtered_siblings = []
-
-    @host.siblings.each do |vessel|
-      if @host.parent.note.include?(vessel.to_s) then next end
-      filtered_siblings.push(vessel)
-    end
+    filtered_siblings = @host.siblings.filter {|vessel| @host.parent.note.include?(vessel.to_s) == false}
 
     html = ""
 
@@ -108,9 +102,6 @@ class ActionLook
 
   def parse_vessels_in_note html
 
-    html = html.gsub(",", " , ")
-    html = html.gsub(".", " . ")
-
     parsed_vessels = []
 
     $nataniev.vessels[:paradise].tunnels.each do |vessel|
@@ -125,9 +116,6 @@ class ActionLook
       html = html.sub("#{vessel.has_attr ? vessel.attr + ' ' : ''}#{vessel.name}", "#{vessel.to_html}")
       parsed_vessels.append(vessel.to_s)
     end
-
-    html = html.gsub(" , ", ", ")
-    html = html.gsub(" . ", ". ")
 
     return html
 
@@ -147,24 +135,6 @@ class ActionLook
     end
 
     return text
-
-  end
-
-  def chat
-
-    html = ""
-
-    if @host.parent.is_silent then return "" end
-
-    messages = $nataniev.vessels[:paradise].corpse.forum.to_a("comment")
-
-    selection = @host.parent.name.like("lobby") ? messages[messages.length - 7, 7] : messages[messages.length - 3, 3]
-
-    selection.each do |message|
-      html += message.to_s
-    end
-
-    return "<ul id='forum'>"+html+"</ul>"
 
   end
 

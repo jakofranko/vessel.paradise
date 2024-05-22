@@ -484,6 +484,7 @@ class Teapot
     if is_silent then hints.push("The #{name} is silent, you may not see other's vessels.") end
     if is_tunnel then hints.push("The #{name} is a tunnel.") end
     if is_paradox then hints.push("The #{name} is a paradox, you may not leave.") end
+    if name.like("lobby") then hints.push("You are in the lobby. Additional forum messages are visible here.") end
 
     # Check Validity
     validity_check, validity_errors = is_valid
