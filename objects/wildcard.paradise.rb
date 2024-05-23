@@ -111,16 +111,16 @@ class WildcardParadise
     g[:general]["a paradox"] = "is impossible space folded onto itself, and stems to universes. "
     g[:general]["a tunnel"] = "is a vessel or action type accessible across all space. Cast and Warp are tuneling actions, allowing ghosts to traverse vast distances instantly. A tuneling vessel will be accessible through notes across distances."
     g[:general]["a signal"] = "is the broadcasting of a warp id."
-
-    # g["the parade"] = "is another name for all of Paradise's activity."
-    # g["the haven"] = "is a tutorial region with various documentation vessels."
+    g[:general]["the parade"] = "is another name for all of Paradise's activity."
+    g[:general]["the haven"] = "is a tutorial region with various documentation vessels."
 
     g[:void] = {}
     g[:void]["the void"] = "is generic unbuilt vessel space, any warp id that is yet unused."
     g[:void]["the ultravoid"] = "is the hyptothesized vessel space of negative warp id."
 
-    # g["cyan mass"] = "is the sum of the cyan faction vessels."
-    # g["red spawn"] = "is the sum of the red faction vessels."
+    g[:factions] = {}
+    g[:factions]["cyan mass"] = "is the sum of the cyan vessels."
+    g[:factions]["red spawn"] = "is the sum of the red vessels."
 
 
     g[:fashion] = {}
