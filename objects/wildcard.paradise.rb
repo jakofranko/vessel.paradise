@@ -12,7 +12,7 @@ class WildcardParadise
     super
 
     @docs = "Displays paradise core layouts."
-    @options = ["paradoxes"]
+    @options = ["paradoxes", "spells", "glossary", "tunnels"]
 
   end
 
@@ -22,7 +22,13 @@ class WildcardParadise
     if @value.like("spells") then return spells end
     if @value.like("glossary") then return glossary end
     if @value.like("tunnels") then return tunnels end
+
+    # Secrets
     if @value.like("train_stations") then return train_stations end
+    if @value.like("cyan count") then return cyan_count end
+    if @value.like("red count") then return red_count end
+    if @value.like("cyan list") then return cyan_list end
+    if @value.like("red list") then return red_list end
 
     return "?"
 
@@ -139,6 +145,60 @@ class WildcardParadise
       html += "</ul>"
 
     end
+    return html
+
+  end
+
+  def cyan_count
+
+    count = 0
+    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+      if vessel.attr.like("cyan") then
+        count += 1
+      end
+    end
+
+    return count.to_s
+
+  end
+
+  def red_count
+
+    count = 0
+    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+      if vessel.attr.like("red") then
+        count += 1
+      end
+    end
+
+    return count.to_s
+
+  end
+
+  def cyan_list
+
+    html = "<ul>"
+    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+      if vessel.attr.like("cyan") then
+        html += "<li>#{vessel.to_s}</li>"
+      end
+    end
+
+    html += "</ul>"
+    return html
+
+  end
+
+  def red_list
+
+    html = "<ul>"
+    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+      if vessel.attr.like("red") then
+        html += "<li>#{vessel.to_s}</li>"
+      end
+    end
+
+    html += "</ul>"
     return html
 
   end
