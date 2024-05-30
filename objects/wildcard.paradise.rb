@@ -158,7 +158,7 @@ class WildcardParadise
       end
     end
 
-    return count.to_s
+    return "<span class='cyan'>#{count.to_s}</span>"
 
   end
 
@@ -171,13 +171,13 @@ class WildcardParadise
       end
     end
 
-    return count.to_s
+    return "<span class='red'>#{count.to_s}</span>"
 
   end
 
   def cyan_list
 
-    html = "<ul>"
+    html = "<ul class='cyan basic'>"
     $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
       if vessel.attr.like("cyan") then
         html += "<li>#{vessel.to_s}</li>"
@@ -191,7 +191,7 @@ class WildcardParadise
 
   def red_list
 
-    html = "<ul>"
+    html = "<ul class='red basic'>"
     $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
       if vessel.attr.like("red") then
         html += "<li>#{vessel.to_s}</li>"

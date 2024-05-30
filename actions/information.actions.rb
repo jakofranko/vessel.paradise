@@ -77,7 +77,7 @@ class ActionActions
       if !vessel.name.like("spell") then next end
 
       owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
-      html += "<action-link  data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize}</action-link>#{owner} <comment>#{vessel.program}</comment>\n"
+      html += "<action-link data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize}</action-link>#{owner} <comment>#{vessel.program}</comment>\n"
     end
     html += "</code>"
 
