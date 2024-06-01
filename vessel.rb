@@ -62,7 +62,12 @@ class VesselParadise
       parts = q.gsub("+", " ").strip.split(" ")
       vessel_id = parts.first.to_i
       @@player_id = vessel_id < 1 ? select_random_vessel : vessel_id
+
       @action = parts[1] ? parts[1] : "look"
+
+      # It's not pretty, but we need to alias the base help action on Paradise vessels
+      if @action == 'help' then @action = 'actions' end
+
       @params = parts.join(" ").sub(@@player_id.to_s, "").sub(@action, "").strip
       @player = @@parade[@@player_id]
       @title  = "Paradise ∴ #{@player}"
