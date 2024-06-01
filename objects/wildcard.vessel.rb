@@ -12,7 +12,20 @@ class WildcardVessel
     super
 
     @docs = "Displays current vessel or parent vessel details."
-    @options = ["id","name","parent id","parent name","stem id","stem name","random id","random name"]
+    @options = [
+      "id",
+      "name",
+      "attr",
+      "parent id",
+      "parent name",
+      "parent attr",
+      "stem id",
+      "stem name",
+      "stem attr",
+      "random id",
+      "random name",
+      "random attr"
+    ]
 
   end
 
@@ -30,6 +43,7 @@ class WildcardVessel
     if target_detail.like("id") && !target.is_hidden then return target.memory_index.to_s end
     if target_detail.like("stem") then return target.stem end
     if target_detail.like("name") then return target.name end
+    if target_detail.like("attr") then return target.attr end
 
     return "?"
 
