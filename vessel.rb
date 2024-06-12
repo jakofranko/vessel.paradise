@@ -28,6 +28,7 @@ class VesselParadise
     $nataniev.require('corpse', 'http')
     install(:generic, :serve, CorpseHttp.new(self))
     install(:generic, :help)
+	install(:test, :debug)
 
     build_corpse
 
@@ -61,8 +62,10 @@ class VesselParadise
 
       parts = q.gsub('+', ' ').strip.split(' ')
       vessel_id = parts.first.to_i
-      @@player_id = vessel_id < 1 ? select_random_vessel : vessel_id
 
+      return @body = select_random_vessel if vessel_id < 1
+
+      @@player_id = vessel_id
       @action = parts[1] || 'look'
 
       # It's not pretty, but we need to alias the base help action on Paradise vessels
@@ -81,7 +84,16 @@ class VesselParadise
         <view #{silence}>
           #{@player.act(@action, @params)}
         </view>
-        <chat #{silence}id="chat">#{chat}</chat>
+        <chat
+          hx-get='/#{@@player_id}'
+          hx-trigger='every 4s'
+          hx-select='chat'
+          hx-swap='outerHTML'
+          hx-sync='next form.terminal:abort'
+          #{silence}id="chat"
+        >
+          #{chat}
+        </chat>
 
         <form hx-post='/'
               hx-target='view'
@@ -185,8 +197,7 @@ class VesselParadise
       messages = @@forum.to_a('comment')
 
       selection = if player.parent.name.like('lobby')
-                    messages[messages.length - 7,
-                             7]
+                    messages[messages.length - 7, 7]
                   else
                     messages[messages.length - 3, 3]
                   end
