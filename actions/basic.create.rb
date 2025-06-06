@@ -35,7 +35,7 @@ class ActionCreate
     if !validity_check              then return @host.answer(self,:error,"#{validity_errors.first}") end
     if !new_vessel.is_unique        then return @host.answer(self,:error,"Another #{new_vessel} vessel already exists.") end
 
-    $nataniev.vessels[:paradise].corpse.paradise.append(new_vessel.encode)
+    $nataniev.vessels[:paradise].paradise.append(new_vessel.encode)
 
     # The new vessel is now a sibling of the @host, so they need to be reloaded
     @host.reset_siblings

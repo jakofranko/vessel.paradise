@@ -141,7 +141,7 @@ class Teapot
 
   def save
 
-    $nataniev.vessels[:paradise].corpse.paradise.update(@memory_index, encode)
+    $nataniev.vessels[:paradise].paradise.update(@memory_index, encode)
 
     return true
 
@@ -163,7 +163,7 @@ class Teapot
 
     await_parade
 
-    @parent = @parent ? @parent : $nataniev.vessels[:paradise].corpse.parade[@unde]
+    @parent = @parent ? @parent : $nataniev.vessels[:paradise].parade[@unde]
 
     return @parent ? (@parent.memory_index = @unde ; @parent) : VesselVoid.new
 
@@ -212,7 +212,7 @@ class Teapot
 
   def creator
 
-    @creator = @creator ? @creator : $nataniev.vessels[:paradise].corpse.parade[owner]
+    @creator = @creator ? @creator : $nataniev.vessels[:paradise].parade[owner]
 
     return @creator ? @creator : VesselVoid.new
 
@@ -225,9 +225,9 @@ class Teapot
     await_parade
 
     @siblings = []
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if vessel.unde != @unde then next end
-      if vessel.memory_index == parent.memory_index then next end
+      if vessel.parent && vessel.memory_index == parent.memory_index then next end
       if vessel.memory_index == @memory_index then next end
       if parent.is_silent && vessel.owner != parent.owner && vessel.owner != memory_index then next end
       @siblings.push(vessel)
@@ -239,10 +239,10 @@ class Teapot
   def children
 
     if @children then return @children end
-    if !$nataniev.vessels[:paradise].corpse.parade then return [] end
+    if !$nataniev.vessels[:paradise].parade then return [] end
 
     @children = []
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if vessel.unde != @memory_index then next end
       if vessel.memory_index == @memory_index then next end
       if is_silent && vessel.owner != owner && vessel.owner != @memory_index then next end
@@ -257,7 +257,7 @@ class Teapot
     parts = params.remove_articles.split(" ")
 
     vessel_id = parts.last.to_i
-    parade_vessel = $nataniev.vessels[:paradise].corpse.parade[vessel_id]
+    parade_vessel = $nataniev.vessels[:paradise].parade[vessel_id]
 
     # A vessel_id of 0 means that there was no number found in the final part of the param array, and thus not a vessel_id
     if vessel_id > 0 && parade_vessel then return parade_vessel end
@@ -266,12 +266,12 @@ class Teapot
     attr = parts.length > 1 ? parts[-2,1] : nil
 
     # Precise
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if vessel.name.like(name) && (attr && vessel.attr.like(attr)) then return vessel end
     end
 
     # Flexible
-    $nataniev.vessels[:paradise].corpse.parade.shuffle.each do |vessel|
+    $nataniev.vessels[:paradise].parade.shuffle.each do |vessel|
       if vessel.name.like(name) then return vessel end
     end
 
@@ -324,7 +324,7 @@ class Teapot
   def find_random
 
     candidates = []
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if vessel.is_hidden then next end
       candidates.push(vessel)
     end
@@ -442,7 +442,7 @@ class Teapot
 
   def is_unique
 
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if vessel.memory_index == @memory_index then next end
       if vessel.name.like(@name) && vessel.attr.like(@attr) then return false end
     end
@@ -547,7 +547,7 @@ class Teapot
     end
 
     it = 0
-    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse.parade) == nil || $nataniev.vessels[:paradise].corpse.parade.nil?)
+    while it < 10 && (defined?($nataniev.vessels[:paradise].parade) == nil || $nataniev.vessels[:paradise].parade.nil?)
       puts "Searching for parade..."
       sleep 0.5
       it += 1

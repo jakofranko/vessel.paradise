@@ -38,7 +38,7 @@ class WildcardParadise
 
     html = ""
 
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if !vessel.is_paradox then next end
       if !vessel.is_locked then next end
       if vessel.is_hidden then next end
@@ -57,7 +57,7 @@ class WildcardParadise
 
     html = ""
 
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if !vessel.has_program then next end
       if !vessel.is_locked then next end
       if !vessel.has_attr then next end
@@ -93,7 +93,7 @@ class WildcardParadise
 
     html = ""
 
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if vessel.is_hidden then next end
       if !vessel.has_note then next end
       if !vessel.is_locked then next end
@@ -152,7 +152,7 @@ class WildcardParadise
   def cyan_count
 
     count = 0
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if vessel.attr.like("cyan") then
         count += 1
       end
@@ -165,7 +165,7 @@ class WildcardParadise
   def red_count
 
     count = 0
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if vessel.attr.like("red") then
         count += 1
       end
@@ -178,7 +178,7 @@ class WildcardParadise
   def cyan_list
 
     html = "<ul class='cyan basic'>"
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if vessel.attr.like("cyan") then
         html += "<li>#{vessel.to_s}</li>"
       end
@@ -192,7 +192,7 @@ class WildcardParadise
   def red_list
 
     html = "<ul class='red basic'>"
-    $nataniev.vessels[:paradise].corpse.parade.each do |vessel|
+    $nataniev.vessels[:paradise].parade.each do |vessel|
       if vessel.attr.like("red") then
         html += "<li>#{vessel.to_s}</li>"
       end

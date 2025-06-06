@@ -55,9 +55,9 @@ class Comment
 
     await_parade
 
-    if !$nataniev.vessels[:paradise].corpse.parade[from] then return "ghost" end
+    if !$nataniev.vessels[:paradise].parade[from] then return "ghost" end
 
-    vessel = $nataniev.vessels[:paradise].corpse.parade[from]
+    vessel = $nataniev.vessels[:paradise].parade[from]
     return "the #{vessel}"
 
   end
@@ -78,7 +78,7 @@ class Comment
     if is_question then return "<li>#{vessel_name.capitalize} asked \"<message>#{message.capitalize}?</message>\".</li>" end
     if is_shout then return "<li>#{vessel_name.capitalize} shouts \"<message>#{message.capitalize}</message>\".</li>" end
     if is_emote then return "<li>#{vessel_name.capitalize} <message>#{message[3, message.length - 3]}</message>.</li>" end
-    if is_warp then return "<li>#{vessel_name.capitalize} signals from the <action-link data-action='warp to #{message.to_i}'>#{$nataniev.vessels[:paradise].corpse.parade[message.to_i]}</action-link>.</li>" end
+    if is_warp then return "<li>#{vessel_name.capitalize} signals from the <action-link data-action='warp to #{message.to_i}'>#{$nataniev.vessels[:paradise].parade[message.to_i]}</action-link>.</li>" end
 
     return "<li>— \"<message>#{message.capitalize}</message>\", says #{vessel_name}.</li>"
 
@@ -133,7 +133,7 @@ class Comment
 
   def is_repeated
 
-    $nataniev.vessels[:paradise].corpse.forum.to_a(:comment).reverse[0,1].each do |comment|
+    $nataniev.vessels[:paradise].forum.to_a(:comment).reverse[0,1].each do |comment|
       if comment.message == message then return true end
     end
     return false
@@ -150,7 +150,7 @@ class Comment
     end
 
     it = 0
-    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse.parade) == nil || $nataniev.vessels[:paradise].corpse.parade.nil?)
+    while it < 10 && (defined?($nataniev.vessels[:paradise].parade) == nil || $nataniev.vessels[:paradise].parade.nil?)
       puts "Searching for parade..."
       sleep 0.5
       it += 1
