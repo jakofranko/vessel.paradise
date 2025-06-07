@@ -11,7 +11,7 @@ class ActionActions
 
     super
 
-    @name = "Help"
+    @name = "Actions"
     @docs = "List commands."
 
   end
