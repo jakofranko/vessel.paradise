@@ -1,28 +1,17 @@
 #!/bin/env ruby
-# encoding: utf-8
 
+# The base Paradise vessel, container of all things
+# TODO: make thread-safe
 class Teapot
 
   include Vessel
 
-  attr_accessor :memory_index
-  attr_accessor :perm
-  attr_accessor :name
-  attr_accessor :note
-  attr_accessor :attr
-  attr_accessor :unde
-  attr_accessor :owner
-  attr_accessor :program
-  attr_accessor :content
+  attr_accessor :memory_index, :perm, :name, :note, :attr, :unde, :owner,
+                :content, :is_locked, :is_hidden, :is_silent, :is_tunnel, :is_paradox
 
-  attr_accessor :is_locked
-  attr_accessor :is_hidden
-  attr_accessor :is_silent
-  attr_accessor :is_tunnel
+  attr_writer :program
 
-  attr_accessor :is_paradox
-
-  def initialize content, memory_index
+  def initialize(content, memory_index)
 
     super(memory_index)
 
@@ -30,46 +19,45 @@ class Teapot
 
     @content = content
 
-    @name = @content["NAME"] ? @content["NAME"] : "nullspace"
-    @attr = @content["ATTR"] ? @content["ATTR"] : ""
-    @note = @content["NOTE"] ? @content["NOTE"] : ""
+    @name = @content['NAME'] || 'nullspace'
+    @attr = @content['ATTR'] || ''
+    @note = @content['NOTE'] || ''
 
-    code  = @content["CODE"].nil? ? nil : @content["CODE"].split("-")
-    @perm = code ? code[0]      : "1111"
+    code  = @content['CODE'].nil? ? nil : @content['CODE'].split('-')
+    @perm = code ? code[0]      : '1111'
     @unde = code ? code[1].to_i : 1
-    @owner= code ? code[2].to_i : 0
-    @time = code ? code[3]      : Timestamp.new
+    @owner = code ? code[2].to_i : 0
+    @time = code ? code[3] : Timestamp.new
 
+    @is_locked  = @perm[0, 1].to_i == 1
+    @is_hidden  = @perm[1, 1].to_i == 1
+    @is_silent  = @perm[2, 1].to_i == 1
+    @is_tunnel  = @perm[3, 1].to_i == 1
+    @is_paradox = memory_index == @unde
 
-    @is_locked  = @perm[0, 1].to_i == 1 ? true : false
-    @is_hidden  = @perm[1, 1].to_i == 1 ? true : false
-    @is_silent  = @perm[2, 1].to_i == 1 ? true : false
-    @is_tunnel  = @perm[3, 1].to_i == 1 ? true : false
-    @is_paradox = memory_index == @unde ? true : false
-
-    @path = File.expand_path(File.join(File.dirname(__FILE__), "/"))
-    @docs = "Default Paradise vessel."
+    @path = File.expand_path(File.join(File.dirname(__FILE__), '/'))
+    @docs = 'Default Paradise vessel.'
 
     install(:information, :look)
     install(:information, :actions)
     install(:information, :inspect)
 
-    install(:basic,:create)
-    install(:basic,:become)
-    install(:basic,:enter)
-    install(:basic,:leave)
+    install(:basic, :create)
+    install(:basic, :become)
+    install(:basic, :enter)
+    install(:basic, :leave)
 
-    install(:movement,:warp)
-    install(:movement,:take)
-    install(:movement,:drop)
+    install(:movement, :warp)
+    install(:movement, :take)
+    install(:movement, :drop)
 
-    install(:communication,:say)
-    install(:communication,:emote)
-    install(:communication,:signal)
+    install(:communication, :say)
+    install(:communication, :emote)
+    install(:communication, :signal)
 
-    install(:narrative,:note)
-    install(:narrative,:transform)
-    install(:narrative,:set)
+    install(:narrative, :note)
+    install(:narrative, :transform)
+    install(:narrative, :set)
 
     install(:automation, :program)
     install(:automation, :use)
@@ -77,65 +65,81 @@ class Teapot
 
   end
 
-  def act action_name, params = nil
+  def act(action_name, params = nil)
 
-    if !params.match(/\A[a-zA-Z0-9 \-\_\)\(\.\,\+\?\!)]*\z/) then return "<h3>#{action_name} Failure</h3><p>This command contained unallowed characters.</p>" end
-
-    if Kernel.const_defined?("Action#{action_name.capitalize}") == false then return answer(ActionLook.new,:error,"\"#{action_name.capitalize}\" is not a valid action.") end
-
-    action = Object.const_get("Action#{action_name.capitalize}").new
-    action.host = self
-
-    return action.act(params)
-
-  end
-
-  def answer action, type, message, etc = nil
-
-    if type == :error then
-      return "<h3>#{action.verb} Failed</h3><p>#{message}</p><p class='small'>#{etc ? etc : 'Press <b>enter</b> to continue.'}</p>"
+    # TODO: return which character(s) were unallowed
+    # TODO: see if this list can be made shorter (why are these unallowed?)
+    unless params.match(/\A[a-zA-Z0-9 \-_)(.,+?!)]*\z/)
+      return "<h3>#{action_name} Failure</h3><p>This command contained unallowed characters.</p>"
     end
 
-    return "<h3>#{action.verb}...</h3><p>#{message}</p><p class='small'>#{etc ? etc : 'Press <b>enter</b> to continue.'}</p>"
+    if Kernel.const_defined?("Action#{action_name.capitalize}") == false
+      return answer(ActionLook.new, :error, "\"#{action_name.capitalize}\" is not a valid action.")
+    end
+
+    action = Object.const_get("Action#{action_name.capitalize}").new
+
+    # TODO: each teapot should have the action.host bound to the instance of the
+    # teapot when it's installed, so this should be removed, and ensure that
+    # actions always have their host set on installation
+    action.host = self
+
+    action.act(params)
 
   end
 
-  def to_html action_override = nil, class_override = nil
+  def answer(action, type, message, etc = nil)
 
-    attr        = has_attr ? "#{@attr} " : ""
-    name        = "#{@name}"
+    if type == :error
+      return "<h3>#{action.verb} Failed</h3><p>#{message}</p><p class='small'>#{etc || 'Press <b>enter</b> to continue.'}</p>"
+    end
+
+    "<h3>#{action.verb}...</h3><p>#{message}</p><p class='small'>#{etc || 'Press <b>enter</b> to continue.'}</p>"
+
+  end
+
+  def to_html(action_override = nil, class_override = nil)
+
+    attr        = has_attr ? "#{@attr} " : ''
+    name        = @name.to_s
     action      = has_program ? "use the #{attr}#{name}" : "enter the #{attr}#{name}"
-    action      = action_override ? action_override : action
+    action      = action_override || action
     action_tags = "data-name='#{@name}' data-attr='#{@attr}' data-action='#{action}'"
 
-    return "<vessel-link class='#{attr}#{class_override ? class_override : classes}' #{action_tags}>#{attr}<name>#{name}</name></vessel-link>"
+    "<vessel-link class='#{attr}#{class_override || classes}' #{action_tags}>#{attr}<name>#{name}</name></vessel-link>"
 
   end
 
   def to_s
 
-    return "#{has_attr ? @attr + ' ' : ''}#{@name}"
+    "#{has_attr ? "#{@attr} " : ''}#{@name}"
 
   end
 
   def classes
 
-    html = ""
-    if has_program then html += "program #{program.type}" end
-    if is_paradox  then html += "stem " end
-    return html.strip
+    html = ''
+    html += "program #{program.type}" if has_program
+    html += 'stem ' if is_paradox
+    html.strip
 
   end
 
   def encode
 
-    code = ""
-    code += @is_locked == true ? "1" : "0"
-    code += @is_hidden == true ? "1" : "0"
-    code += @is_silent == true ? "1" : "0"
-    code += @is_tunnel == true ? "1" : "0"
+    code = ''
+    code += @is_locked == true ? '1' : '0'
+    code += @is_hidden == true ? '1' : '0'
+    code += @is_silent == true ? '1' : '0'
+    code += @is_tunnel == true ? '1' : '0'
 
-    return "#{code}-#{@unde.to_s.prepend('0',5)}-#{@owner.to_s.prepend('0',5)}-#{Timestamp.new} #{@name.to_s.append(' ',14)} #{@attr.to_s.append(' ',14)} #{program.to_s.append(' ',61)} #{@note}".strip
+    unde = @unde.to_s.prepend('0', 5)
+    owner = @owner.to_s.prepend('0', 5)
+    name = @name.to_s.append(' ', 14)
+    attr = @attr.to_s.append(' ', 14)
+    p = program.to_s.append(' ', 61)
+
+    "#{code}-#{unde}-#{owner}-#{Timestamp.new} #{name} #{attr} #{p} #{@note}".strip
 
   end
 
@@ -143,13 +147,21 @@ class Teapot
 
     $nataniev.vessels[:paradise].paradise.update(@memory_index, encode)
 
-    return true
+    true
 
   end
 
-  def reset_siblings; @siblings = nil; end
-  def reset_children; @children = nil; end
-  def reset_parent; @parent = nil; end
+  def reset_siblings
+    @siblings = nil
+  end
+
+  def reset_children
+    @children = nil
+  end
+
+  def reset_parent
+    @parent = nil
+  end
 
   def reload
 
@@ -163,28 +175,34 @@ class Teapot
 
     await_parade
 
-    @parent = @parent ? @parent : $nataniev.vessels[:paradise].parade[@unde]
+    @parent ||= $nataniev.vessels[:paradise].parade[@unde]
 
-    return @parent ? (@parent.memory_index = @unde ; @parent) : VesselVoid.new
+    if @parent
+      (@parent.memory_index = @unde
+       @parent)
+    else
+      VesselVoid.new
+    end
 
   end
 
   def stem
 
-    if @stem then return @stem end
+    return @stem if @stem
 
     @depth = 0
     @stem = self
 
     while @depth < 50
       @stem = stem.parent
-      if @stem.memory_index == @stem.parent.memory_index then return @stem end
+      return @stem if @stem.memory_index == @stem.parent.memory_index
+
       @depth += 1
     end
 
-    puts "Too deep to find stem..."
+    puts 'Too deep to find stem...'
 
-    return @stem
+    @stem
 
   end
 
@@ -196,128 +214,148 @@ class Teapot
 
     while @depth < 50
       @stem = stem.parent
-      if @stem.memory_index == @stem.parent.memory_index then return @depth + 1 end
+      return @depth + 1 if @stem.memory_index == @stem.parent.memory_index
+
       @depth += 1
     end
 
-    return @depth+1
+    @depth + 1
 
   end
 
   def program
 
-    return Program.new(self,@content["PROGRAM"])
+    Program.new(self, @content['PROGRAM'])
 
   end
 
   def creator
 
-    @creator = @creator ? @creator : $nataniev.vessels[:paradise].parade[owner]
+    @creator ||= $nataniev.vessels[:paradise].parade[owner]
 
-    return @creator ? @creator : VesselVoid.new
+    @creator || VesselVoid.new
 
   end
 
   def siblings
 
-    if @siblings then return @siblings end
+    return @siblings if @siblings
 
     await_parade
 
     @siblings = []
     $nataniev.vessels[:paradise].parade.each do |vessel|
-      if vessel.unde != @unde then next end
-      if vessel.parent && vessel.memory_index == parent.memory_index then next end
-      if vessel.memory_index == @memory_index then next end
-      if parent.is_silent && vessel.owner != parent.owner && vessel.owner != memory_index then next end
+
+      next if vessel.unde != @unde
+      next if vessel.parent && vessel.memory_index == parent.memory_index
+      next if vessel.memory_index == @memory_index
+      next if parent.is_silent && vessel.owner != parent.owner && vessel.owner != memory_index
+
       @siblings.push(vessel)
+
     end
-    return @siblings
+    @siblings
 
   end
 
   def children
 
-    if @children then return @children end
-    if !$nataniev.vessels[:paradise].parade then return [] end
+    return @children if @children
+    return [] unless $nataniev.vessels[:paradise].parade
 
     @children = []
     $nataniev.vessels[:paradise].parade.each do |vessel|
-      if vessel.unde != @memory_index then next end
-      if vessel.memory_index == @memory_index then next end
-      if is_silent && vessel.owner != owner && vessel.owner != @memory_index then next end
+
+      next if vessel.unde != @memory_index
+      next if vessel.memory_index == @memory_index
+      next if is_silent && vessel.owner != owner && vessel.owner != @memory_index
+
       @children.push(vessel)
+
     end
-    return @children
+    @children
 
   end
 
-  def find_distant params
+  def find_distant(params)
 
-    parts = params.remove_articles.split(" ")
+    parts = params.remove_articles.split(' ')
 
     vessel_id = parts.last.to_i
     parade_vessel = $nataniev.vessels[:paradise].parade[vessel_id]
 
-    # A vessel_id of 0 means that there was no number found in the final part of the param array, and thus not a vessel_id
-    if vessel_id > 0 && parade_vessel then return parade_vessel end
+    # A vessel_id of 0 means that there was no number found
+    # in the final part of the param array, and thus not a vessel_id
+    return parade_vessel if vessel_id.positive? && parade_vessel
 
-    name = parts[-1,1]
-    attr = parts.length > 1 ? parts[-2,1] : nil
+    name = parts[-1, 1]
+    attr = parts.length > 1 ? parts[-2, 1] : nil
 
     # Precise
     $nataniev.vessels[:paradise].parade.each do |vessel|
-      if vessel.name.like(name) && (attr && vessel.attr.like(attr)) then return vessel end
+
+      return vessel if vessel.name.like(name) && (attr && vessel.attr.like(attr))
+
     end
 
     # Flexible
     $nataniev.vessels[:paradise].parade.shuffle.each do |vessel|
-      if vessel.name.like(name) then return vessel end
+
+      return vessel if vessel.name.like(name)
+
     end
 
-    return nil
+    nil
 
   end
 
-  def find_visible name
+  def find_visible(name)
 
-    parts = name.remove_articles.split(" ")
+    parts = name.remove_articles.split(' ')
 
-    name = parts[-1,1]
-    attr = parts.length > 1 ? parts[-2,1] : nil
+    name = parts[-1, 1]
+    attr = parts.length > 1 ? parts[-2, 1] : nil
 
     # Precise
-    (siblings + children + [parent,self]).each do |vessel|
-      if vessel.name.like(name) && vessel.attr.like(attr) then return vessel end
+    (siblings + children + [parent, self]).each do |vessel|
+
+      return vessel if vessel.name.like(name) && vessel.attr.like(attr)
+
     end
 
     # Flexible
-    (siblings + children + [parent,self]).each do |vessel|
-      if vessel.name.like(name) then return vessel end
+    (siblings + children + [parent, self]).each do |vessel|
+
+      return vessel if vessel.name.like(name)
+
     end
 
-    return nil
+    nil
 
   end
 
-  def find_child name
+  def find_child(name)
 
-    parts = name.remove_articles.split(" ")
+    parts = name.remove_articles.split(' ')
 
-    name = parts[-1,1]
-    attr = parts.length > 1 ? parts[-2,1] : nil
+    name = parts[-1, 1]
+    attr = parts.length > 1 ? parts[-2, 1] : nil
 
     # Precise
     children.each do |vessel|
-      if vessel.name.like(name) && vessel.attr.like(attr) then return vessel end
+
+      return vessel if vessel.name.like(name) && vessel.attr.like(attr)
+
     end
 
     # Flexible
     children.each do |vessel|
-      if vessel.name.like(name) then return vessel end
+
+      return vessel if vessel.name.like(name)
+
     end
 
-    return nil
+    nil
 
   end
 
@@ -325,17 +363,20 @@ class Teapot
 
     candidates = []
     $nataniev.vessels[:paradise].parade.each do |vessel|
-      if vessel.is_hidden then next end
+
+      next if vessel.is_hidden
+
       candidates.push(vessel)
+
     end
 
-    return candidates[Time.new.to_i * 579 % candidates.length]
+    candidates[Time.new.to_i * 579 % candidates.length]
 
   end
 
   # Setters
 
-  def set_note val
+  def set_note(val)
 
     @note = val
     save
@@ -343,23 +384,23 @@ class Teapot
 
   end
 
-  def set_unde val
+  def set_unde(val)
 
-    @unde = val.to_i > 99999 ? 99999 : val.to_i
+    @unde = val.to_i > 99_999 ? 99_999 : val.to_i
     save
     reload
 
   end
 
-  def set_program val
+  def set_program(val)
 
-    @content["PROGRAM"] = val
+    @content['PROGRAM'] = val
     save
     reload
 
   end
 
-  def set_name val
+  def set_name(val)
 
     @name = val
     save
@@ -367,7 +408,7 @@ class Teapot
 
   end
 
-  def set_attr val
+  def set_attr(val)
 
     @attr = val
     save
@@ -375,7 +416,7 @@ class Teapot
 
   end
 
-  def set_locked val
+  def set_locked(val)
 
     @is_locked = val
     save
@@ -383,7 +424,7 @@ class Teapot
 
   end
 
-  def set_hidden val
+  def set_hidden(val)
 
     @is_hidden = val
     save
@@ -391,7 +432,7 @@ class Teapot
 
   end
 
-  def set_silent val
+  def set_silent(val)
 
     @is_silent = val
     save
@@ -399,7 +440,7 @@ class Teapot
 
   end
 
-  def set_tunnel val
+  def set_tunnel(val)
 
     @is_tunnel = val
     save
@@ -411,66 +452,67 @@ class Teapot
 
   def has_note
 
-    return @note.to_s.strip != "" ? true : false
+    @note.to_s.strip != ''
 
   end
 
   def has_attr
 
-    return @attr.to_s != "" ? true : false
+    @attr.to_s != ''
 
   end
 
   def has_program
 
-    return program.is_valid
+    program.is_valid
 
   end
 
   def has_children
 
-    return children.length > 0 ? true : false
+    !children.empty?
 
   end
 
   def is_paradox
 
-    if memory_index == unde then return true end
-    return false
+    return true if memory_index == unde
+
+    false
 
   end
 
   def is_unique
 
     $nataniev.vessels[:paradise].parade.each do |vessel|
-      if vessel.memory_index == @memory_index then next end
-      if vessel.name.like(@name) && vessel.attr.like(@attr) then return false end
+
+      next if vessel.memory_index == @memory_index
+      return false if vessel.name.like(@name) && vessel.attr.like(@attr)
+
     end
-    return true
+    true
 
   end
-
-  #
 
   def is_valid
 
     errors = []
 
-    if name.to_s.strip == "" then errors.push("The vessel name cannot be blank.") end
-    if name.length > 14 then errors.push("The vessel name cannot be more than 14 characters long.") end
-    if name.length < 3 then errors.push("The vessel name cannot be less than 3 characters long.") end
-    if name.has_badword then errors.push("Please do not use the word #{name.has_badword} in Paradise.") end
-    if name.is_alphabetic == false then errors.push("Vessel names can only contain letters.") end
+    errors.push('The vessel name cannot be blank.') if name.to_s.strip == ''
+    errors.push('The vessel name cannot be more than 14 characters long.') if name.length > 14
+    errors.push('The vessel name cannot be less than 3 characters long.') if name.length < 3
+    errors.push("Please do not use the word #{name.has_badword} in Paradise.") if name.has_badword
+    errors.push('Vessel names can only contain letters.') if name.is_alphabetic == false
 
     if has_attr
-      if attr.length > 14 then errors.push("The vessel attribute cannot be more than 14 characters long.") end
-      if attr.length < 3 then errors.push("The vessel attribute cannot be less than 3 characters long.") end
-      if attr.has_badword then errors.push("Please do not use the word #{attr.has_badword} in Paradise.") end
-      if attr.is_alphabetic == false then errors.push("Vessel attributes can only contain letters.") end
-      if name == attr then errors.push("Vessels cannot have the same attribute and name.") end
+      errors.push('The vessel attribute cannot be more than 14 characters long.') if attr.length > 14
+      errors.push('The vessel attribute cannot be less than 3 characters long.') if attr.length < 3
+      errors.push("Please do not use the word #{attr.has_badword} in Paradise.") if attr.has_badword
+      errors.push('Vessel attributes can only contain letters.') if attr.is_alphabetic == false
+      errors.push('Vessels cannot have the same attribute and name.') if name == attr
     end
 
-    return errors.length > 0 ? false : true, errors
+    [!errors.empty?, errors]
 
   end
 
@@ -479,32 +521,32 @@ class Teapot
     hints = []
 
     # Statuses
-    if is_locked then hints.push("The #{name} is locked, you may not modify it.") end
-    if is_hidden then hints.push("The #{name} is hidden, you may not see its warp id.") end
-    if is_silent then hints.push("The #{name} is silent, you may not see other's vessels.") end
-    if is_tunnel then hints.push("The #{name} is a tunnel.") end
-    if is_paradox then hints.push("The #{name} is a paradox, you may not leave.") end
-    if name.like("lobby") then hints.push("You are in the lobby. Additional forum messages are visible here.") end
+    hints.push("The #{name} is locked, you may not modify it.") if is_locked
+    hints.push("The #{name} is hidden, you may not see its warp id.") if is_hidden
+    hints.push("The #{name} is silent, you may not see other's vessels.") if is_silent
+    hints.push("The #{name} is a tunnel.") if is_tunnel
+    hints.push("The #{name} is a paradox, you may not leave.") if is_paradox
+    hints.push('You are in the lobby. Additional forum messages are visible here.') if name.like('lobby')
 
     # Check Validity
     validity_check, validity_errors = is_valid
-    if validity_check == false then hints += validity_errors end
+    hints += validity_errors if validity_check == false
     validity_check, validity_errors = is_valid
-    if validity_check == false then hints += validity_errors end
+    hints += validity_errors if validity_check == false
 
     # Improvements
-    if !is_locked then
-      if !has_program then
+    unless is_locked
+      unless has_program
         hints.push("Automate this vessel with a <action-link data-action='program '>program</action-link>.")
       end
-      if !has_note then
+      unless has_note
         hints.push("Improve this vessel with a <action-link data-action='note '>description</action-link>.")
       end
     end
 
-    if owner == $player_id then hints.push("You own this #{name}.") end
+    hints.push("You own this #{name}.") if owner == $player_id
 
-    return hints
+    hints
 
   end
 
@@ -525,10 +567,12 @@ class Teapot
     ]
 
     values.each do |val|
+
       sum += val ? 1 : 0
+
     end
 
-    return ((sum / values.length.to_f) * 100).to_i
+    ((sum / values.length.to_f) * 100).to_i
 
   end
 
@@ -540,20 +584,20 @@ class Teapot
     # to access them while they are being reassigned, nil is returned.
     # Waiting a bit if they are nil seems to fix the bug...
     it = 0
-    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse) == nil || $nataniev.vessels[:paradise].corpse.nil?)
-      puts "Searching for corpse..."
+    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse).nil? || $nataniev.vessels[:paradise].corpse.nil?)
+      puts 'Searching for corpse...'
       sleep 0.5
       it += 1
     end
 
     it = 0
-    while it < 10 && (defined?($nataniev.vessels[:paradise].parade) == nil || $nataniev.vessels[:paradise].parade.nil?)
-      puts "Searching for parade..."
+    while it < 10 && (defined?($nataniev.vessels[:paradise].parade).nil? || $nataniev.vessels[:paradise].parade.nil?)
+      puts 'Searching for parade...'
       sleep 0.5
       it += 1
     end
 
-    return
+    nil
 
   end
 
