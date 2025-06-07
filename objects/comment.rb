@@ -1,53 +1,47 @@
 #!/bin/env ruby
-# encoding: utf-8
 
+# A Paradise comment
 class Comment
 
   attr_accessor :id
 
-  def initialize content = {}, memory_index = -1
+  def initialize(content = {}, memory_index = -1)
 
     @content = content
     @memory_index = memory_index
 
   end
 
-  def timestamp
+  def inject(host, message)
 
-    return Timestamp.new(@content['TIMESTAMP'])
-
-  end
-
-  def inject host, message
-
-    @content["TIMESTAMP"] = Timestamp.new
-    @content["HOST"] = host.memory_index
-    @content["FROM"] = host.unde
-    @content["MESSAGE"] = message
+    @content['TIMESTAMP'] = Timestamp.new
+    @content['HOST'] = host.memory_index
+    @content['FROM'] = host.unde
+    @content['MESSAGE'] = message
 
   end
 
   def host
 
-    return @content["HOST"].to_i
+    @content['HOST'].to_i
 
   end
 
   def from
 
-    return @content["FROM"].to_i
+    @content['FROM'].to_i
 
   end
 
   def message
 
-    return @content["MESSAGE"].to_s
+    @content['MESSAGE'].to_s
 
   end
 
   def timestamp
 
-    return Timestamp.new(@content["TIMESTAMP"])
+    Timestamp.new(@content['TIMESTAMP'])
 
   end
 
@@ -55,108 +49,118 @@ class Comment
 
     await_parade
 
-    if !$nataniev.vessels[:paradise].parade[from] then return "ghost" end
+    return 'ghost' unless $nataniev.vessels[:paradise].parade[from]
 
     vessel = $nataniev.vessels[:paradise].parade[from]
-    return "the #{vessel}"
+    "the #{vessel}"
 
   end
 
   def feedback
 
-    if is_question then return "You asked \"#{message}\"?" end
-    if is_shout then return "You shouted \"#{message}\"" end
-    if is_emote then return "You #{message[3, message.length - 3]}." end
-    if is_warp then return "You indicated <action-link data-action='warp to #{message}'>≡#{message.to_i}</action-link>." end
+    return "You asked \"#{message}\"?" if is_question
+    return "You shouted \"#{message}\"" if is_shout
+    return "You #{message[3, message.length - 3]}." if is_emote
+    return "You indicated <action-link data-action='warp to #{message}'>≡#{message.to_i}</action-link>." if is_warp
 
-    return "You said \"#{message}\"."
+    "You said \"#{message}\"."
 
   end
 
   def to_s
 
-    if is_question then return "<li>#{vessel_name.capitalize} asked \"<message>#{message.capitalize}?</message>\".</li>" end
-    if is_shout then return "<li>#{vessel_name.capitalize} shouts \"<message>#{message.capitalize}</message>\".</li>" end
-    if is_emote then return "<li>#{vessel_name.capitalize} <message>#{message[3, message.length - 3]}</message>.</li>" end
-    if is_warp then return "<li>#{vessel_name.capitalize} signals from the <action-link data-action='warp to #{message.to_i}'>#{$nataniev.vessels[:paradise].parade[message.to_i]}</action-link>.</li>" end
+    return "<li>#{vessel_name.capitalize} asked \"<message>#{message.capitalize}?</message>\".</li>" if is_question
+    return "<li>#{vessel_name.capitalize} shouts \"<message>#{message.capitalize}</message>\".</li>" if is_shout
+    return "<li>#{vessel_name.capitalize} <message>#{message[3, message.length - 3]}</message>.</li>" if is_emote
 
-    return "<li>— \"<message>#{message.capitalize}</message>\", says #{vessel_name}.</li>"
+    m = message.to_i
+    v = $nataniev.vessels[:paradise].parade[m]
+    action_link = "<action-link data-action='warp to #{m}'>#{v}</action-link>"
+    return "<li>#{vessel_name.capitalize} signals from the #{action_link}.</li>" if is_warp
+
+    "<li>— \"<message>#{message.capitalize}</message>\", says #{vessel_name}.</li>"
 
   end
 
   def to_code
 
-    return "#{Timestamp.new} #{from.to_s.prepend('0',5)} #{host.to_s.prepend('0',5)} #{message}"
+    "#{Timestamp.new} #{from.to_s.prepend('0', 5)} #{host.to_s.prepend('0', 5)} #{message}"
 
   end
 
   def is_valid
 
-    if message == "" then return false, "You said nothing." end
-    if message.upcase == message && message.to_i < 1 then return false, "Please, don't shout." end
-    if message.downcase != message.gsub(/[^a-zZ-Z0-9\s\!\?\.\,\']/i, '').downcase then return false, "Dialogs can only include alphanumeric characters and punctuation." end
+    return false, 'You said nothing.' if message == ''
+    return false, "Please, don't shout." if message.upcase == message && message.to_i < 1
 
-    return true
+    non_alpha = message.downcase != message.gsub(/[^a-zZ-Z0-9\s!?.,']/i, '').downcase
+    return false, 'Dialogs can only include alphanumeric characters and punctuation.' if non_alpha
+
+    true
 
   end
 
   def is_question
 
-    question_words = ["are","is","does","who","what","where","when","how","why","which"]
-    first_word = message.split(" ").first.to_s
+    question_words = %w[are is does who what where when how why which]
+    first_word = message.split(' ').first.to_s
 
     question_words.each do |word|
-      if first_word.like(word) then return true end
+
+      return true if first_word.like(word)
+
     end
 
-    return false
+    false
 
   end
 
   def is_shout
 
-    return message[-1,1] == "!" ? true : false
+    message[-1, 1] == '!'
 
   end
 
   def is_emote
 
-    return message[0,3] == "me " ? true : false
+    message[0, 3] == 'me '
 
   end
 
   def is_warp
 
-    return message.to_i > 0 ? true : false
+    message.to_i.positive?
 
   end
 
   def is_repeated
 
-    $nataniev.vessels[:paradise].forum.to_a(:comment).reverse[0,1].each do |comment|
-      if comment.message == message then return true end
+    $nataniev.vessels[:paradise].forum.to_a(:comment).reverse[0, 1].each do |comment|
+
+      return true if comment.message == message
+
     end
-    return false
+    false
 
   end
 
   def await_parade
 
     it = 0
-    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse) == nil || $nataniev.vessels[:paradise].corpse.nil?)
-      puts "Searching for corpse..."
+    while it < 10 && (defined?($nataniev.vessels[:paradise].corpse).nil? || $nataniev.vessels[:paradise].corpse.nil?)
+      puts 'Searching for corpse...'
       sleep 0.5
       it += 1
     end
 
     it = 0
-    while it < 10 && (defined?($nataniev.vessels[:paradise].parade) == nil || $nataniev.vessels[:paradise].parade.nil?)
-      puts "Searching for parade..."
+    while it < 10 && (defined?($nataniev.vessels[:paradise].parade).nil? || $nataniev.vessels[:paradise].parade.nil?)
+      puts 'Searching for parade...'
       sleep 0.5
       it += 1
     end
 
-    return
+    nil
 
   end
 
