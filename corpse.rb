@@ -60,6 +60,8 @@ class CorpseParadise < CorpseHttp
 
     super(host)
 
+    @set_mutex = Mutex.new
+
   end
 
   def build
@@ -89,7 +91,13 @@ class CorpseParadise < CorpseHttp
     parts = q.gsub('+', ' ').strip.split(' ')
     vessel_id = parts.first.to_i
 
-    return @body = select_random_vessel if vessel_id < 1
+    if vessel_id < 1
+      @set_mutex.synchronize do
+
+        return @body = select_random_vessel
+
+      end
+    end
 
     player_id = vessel_id
     action = parts[1] || 'look'
@@ -103,15 +111,19 @@ class CorpseParadise < CorpseHttp
     silence = silent ? 'class="silent" ' : ''
 
     # Set the CorpseHTTP instance variables
-    @title = "Paradise ∴ #{player}"
-    @body = format(
-      BODY,
-      silence: silence,
-      inventory: create_inventory(player.children),
-      action: player.act(action, params),
-      player_id: player_id,
-      chat: chat(player)
-    )
+    @set_mutex.synchronize do
+
+      @title = "Paradise ∴ #{player}"
+      @body = format(
+        BODY,
+        silence: silence,
+        inventory: create_inventory(player.children),
+        action: player.act(action, params),
+        player_id: player_id,
+        chat: chat(player)
+      )
+
+    end
 
   end
 

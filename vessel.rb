@@ -25,7 +25,11 @@ class VesselParadise
     @forum    = Memory_Array.new('forum', @path)
     @paradise = Memory_Array.new('paradise', @path)
     @parade   = @paradise.to_a('teapot')
+
+    # Tunnels
     @tunnels = nil
+    @tunnels_changed = true
+    @tunnels_mutex = Mutex.new
 
     $nataniev.require('corpse', 'http')
     install(:generic, :serve, CorpseParadise.new(self))
@@ -35,18 +39,27 @@ class VesselParadise
 
   def tunnels
 
-    return @tunnels if @tunnels
+    return @tunnels unless @tunnels_changed
 
-    @tunnels = []
-    @parade.each do |vessel|
+    @tunnels_mutex.synchronize do
 
-      next unless vessel.is_tunnel
+      # Check again in case a different thread has updated the tunnels
+      return @tunnels unless @tunnels_changed
 
-      @tunnels.push(vessel)
+      @tunnels = []
+      @parade.each do |vessel|
+
+        next unless vessel.is_tunnel
+
+        @tunnels.push(vessel)
+
+      end
+
+      @tunnels_changed = false
+
+      @tunnels
 
     end
-
-    @tunnels
 
   end
 
