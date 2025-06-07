@@ -22,6 +22,8 @@ class Teapot
     @name = @content['NAME'] || 'nullspace'
     @attr = @content['ATTR'] || ''
     @note = @content['NOTE'] || ''
+    @stem = nil
+    @depth = 0
 
     code  = @content['CODE'].nil? ? nil : @content['CODE'].split('-')
     @perm = code ? code[0]      : '1111'
@@ -72,6 +74,9 @@ class Teapot
 
     end
 
+    @stem_mutex = Mutex.new
+    @depth_mutex = Mutex.new
+
   end
 
   def act(action_name, params = nil)
@@ -95,12 +100,11 @@ class Teapot
   end
 
   def answer(action, type, message, etc = nil)
+    etc_line = "<p class='small'>#{etc || 'Press <b>enter</b> to continue.'}</p>"
 
-    if type == :error
-      return "<h3>#{action.verb} Failed</h3><p>#{message}</p><p class='small'>#{etc || 'Press <b>enter</b> to continue.'}</p>"
-    end
+    return "<h3>#{action.verb} Failed</h3><p>#{message}</p>#{etc_line}" if type == :error
 
-    "<h3>#{action.verb}...</h3><p>#{message}</p><p class='small'>#{etc || 'Press <b>enter</b> to continue.'}</p>"
+    "<h3>#{action.verb}...</h3><p>#{message}</p><p class='small'>#{etc_line}"
 
   end
 
@@ -194,36 +198,55 @@ class Teapot
 
   def stem
 
-    return @stem if @stem
+    s = self
+    d = 0
 
-    @depth = 0
-    @stem = self
+    while d < 50
+      if s.memory_index == s.parent.memory_index
+        @stem_mutex.synchronize do
 
-    while @depth < 50
-      @stem = stem.parent
-      return @stem if @stem.memory_index == @stem.parent.memory_index
+          @stem = s
+          return @stem
 
-      @depth += 1
+        end
+      end
+
+      s = s.parent
+      d += 1
     end
 
     puts 'Too deep to find stem...'
 
-    @stem
+    @stem_mutex.synchronize do
+
+      @stem = s
+      @stem
+
+    end
 
   end
 
   def depth
 
-    @depth = 0
+    s = self
+    d = 0
 
-    @stem = parent
+    while d < 50
+      if s.memory_index == s.parent.memory_index
+        @depth_mutex.synchronize do
 
-    while @depth < 50
-      @stem = stem.parent
-      return @depth + 1 if @stem.memory_index == @stem.parent.memory_index
+          @depth = d + 1
 
-      @depth += 1
+          return @depth
+
+        end
+      end
+
+      s = s.parent
+      d += 1
     end
+
+    puts 'Vessel is too deep in Paradise...'
 
     @depth + 1
 
@@ -237,15 +260,15 @@ class Teapot
 
   def creator
 
-    @creator ||= $nataniev.vessels[:paradise].parade[owner]
+    c = $nataniev.vessels[:paradise].parade[owner]
 
-    @creator || VesselVoid.new
+    @creator = c.nil? ? VesselVoid.new : c
+
+    @creator
 
   end
 
   def siblings
-
-    return @siblings if @siblings
 
     await_parade
 
@@ -265,9 +288,6 @@ class Teapot
   end
 
   def children
-
-    return @children if @children
-    return [] unless $nataniev.vessels[:paradise].parade
 
     @children = []
     $nataniev.vessels[:paradise].parade.each do |vessel|
