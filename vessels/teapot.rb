@@ -63,6 +63,15 @@ class Teapot
     install(:automation, :use)
     install(:automation, :cast)
 
+    all_actions = actions.values
+                         .reduce([]) { |combined_arr, arr| combined_arr.concat(arr) }
+
+    @actions_by_name = all_actions.each_with_object({}) do |action, actions_by_name|
+
+      actions_by_name[action.name.downcase.to_sym] = action
+
+    end
+
   end
 
   def act(action_name, params = nil)
@@ -73,16 +82,13 @@ class Teapot
       return "<h3>#{action_name} Failure</h3><p>This command contained unallowed characters.</p>"
     end
 
-    if Kernel.const_defined?("Action#{action_name.capitalize}") == false
-      return answer(ActionLook.new, :error, "\"#{action_name.capitalize}\" is not a valid action.")
-    end
+    # All the installed actions are in a list on the vessel, organized by category.
+    # See if the action name matches the name of one of these actions.
+    # Note: if an action has the same name for a strange reason as another,
+    # the first will be used. Best not to create actions with the same name.
+    action = @actions_by_name[action_name.to_sym] || nil
 
-    action = Object.const_get("Action#{action_name.capitalize}").new
-
-    # TODO: each teapot should have the action.host bound to the instance of the
-    # teapot when it's installed, so this should be removed, and ensure that
-    # actions always have their host set on installation
-    action.host = self
+    return answer(ActionLook.new, :error, "\"#{action_name.capitalize}\" is not a valid action.") if action.nil?
 
     action.act(params)
 
