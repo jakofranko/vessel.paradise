@@ -1,47 +1,46 @@
 #!/bin/env ruby
-# encoding: utf-8
 
+# Translate a string to a Paradise action, stored on a vessel as a program
 class Program
 
-  attr_accessor :host
-  attr_accessor :raw
-  attr_accessor :action
-  attr_accessor :params
+  attr_accessor :host, :raw, :action, :params
 
-  def initialize host, raw = nil
+  def initialize(host, raw = nil)
 
     @host = host
     @raw = raw.to_s
-    @action = @raw.split(" ").first.to_s.strip
-    @params = @raw.gsub(@action,"").strip
+    @action = @raw.split(' ').first.to_s.strip
+    @params = @raw.gsub(@action, '').strip
 
   end
 
   def to_s
 
-    return @raw
+    @raw
 
   end
 
   def type
 
-    if action.like("warp") then return "warp " end
-    if action.like("create") then return "machine " end
-    if action.like("say") then return "speaker " end
-    return "generic"
+    return 'warp ' if action.like('warp')
+    return 'machine ' if action.like('create')
+    return 'speaker ' if action.like('say')
+
+    'generic'
 
   end
 
   def render
 
-    return @raw.wildcards(@host)
+    @raw.wildcards(@host)
 
   end
 
   def is_valid
 
-    if @raw.length > 60 then return false end
-    return @host.can(@action)
+    return false if @raw.length > 60
+
+    @host.can(@action)
 
   end
 

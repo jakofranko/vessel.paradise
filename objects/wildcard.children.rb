@@ -1,44 +1,46 @@
 #!/bin/env ruby
-# encoding: utf-8
+require_relative 'wildcard'
 
-require_relative "wildcard.rb"
-
+# For listing a vessel's children
 class WildcardChildren
 
   include Wildcard
 
-  def initialize host = nil, value = nil
+  def initialize(host = nil, value = nil)
 
     super
 
     @docs = "Display children vessels. Its purpose is to access the current vessel's inventory."
-    @options = ["count","random"]
+    @options = %w[count random]
 
   end
 
   def to_s
 
-    if @value.like("count") then return @host.children.length.to_s end
-      
-    if @host.children.length < 1 then return "" end
+    return @host.children.length.to_s if @value.like('count')
+    return '' if @host.children.empty?
+    return @host.children.sample.name if @value.like('random')
+    return list if @value.like('list')
 
-    if @value.like("random") then return @host.children.sample.name end
-    if @value.like("list") then return list end
-
-    return ""
+    ''
 
   end
 
   def list
 
-    html = ""
+    html = ''
 
     @host.children.each do |vessel|
-      owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ""
-      html += "<li><action-link  data-action='cast the #{vessel.attr} #{vessel.name}'>#{vessel.attr.capitalize} #{vessel.name.capitalize}</action-link>#{owner}</li>"
+
+      owner = vessel.owner != 0 ? ", by the #{vessel.creator}" : ''
+      a = vessel.attr
+      n = vessel.name
+      al = "<action-link data-action='cast the #{a} #{n}'>#{a.capitalize} #{n.capitalize}</action-link>"
+      html += "<li>#{al}#{owner}</li>"
+
     end
 
-    return "<ul class='basic'>#{html}</ul>"
+    "<ul class='basic'>#{html}</ul>"
 
   end
 
