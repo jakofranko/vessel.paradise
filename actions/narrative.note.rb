@@ -1,34 +1,33 @@
 #!/bin/env ruby
-# encoding: utf-8
+require_relative '_toolkit'
 
-require_relative "_toolkit.rb"
-
+# Add a description to a vessel
 class ActionNote
 
   include Action
 
-  def initialize q = nil
+  def initialize(q = nil)
 
     super
 
-    @name = "Note"
-    @verb = "Describing"
-    @docs = "Add a description to the current parent vessel."
-    @examples = ["<b>note</b> the cat is dark. <comment>The cat is dark.</comment>"]
+    @name = 'Note'
+    @verb = 'Describing'
+    @docs = 'Add a description to the current parent vessel.'
+    @examples = ['<b>note</b> the cat is dark. <comment>The cat is dark.</comment>']
 
   end
 
-  def act params = ""
+  def act(params = '')
 
     target = @host.parent
 
-    if params.length > 300 then return @host.answer(self, :error, "The note cannot be more than 300 characters.") end
-    if params.has_badword  then return @host.answer(self, :error, "<b>#{params.has_badword}</b>, no.") end
-    if target.is_locked    then return @host.answer(self, :error, "#{@host.parent} is locked.") end
+    return @host.answer(self, :error, 'The note cannot be more than 300 characters.') if params.length > 300
+    return @host.answer(self, :error, "<b>#{params.has_badword}</b>, no.") if params.has_badword
+    return @host.answer(self, :error, "#{@host.parent} is locked.") if target.is_locked
 
     target.set_note(params)
 
-    return @host.answer(self, :modal, "#{topic} updated the #{target}'s note.")
+    @host.answer(self, :modal, "#{topic} updated the #{target}'s note.")
 
   end
 

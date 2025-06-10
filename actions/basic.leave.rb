@@ -1,34 +1,34 @@
 #!/bin/env ruby
-# encoding: utf-8
+require_relative '_toolkit'
 
-require_relative "_toolkit.rb"
-
+# Enter the parent of your current parent
 class ActionLeave
 
   include Action
 
-  def initialize q = nil
+  def initialize(q = nil)
 
     super
 
-    @name = "Leave"
-    @verb = "Leaving"
-    @docs = "Exit the parent vessel."
-    @examples = ["<b>leave</b> <comment>You are a black cat in the yard.</comment>"]
+    @name = 'Leave'
+    @verb = 'Leaving'
+    @docs = 'Exit the parent vessel.'
+    @examples = ['<b>leave</b> <comment>You are a black cat in the yard.</comment>']
 
   end
 
-  def act params = ""
+  def act(_params = '')
 
     target = @host.parent.parent
     prev = @host.parent
 
-    if @host.parent.is_paradox      then return @host.answer(self,:error,"#{topic} reached the stem of the universe. The #{@host.parent.name} is a paradox and may not be exited. ") end
-    if @host.is_locked == true      then return @host.answer(self,:error,"#{@host} is locked.") end
+    help = "#{topic} reached the stem of the universe. The #{prev.name} is a paradox and may not be exited."
+    return @host.answer(self, :error, help) if prev.is_paradox
+    return @host.answer(self, :error, "#{@host} is locked.") if @host.is_locked == true
 
     @host.set_unde(target.memory_index)
 
-    return @host.answer(self,:modal,"#{topic} left the #{prev}, and entered the <i>#{target}</i>.")
+    @host.answer(self, :modal, "#{topic} left the #{prev}, and entered the <i>#{target}</i>.")
 
   end
 

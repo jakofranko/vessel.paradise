@@ -1,29 +1,28 @@
 #!/bin/env ruby
-# encoding: utf-8
+require_relative '_toolkit'
 
-require_relative "_toolkit.rb"
-
+# Make a child vessel a sibling vessel
 class ActionDrop
 
   include Action
 
-  def initialize q = nil
+  def initialize(q = nil)
 
     super
 
-    @name = "Drop"
-    @verb = "Droping"
-    @docs = "Move a child vessel into the parent vessel."
-    @examples = ["<b>drop</b> the scissor <comment>You see the scissor.</comment>"]
+    @name = 'Drop'
+    @verb = 'Droping'
+    @docs = 'Move a child vessel into the parent vessel.'
+    @examples = ['<b>drop</b> the scissor <comment>You see the scissor.</comment>']
 
   end
 
-  def act params = ""
+  def act(params = '')
 
     target = @host.find_child(params)
 
-    if !target                      then return @host.answer(self,:error,"Cannot find the target vessel.") end
-    if target.is_locked             then return @host.answer(self,:error,"#{target} is locked.") end
+    return @host.answer(self, :error, 'Cannot find the target vessel.') unless target
+    return @host.answer(self, :error, "#{target} is locked.") if target.is_locked
 
     target.set_unde(@host.unde)
 
@@ -31,7 +30,7 @@ class ActionDrop
     @host.reset_siblings
     @host.reset_children
 
-    return @host.answer(self,:modal,"#{topic} dropped the #{target}.")
+    @host.answer(self, :modal, "#{topic} dropped the #{target}.")
 
   end
 

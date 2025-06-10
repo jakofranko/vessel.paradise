@@ -1,34 +1,40 @@
 #!/bin/env ruby
-# encoding: utf-8
+require_relative '_toolkit'
 
-require_relative "_toolkit.rb"
-
+# Add automation to a vessel
 class ActionProgram
 
   include Action
 
-  def initialize q = nil
+  def initialize(q = nil)
 
     super
 
-    @name = "Program"
-    @verb = "Programming"
-    @docs = "Add an automation program to a vessel, making it available to the use command. A program cannot exceed 60 characters in length."
-    @examples = ["<b>program</b> create a coffee"]
+    @name = 'Program'
+    @verb = 'Programming'
+    @docs = 'Add an automation program to a vessel, '\
+            'making it available to the use command. '\
+            'A program cannot exceed 60 characters in length.'
+    @examples = ['<b>program</b> create a coffee']
 
   end
 
-  def act params = ""
+  def act(params = '')
 
     target = @host.parent
-    program = Program.new(@host,params)
+    program = Program.new(@host, params)
 
-    if target.is_locked == true     then return @host.answer(self,:error,"The #{target} is locked.") end
-    if !program.is_valid            then return @host.answer(self,:error,"The program is not valid.","You can learn about valid programs in the <action-link data-action='actions'>programming guide</action-link>.") end
+    return @host.answer(self, :error, "The #{target} is locked.") if target.is_locked == true
+
+    unless program.is_valid
+      al = "<action-link data-action='actions'>programming guide</action-link>"
+      help = "You can learn about valid programs in the #{al}."
+      return @host.answer(self, :error, 'The program is not valid.', help)
+    end
 
     target.set_program(params)
 
-    return @host.answer(self, :modal, "#{topic} updated the #{target}'s program.")
+    @host.answer(self, :modal, "#{topic} updated the #{target}'s program.")
 
   end
 

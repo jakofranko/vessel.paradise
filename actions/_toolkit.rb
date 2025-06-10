@@ -1,17 +1,13 @@
 #!/bin/env ruby
-# encoding: utf-8
 
+# Common tools to be used in actions
 module Action
 
-  attr_accessor :verb
-
-  attr_accessor :params
-  attr_accessor :target
-  attr_accessor :examples
+  attr_accessor :verb, :params, :target, :examples
 
   def topic
 
-    return $player_id == @host.memory_index ? "You" : "The #{@host.name}"
+    $player_id == @host.memory_index ? 'You' : "The #{@host.name}"
 
   end
 
