@@ -1,25 +1,24 @@
 #!/bin/env ruby
-# encoding: utf-8
+require_relative 'wildcard'
 
-require_relative "wildcard.rb"
-
+# Adds ability to pick random text from a list
 class WildcardRandom
 
   include Wildcard
 
-  def initialize host = nil, value = nil
+  def initialize(host = nil, value = nil)
 
     super
 
-    @docs = "Displays a random word from a series of words, separated by commas."
-    @options = ["red,green,blue"]
+    @docs = 'Displays a random word from a series of words, separated by commas.'
+    @options = ['red,green,blue']
 
   end
 
   def to_s
 
-    words = @value.split(",")
-    return words.sample
+    words = @value.split(',')
+    words.sample
 
   end
 

@@ -1,24 +1,22 @@
 #!/bin/env ruby
-# encoding: utf-8
 
+# Base wildcard functionality
 module Wildcard
 
-  attr_accessor :value
-  attr_accessor :docs
-  attr_accessor :options
+  attr_accessor :value, :docs, :options
 
-  def initialize host = nil,value = nil
+  def initialize(host = nil, value = nil)
 
     @host = host
     @value = value
-    @docs = "Missing"
+    @docs = 'Missing'
     @options = []
 
   end
 
   def to_s
 
-    return @value
+    @value
 
   end
 
