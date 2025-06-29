@@ -570,7 +570,7 @@ class Teapot
       end
     end
 
-    hints.push("You own this #{name}.") if owner == $player_id
+    hints.push("You own this #{name}.") if owner == @memory_index
 
     hints
 

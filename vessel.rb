@@ -31,7 +31,12 @@ class VesselParadise
     @tunnels_changed = true
     @tunnels_mutex = Mutex.new
 
-    $nataniev.require('corpse', 'http')
+    # I believe this actually sets the Paradise vessel's corpse
+    # to be the CorpseParadise...which is not great.
+    # Install seems to set the vessel's @corpse attribute if passed,
+    # and this can get overridden if I were to install another action
+    # with a different corpse. Actions should be refactored to have their
+    # own corpses, methinks....
     install(:generic, :serve, CorpseParadise.new(self))
     install(:generic, :help)
 
